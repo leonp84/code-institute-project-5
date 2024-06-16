@@ -1,0 +1,168 @@
+{% load static %}
+
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+
+<!DOCTYPE html>
+<html lang="en-gb" data-bs-theme="light">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Leon A. Potgieter">
+  <meta name="keywords"
+    content="kanban board, task management, agile project management, workflow visualization, productivity tool, project collaboration, team task tracking, task prioritization, time management, agile methodology, scrum board, task organization, project scheduling, team productivity, task assignment">
+  <meta name="description"
+    content="Streamline your project management with TaskFlow. Visualize workflows and prioritize tasks for increased productivity.">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'assets/favicon/favicon.ico' %}" type="image/x-icon">
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous" defer></script>
+  <!-- Bootstrap Javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer>
+  </script>
+  <!-- Project Wide JavaScript -->
+  <script src="{% static 'assets/js/project.js' %}" defer></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Project CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+  <title>TaskFlow</title>
+
+</head>
+
+<body>
+
+  <!-- Bootstrap Navbar -->
+
+  <nav class="navbar navbar-expand-md theme-switch">
+    <div class="container-fluid">
+      <!-- Logo Light Theme -->
+      <div id="logo-light">
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}">
+          <img src="{% static 'assets/images/logo.png' %}" alt="TaskFlow Logo" height="40">
+        </a>
+      </div>
+      <!-- Logo Dark Theme (initially hidden)-->
+      <div id="logo-dark" style="display: none">
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}">
+          <img src="{% static 'assets/images/logo-dark.png' %}" alt="TaskFlow Logo" height="40">
+        </a>
+      </div>
+      <!-- Navbar Board Info ( > 768px ) -->
+      <div class="ms-3 d-none d-md-block" id="board-info-text">
+        <span><strong>{{ board.title }}</strong></span><br>
+        <span class="small"><em>{{ board.description }}</em></span>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 ms-auto mb-md-0 me-md-2">
+          <li class="my-3 d-md-none">
+            <a href="#" class="board-buttons fs-6" data-bs-toggle="modal" data-bs-target="#add-new-task">+
+              New Task</a>
+          </li>
+          <!-- Navbar Dropdown for Board Switch ( < 768px ) -->
+          <li class="nav-item dropdown d-md-none">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Switch Boards
+            </a>
+            <ul class="dropdown-menu">
+              {% if user.is_authenticated %}
+              {% for board in all_boards.all %}
+              <li>
+                <a class="dropdown-item" href="{% url 'show_board' board.id %}">{{ board.title }}</a>
+              </li>
+              {% endfor %}
+              {% else %}
+              <li class="p-3">Please Login First</li>
+              {% endif %}
+            </ul>
+          </li>
+          <!-- Other Nav Links -->
+          {% if home %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'edit_board' board.id %}">Edit Board</a>
+          </li>
+          {% endif %}
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'create_new_board' %}">Add Board</a>
+          </li>
+          {% endif %}
+          {% if board.has_archived_tasks == True and home %}
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#archived-tasks" href="#">See
+              Archived Tasks</a>
+          </li>
+          {% endif %}
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_signup' %}">Signup</a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    {% block content %}
+
+    {% endblock %}
+    <!-- Sideboard ( > 768px ) -->
+    <div class="side-board theme-switch d-none d-md-flex flex-column pt-4">
+      <div class="d-flex justify-content-center align-items-center mb-4">
+        <div>
+          <div class="form-check form-switch d-flex justify-content-center">
+            <input id="toggle-theme" class="form-check-input" type="checkbox" role="switch">
+            <label for="toggle-theme" class="hidden" aria-label="Theme Toggle Switch"></label>
+          </div>
+          <span class="ms-2" style="font-family: serif"><strong>&#9788; / &#9789;</strong></span>
+        </div>
+        {% if home %}
+        <div id="search-icon">
+          <img src="{% static 'assets/images/search.png' %}" class="" alt="Search Icon" height="17">
+        </div>
+        {% endif %}
+      </div>
+      {% for board in all_boards.all %}
+      <a href="{% url 'show_board' board.id %}" class="board-name">
+        {{ board.title }}
+      </a>
+      {% endfor %}
+      {% if home %}
+      <div class="big-nav-bottom">
+        <a href="#" class="board-buttons mt-5 fs-6" data-bs-toggle="modal" data-bs-target="#add-new-task">+ New
+          Task</a>
+      </div>
+      {% endif %}
+    </div>
+
+  </main>
+
+  <footer>
+    <span class="p-3">&copy; Copyright <span id="footer-date">0000</span> | TaskFlow by <a
+        href="https://github.com/leonp84" target="_blank">L.A. Potgieter</a></span>
+  </footer>
+
+</body>
+
+</html>
