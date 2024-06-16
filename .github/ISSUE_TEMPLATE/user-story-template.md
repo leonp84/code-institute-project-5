@@ -1,7 +1,7 @@
 ---
-name: 'USER Story: '
+name: User Story Template
 about: Template for User Stories
-title: ''
+title: 'USER Story: '
 labels: must-do, task
 assignees: leonp84
 
