@@ -15,11 +15,13 @@ DEBUG = True
 ALLOWED_HOSTS = [
     ".codeinstitute-ide.net",
     ".herokuapp.com",
+    "heritage-company.net"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.codeinstitute-ide.net',
     'https://*.herokuapp.io',
+    'https://heritage-company.net'
 ]
 
 
