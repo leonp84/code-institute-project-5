@@ -130,6 +130,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 # Use AWS in Production
 
 if 'USE_AWS' in os.environ:
+    
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
@@ -141,7 +142,10 @@ if 'USE_AWS' in os.environ:
     AWS_S3_REGION_NAME = 'eu-central-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_DOMAIN_ENDING = f's3.{AWS_S3_REGION_NAME}.amazonaws.com'
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.{AWS_DOMAIN_ENDING}'
+    AWS_S3_USE_SSL = True
+    AWS_S3_VERIFY = True
 
     # Static and media files
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
