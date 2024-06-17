@@ -1,19 +1,15 @@
-{% load static %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h3>Test Deployment</h3>
-    <img
-      src="{% static 'assets/images/test-image.jpg' %}"
-      alt="test-image"
-      id="test-image"
-    />
-  </body>
-</html>
+<h5>This is from index.html</h5>
+
+<img
+  src="{% static 'assets/images/test-image.jpg' %}"
+  alt="Test Image"
+  id="test-image"
+  class="m-4"
+/>
+<br />
+<p>Media File</p>
+<img src="{{ MEDIA_URL }}test2.webp" alt="Media Test Image" />
+
+{% endblock %}
