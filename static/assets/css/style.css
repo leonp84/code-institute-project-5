@@ -3,11 +3,55 @@
   margin: 0;
 }
 
-body {
-  color: darkred;
+.off-white {
+  color: rgb(235, 235, 235);
 }
 
-#test-image {
-  border: 2px solid red;
-  border-radius: 20px;
+header a {
+  color: rgb(220, 220, 220);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+header .lg-nav a {
+  margin: 10px 30px;
+  font-size: larger;
+}
+
+footer a {
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+footer {
+  margin-top: 200px;
+}
+
+footer a:hover,
+header a:hover {
+  color: rgb(208, 177, 20);
+  text-decoration: underline;
+}
+
+#logo {
+  margin-bottom: -20px;
+  margin-left: -15px;
+  height: 14vw;
+  max-height: 140px;
+}
+
+.watch-hero-info {
+  position: absolute;
+  bottom: 10px;
+  right: -70px;
+  font-size: 1.3rem;
+}
+
+.brand-image-homepage {
+  width: 24vw;
+}
+
+.newsletter-footer {
+  width: 350px;
 }
