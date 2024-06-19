@@ -1,6 +1,5 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
-
-<div class="container-fluid py-3 px-2 mt-3">
+<div class="container-fluid py-3 px-2 mt-2">
   <div class="d-flex flex-row flex-wrap flex-md-nowrap justify-content-center">
     <div class="watch-images-container">
       <div
@@ -110,7 +109,9 @@
       <span>Gender: {{ product.watch_gender }}</span>
       <hr />
       <div class="mt-5 mb-2">
-        <button class="btn btn-lg btn-dark mb-2">Buy this Watch</button>
+        <button id="buy-button" class="btn btn-lg btn-dark mb-2">
+          Buy this Watch
+        </button>
         <button class="btn btn-lg btn-outline-dark mb-2">Enquire</button>
       </div>
       <span class="small">
@@ -146,6 +147,6 @@
     </div>
   </div>
 </div>
-
+<span style="display: none" id="product-id">{{ product.id }}</span>
 <script src="{% static 'assets/js/product_detail.js' %}" defer></script>
 {% endblock %}

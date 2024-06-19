@@ -120,3 +120,11 @@ header a:hover,
 .main-product-image {
   cursor: pointer;
 }
+
+#bag-items-number {
+  font-size: 14px;
+  color: black;
+  position: absolute;
+  top: -3px;
+  right: -1px;
+}
