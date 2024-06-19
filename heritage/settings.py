@@ -161,6 +161,7 @@ USE_I18N = True
 
 USE_TZ = False
 
+USE_THOUSAND_SEPARATOR = True
 
 # Static files (CSS, JavaScript, Images)
 

@@ -100,3 +100,19 @@ header a:hover,
   transition: 0.3s;
   transform: scale(1.1);
 }
+
+.watch-images-container {
+  display: flex;
+}
+
+.watch-extra-images {
+  object-fit: cover;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.watch-extra-images:hover {
+  opacity: 0.7;
+}

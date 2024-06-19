@@ -1,13 +1,95 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
-<div class="container py-3 px-2 mt-3">
+<div class="container-fluid py-3 px-2 mt-3">
   <div class="d-flex flex-row flex-wrap flex-md-nowrap justify-content-center">
-    <img
-      src="{{ MEDIA_URL }}{{ product.image}}"
-      alt="{{ product.title }}"
-      height="500"
-    />
-    <div class="mt-4" style="max-width: 500px">
+    <div class="watch-images-container">
+      <div class="d-none d-md-flex flex-column">
+        <img
+          src="{{ MEDIA_URL }}{{ product.image}}"
+          alt=""
+          height="150"
+          width="150"
+          class="watch-extra-images"
+        />
+        <img
+          src="{{ MEDIA_URL }}image2.webp"
+          alt=""
+          height="150"
+          width="150"
+          class="watch-extra-images"
+        />
+        <img
+          src="{{ MEDIA_URL }}image3.webp"
+          alt=""
+          height="150"
+          width="150"
+          class="watch-extra-images"
+        />
+      </div>
+      <img
+        src="{{ MEDIA_URL }}{{ product.image}}"
+        alt="{{ product.title }}"
+        height="450"
+        width="350"
+        style="object-fit: cover"
+        class="mx-3 mx-lg-5 main-product-image d-none d-md-block"
+      />
+
+      <div class="d-block d-md-none">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide carousel-dark"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <img
+                src="{{ MEDIA_URL }}image2.webp"
+                class="d-block w-100 object-fit-cover"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img
+                src="{{ MEDIA_URL }}image3.webp"
+                class="d-block w-100 object-fit-cover"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+              <img
+                src="{{ MEDIA_URL }}{{ product.image}}"
+                class="d-block w-100 object-fit-cover"
+                alt="..."
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 ms-lg-5" style="max-width: 500px">
       <span class="fs-4">{{ product.watch_brand }}</span>
       <h3>{{ product.title }}</h3>
       <span class="fs-6">$ {{ product.price }} USD</span>
@@ -35,4 +117,26 @@
   </div>
 </div>
 
+<div
+  class="modal fade modal-lg"
+  id="largeImageModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body d-flex justify-content-center">
+        <img
+          src="{{ MEDIA_URL}}{{ product.image }}"
+          alt="{{ product.title }}"
+          height="700"
+          id="modal-image"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{% static 'assets/js/product_detail.js' %}" defer></script>
 {% endblock %}
