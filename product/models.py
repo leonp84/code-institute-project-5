@@ -12,6 +12,8 @@ class Product(models.Model):
     watch_dial_colour = models.CharField(max_length=20)
     price = models.IntegerField()
     image = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
+    image3 = models.ImageField(null=True, blank=True)
 
     def short_title(self):
         words = self.title.split()

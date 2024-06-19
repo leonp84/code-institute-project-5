@@ -116,3 +116,7 @@ header a:hover,
 .watch-extra-images:hover {
   opacity: 0.7;
 }
+
+.main-product-image {
+  cursor: pointer;
+}
