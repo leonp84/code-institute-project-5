@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="container py-3 px-2 mt-3">
+  <div class="d-flex flex-row flex-wrap flex-md-nowrap justify-content-center">
+    <img
+      src="{{ MEDIA_URL }}{{ product.image}}"
+      alt="{{ product.title }}"
+      height="500"
+    />
+    <div class="mt-4" style="max-width: 500px">
+      <span class="fs-4">{{ product.watch_brand }}</span>
+      <h3>{{ product.title }}</h3>
+      <span class="fs-6">$ {{ product.price }} USD</span>
+      <p class="ln-lg mt-4">{{ product.desc }}</p>
+      <hr />
+      <span>Watch Case Size: {{ product.watch_case_size }}mm</span>
+      <br />
+      <span>Watch Dial Color: {{ product.watch_dial_colour }}</span>
+      <br />
+      <span>Gender: {{ product.watch_gender }}</span>
+      <hr />
+      <div class="mt-5 mb-2">
+        <button class="btn btn-lg btn-dark mb-2">Buy this Watch</button>
+        <button class="btn btn-lg btn-outline-dark mb-2">Enquire</button>
+      </div>
+      <span class="small">
+        <em>
+          Heritage Company provides worldwide free shipping on all of its
+          products.
+          <br />
+          Price not inclusive of country specific taxes.
+        </em>
+      </span>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -57,7 +57,7 @@
   </div>
 
   {% for product in products %}
-  <a href="" style="text-decoration: none">
+  <a href="{% url 'product_detail' product.id %}" style="text-decoration: none">
     <div class="col watch-container">
       <img
         src="{{ MEDIA_URL}}{{ product.image }}"
