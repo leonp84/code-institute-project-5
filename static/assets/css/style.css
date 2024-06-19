@@ -13,9 +13,19 @@ header a {
   margin: 0 10px;
 }
 
-header .lg-nav a {
+.lg-nav a {
   margin: 10px 30px;
   font-size: larger;
+  color: rgb(220, 220, 220);
+  text-decoration: none;
+}
+
+.lg-nav {
+  position: sticky;
+  top: 0px;
+  z-index: 98;
+
+  width: 100%;
 }
 
 footer a {
@@ -29,7 +39,8 @@ footer {
 }
 
 footer a:hover,
-header a:hover {
+header a:hover,
+.lg-nav a:hover {
   color: rgb(208, 177, 20);
   text-decoration: underline;
 }
@@ -39,6 +50,8 @@ header a:hover {
   margin-left: -15px;
   height: 14vw;
   max-height: 140px;
+  z-index: 99;
+  position: relative;
 }
 
 .watch-hero-info {

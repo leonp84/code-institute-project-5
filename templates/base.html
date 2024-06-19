@@ -16,7 +16,7 @@
         class="navbar navbar-dark bg-dark navbar-expand-lg d-md-none off-white"
       >
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="{% url 'home' %}">
             <img
               src="{% static 'assets/images/logo_old.png' %}"
               alt="Heritage Company Logo"
@@ -87,6 +87,7 @@
       </nav>
 
       <!-- Medium Screen Navbar -->
+
       <div class="d-none d-md-block">
         <div class="bg-dark d-flex justify-content-center">
           <div class="col-3">
@@ -114,81 +115,19 @@
             <a href=""><i class="fa-solid fa-suitcase"></i></a>
           </div>
         </div>
-        <div
-          class="bg-black d-flex justify-content-center text-uppercase lg-nav"
-        >
-          <a href="" class="d-none d-lg-block">Our Collection</a>
-          <a href="">Breitling</a>
-          <a href="">Tag Heuer</a>
-          <a href="">Omega</a>
-          <a href="">Tissot</a>
-          <a href="">Sale</a>
-        </div>
       </div>
     </header>
     <div
-      id="carouselExampleCaptions"
-      class="carousel slide carousel-fade"
-      data-bs-ride="carousel"
+      class="d-none d-md-flex justify-content-center text-uppercase bg-black lg-nav"
     >
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="7000">
-          <img
-            src="{% static 'assets/images/slide1.jpeg' %}"
-            class="d-block w-100"
-            alt="..."
-          />
-          <div class="carousel-caption d-none d-md-block">
-            <div class="watch-hero-info d-flex flex-column">
-              <span>TAG HEUER CARRERA</span>
-              <span>
-                CHRONOGRAPH
-                <br />
-                X PORSCHE
-              </span>
-              <button class="btn btn-lg btn-outline-light mt-1">
-                Buy this Watch
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="7000">
-          <img
-            src="{% static 'assets/images/slide2.jpg' %}"
-            class="d-block w-100"
-            alt="..."
-          />
-          <div class="carousel-caption d-none d-md-block">
-            <div class="watch-hero-info d-flex flex-column">
-              <span>TAG HEUER CARRERA</span>
-              <span>
-                CHRONOGRAPH
-                <br />
-                X PORSCHE
-              </span>
-              <button class="btn btn-lg btn-outline-light mt-1">
-                Buy this Watch
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <a href="{% url 'all_products' %}" class="d-none d-lg-block">
+        Our Collection
+      </a>
+      <a href="">Breitling</a>
+      <a href="">Tag Heuer</a>
+      <a href="">Omega</a>
+      <a href="">Tissot</a>
+      <a href="">Sale</a>
     </div>
 
     <main>{% block content %} {% endblock %}</main>
@@ -220,7 +159,7 @@
         </div>
         <div class="d-none d-sm-flex flex-column">
           <strong>HERITAGE COMPANY</strong>
-          <a href="">About us</a>
+          <a href="{% url 'home' %}">About us</a>
           <a href="">Send us a message</a>
           <a href="">See Customer Reviews</a>
         </div>

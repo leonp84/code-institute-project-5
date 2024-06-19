@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('main.urls')),
+    path('product/', include('product.urls')),
 ]
 
 # Setting to serve Django Media files in Development environment
