@@ -24,8 +24,20 @@ header a {
   position: sticky;
   top: 0px;
   z-index: 98;
-
   width: 100%;
+}
+
+.search-and-filter-box {
+  margin-bottom: 20px;
+  position: sticky;
+  top: 50px;
+  z-index: 98;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.772);
+  color: black;
+  padding: 15px;
 }
 
 footer a {
@@ -67,4 +79,24 @@ header a:hover,
 
 .newsletter-footer {
   width: 350px;
+}
+
+.watch-container {
+  margin-bottom: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  border-radius: 5px;
+  margin: 20px 10px;
+  cursor: pointer;
+  color: black;
+}
+
+.watch-container img:hover {
+  transition: 0.3s;
+  transform: scale(1.1);
 }
