@@ -147,6 +147,34 @@
     </div>
   </div>
 </div>
+
+<!-- Bootstrap Toast for successfully adding item to Shopping Bag -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div
+    id="added-to-cart-toast"
+    class="toast hide"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    data-bs-delay="7000"
+  >
+    <div class="toast-header bg-success">
+      <strong class="me-auto text-light">Item successfully added to bag</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="toast-body">
+      Your new
+      <span class="text-success fw-bolder">{{ product.watch_brand }}</span>
+      watch is waiting in the shopping bag.
+    </div>
+  </div>
+</div>
+
 <span style="display: none" id="product-id">{{ product.id }}</span>
 <script src="{% static 'assets/js/product_detail.js' %}" defer></script>
 {% endblock %}
