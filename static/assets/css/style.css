@@ -72,6 +72,11 @@ header a:hover,
   text-decoration: underline;
 }
 
+header .heading-text a:hover {
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+}
+
 #logo {
   margin-bottom: -20px;
   margin-left: -15px;
