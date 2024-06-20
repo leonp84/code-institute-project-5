@@ -1,0 +1,187 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="container col-lg-7 mt-4 about-us">
+  <h2 class="text-center">About Heritage Company</h2>
+
+  <p class="text-center my-4 pb-3 fs-4">
+    “Tradition is not the worship of ashes,
+    <br />
+    but the transmission of fire.”
+    <em>- Gustav Mahler</em>
+  </p>
+
+  <p>
+    <img
+      src="{% static 'assets/images/about/about-heritage-company-1.webp' %}"
+      alt=""
+      class="about-us-image"
+      style="float: left; margin-right: 15px"
+    />
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque eligendi
+    aspernatur et ullam. Doloremque doloribus quisquam qui minima possimus
+    incidunt quis. Aperiam minima fugit ratione ea dolorum quisquam error
+    assumenda. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
+    eligendi aspernatur et ullam. Doloremque doloribus quisquam qui minima
+    possimus incidunt quis. Aperiam minima fugit ratione ea dolorum quisquam
+    error assumenda. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+    Cumque eligendi aspernatur et ullam. Doloremque doloribus quisquam qui
+    minima possimus incidunt quis. Aperiam minima fugit ratione ea dolorum
+    quisquam error assumenda.
+  </p>
+  <br />
+  <p>
+    <img
+      src="{% static 'assets/images/about/about-heritage-company-4.webp' %}"
+      alt=""
+      class="about-us-image"
+      style="float: right; margin-left: 15px"
+      width="200"
+    />
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo debitis
+    incidunt fugiat doloremque tempora, quam ipsum ex repellendus harum saepe
+    porro officia soluta molestias consequatur aliquid explicabo consequuntur
+    minus magnam. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo
+    debitis incidunt fugiat doloremque tempora, quam ipsum ex repellendus harum
+    saepe porro officia soluta molestias consequatur aliquid explicabo
+    consequuntur minus magnam. Lorem ipsum, dolor sit amet consectetur
+    adipisicing elit. Quo debitis incidunt fugiat doloremque tempora, quam ipsum
+    ex repellendus harum saepe porro officia soluta molestias consequatur
+    aliquid explicabo consequuntur minus magnam.
+  </p>
+  <br />
+  <hr />
+  <p>
+    <img
+      src="{% static 'assets/images/logo_new.webp' %}"
+      alt=""
+      class="about-us-image"
+      style="float: left; border: none; margin-right: 15px"
+    />
+
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo debitis
+    incidunt fugiat doloremque tempora, quam ipsum ex repellendus harum saepe
+    porro officia soluta molestias consequatur aliquid explicabo consequuntur
+    minus magnam. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo
+    debitis incidunt fugiat doloremque tempora, quam ipsum ex repellendus harum
+    saepe porro officia soluta molestias consequatur aliquid explicabo
+    consequuntur minus magnam. Lorem ipsum, dolor sit amet consectetur
+    adipisicing elit. Quo debitis incidunt fugiat doloremque tempora, quam ipsum
+    ex repellendus harum saepe porro officia soluta molestias consequatur
+    aliquid explicabo consequuntur minus magnam. Lorem ipsum, dolor sit amet
+    consectetur adipisicing elit. Quo debitis incidunt fugiat doloremque
+    tempora, quam ipsum ex repellendus harum saepe porro officia soluta
+    molestias consequatur aliquid explicabo consequuntur minus magnam.
+  </p>
+
+  <div class="d-flex align-items-center flex-column">
+    <button class="btn btn-lg btn-outline-dark my-4">Get In Touch</button>
+    <img
+      src="{% static 'assets/images/about/about-heritage-company-3.webp' %}"
+      alt=""
+      style="display: block"
+      class="about-us-image"
+    />
+  </div>
+  <br />
+  <!-- FAQ -->
+  <h3 class="mt-5 mb-4 text-center">Frequently Asked Questions</h3>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          Accordion Item #1
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <strong>This is the first item's accordion body.</strong>
+          It is shown by default, until the collapse plugin adds the appropriate
+          classes that we use to style each element. These classes control the
+          overall appearance, as well as the showing and hiding via CSS
+          transitions. You can modify any of this with custom CSS or overriding
+          our default variables. It's also worth noting that just about any HTML
+          can go within the
+          <code>.accordion-body</code>
+          , though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo"
+          aria-expanded="false"
+          aria-controls="collapseTwo"
+        >
+          Accordion Item #2
+        </button>
+      </h2>
+      <div
+        id="collapseTwo"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingTwo"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <strong>This is the second item's accordion body.</strong>
+          It is hidden by default, until the collapse plugin adds the
+          appropriate classes that we use to style each element. These classes
+          control the overall appearance, as well as the showing and hiding via
+          CSS transitions. You can modify any of this with custom CSS or
+          overriding our default variables. It's also worth noting that just
+          about any HTML can go within the
+          <code>.accordion-body</code>
+          , though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseThree"
+          aria-expanded="false"
+          aria-controls="collapseThree"
+        >
+          Accordion Item #3
+        </button>
+      </h2>
+      <div
+        id="collapseThree"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingThree"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <strong>This is the third item's accordion body.</strong>
+          It is hidden by default, until the collapse plugin adds the
+          appropriate classes that we use to style each element. These classes
+          control the overall appearance, as well as the showing and hiding via
+          CSS transitions. You can modify any of this with custom CSS or
+          overriding our default variables. It's also worth noting that just
+          about any HTML can go within the
+          <code>.accordion-body</code>
+          , though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

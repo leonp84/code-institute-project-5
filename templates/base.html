@@ -18,18 +18,25 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'home' %}">
             <img
-              src="{% static 'assets/images/logo_old.png' %}"
+              src="{% static 'assets/images/logo_new.webp' %}"
               alt="Heritage Company Logo"
               class=""
-              height="60"
+              height="50"
             />
           </a>
-          <div class="text-center">
-            <h3>
-              Heritage
-              <br />
-              Company
-            </h3>
+          <div
+            class="col-5 px-5 fs-3 d-flex justify-content-center align-items-center position-relative"
+          >
+            <span
+              class="badge rounded-pill bg-warning bag-items-number"
+              style="display: none"
+            ></span>
+            <a href=""><i class="fa-solid fa-envelope"></i></a>
+            <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href=""><i class="fa-solid fa-user-large"></i></a>
+            <a href="">
+              <i class="fa-solid fa-suitcase shopping-bag-icon"></i>
+            </a>
           </div>
           <button
             class="navbar-toggler"
@@ -91,9 +98,9 @@
       <div class="d-none d-md-block">
         <div class="bg-dark d-flex justify-content-center">
           <div class="col-3">
-            <a href="">
+            <a href="{% url 'home' %}">
               <img
-                src="{% static 'assets/images/logo_old.png' %}"
+                src="{% static 'assets/images/logo_new.webp' %}"
                 alt="Heritage Company Logo"
                 class="pt-3 ps-3 align-self-start"
                 id="logo"
@@ -103,8 +110,10 @@
           <div
             class="text-center d-flex flex-column justify-content-center col-6"
           >
-            <h1>Heritage Company</h1>
-            <h6><em>Luxury Timepiece that form a legacy</em></h6>
+            <h1 class="heading-font">Heritage Company</h1>
+            <span>
+              <em>Luxury Timepieces that form a legacy</em>
+            </span>
           </div>
           <div
             class="col-3 p-4 fs-3 align-self-start d-flex justify-content-end"
@@ -114,10 +123,9 @@
             <a href=""><i class="fa-solid fa-user-large"></i></a>
             <div class="position-relative">
               <a href="">
-                <i id="shopping-bag-icon" class="fa-solid fa-suitcase"></i>
+                <i class="fa-solid fa-suitcase shopping-bag-icon"></i>
                 <span
-                  class="badge rounded-pill bg-warning"
-                  id="bag-items-number"
+                  class="badge rounded-pill bg-warning bag-items-number"
                   style="display: none"
                 ></span>
               </a>
@@ -168,7 +176,7 @@
         </div>
         <div class="d-none d-sm-flex flex-column">
           <strong>HERITAGE COMPANY</strong>
-          <a href="{% url 'home' %}">About us</a>
+          <a href="{% url 'about' %}">About us</a>
           <a href="">Send us a message</a>
           <a href="">See Customer Reviews</a>
         </div>

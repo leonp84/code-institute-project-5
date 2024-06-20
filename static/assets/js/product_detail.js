@@ -39,12 +39,12 @@ $(function () {
 function addItemToBag() {
   if (window.localStorage.getItem('shoppingBagTotal') === null) {
     window.localStorage.setItem('shoppingBagTotal', 1);
-    $('#bag-items-number').text('1');
-    $('#bag-items-number').show();
+    $('.bag-items-number').text('1');
+    $('.bag-items-number').show();
   } else {
     itemsInCart = parseInt(window.localStorage.getItem('shoppingBagTotal'));
     itemsInCart += 1;
     window.localStorage.setItem('shoppingBagTotal', itemsInCart);
-    $('#bag-items-number').text(itemsInCart);
+    $('.bag-items-number').text(itemsInCart);
   }
 }

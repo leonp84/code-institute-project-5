@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
   padding: 0;
   margin: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+.heading-font {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 50px;
+  margin-bottom: -10px;
+  padding-bottom: 0;
 }
 
 .off-white {
@@ -121,10 +136,21 @@ header a:hover,
   cursor: pointer;
 }
 
-#bag-items-number {
+.bag-items-number {
   font-size: 14px;
   color: black;
   position: absolute;
   top: -3px;
   right: -1px;
+}
+
+.about-us p {
+  line-height: 180%;
+}
+
+.about-us-image {
+  border: 2px solid gold;
+  border-radius: 5px;
+  max-width: 250px;
+  height: auto;
 }
