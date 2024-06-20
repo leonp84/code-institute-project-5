@@ -99,7 +99,21 @@
     <div class="mt-4 ms-lg-5" style="max-width: 500px">
       <span class="fs-4">{{ product.watch_brand }}</span>
       <h3>{{ product.title }}</h3>
+      {% if product.discount_percentage > 0 %}
+
+      <span class="fs-6 text-decoration-line-through">
+        $ {{ product.pre_discount_price }}
+      </span>
+      <span class="fw-bolder text-primary">
+        &nbsp;$ {{ product.price }} USD
+      </span>
+      <div class="badge rounded-pill bg-info text-dark fw-6 ms-2">
+        -{{ product.discount_percentage }}%
+      </div>
+      {% else %}
       <span class="fs-6">$ {{ product.price }} USD</span>
+      {% endif %}
+
       <p class="ln-lg mt-4">{{ product.desc }}</p>
       <hr />
       <span>Watch Case Size: {{ product.watch_case_size }}mm</span>

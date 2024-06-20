@@ -146,7 +146,7 @@
       <a href="">Tag Heuer</a>
       <a href="">Omega</a>
       <a href="">Tissot</a>
-      <a href="">Sale</a>
+      <a href="{% url 'sale' %}">Sale</a>
     </div>
 
     <main>{% block content %} {% endblock %}</main>
@@ -185,7 +185,7 @@
         <div class="d-none d-lg-flex flex-column">
           <strong>Navigate</strong>
           <a href="">Search</a>
-          <a href="">Items on Sale</a>
+          <a href="{% url 'sale' %}">Items on Sale</a>
           <a href="">Our Collection</a>
         </div>
         <div class="d-none d-lg-flex flex-column text-center">

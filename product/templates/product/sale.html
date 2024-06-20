@@ -3,7 +3,7 @@
 <div class="container p-3 mt-3">
   <div class="row">
     <div class="col-12 text-center">
-      <h3>Our Collection</h3>
+      <h3>Items on Sale</h3>
       <p class="lh-lg">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ea
         eligendi unde dolorem, ex minima distinctio, ipsam hic, iure odit
@@ -12,7 +12,7 @@
       </p>
       <hr />
       <div class="row d-none d-md-block mb-2">
-        <img src="{% static 'assets/images/collection.webp' %}" alt="" />
+        <img src="{% static 'assets/images/on_sale.webp' %}" alt="" />
       </div>
     </div>
   </div>
@@ -74,9 +74,7 @@
       <span><strong>{{ product.short_title }}</strong></span>
       <div>
         {% if product.discount_percentage > 0 %}
-        <span class="text-decoration-line-through">
-          $ {{ product.pre_discount_price }}
-        </span>
+        <span class="text-decoration-line-through">$ {{ product.price }}</span>
         <span class="fw-bolder text-primary">$ {{ product.price }} USD</span>
         {% else %}
         <span>$ {{ product.price }} USD</span>
