@@ -224,4 +224,4 @@ if 'USE_AWS' in os.environ:
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
     # Override site url in production
-    SITE_URL = 'https://heritage-company-386a48d92bd9.herokuapp.com/'
+    SITE_URL = 'https://heritage-company-386a48d92bd9.herokuapp.com'
