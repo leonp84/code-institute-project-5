@@ -19,3 +19,8 @@ class NewsLetterSignup(models.Model):
     token = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     is_verified = models.BooleanField(default=False)
     sign_up_date = models.DateTimeField(auto_now_add=True)
+
+
+class DiscountCode(models.Model):
+    discount_code = models.CharField(max_length=6)
+    date_created = models.DateTimeField(auto_now_add=True)
