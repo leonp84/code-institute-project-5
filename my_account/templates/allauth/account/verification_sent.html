@@ -1,0 +1,15 @@
+{% extends "account/base_entrance.html" %}
+{% load i18n %}
+{% load allauth %}
+{% block head_title %}
+  {% trans "Verify Your Email Address" %}
+{% endblock head_title %}
+{% block inner_content %}
+  {% element h2 %}
+  {% trans "Please Verify Your Email Address" %}
+{% endelement %}
+<br>
+{% element p %}
+{% blocktrans %}To complete the creation of your account, we need you to verify your email address. We have sent an email to you for verification, so  <span class="text-primary fw-bold">please check your email inbox </span>(and your spam folder). If after 30 minutes you do not receive the verification email please reach our to us.{% endblocktrans %}
+{% endelement %}
+{% endblock inner_content %}

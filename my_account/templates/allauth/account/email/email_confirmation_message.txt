@@ -1,0 +1,11 @@
+{% extends "account/email/base_message.txt" %}
+{% load account %}
+{% load i18n %}
+
+{% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+
+Thank you for creating an account with Heritage Company.
+
+Please complete your account creation by verifying your email address using this link:
+
+{{ activate_url }}{% endblocktrans %}{% endautoescape %}{% endblock content %}
