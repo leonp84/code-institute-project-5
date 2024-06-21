@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 
 
 class CustomerMessage(models.Model):
@@ -11,3 +12,10 @@ class CustomerMessage(models.Model):
 
     def __str__(self):
         return f"{self.customer_name}: {self.customer_message}"
+
+
+class NewsLetterSignup(models.Model):
+    customer_email = models.EmailField(max_length=254)
+    token = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    is_verified = models.BooleanField(default=False)
+    sign_up_date = models.DateTimeField(auto_now_add=True)

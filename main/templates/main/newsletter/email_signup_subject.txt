@@ -1,1 +1,1 @@
-Heritage Confirmation for Order: {{ order }}
+Please Verify Your Email
