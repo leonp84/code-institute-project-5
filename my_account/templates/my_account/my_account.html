@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="container col-lg-7 mt-4 about-us">
+    <h2 class="text-center">Your Account</h2>
+    <br>
+    <h3>Update Your Profile</h3>
+    <br>
+    <a href="{% url 'account_logout' %}" class="btn btn-outline-dark">Log Out</a>
+  </div>
+{% endblock %}

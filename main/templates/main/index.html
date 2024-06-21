@@ -1,107 +1,84 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
-
-<div
-  id="carouselExampleCaptions"
-  class="carousel slide carousel-fade"
-  data-bs-ride="carousel"
->
-  <div class="carousel-indicators">
-    <button
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"
-    ></button>
-    <button
-      type="button"
-      data-bs-target="#carouselExampleCaptions"
-      data-bs-slide-to="1"
-      aria-label="Slide 2"
-    ></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="7000">
-      <img
-        src="{% static 'assets/images/slide1.jpeg' %}"
-        class="d-block w-100"
-        alt="..."
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <div class="watch-hero-info d-flex flex-column">
-          <span>TAG HEUER CARRERA</span>
-          <span>
-            CHRONOGRAPH
-            <br />
-            X PORSCHE
-          </span>
-          <button class="btn btn-lg btn-outline-light mt-1">
-            Buy this Watch
-          </button>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div id="carouselExampleCaptions"
+       class="carousel slide carousel-fade"
+       data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"></button>
+      <button type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="7000">
+        <img src="{% static 'assets/images/slide1.jpeg' %}"
+             class="d-block w-100"
+             alt="..." />
+        <div class="carousel-caption d-none d-md-block">
+          <div class="watch-hero-info d-flex flex-column">
+            <span>TAG HEUER CARRERA</span>
+            <span>
+              CHRONOGRAPH
+              <br />
+              X PORSCHE
+            </span>
+            <button class="btn btn-lg btn-outline-light mt-1">Buy this Watch</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="carousel-item" data-bs-interval="7000">
-      <img
-        src="{% static 'assets/images/slide2.jpg' %}"
-        class="d-block w-100"
-        alt="..."
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <div class="watch-hero-info d-flex flex-column">
-          <span>TAG HEUER CARRERA</span>
-          <span>
-            CHRONOGRAPH
-            <br />
-            X PORSCHE
-          </span>
-          <button class="btn btn-lg btn-outline-light mt-1">
-            Buy this Watch
-          </button>
+      <div class="carousel-item" data-bs-interval="7000">
+        <img src="{% static 'assets/images/slide2.jpg' %}"
+             class="d-block w-100"
+             alt="..." />
+        <div class="carousel-caption d-none d-md-block">
+          <div class="watch-hero-info d-flex flex-column">
+            <span>TAG HEUER CARRERA</span>
+            <span>
+              CHRONOGRAPH
+              <br />
+              X PORSCHE
+            </span>
+            <button class="btn btn-lg btn-outline-light mt-1">Buy this Watch</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="d-flex justify-content-center p-4">
-  <h5 class="mx-auto d-md-none">Browse our watches by brand:</h5>
-  <h2 class="mx-auto d-none d-md-block">Browse our watches by brand:</h2>
-</div>
-<div class="d-flex">
-  <img
-    class="brand-image-homepage"
-    src="{% static 'assets/images/breatling.webp' %}"
-    alt=""
-  />
-  <img
-    class="brand-image-homepage"
-    src="{% static 'assets/images/tagheuer.webp' %}"
-    alt=""
-  />
-  <img
-    class="brand-image-homepage"
-    src="{% static 'assets/images/omega.webp' %}"
-    alt=""
-  />
-  <img
-    class="brand-image-homepage"
-    src="{% static 'assets/images/tissot.webp' %}"
-    alt=""
-  />
-</div>
-<div class="p-5 bg-dark off-white text-center">
-  <h4 class="mx-auto my-3">'Some more text about our company'</h4>
-  <p class="lh-lg">
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-    non proident, sunt in culpa qui officia deserunt mollit anim id est
-    laborum.!"
-  </p>
-</div>
-
+  <div class="d-flex justify-content-center p-4">
+    <h5 class="mx-auto d-md-none">Browse our watches by brand:</h5>
+    <h2 class="mx-auto d-none d-md-block">Browse our watches by brand:</h2>
+  </div>
+  <div class="d-flex">
+    <img class="brand-image-homepage"
+         src="{% static 'assets/images/breatling.webp' %}"
+         alt="" />
+    <img class="brand-image-homepage"
+         src="{% static 'assets/images/tagheuer.webp' %}"
+         alt="" />
+    <img class="brand-image-homepage"
+         src="{% static 'assets/images/omega.webp' %}"
+         alt="" />
+    <img class="brand-image-homepage"
+         src="{% static 'assets/images/tissot.webp' %}"
+         alt="" />
+  </div>
+  <div class="p-5 bg-dark off-white text-center">
+    <h4 class="mx-auto my-3">'Some more text about our company'</h4>
+    <p class="lh-lg">
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+      non proident, sunt in culpa qui officia deserunt mollit anim id est
+      laborum.!"
+    </p>
+  </div>
 {% endblock %}

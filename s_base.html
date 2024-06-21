@@ -1,5 +1,4 @@
-{% load static %} {% url 'account_login' as login_url %}
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,50 +6,40 @@
     {% include 'includes/meta-info.html' %}
     <!-- CSS Imports -->
     {% include 'includes/css-imports.html' %}
-    <title>Heritage Company {% block extra_title %}{% endblock %}</title>
+    <title>Heritage Company
+      {% block extra_title %}{% endblock %}
+    </title>
   </head>
   <body>
     <header class="off-white">
       <!-- Mobile Navbar -->
-      <nav
-        class="navbar navbar-dark bg-dark navbar-expand-lg d-md-none off-white"
-      >
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg d-md-none off-white">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'home' %}">
-            <img
-              src="{% static 'assets/images/logo_new.webp' %}"
-              alt="Heritage Company Logo"
-              class=""
-              height="50"
-            />
+            <img src="{% static 'assets/images/logo_new.webp' %}"
+                 alt="Heritage Company Logo"
+                 class=""
+                 height="50" />
           </a>
-          <div
-            class="col-5 px-5 fs-3 d-flex justify-content-center align-items-center position-relative"
-          >
-            <span
-              class="badge rounded-pill bg-warning bag-items-number"
-              style="display: none"
-            ></span>
+          <div class="col-5 px-5 fs-3 d-flex justify-content-center align-items-center position-relative">
+            <span class="badge rounded-pill bg-warning bag-items-number"
+                  style="display: none"></span>
             <a href=""><i class="fa-solid fa-envelope"></i></a>
             <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a
-              href="{% if user.is_authenticated %}{% url 'my_account' %}{% else %}{% url 'account_login' %}{% endif%}"
-            >
+            <a href="{% if user.is_authenticated %}{% url 'my_account' %}{% else %}{% url 'account_login' %}{% endif %}">
               <i class="fa-solid fa-user-large"></i>
             </a>
             <a href="">
               <i class="fa-solid fa-suitcase shopping-bag-icon"></i>
             </a>
           </div>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+          <button class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -62,20 +51,22 @@
                 <a class="nav-link" href="#">Link</a>
               </li>
               <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
+                <a class="nav-link dropdown-toggle"
+                   href="#"
+                   id="navbarDropdown"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   aria-expanded="false">Dropdown</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Action</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Another action</a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
                   <li>
                     <a class="dropdown-item" href="#">Something else here</a>
                   </li>
@@ -83,37 +74,27 @@
               </li>
             </ul>
             <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-light" type="submit">
-                Search
-              </button>
+              <input class="form-control me-2"
+                     type="search"
+                     placeholder="Search"
+                     aria-label="Search" />
+              <button class="btn btn-outline-light" type="submit">Search</button>
             </form>
           </div>
         </div>
       </nav>
-
       <!-- Medium Screen Navbar -->
-
       <div class="d-none d-md-block">
         <div class="bg-dark d-flex justify-content-center">
           <div class="col-3">
             <a href="{% url 'home' %}">
-              <img
-                src="{% static 'assets/images/logo_new.webp' %}"
-                alt="Heritage Company Logo"
-                class="pt-3 ps-3 align-self-start"
-                id="logo"
-              />
+              <img src="{% static 'assets/images/logo_new.webp' %}"
+                   alt="Heritage Company Logo"
+                   class="pt-3 ps-3 align-self-start"
+                   id="logo" />
             </a>
           </div>
-          <div
-            class="text-center d-flex flex-column justify-content-center col-6 heading-text"
-          >
+          <div class="text-center d-flex flex-column justify-content-center col-6 heading-text">
             <a href="{% url 'home' %}">
               <h1 class="heading-font">Heritage Company</h1>
               <span>
@@ -121,44 +102,34 @@
               </span>
             </a>
           </div>
-          <div
-            class="col-3 p-4 fs-3 align-self-start d-flex justify-content-end"
-          >
+          <div class="col-3 p-4 fs-3 align-self-start d-flex justify-content-end">
             <a href=""><i class="fa-solid fa-envelope"></i></a>
             <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-            <a
-              href="{% if user.is_authenticated %}{% url 'my_account' %}{% else %}{% url 'account_login' %}{% endif%}"
-            >
+            <a href="{% if user.is_authenticated %}{% url 'my_account' %}{% else %}{% url 'account_login' %}{% endif %}">
               <i class="fa-solid fa-user-large"></i>
             </a>
             <div class="position-relative">
               <a href="">
                 <i class="fa-solid fa-suitcase shopping-bag-icon"></i>
-                <span
-                  class="badge rounded-pill bg-warning bag-items-number"
-                  style="display: none"
-                ></span>
+                <span class="badge rounded-pill bg-warning bag-items-number"
+                      style="display: none"></span>
               </a>
             </div>
           </div>
         </div>
       </div>
     </header>
-    <div
-      class="d-none d-md-flex justify-content-center text-uppercase bg-black lg-nav"
-    >
-      <a href="{% url 'all_products' %}" class="d-none d-lg-block">
-        Our Collection
-      </a>
+    <div class="d-none d-md-flex justify-content-center text-uppercase bg-black lg-nav">
+      <a href="{% url 'all_products' %}" class="d-none d-lg-block">Our Collection</a>
       <a href="">Breitling</a>
       <a href="">Tag Heuer</a>
       <a href="">Omega</a>
       <a href="">Tissot</a>
       <a href="{% url 'sale' %}">Sale</a>
     </div>
-
-    <main>{% block content %} {% endblock %}</main>
-
+    <main>
+      {% block content %}{% endblock %}
+    </main>
     <footer class="bg-dark off-white px-3">
       <div class="d-flex justify-content-evenly pt-4">
         <div class="d-flex flex-column newsletter-footer">
@@ -167,16 +138,14 @@
             Gain VIP access to the world of luxury watches and receive
             invitations to private events and notifications of new collections.
           </span>
-          <form method="POST" action="{% url 'newsletter_signup' %}">
+          <form method="post" action="{% url 'newsletter_signup' %}">
             <div class="form-floating mb-3 text-black mt-3">
-              <input
-                type="email"
-                class="form-control"
-                id="floatingInput"
-                placeholder="name@example.com"
-                name="customer_email"
-                required
-              />
+              <input type="email"
+                     class="form-control"
+                     id="floatingInput"
+                     placeholder="name@example.com"
+                     name="customer_email"
+                     required />
               <label for="floatingInput">Enter your email</label>
             </div>
             <button type="submit" class="btn btn-outline-light">Sign Up</button>
@@ -209,7 +178,7 @@
         </div>
       </div>
       <div class="text-center py-3">
-        <div class="">
+        <div>
           <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
           <span>|</span>
           <a href="{% url 'terms_and_conditions' %}">Terms</a>
