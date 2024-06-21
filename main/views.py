@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 from django.core.mail import send_mail
 from django.template.loader import render_to_string # noqa
 from django.urls import reverse
@@ -36,11 +36,16 @@ def verify_email(request, token):
     check_token.is_verified = True
     check_token.save()
 
-    return HttpResponse('Thank you for verifying your email')
+    return render(request, 'main/newsletter_signup_verified.html')
 
 
 def newsletter_signup(request):
     if request.method == 'POST':
+
+        new_email = request.POST.get('customer_email')
+        if NewsLetterSignup.objects.filter(customer_email=new_email).exists():
+            return render(request, 'main/newsletter_error.html')
+
         new_signup = NewsLetterSignupsForm(data=request.POST)
         if new_signup.is_valid():
             client = new_signup.save()
@@ -64,6 +69,8 @@ def newsletter_signup(request):
             recipient_list=[client.customer_email],
             )
 
-    template = 'main/newsletter_signup.html'
-    context = {}
-    return render(request, template, context)
+        template = 'main/newsletter_signup.html'
+        context = {'email': client.customer_email}
+        return render(request, template, context)
+
+    return render(request, 'main/index.html')
