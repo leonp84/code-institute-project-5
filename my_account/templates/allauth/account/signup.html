@@ -20,7 +20,20 @@
              name="{{ redirect_field_name }}"
              value="{{ redirect_field_value }}" />
     {% endif %}
-    <a class="btn btn-outline-dark" href="{% url 'account_login' %}">Back to Login</a>
-    <button class="btn btn-outline-dark" type="submit">Sign Up</button>
+    <button class="btn btn-outline-dark pe-3" type="submit">
+      <i class="fa fa-envelope me-3"></i>Sign Up With Email&nbsp;
+    </button>
   </form>
+  <a href="{% provider_login_url 'google' %}"
+     role="button"
+     class="btn btn-outline-dark mt-2">
+    <img class="me-2"
+         width="20"
+         height="20"
+         src="https://www.svgrepo.com/show/475656/google-color.svg"
+         loading="lazy"
+         alt="google logo">
+  Sign up with Google</a>
+  <br>
+  <a class="btn btn-outline-dark mt-4" href="{% url 'account_login' %}">Back to Login</a>
 {% endblock inner_content %}
