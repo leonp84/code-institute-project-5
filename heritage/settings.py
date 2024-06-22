@@ -62,6 +62,8 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 ROOT_URLCONF = 'heritage.urls'
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
