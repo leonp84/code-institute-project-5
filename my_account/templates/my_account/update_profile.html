@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="container col-lg-7 mt-4 about-us">
+    <h2 class="text-center">Update Your Profile</h2>
+    <br>
+    <p>
+      Thank you for streamlining your checkout procedure by updating your profile with your current delivery address, and any other special intructions we might need.
+    </p>
+    <span class="small text-primary">Note that fields marked with an asterisk *, are required</span>
+    <br>
+    <br>
+    <form method='post'>
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-lg btn-outline-dark my-2 me-2">Update Your Profile</button>
+      <a href="{% url 'my_account' %}" class="btn btn-lg btn-outline-danger">Cancel</a>
+      {% csrf_token %}
+    </form>
+  </div>
+{% endblock %}
