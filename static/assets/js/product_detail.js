@@ -36,9 +36,7 @@ $(function () {
   });
 
   // Bookmark Icon
-  bookMarkIcon = $('#bookmark-icon');
-  bookMarkIconToolTip = new bootstrap.Tooltip(bookMarkIcon);
-  $(bookMarkIcon).on('click', addBookmarkedItem);
+  $('#bookmark-icon').on('click', addBookmarkedItem);
 });
 
 /**

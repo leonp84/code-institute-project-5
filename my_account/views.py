@@ -1,7 +1,7 @@
 from .forms import UserDetailsForm
 from .models import UserDetail
 from django.http import JsonResponse
-from django.shortcuts import render, HttpResponse # noqa
+from django.shortcuts import render, reverse, HttpResponseRedirect
 from allauth.account.signals import password_changed
 from allauth.account.signals import user_logged_in, user_logged_out
 from django.dispatch import receiver
@@ -11,8 +11,11 @@ import json
 
 
 def my_account(request):
+
+    current_user = UserDetail.objects.filter(user=request.user).first()
+    wish_list = current_user.wish_list.all()
     template = 'my_account/my_account.html'
-    context = {}
+    context = {'wish_list': wish_list}
     return render(request, template, context)
 
 
@@ -34,6 +37,8 @@ def update_profile(request):
                               check your information and try again.\
                               If the problem persists, please contact us.',
                              extra_tags='ERROR')
+
+        return HttpResponseRedirect(reverse('my_account', args=[]))
 
     form = UserDetailsForm(instance=current_user)
     template = 'my_account/update_profile.html'

@@ -195,5 +195,7 @@
     <!-- Javascript Imports -->
     {% include 'includes/toast-messages.html' %}
     {% include 'includes/js-imports.html' %}
+    <!-- On Page (hidden) CSFR Token var Jquery Ajax -> Django Backend communication -->
+    <script>let CSRF_TOKEN = '{{ csrf_token }}';</script>
   </body>
 </html>

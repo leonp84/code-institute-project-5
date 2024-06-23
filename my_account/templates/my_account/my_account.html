@@ -1,16 +1,152 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-  <div class="container col-lg-7 mt-4 about-us">
+  <div class="container col-12 mt-4 about-us">
     <h2 class="text-center">Your Account</h2>
     <br>
-    <h3>Update Your Profile</h3>
-    <br>
-    <a href="{% url 'update_profile' %}" class="btn btn-outline-dark">Update Your Profile</a>
-    <br>
-    <a href="{% url 'account_set_password' %}"
-       class="btn btn-outline-dark mt-2">Change Your Password</a>
-    <br>
-    <a href="{% url 'account_logout' %}" class="btn btn-outline-dark mt-2">Log Out</a>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-4 my-account-container">
+        <h4>Your Profile</h4>
+        <br>
+        {% if user.userdetail.user_first_name == Null %}
+          <p>
+            <em class="text-danger">We do not have any of your delivery information yet.</em>
+            <br>
+            Please consider adding this to simplify your shopping experience with us.
+          </p>
+        {% else %}
+          <table class="table">
+            <tbody>
+              <tr>
+                <th colspan="2" class="text-center">Personal details</th>
+              </tr>
+              <tr>
+                <td>First Name</td>
+                <td>{{ user.userdetail.user_first_name }}</td>
+              </tr>
+              <tr>
+                <td>Last Name</td>
+                <td>{{ user.userdetail.user_last_name }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th colspan="2" class="text-center">Contact Information</th>
+              </tr>
+              <tr>
+                <td>Phone Contact</td>
+                <td>{{ user.userdetail.user_phone_number }}</td>
+              </tr>
+              <tr>
+                <td>Email Address</td>
+                <td>{{ user.email }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th colspan="2" class="text-center">Delivery Information</th>
+              </tr>
+              <tr>
+                <td>Street Address 1</td>
+                <td>{{ user.userdetail.user_street_address1 }}</td>
+              </tr>
+              <tr>
+                <td>Street Address 2</td>
+                <td>{{ user.userdetail.user_street_address2 }}</td>
+              </tr>
+              <tr>
+                <td>City</td>
+                <td>{{ user.userdetail.user_city }}</td>
+              </tr>
+              <tr>
+                <td>Postcode</td>
+                <td>{{ user.userdetail.user_postcode }}</td>
+              </tr>
+              <tr>
+                <td>Country</td>
+                <td>{{ user.userdetail.user_country }}</td>
+              </tr>
+            </tbody>
+          </table>
+          {% if user.userdetail.user_delivery_notes != '' %}
+            <table class="table mb-5">
+              <tbody>
+                <tr>
+                  <th colspan="2" class="text-center">Special Instructions</th>
+                </tr>
+                <td class="text-center">{{ user.userdetail.user_delivery_notes }}</td>
+              </tbody>
+            </table>
+          {% endif %}
+          <span class="small text-primary"><em>See any errors?</em></span>
+          <br>
+        {% endif %}
+        <a href="{% url 'update_profile' %}"
+           class="btn btn-sm btn-outline-dark mt-2">Update Your Profile</a>
+        <br>
+      </div>
+      <div class="col-12 col-md-4 my-account-container">
+        <h4 class="mb-4">Your Wish List</h4>
+        {% if wish_list|length == 0 %}
+          <div class="d-flex justify-content-center flex-column">
+            <em class="text-center">Your wish list is currently empty</em>
+            <br>
+            <a class="btn btn-outline-dark"  href="{% url 'all_products' %}">See our Collection</a>
+          </div>
+        {% else %}
+          {% for product in wish_list %}
+            <div class="wish-list-container">
+              <i class="fa-solid fa-xmark remove-from-wishlist"></i>
+              <span style="display: none">{{ product.id }}</span>
+              <a href="{% url 'product_detail' product.id %}">
+                <img src="{{ MEDIA_URL }}{{ product.image }}"
+                     alt="{{ product.name }}"
+                     height="100"
+                     width="auto"
+                     data-bs-placement="right"
+                     data-bs-toggle="tooltip"
+                     title="Visit Product Detail Page">
+              </a>
+              <div class="d-flex flex-column">
+                <span><strong>{{ product.watch_brand }}</strong></span>
+                <span class="small"><em>{{ product.title }}</em></span>
+                <span>$ {{ product.price }}</span>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="col-12 col-md-4 my-account-container">
+        <h4>Other Settings</h4>
+        <a href="{% url 'account_set_password' %}"
+           class="btn btn-sm btn-outline-dark mt-2">Change Your Password</a>
+        <br>
+        <a href="{% url 'account_logout' %}"
+           class="btn btn-sm btn-outline-dark mt-2">Log Out</a>
+      </div>
+    </div>
   </div>
+  <!-- Bootstrap Toast for removing item from wish list -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="item-removed-toast"
+         class="toast hide"
+         role="alert"
+         aria-live="assertive"
+         aria-atomic="true"
+         data-bs-delay="6000">
+      <div class="toast-header bg-warning">
+        <strong class="me-auto text-dark">WISH LIST</strong>
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="toast"
+                aria-label="Close"></button>
+      </div>
+      <div class="toast-body">Item removed from your wish list.</div>
+    </div>
+  </div>
+  <script src="{% static 'assets/js/my_account.js' %}" defer></script>
 {% endblock %}

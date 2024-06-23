@@ -288,6 +288,4 @@
   </div>
   <span style="display: none" id="product-id">{{ product.id }}</span>
   <script src="{% static 'assets/js/product_detail.js' %}" defer></script>
-  <!-- On Page (hidden) CSFR Token var Jquery Ajax -> Django Backend communication -->
-  <script>let CSRF_TOKEN = '{{ csrf_token }}';</script>
 {% endblock %}

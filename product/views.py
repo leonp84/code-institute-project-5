@@ -14,9 +14,10 @@ def all_products(request):
 
 def product_detail(request, product_id):
     bookmarked = False
-    current_user = UserDetail.objects.filter(user=request.user).first()
-    if current_user.wish_list.filter(id=product_id).exists():
-        bookmarked = True
+    if request.user.is_authenticated:
+        current_user = UserDetail.objects.filter(user=request.user).first()
+        if current_user.wish_list.filter(id=product_id).exists():
+            bookmarked = True
     product = Product.objects.filter(pk=product_id).first()
     context = {'product': product,
                'bookmarked': bookmarked}

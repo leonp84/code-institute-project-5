@@ -5,7 +5,13 @@ $(function () {
     $('.bag-items-number').show();
   }
 
-  $('[data-toggle="tooltip"]').tooltip();
+  // Initialize all Bootstrap Tooltips on page
+  var tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  );
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
 
   allTextInputs = document.body.getElementsByTagName('input');
   for (i = 0; i < allTextInputs.length; i++) {
