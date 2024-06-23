@@ -5,6 +5,8 @@ $(function () {
     $('.bag-items-number').show();
   }
 
+  $('[data-toggle="tooltip"]').tooltip();
+
   allTextInputs = document.body.getElementsByTagName('input');
   for (i = 0; i < allTextInputs.length; i++) {
     allTextInputs[i].addEventListener('invalid', (e) => {

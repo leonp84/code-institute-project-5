@@ -75,8 +75,14 @@
           </div>
         </div>
       </div>
-      <div class="mt-4 ms-lg-5" style="max-width: 500px">
+      <div class="mt-4 ms-lg-5 product-details-container">
         <span class="fs-4">{{ product.watch_brand }}</span>
+        <i class="fa-{% if bookmarked %}solid{% else %}regular{% endif %} fa-bookmark"
+           data-bs-toggle="tooltip"
+           data-bs-html="true"
+           data-bs-placement="left"
+           id="bookmark-icon"
+           title="<em>Click to</em> <u>bookmark</u> <em>this item</em>"></i>
         <h3>{{ product.title }}</h3>
         {% if product.discount_percentage > 0 %}
           <span class="fs-6 text-decoration-line-through">$ {{ product.pre_discount_price }}</span>
@@ -115,7 +121,6 @@
   <div class="modal fade modal-lg"
        id="largeImageModal"
        tabindex="-1"
-       aria-labelledby="exampleModalLabel"
        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -129,7 +134,7 @@
     </div>
   </div>
   <!-- Contact us Modal -->
-  <div class="modal"
+  <div class="modal fade"
        tabindex="-1"
        id="contact-us-modal"
        data-bs-backdrop="static">
@@ -192,6 +197,37 @@
       </form>
     </div>
   </div>
+  <!-- Modal Advising customer to log in -->
+  <div class="modal fade" tabindex="-1" id="create-account-modal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary">
+          <h5 class="modal-title text-light">Sign in or create an account</h5>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="{% static 'assets/images/logo_new.webp' %}"
+               alt=""
+               width="120"
+               class="about-us-image"
+               style="float: left;
+                      margin-right: 15px" />
+          <p>
+            In order to bookmark items please sign in or consider creating an account with Heritage Company.
+            <br>
+            <br>
+            <em>It only takes 1 minute.</em>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <a href="{% url 'account_login' %}" class="btn btn-outline-dark mt-2">Sign in or Create An Account now</a>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Bootstrap Toast for successfully adding item to Shopping Bag -->
   <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
     <div id="added-to-cart-toast"
@@ -230,6 +266,24 @@
                 aria-label="Close"></button>
       </div>
       <div class="toast-body">We'll get back to you within 2 working days.</div>
+    </div>
+  </div>
+  <!-- Bootstrap Toast for successfully updating wish list -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="wish-list-toast"
+         class="toast hide"
+         role="alert"
+         aria-live="assertive"
+         aria-atomic="true"
+         data-bs-delay="6000">
+      <div class="toast-header bg-success">
+        <strong class="me-auto text-light">WISH LIST</strong>
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="toast"
+                aria-label="Close"></button>
+      </div>
+      <div class="toast-body"></div>
     </div>
   </div>
   <span style="display: none" id="product-id">{{ product.id }}</span>

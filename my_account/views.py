@@ -1,11 +1,13 @@
 from .forms import UserDetailsForm
 from .models import UserDetail
-
+from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse # noqa
 from allauth.account.signals import password_changed
 from allauth.account.signals import user_logged_in, user_logged_out
 from django.dispatch import receiver
 from django.contrib import messages
+from product.models import Product
+import json
 
 
 def my_account(request):
@@ -37,6 +39,33 @@ def update_profile(request):
     template = 'my_account/update_profile.html'
     context = {'form': form}
     return render(request, template, context)
+
+
+def add_bookmarked_item(request):
+    if request.method == 'POST':
+        data = json.load(request)
+        product_id = data['product_id']
+
+        if request.user.is_authenticated:
+            current_user = UserDetail.objects.filter(user=request.user).first()
+            new_product = Product.objects.filter(id=product_id).first()
+
+            if current_user.wish_list.filter(id=product_id).exists():
+                current_user.wish_list.remove(new_product)
+                return_message = 'Item REMOVED from your wish list'
+            else:
+                current_user.wish_list.add(new_product)
+                return_message = 'Item ADDED to your wish list'
+
+            return JsonResponse({
+              'status': 'ok',
+              'message': return_message
+              })
+        else:
+            return JsonResponse({
+              'status': '406',
+              'message': 'User needs to log in'
+              })
 
 
 @receiver(password_changed)

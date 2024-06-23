@@ -14,7 +14,7 @@ class UserDetailsForm(forms.ModelForm):
 
     class Meta:
         model = UserDetail
-        exclude = ('user',)
+        exclude = ('user', 'wish_list',)
         labels = {
             "user_first_name": _("First Name"),
             "user_last_name": _("Last Name"),

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django_countries.fields import CountryField
+from product.models import Product
 
 
 class UserDetail (models.Model):
@@ -25,6 +26,7 @@ class UserDetail (models.Model):
       null=True, blank=True)
     user_delivery_notes = models.TextField(
       null=True, blank=True)
+    wish_list = models.ManyToManyField(Product)
 
     def __str__(self):
         return f"{self.user}'s User Details"

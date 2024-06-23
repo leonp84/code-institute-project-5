@@ -1,5 +1,4 @@
 $(function () {
-  let productId = parseInt($('#product-id').text());
   $('.watch-extra-images').on('click', function () {
     updateMainProductImage();
   });
@@ -35,6 +34,11 @@ $(function () {
       sendCustomerMessage();
     }, '3000');
   });
+
+  // Bookmark Icon
+  bookMarkIcon = $('#bookmark-icon');
+  bookMarkIconToolTip = new bootstrap.Tooltip(bookMarkIcon);
+  $(bookMarkIcon).on('click', addBookmarkedItem);
 });
 
 /**
@@ -115,4 +119,41 @@ function sendCustomerMessage() {
     $('#message-sent-toast')
   );
   messageSentToast.show();
+}
+
+/**
+ *
+ */
+function addBookmarkedItem() {
+  // AJAX POST Request to update Bookmarked Items
+  let productId = parseInt($('#product-id').text());
+  let wishListToast = bootstrap.Toast.getOrCreateInstance(
+    $('#wish-list-toast')
+  );
+  $.ajax({
+    url: '/my_account/add_bookmarked_item/',
+    type: 'POST',
+    data: JSON.stringify({
+      product_id: productId,
+    }),
+    dataType: 'json',
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'X-CSRFToken': CSRF_TOKEN,
+    },
+    success: function (response) {
+      if (response.status === 'ok') {
+        console.log(response.message);
+        $('#wish-list-toast .toast-body').text(response.message);
+        $('#bookmark-icon').toggleClass('fa-regular');
+        $('#bookmark-icon').toggleClass('fa-solid');
+        wishListToast.show();
+      } else {
+        $('#create-account-modal').modal('show');
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    },
+  });
 }

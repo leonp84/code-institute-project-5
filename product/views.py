@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import Product
+from my_account.models import UserDetail
 from main.models import CustomerMessage
 import json
 
@@ -12,8 +13,14 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
+    bookmarked = False
+    current_user = UserDetail.objects.filter(user=request.user).first()
+    if current_user.wish_list.filter(id=product_id).exists():
+        bookmarked = True
     product = Product.objects.filter(pk=product_id).first()
-    context = {'product': product}
+    context = {'product': product,
+               'bookmarked': bookmarked}
+
     return render(request, 'product/product_detail.html', context)
 
 

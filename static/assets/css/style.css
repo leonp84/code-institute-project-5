@@ -177,3 +177,21 @@ header .heading-text a:hover {
   top: 10px;
   right: 10px;
 }
+
+#bookmark-icon {
+  color: darkblue;
+  font-size: xx-large;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+#bookmark-icon:hover {
+  transform: scale(1.2);
+}
+
+.product-details-container {
+  max-width: 500px;
+  position: relative;
+}
