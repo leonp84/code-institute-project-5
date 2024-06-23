@@ -12,5 +12,7 @@ def my_account(request):
 
 @receiver(password_changed)
 def password_change_callback(sender, request, **kwargs):
-    print('Your password has been changed!')
-    messages.success(request, 'You have Successfully changed your Password!')
+    messages.success(request,
+                     'You have Successfully changed your Password',
+                     extra_tags='PASSWORD CHANGED'
+                     )
