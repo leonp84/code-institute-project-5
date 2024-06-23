@@ -28,4 +28,15 @@ $(function () {
     );
     itemRemovedToast.show();
   });
+  $('#select-product-box').on('change', function () {
+    if ($(this).val() == 0) {
+      $('#edit-product-button').addClass('disabled');
+      $('#delete-product-button').addClass('disabled');
+    } else {
+      let id = $(this).val();
+      $('#edit-product-button').removeClass('disabled');
+      $('#delete-product-button').removeClass('disabled');
+      $('#delete-product-button').attr('href', `/product/delete_product/${id}`);
+    }
+  });
 });

@@ -13,9 +13,11 @@ import json
 def my_account(request):
 
     current_user = UserDetail.objects.filter(user=request.user).first()
+    products = Product.objects.all()
     wish_list = current_user.wish_list.all()
     template = 'my_account/my_account.html'
-    context = {'wish_list': wish_list}
+    context = {'wish_list': wish_list,
+               'products': products}
     return render(request, template, context)
 
 

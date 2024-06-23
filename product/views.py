@@ -31,6 +31,12 @@ def sale(request):
     return render(request, 'product/sale.html', context)
 
 
+def delete_product(request, product_id):
+    product = Product.objects.filter(id=product_id).first()
+    context = {'product': product}
+    return render(request, 'product/delete_product.html', context)
+
+
 def customer_product_message(request):
     if request.method == 'POST':
         data = json.load(request)

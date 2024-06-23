@@ -205,6 +205,14 @@ header .heading-text a:hover {
   margin: 10px;
 }
 
+.admin-container {
+  border: 3px solid rgba(255, 174, 0, 0.868);
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin: 10px;
+  max-width: 800px;
+}
+
 .wish-list-container {
   position: relative;
   display: flex;

@@ -1,0 +1,59 @@
+{% load static %}
+<!-- Bootstrap Toast for successfully adding item to Shopping Bag -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="added-to-cart-toast"
+       class="toast hide"
+       role="alert"
+       aria-live="assertive"
+       aria-atomic="true"
+       data-bs-delay="6000">
+    <div class="toast-header bg-success">
+      <strong class="me-auto text-light">Item successfully added to bag</strong>
+      <button type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Your new
+      <span class="text-success fw-bolder">{{ product.watch_brand }}</span>
+      watch is waiting in the shopping bag.
+    </div>
+  </div>
+</div>
+<!-- Bootstrap Toast for successfully sending message -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="message-sent-toast"
+       class="toast hide"
+       role="alert"
+       aria-live="assertive"
+       aria-atomic="true"
+       data-bs-delay="6000">
+    <div class="toast-header bg-success">
+      <strong class="me-auto text-light">Message succesfully sent</strong>
+      <button type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"></button>
+    </div>
+    <div class="toast-body">We'll get back to you within 2 working days.</div>
+  </div>
+</div>
+<!-- Bootstrap Toast for successfully updating wish list -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="wish-list-toast"
+       class="toast hide"
+       role="alert"
+       aria-live="assertive"
+       aria-atomic="true"
+       data-bs-delay="6000">
+    <div class="toast-header bg-success">
+      <strong class="me-auto text-light">WISH LIST</strong>
+      <button type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"></button>
+    </div>
+    <div class="toast-body"></div>
+  </div>
+</div>

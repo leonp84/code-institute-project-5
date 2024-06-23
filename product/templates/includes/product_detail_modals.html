@@ -1,0 +1,112 @@
+{% load static %}
+<!-- Large Image Modal -->
+<div class="modal fade modal-lg"
+     id="largeImageModal"
+     tabindex="-1"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body d-flex justify-content-center">
+        <img src="{{ MEDIA_URL }}{{ product.image }}"
+             alt="{{ product.title }}"
+             width="780"
+             id="modal-image" />
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact us Modal -->
+<div class="modal fade"
+     tabindex="-1"
+     id="contact-us-modal"
+     data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+    <form id="customer-message-form">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary">
+          <h5 class="modal-title text-white">Get in touch regarding this product</h5>
+          <button type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Have a question or comment regarding this product. Let us know. We
+            usually reply within 2 working days.
+          </p>
+          <div class="form-floating mb-3">
+            <input type="text"
+                   class="form-control"
+                   id="name-input"
+                   placeholder="Your Name"
+                   required />
+            <label for="name-input">Your Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="email"
+                   class="form-control"
+                   id="email-input"
+                   placeholder="name@example.com"
+                   required />
+            <label for="email-input">Your Email address</label>
+          </div>
+          <label for="product-name">Product Name</label>
+          <input class="form-control mt-1 mb-3"
+                 id="product-name"
+                 type="text"
+                 placeholder="{{ product.title }}"
+                 value="{{ product.title }}"
+                 disabled />
+          <label for="product-ref">Product Reference Number</label>
+          <input class="form-control mt-1 mb-3"
+                 id="product-ref"
+                 type="text"
+                 placeholder="{{ product.ref }}"
+                 value="{{ product.ref }}"
+                 disabled />
+          <label for="customer-message">Your Message</label>
+          <textarea rows="3"
+                    class="form-control"
+                    aria-label="customer-message"
+                    id="customer-message"
+                    required></textarea>
+        </div>
+        <div class="modal-footer">
+          <button id="send-message-button" type="submit" class="btn btn-outline-dark">Send Message</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Modal Advising customer to log in -->
+<div class="modal fade" tabindex="-1" id="create-account-modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-secondary">
+        <h5 class="modal-title text-light">Sign in or create an account</h5>
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{% static 'assets/images/logo_new.webp' %}"
+             alt=""
+             width="120"
+             class="about-us-image"
+             style="float: left;
+                    margin-right: 15px" />
+        <p>
+          In order to bookmark items please sign in or consider creating an account with Heritage Company.
+          <br>
+          <br>
+          <em>It only takes 1 minute.</em>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <a href="{% url 'account_login' %}" class="btn btn-outline-dark mt-2">Sign in or Create An Account now</a>
+      </div>
+    </div>
+  </div>
+</div>

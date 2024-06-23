@@ -1,24 +1,16 @@
 {% load static %}
-
 <!-- Jquery -->
-<script
-  src="https://code.jquery.com/jquery-3.7.1.js"
-  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-  crossorigin="anonymous"
-></script>
-
+<script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
 <!-- Bootstrap Javascript -->
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"
-></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 <!-- Font Awesome -->
-<script
-  src="https://kit.fontawesome.com/0d8d5fb198.js"
-  crossorigin="anonymous"
-></script>
-
+<script src="https://kit.fontawesome.com/0d8d5fb198.js"
+        crossorigin="anonymous"></script>
 <!-- Project Wide JavaScript -->
 <script src="{% static 'assets/js/project.js' %}" defer></script>
+<!-- On Page (hidden) CSFR Token var Jquery Ajax -> Django Backend communication -->
+<script>let CSRF_TOKEN = '{{ csrf_token }}';</script>

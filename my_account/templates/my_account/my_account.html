@@ -4,6 +4,33 @@
   <div class="container col-12 mt-4 about-us">
     <h2 class="text-center">Your Account</h2>
     <br>
+    <div class="row justify-content-center admin-container mx-auto">
+      <h3 class="text-center">
+        You are logged in as a <span style="color: rgb(255, 174, 0)">Store Administrator</span>
+      </h3>
+      <span class="small text-secondary text-center">You have user rights to manage the Heritage Company online storefront.</span>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <select class="form-select form-select-lg my-3"
+                aria-label=".form-select-lg example"
+                id="select-product-box">
+          <option value="0" selected>Select an Existing Product</option>
+          {% for product in products %}
+            <option class="fs-6" value="{{ product.id }}">{{ product.watch_brand }} {{ product.title }}</option>
+          {% endfor %}
+        </select>
+        <div>
+          <a id="add-new-product-button"
+             class="btn btn-success m-2"
+             href="{% url 'all_products' %}">Add a new Product</a>
+          <a id="edit-product-button"
+             class="btn btn-warning m-2 disabled"
+             href="{% url 'all_products' %}">Edit a product</a>
+          <a id="delete-product-button"
+             class="btn btn-danger m-2 disabled"
+             href="{% url 'all_products' %}">Delete a product</a>
+        </div>
+      </div>
+    </div>
     <div class="row justify-content-center">
       <div class="col-12 col-md-4 my-account-container">
         <h4>Your Profile</h4>
@@ -130,23 +157,7 @@
       </div>
     </div>
   </div>
-  <!-- Bootstrap Toast for removing item from wish list -->
-  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-    <div id="item-removed-toast"
-         class="toast hide"
-         role="alert"
-         aria-live="assertive"
-         aria-atomic="true"
-         data-bs-delay="6000">
-      <div class="toast-header bg-warning">
-        <strong class="me-auto text-dark">WISH LIST</strong>
-        <button type="button"
-                class="btn-close"
-                data-bs-dismiss="toast"
-                aria-label="Close"></button>
-      </div>
-      <div class="toast-body">Item removed from your wish list.</div>
-    </div>
-  </div>
+  {% include '../includes/my_account_toasts.html' %}
+  {% include '../includes/my_account_modals.html' %}
   <script src="{% static 'assets/js/my_account.js' %}" defer></script>
 {% endblock %}
