@@ -28,6 +28,30 @@ def product_detail(request, product_id):
     return render(request, 'product/product_detail.html', context)
 
 
+def breitling(request):
+    products = Product.objects.filter(watch_brand='BR')
+    context = {'products': products}
+    return render(request, 'product/breitling.html', context)
+
+
+def tag_heuer(request):
+    products = Product.objects.filter(watch_brand='TA')
+    context = {'products': products}
+    return render(request, 'product/tag_heuer.html', context)
+
+
+def omega(request):
+    products = Product.objects.filter(watch_brand='OM')
+    context = {'products': products}
+    return render(request, 'product/omega.html', context)
+
+
+def tissot(request):
+    products = Product.objects.filter(watch_brand='TI')
+    context = {'products': products}
+    return render(request, 'product/tissot.html', context)
+
+
 def sale(request):
     products = Product.objects.filter(discount_percentage__gt=0)
     context = {'products': products}
