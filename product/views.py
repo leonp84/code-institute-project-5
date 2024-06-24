@@ -43,6 +43,8 @@ def add_new_product(request):
                              extra_tags='STOREFRONT UPDATED')
         else:
             print(new_product.errors)
+        return render(request, 'main/index.html')
+      
     form = ProductForm()
     template = 'product/add_new_product.html'
     context = {'form': form}
@@ -51,6 +53,14 @@ def add_new_product(request):
 
 def delete_product(request, product_id):
     product = Product.objects.filter(id=product_id).first()
+
+    if request.method == 'POST':
+        product.delete()
+        messages.info(request,
+                      'This product has been removed from the store.',
+                      extra_tags='PRODUCT DELETED')
+        return render(request, 'main/index.html')
+
     context = {'product': product}
     return render(request, 'product/delete_product.html', context)
 

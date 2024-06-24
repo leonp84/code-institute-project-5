@@ -94,12 +94,6 @@
     </div>
     <div class="mt-4 ms-lg-5 product-details-container">
       <span class="fs-4 text-uppercase">{{ product.get_watch_brand_display }}</span>
-      <i class="fa-{% if bookmarked %}solid{% else %}regular{% endif %} fa-bookmark"
-         data-bs-toggle="tooltip"
-         data-bs-html="true"
-         data-bs-placement="left"
-         id="bookmark-icon"
-         title="<em>Click to</em> <u>bookmark</u> <em>this item</em>"></i>
       <h3>{{ product.title }}</h3>
       {% if product.discount_percentage > 0 %}
         <span class="fs-6 text-decoration-line-through">$ {{ product.pre_discount_price }}</span>
@@ -118,5 +112,4 @@
       <hr />
     </div>
   </div>
-</div>
 {% endblock %}
