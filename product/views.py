@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from .models import Product
 from my_account.models import UserDetail
 from main.models import CustomerMessage
+from django.contrib import messages
+from .forms import ProductForm
 import json
 
 
@@ -29,6 +31,22 @@ def sale(request):
     products = Product.objects.filter(discount_percentage__gt=0)
     context = {'products': products}
     return render(request, 'product/sale.html', context)
+
+
+def add_new_product(request):
+    if request.method == 'POST':
+        new_product = ProductForm(request.POST, request.FILES)
+        if new_product.is_valid():
+            new_product.save()
+            messages.success(request,
+                             'You have successfully added a new product',
+                             extra_tags='STOREFRONT UPDATED')
+        else:
+            print(new_product.errors)
+    form = ProductForm()
+    template = 'product/add_new_product.html'
+    context = {'form': form}
+    return render(request, template, context)
 
 
 def delete_product(request, product_id):

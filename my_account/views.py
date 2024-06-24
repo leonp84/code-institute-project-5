@@ -78,19 +78,19 @@ def add_bookmarked_item(request):
 @receiver(password_changed)
 def password_change_callback(sender, request, **kwargs):
     messages.success(request,
-                     'You have Successfully changed your Password',
+                     'You have successfully changed your Password',
                      extra_tags='PASSWORD CHANGED')
 
 
 @receiver(user_logged_in)
 def logged_in_callbacl(sender, request, **kwargs):
     messages.success(request,
-                     'You have been Successfully logged in',
+                     'You have been successfully logged in',
                      extra_tags='LOGGED IN')
 
 
 @receiver(user_logged_out)
 def logged_out_callback(sender, request, **kwargs):
     messages.info(request,
-                  'You have been Successfully logged out',
+                  'You have been successfully logged out',
                   extra_tags='LOGGED OUT')

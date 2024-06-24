@@ -76,7 +76,7 @@
         </div>
       </div>
       <div class="mt-4 ms-lg-5 product-details-container">
-        <span class="fs-4">{{ product.watch_brand }}</span>
+        <span class="fs-4 text-uppercase">{{ product.get_watch_brand_display }}</span>
         <i class="fa-{% if bookmarked %}solid{% else %}regular{% endif %} fa-bookmark"
            data-bs-toggle="tooltip"
            data-bs-html="true"
@@ -97,7 +97,7 @@
         <br />
         <span>Watch Dial Color: {{ product.watch_dial_colour }}</span>
         <br />
-        <span>Gender: {{ product.watch_gender }}</span>
+        <span>Gender: {{ product.get_watch_gender_display }}</span>
         <hr />
         <div class="mt-5 mb-2">
           <button id="buy-button" class="btn btn-lg btn-dark mb-2">Buy this Watch</button>

@@ -69,7 +69,7 @@
                alt="{{ product.watch_brand }} {{ product.title }}"
                width="300"
                height="auto" />
-          <span>{{ product.watch_brand }}</span>
+          <span class="text-uppercase">{{ product.get_watch_brand_display }}</span>
           <span><strong>{{ product.short_title }}</strong></span>
           <div>
             {% if product.discount_percentage > 0 %}

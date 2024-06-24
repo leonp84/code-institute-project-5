@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="container col-lg-7 mt-4 about-us">
+    <h2 class="text-center">Add New Product</h2>
+    <br>
+    <p>
+      Any new products added here will <span class="text-danger">immediately be available for purchase</span> on the storefront therefore:
+    </p>
+    <ul>
+      <li>
+        Ensure items are <strong>in stock</strong> and ready to ship before adding to the storefront.
+      </li>
+      <li>
+        Ensure you have <em>high quality product images</em> (preferably three) of said product.
+      </li>
+      <li>
+        Ensure details entered below are correct by double checking against the <em>vendor database</em>.
+      </li>
+    </ul>
+    <br>
+    <span class="small text-primary">Note that fields marked with an asterisk *, are required</span>
+    <br>
+    <br>
+    <form method='post' enctype="multipart/form-data">
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-lg btn-outline-dark my-2 me-2">Add New Product</button>
+      <a href="{% url 'my_account' %}" class="btn btn-lg btn-outline-danger">Cancel</a>
+      {% csrf_token %}
+    </form>
+  </div>
+{% endblock %}

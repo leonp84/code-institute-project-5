@@ -2,8 +2,121 @@
 {% load static %}
 {% block content %}
   <div class="container-fluid py-3 px-2 mt-2">
-    <h2 class="text-center my-5">Delete Product</h2>
-    <h4 class="text-center my-5">Generally just not a good idea... okay?!</h4>
-    <p class="text-center my-5">{{ product.title }}</p>
+    <h2 class="text-center mb-4">Delete Product</h2>
+    <h4 class="text-center my-3 text-danger">WARNING: Deleting a product is an irreversable process.</h4>
+    <p class="text-center my-3">
+      Once you click the delete button the product below will no longer be available to shoppers on the Heritage Company E-commerce Storefront.
+    </p>
   </div>
+  <div class="d-flex justify-content-center">
+    <form method="post">
+      <span style="display: none">{{ product.id }}</span>
+      <button type="submit" class="btn btn-lg btn-danger my-2 me-2">Delete Product</button>
+      <a href="{% url 'my_account' %}" class="btn btn-lg btn-warning">Cancel</a>
+      {% csrf_token %}
+    </form>
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div class="d-flex flex-row flex-wrap flex-md-nowrap justify-content-center">
+    <div class="watch-images-container">
+      <div class="d-none {% if product.image2 %}d-md-flex{% endif %} flex-column">
+        <img src="{{ MEDIA_URL }}{{ product.image }}"
+             alt=""
+             height="150"
+             width="150"
+             class="watch-extra-images" />
+        {% if product.image2 %}
+          <img src="{{ MEDIA_URL }}{{ product.image2 }}"
+               alt=""
+               height="150"
+               width="150"
+               class="watch-extra-images" />
+        {% endif %}
+        {% if product.image3 %}
+          <img src="{{ MEDIA_URL }}{{ product.image3 }}"
+               alt=""
+               height="150"
+               width="150"
+               class="watch-extra-images" />
+        {% endif %}
+      </div>
+      <img src="{{ MEDIA_URL }}{{ product.image }}"
+           alt="{{ product.title }}"
+           height="450"
+           width="350"
+           style="object-fit: cover"
+           class="mx-3 mx-lg-5 main-product-image d-none d-md-block" />
+      <div class="d-block d-md-none">
+        <div id="carouselExampleIndicators"
+             class="carousel slide carousel-dark"
+             data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="0"
+                    class="active"
+                    aria-current="true"
+                    aria-label="Slide 1"></button>
+            <button type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+            <button type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <img src="{{ MEDIA_URL }}{{ product.image }}"
+                   class="d-block w-100 object-fit-cover"
+                   alt="..." />
+            </div>
+            {% if product.image2 %}
+              <div class="carousel-item" data-bs-interval="10000">
+                <img src="{{ MEDIA_URL }}{{ product.image2 }}"
+                     class="d-block w-100 object-fit-cover"
+                     alt="..." />
+              </div>
+            {% endif %}
+            {% if product.image3 %}
+              <div class="carousel-item" data-bs-interval="10000">
+                <img src="{{ MEDIA_URL }}{{ product.image3 }}"
+                     class="d-block w-100 object-fit-cover"
+                     alt="..." />
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 ms-lg-5 product-details-container">
+      <span class="fs-4 text-uppercase">{{ product.get_watch_brand_display }}</span>
+      <i class="fa-{% if bookmarked %}solid{% else %}regular{% endif %} fa-bookmark"
+         data-bs-toggle="tooltip"
+         data-bs-html="true"
+         data-bs-placement="left"
+         id="bookmark-icon"
+         title="<em>Click to</em> <u>bookmark</u> <em>this item</em>"></i>
+      <h3>{{ product.title }}</h3>
+      {% if product.discount_percentage > 0 %}
+        <span class="fs-6 text-decoration-line-through">$ {{ product.pre_discount_price }}</span>
+        <span class="fw-bolder text-primary">&nbsp;$ {{ product.price }} USD</span>
+        <div class="badge rounded-pill bg-info text-dark fw-6 ms-2">-{{ product.discount_percentage }}%</div>
+      {% else %}
+        <span class="fs-6">$ {{ product.price }} USD</span>
+      {% endif %}
+      <p class="ln-lg mt-4">{{ product.desc }}</p>
+      <hr />
+      <span>Watch Case Size: {{ product.watch_case_size }}mm</span>
+      <br />
+      <span>Watch Dial Color: {{ product.watch_dial_colour }}</span>
+      <br />
+      <span>Gender: {{ product.get_watch_gender_display }}</span>
+      <hr />
+    </div>
+  </div>
+</div>
 {% endblock %}
