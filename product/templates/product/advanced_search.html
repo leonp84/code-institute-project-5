@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="container col-lg-5 mt-4 about-us">
+    <h2 class="text-center">Advanced Search</h2>
+    <br>
+    <br>
+    <form method='post'
+          class="border border-3 rounded p-3"
+          action="{% url 'advanced_search' %}">
+      <div class="mb-4">
+        <label for="keyword" class="form-label">
+          <h5>Keyword</h5>
+        </label>
+        <input type="text"
+               name="keyword"
+               class="form-control"
+               id="keyword"
+               aria-describedby="keyword-help">
+        <div id="keywordhelp" class="form-text">
+          Results will include product that have this word in the title or description.
+        </div>
+      </div>
+      <hr>
+      <h5 class="my-4">Watch Brand</h5>
+      <div class="col-8 mb-4">
+        <select class="form-select" name="brand" aria-label="watch brand">
+          <option value="" selected>All</option>
+          <option value="BR">Breitling</option>
+          <option value="TA">Tag Heuer</option>
+          <option value="OM">Omega</option>
+          <option value="TI">Tissot</option>
+        </select>
+      </div>
+      <hr>
+      <h5 class="my-4">Gender</h5>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input"
+               type="radio"
+               name="gender"
+               id="inlineRadio0"
+               value=""
+               checked>
+        <label class="form-check-label" for="inlineRadio0">All</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input"
+               type="radio"
+               name="gender"
+               id="inlineRadio1"
+               value="M">
+        <label class="form-check-label" for="inlineRadio1">Men's Watches</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input"
+               type="radio"
+               name="gender"
+               id="inlineRadio2"
+               value="F">
+        <label class="form-check-label" for="inlineRadio2">Women's Watches</label>
+      </div>
+      <div class="form-check form-check-inline mb-3">
+        <input class="form-check-input"
+               type="radio"
+               name="gender"
+               id="inlineRadio3"
+               value="U">
+        <label class="form-check-label" for="inlineRadio3">Unisex</label>
+      </div>
+      <hr>
+      <h5 class="my-4">Dial Color</h5>
+      <div class="col-8 mb-4">
+        <select class="form-select" name="dial_color" aria-label="dial color">
+          <option value="" selected>All</option>
+          <option value="Blue">Blue</option>
+          <option value="Green">Green</option>
+          <option value="White">White</option>
+          <option value="Black">Black</option>
+        </select>
+      </div>
+      <hr>
+      <h5 class="my-4">Price Range (USD)</h5>
+      <div class="d-flex mb-4">
+        <div class="col-4 me-4">
+          <label for="customRange1" class="form-label">Minimum</label>
+          <input name="min-price"
+                 type="range"
+                 class="form-range"
+                 id="minimum-price"
+                 value="1000"
+                 min="0"
+                 max="2000">
+          <span id="min-price-display">1000</span>
+        </div>
+        <div class="col-4">
+          <label for="customRange1" class="form-label">Maximum</label>
+          <input type="range"
+                 name="max-price"
+                 class="form-range"
+                 id="maximum-price"
+                 value="15000"
+                 min="10000"
+                 max="20000">
+          <span id="max-price-display">15000</span>
+        </div>
+      </div>
+      <hr>
+      <br>
+      <br>
+      <button type="submit" class="btn btn-lg btn-success my-2 me-2">Search</button>
+      <a href="{% url 'home' %}"
+         class="my-3 btn btn-outline-danger"
+         ef="{% url 'home' %}"
+         class="btn btn-lg btn-outline-danger">Cancel</a>
+      {% csrf_token %}
+    </form>
+  </div>
+  <script src="{% static 'assets/js/advanced_search.js' %}" defer></script>
+{% endblock %}

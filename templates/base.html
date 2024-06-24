@@ -133,14 +133,20 @@
           method="post"
           action="{% url 'search' %}">
       <div class="row align-items-center justify-content-center">
-        <div class="col-auto">
-          <label for="search-input" class="col-form-label">SEARCH PRODUCTS:</label>
+        <div class="col-auto position-relative">
+          <label for="search-input" class="col-form-label">SEARCH</label>
         </div>
-        <div class="col-auto">
+        <div class="col-auto d-flex align-items-center">
           <input type="text"
                  name="search-input"
                  id="search-input"
                  aria-describedby="search-products">
+          <a id="advanced-search-link" href="{% url 'advanced_search' %}">
+            <i class="fa-solid fa-list-check ms-2"
+               data-bs-toggle="tooltip"
+               data-bs-placement="bottom"
+               title="Advanced Search With Filters"></i>
+          </a>
         </div>
       </div>
       {% csrf_token %}

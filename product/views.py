@@ -4,6 +4,7 @@ from .models import Product
 from my_account.models import UserDetail
 from main.models import CustomerMessage
 from django.contrib import messages
+from django.db.models import Q
 from .forms import ProductForm
 import json
 
@@ -124,3 +125,39 @@ def search(request):
              'count': count,
              'user_query': user_search}
              )
+
+
+def advanced_search(request):
+    if request.method == 'POST':
+        keyword = request.POST.get('keyword')
+        gender = request.POST.get('gender')
+        brand = request.POST.get('brand')
+        dial_color = request.POST.get('dial_color')
+        min_price = request.POST.get('min-price')
+        max_price = request.POST.get('max-price')
+
+        queryset = Product.objects.filter(
+          (Q(title__icontains=keyword) | Q(desc__icontains=keyword)) &
+          Q(watch_brand=brand) &
+          Q(watch_gender__icontains=gender) &
+          Q(watch_dial_colour__icontains=dial_color) &
+          Q(price__gte=min_price) &
+          Q(price__lte=max_price)
+        )
+        count = len(queryset)
+        messages.info(request,
+                      'Your search filters have been applied to this result.',
+                      extra_tags='ADVANCED SEARCH')
+
+        if keyword == '':
+            keyword = '(No Keyword Given)'
+
+        return render(
+            request,
+            'product/search_results.html',
+            {'search_results': queryset,
+             'count': count,
+             'user_query': keyword}
+             )
+
+    return render(request, 'product/advanced_search.html')

@@ -237,20 +237,35 @@ header .heading-text a:hover {
 
 #search-box {
   background-color: rgba(0, 0, 0, 0.908);
-  color: rgba(255, 174, 0, 0.868);
+  color: rgba(255, 207, 104, 0.868);
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
+  font-size: 34px;
   padding: 5px 25px;
 }
 
 #search-input {
   font-family: roboto;
+  font-size: 20px;
   background-color: transparent;
   color: white;
-  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.533);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.533);
+  border-left: none;
+  border-right: none;
+  padding: 5px 10px;
   caret-color: rgba(255, 174, 0, 0.868);
+  max-width: 300px;
 }
 
 #search-input:focus {
   outline: none;
+}
+
+#advanced-search-link {
+  color: inherit;
+}
+
+#advanced-search-link:hover {
+  color: white;
+  transform: scale(1.1);
 }
