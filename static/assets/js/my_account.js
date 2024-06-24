@@ -35,6 +35,7 @@ $(function () {
     } else {
       let id = $(this).val();
       $('#edit-product-button').removeClass('disabled');
+      $('#edit-product-button').attr('href', `/product/edit_product/${id}`);
       $('#delete-product-button').removeClass('disabled');
       $('#delete-product-button').attr('href', `/product/delete_product/${id}`);
     }

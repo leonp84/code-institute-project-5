@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
   <div class="container col-lg-7 mt-4 about-us">
-    <h2 class="text-center">Add New Product</h2>
+    <h2 class="text-center">Edit existing Product</h2>
     <br>
     <p>
       Any new products added here will <span class="text-danger">immediately be available for purchase</span> on the storefront therefore:
@@ -25,7 +25,7 @@
     <br>
     <form method='post' enctype="multipart/form-data">
       {{ form|crispy }}
-      <button type="submit" class="btn btn-lg btn-success my-2 me-2">Add New Product</button>
+      <button type="submit" class="btn btn-lg btn-warning my-2 me-2">Edit Product</button>
       <a href="{% url 'my_account' %}" class="btn btn-lg btn-outline-danger">Cancel</a>
       {% csrf_token %}
     </form>

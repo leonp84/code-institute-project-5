@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse, HttpResponseRedirect
 from django.http import JsonResponse
 from .models import Product
 from my_account.models import UserDetail
@@ -44,9 +44,31 @@ def add_new_product(request):
         else:
             print(new_product.errors)
         return render(request, 'main/index.html')
-      
+
     form = ProductForm()
     template = 'product/add_new_product.html'
+    context = {'form': form}
+    return render(request, template, context)
+
+
+def edit_product(request, product_id):
+    product = Product.objects.filter(id=product_id).first()
+    if request.method == 'POST':
+        updated_product = ProductForm(
+          request.POST, request.FILES, instance=product)
+        if updated_product.is_valid():
+            updated_product.save()
+            messages.success(request,
+                             'You have successfully updated this product',
+                             extra_tags='STOREFRONT UPDATED')
+        else:
+            print(updated_product.errors)
+
+        return HttpResponseRedirect(reverse(
+          'product_detail', args=[product_id]))
+
+    form = ProductForm(instance=product)
+    template = 'product/edit_product.html'
     context = {'form': form}
     return render(request, template, context)
 

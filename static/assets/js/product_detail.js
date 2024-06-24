@@ -1,6 +1,10 @@
 $(function () {
   $('.watch-extra-images').on('click', function () {
-    updateMainProductImage();
+    let newImage = $(this).attr('src');
+    $('.main-product-image').attr('src', newImage);
+    $('#modal-image').attr('src', newImage);
+    $('.watch-extra-images').css('border', '1px solid black');
+    $(this).css('border', '1px solid rgb(208, 177, 20)');
   });
 
   $('.main-product-image').on('click', function () {
@@ -60,17 +64,6 @@ function addItemToBag() {
     $('#added-to-cart-toast')
   );
   addedToCartToast.show();
-}
-
-/**
- *
- */
-function updateMainProductImage() {
-  let newImage = $(this).attr('src');
-  $('.main-product-image').attr('src', newImage);
-  $('#modal-image').attr('src', newImage);
-  $('.watch-extra-images').css('border', '1px solid black');
-  $(this).css('border', '1px solid rgb(208, 177, 20)');
 }
 
 /**

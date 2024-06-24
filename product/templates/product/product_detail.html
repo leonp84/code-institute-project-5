@@ -114,6 +114,21 @@
             Price not inclusive of country specific taxes.
           </em>
         </span>
+        {% if user.is_superuser %}
+          <div class="row justify-content-center admin-container mx-auto mt-4">
+            <h5 class="text-center">
+              You are logged in as a <span style="color: rgb(255, 174, 0)">Store Administrator</span>
+            </h5>
+            <div class="d-flex justify-content-center">
+              <a id="edit-product-button"
+                 class="btn btn-warning m-2"
+                 href="{% url 'edit_product' product.id %}">Edit this product</a>
+              <a id="delete-product-button"
+                 class="btn btn-danger m-2"
+                 href="{% url 'delete_product' product.id %}">Delete this product</a>
+            </div>
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
