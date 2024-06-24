@@ -25,4 +25,11 @@ $(function () {
       console.log(e.target);
     });
   }
+
+  // Eventlistener for search icon to reveal search bar
+  $('.search-icon').on('click', function (e) {
+    e.preventDefault();
+    $('#search-box').toggle();
+    $('#search-box').find('input').focus();
+  });
 });

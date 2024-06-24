@@ -234,3 +234,23 @@ header .heading-text a:hover {
 .remove-from-wishlist:hover {
   color: black;
 }
+
+#search-box {
+  background-color: rgba(0, 0, 0, 0.908);
+  color: rgba(255, 174, 0, 0.868);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  padding: 5px 25px;
+}
+
+#search-input {
+  font-family: roboto;
+  background-color: transparent;
+  color: white;
+  border: none;
+  caret-color: rgba(255, 174, 0, 0.868);
+}
+
+#search-input:focus {
+  outline: none;
+}

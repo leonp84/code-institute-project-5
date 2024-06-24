@@ -106,3 +106,21 @@ def customer_product_message(request):
     new_customer_message.save()
 
     return JsonResponse({'message': 'Model Updated'})
+
+
+def search(request):
+    if request.method == 'POST':
+        user_search = request.POST.get('search-input')
+        search_results = Product.objects.filter(
+            title__icontains=user_search) | Product.objects.filter(
+            desc__icontains=user_search)
+
+        count = len(search_results)
+
+        return render(
+            request,
+            'product/search_results.html',
+            {'search_results': search_results,
+             'count': count,
+             'user_query': user_search}
+             )

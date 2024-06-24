@@ -25,7 +25,7 @@
             <span class="badge rounded-pill bg-warning bag-items-number"
                   style="display: none"></span>
             <a href=""><i class="fa-solid fa-envelope"></i></a>
-            <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
             <a href="{% if user.is_authenticated %}{% url 'my_account' %}{% else %}{% url 'account_login' %}{% endif %}">
               <i class="fa-solid fa-user-large"></i>
             </a>
@@ -104,7 +104,7 @@
           </div>
           <div class="col-3 p-4 fs-3 align-self-start d-flex justify-content-end">
             <a href=""><i class="fa-solid fa-envelope"></i></a>
-            <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
             <a href="{% if user.is_authenticated %}{% url 'my_account' %}{% else %}{% url 'account_login' %}{% endif %}">
               <i class="fa-solid fa-user-large"></i>
             </a>
@@ -127,6 +127,24 @@
       <a href="">Tissot</a>
       <a href="{% url 'sale' %}">Sale</a>
     </div>
+    <!-- Search Bar -->
+    <form id="search-box"
+          style="display: none"
+          method="post"
+          action="{% url 'search' %}">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-auto">
+          <label for="search-input" class="col-form-label">SEARCH PRODUCTS:</label>
+        </div>
+        <div class="col-auto">
+          <input type="text"
+                 name="search-input"
+                 id="search-input"
+                 aria-describedby="search-products">
+        </div>
+      </div>
+      {% csrf_token %}
+    </form>
     <main>
       {% block content %}{% endblock %}
     </main>
