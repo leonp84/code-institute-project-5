@@ -1,7 +1,5 @@
 $(function () {
-  bag = window.localStorage.getItem('shoppingBagTotal');
-  if (bag != null) {
-    $('.bag-items-number').text(bag);
+  if (parseInt($('.bag-items-number').first().text()) !== 0) {
     $('.bag-items-number').show();
   }
 
@@ -21,8 +19,6 @@ $(function () {
       errorMsg.innerHTML = `<span>This input is not valid</span>`;
       errorMsg.classList.add('error');
       e.target.parentNode.appendChild(errorMsg);
-      console.log(e.srcElement);
-      console.log(e.target);
     });
   }
 

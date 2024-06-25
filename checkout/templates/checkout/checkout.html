@@ -1,9 +1,72 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 {% load static %}
 {% block content %}
-  <div class="container col-12 mt-4 about-us">
+  <div class="container col-12 mt-4 ">
     <h2 class="text-center">Checkout</h2>
     <br>
-    <p class="text-center">Coming Soon</p>
+    <h3 class="text-center my-4">
+      Total = $ <span id="checkout-total" class="text-primary fw-bold">0</span>
+    </h3>
+    {% for product in products_in_bag %}
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 checkout-product-container">
+          <div class="d-flex flex-wrap flex-md-nowrap">
+            <img src="{{ MEDIA_URL }}{{ product.image }}"
+                 alt=""
+                 width="auto"
+                 height="200"
+                 class="mb-1">
+            <div>
+              <span class="fs-4 text-uppercase ">{{ product.get_watch_brand_display }}</span>
+              <h5>{{ product.title }}</h5>
+              <hr />
+              <span>Watch Case Size: {{ product.watch_case_size }}mm</span>
+              <br />
+              <span>Watch Dial Color: {{ product.watch_dial_colour }}</span>
+              <br />
+              <span>Gender: {{ product.get_watch_gender_display }}</span>
+              <hr />
+            </div>
+          </div>
+          <div class="price-container">
+            {% if product.discount_percentage > 0 %}
+              <div class="d-flex flex-column me-3">
+                <span class="small text-decoration-line-through text-center">$ {{ product.pre_discount_price }}</span>
+                <span class="badge rounded-pill bg-warning text-dark small ms-2">-{{ product.discount_percentage }}%</span>
+              </div>
+              <span class="fw-bolder text-warning fs-5">&nbsp;$ <span class="product-price-js">{{ product.price }}</span></span>
+            {% else %}
+              <span class="fs-5">$ <span class="product-price-js">{{ product.price }}</span></span>
+            {% endif %}
+          </div>
+          <div class="checkout-final-column">
+            <span class="text-muted small">Quantity</span>
+            <select class="form-select form-select-sm qty-js"
+                    aria-label="Small select example">
+              <option value="1"
+                      {% if quantities|index:forloop.counter0 == 1 %}selected{% endif %}>1</option>
+              <option value="2"
+                      {% if quantities|index:forloop.counter0 == 2 %}selected{% endif %}>2</option>
+              <option value="3"
+                      {% if quantities|index:forloop.counter0 == 3 %}selected{% endif %}>3</option>
+              <option value="4"
+                      {% if quantities|index:forloop.counter0 == 4 %}selected{% endif %}>4</option>
+              <option value="5"
+                      {% if quantities|index:forloop.counter0 == 5 %}selected{% endif %}>5</option>
+              <option value="6"
+                      {% if quantities|index:forloop.counter0 == 6 %}selected{% endif %}>6</option>
+              <option value="7"
+                      {% if quantities|index:forloop.counter0 == 7 %}selected{% endif %}>7</option>
+              <option value="8"
+                      {% if quantities|index:forloop.counter0 == 8 %}selected{% endif %}>8</option>
+            </select>
+            <a class="my-2"href="">Move to Wishlist</a>
+            <a href="">Delete</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
   </div>
+  <script src="{% static 'assets/js/checkout.js' %}" defer></script>
 {% endblock %}

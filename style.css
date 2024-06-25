@@ -269,3 +269,45 @@ header .heading-text a:hover {
   color: white;
   transform: scale(1.1);
 }
+
+.checkout-product-container {
+  position: relative;
+  display: flex;
+  padding: 20px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.485);
+  border-radius: 10px;
+  margin: 10px 5px;
+}
+
+.price-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1 px solid black;
+  border-radius: 5px;
+  background-color: rgb(94, 94, 94);
+  color: white;
+  padding: 5px 10px;
+  position: absolute;
+  top: -5px;
+  right: -4px;
+}
+
+.checkout-final-column {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  position: absolute;
+  top: 55px;
+  right: 7px;
+}
+
+.checkout-final-column a {
+  font-size: 14px;
+  color: black;
+  text-decoration: none;
+}
+
+.checkout-final-column a:hover {
+  text-decoration: underline;
+}

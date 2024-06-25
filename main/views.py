@@ -9,6 +9,10 @@ import random
 
 
 def home(request):
+    shopping_bag = request.session.get('shopping_bag', {})
+    print('###########')
+    print(shopping_bag)
+    print('###########')
     template = 'main/index.html'
     context = {}
     return render(request, template, context)

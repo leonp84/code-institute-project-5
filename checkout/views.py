@@ -1,11 +1,19 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from product.models import Product
 import json
 
 
 def checkout(request):
-    del request.session['shopping_bag']
-    context = {}
+    shopping_bag = request.session.get('shopping_bag', {})
+    product_ids = [int(i) for i in shopping_bag.keys()]
+    quantities = [int(i) for i in shopping_bag.values()]
+    products_in_bag = Product.objects.filter(id__in=product_ids).order_by('id')
+
+    context = {
+      'products_in_bag': products_in_bag,
+      'quantities': quantities
+    }
     template = 'checkout/checkout.html'
     return render(request, template, context)
 
@@ -23,16 +31,12 @@ def add_item_to_bag(request):
         if product_to_add in shopping_bag.keys():
             # Update quantity of items already in shopping bag
             shopping_bag[product_to_add] += 1
-            print('already in the bag')
         else:
             # Create new item in shopping bag
             shopping_bag[product_to_add] = 1
-            print('new product')
 
-        request.session['shopping_bag'] = shopping_bag
+        # Sort the shopping bag by product id before saving to session
+        sorted_bag = dict(sorted(shopping_bag.items()))
+        request.session['shopping_bag'] = sorted_bag
 
-        check_again = request.session.get('shopping_bag', {})
-        print('##########')
-        print(check_again)
-        print('##########')
         return JsonResponse({'message': 'Item added to Shopping Bag'})
