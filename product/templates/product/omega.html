@@ -19,7 +19,9 @@
     </div>
   </div>
   <div class="container d-flex flex-wrap justify-content-evenly">
-    {% include '../includes/search_and_filter.html' %}
+    {% with path="omega" %}
+      {% include '../includes/search_and_filter.html' %}
+    {% endwith %}
     {% for product in products %}
       <a href="{% url 'product_detail' product.id %}"
          style="text-decoration: none">

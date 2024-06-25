@@ -9,10 +9,41 @@ from .forms import ProductForm
 import json
 
 
-def all_products(request):
-    products = Product.objects.all()
+def all_products(request, sort_by='title'):
+    products = Product.objects.all().order_by(sort_by)
     context = {'products': products}
     return render(request, 'product/all_products.html', context)
+
+
+def breitling(request, sort_by='title'):
+    products = Product.objects.filter(watch_brand='BR').order_by(sort_by)
+    context = {'products': products}
+    return render(request, 'product/breitling.html', context)
+
+
+def tag_heuer(request, sort_by='title'):
+    products = Product.objects.filter(watch_brand='TA').order_by(sort_by)
+    context = {'products': products}
+    return render(request, 'product/tag_heuer.html', context)
+
+
+def omega(request, sort_by='title'):
+    products = Product.objects.filter(watch_brand='OM').order_by(sort_by)
+    context = {'products': products}
+    return render(request, 'product/omega.html', context)
+
+
+def tissot(request, sort_by='title'):
+    products = Product.objects.filter(watch_brand='TI').order_by(sort_by)
+    context = {'products': products}
+    return render(request, 'product/tissot.html', context)
+
+
+def sale(request, sort_by='title'):
+    products = Product.objects.filter(
+      discount_percentage__gt=0).order_by(sort_by)
+    context = {'products': products}
+    return render(request, 'product/sale.html', context)
 
 
 def product_detail(request, product_id):
@@ -26,36 +57,6 @@ def product_detail(request, product_id):
                'bookmarked': bookmarked}
 
     return render(request, 'product/product_detail.html', context)
-
-
-def breitling(request):
-    products = Product.objects.filter(watch_brand='BR')
-    context = {'products': products}
-    return render(request, 'product/breitling.html', context)
-
-
-def tag_heuer(request):
-    products = Product.objects.filter(watch_brand='TA')
-    context = {'products': products}
-    return render(request, 'product/tag_heuer.html', context)
-
-
-def omega(request):
-    products = Product.objects.filter(watch_brand='OM')
-    context = {'products': products}
-    return render(request, 'product/omega.html', context)
-
-
-def tissot(request):
-    products = Product.objects.filter(watch_brand='TI')
-    context = {'products': products}
-    return render(request, 'product/tissot.html', context)
-
-
-def sale(request):
-    products = Product.objects.filter(discount_percentage__gt=0)
-    context = {'products': products}
-    return render(request, 'product/sale.html', context)
 
 
 def add_new_product(request):

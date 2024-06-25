@@ -2,38 +2,21 @@
   <div class="dropdown">
     <button class="btn btn-outline-secondary btn-sm dropdown-toggle"
             type="button"
-            id="dropdownMenuButton1"
+            id="sort-by"
             data-bs-toggle="dropdown"
             aria-expanded="false">Sort By</button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <ul class="dropdown-menu" aria-labelledby="sort-by">
       <li>
-        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="{% url path 'price' %}">Price (Ascending)</a>
       </li>
       <li>
-        <a class="dropdown-item" href="#">Another action</a>
-      </li>
-      <li>
-        <a class="dropdown-item" href="#">Something else here</a>
+        <a class="dropdown-item" href="{% url path '-price' %}">Price (Descending)</a>
       </li>
     </ul>
   </div>
   <div class="dropdown">
-    <button class="btn btn-outline-secondary btn-sm dropdown-toggle"
+    <button class="btn btn-outline-secondary btn-sm"
             type="button"
-            id="dropdownMenuButton1"
-            data-bs-toggle="dropdown"
-            aria-expanded="false">Filter By</button>
-    <ul class="dropdown-menu dropdown-menu-end"
-        aria-labelledby="dropdownMenuButton1">
-      <li>
-        <a class="dropdown-item" href="#">Action</a>
-      </li>
-      <li>
-        <a class="dropdown-item" href="#">Another action</a>
-      </li>
-      <li>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </li>
-    </ul>
+            id="search-scrolling-bar">Search</button>
   </div>
 </div>

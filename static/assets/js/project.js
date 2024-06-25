@@ -32,4 +32,9 @@ $(function () {
     $('#search-box').toggle();
     $('#search-box').find('input').focus();
   });
+
+  $('#search-scrolling-bar').on('click', function (e) {
+    $('#search-box').toggle();
+    $('#search-box').find('input').focus();
+  });
 });
