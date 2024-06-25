@@ -22,7 +22,7 @@ $(function () {
 
     setTimeout(() => {
       addItemToBag();
-    }, '3000');
+    }, '10');
   });
 
   $('#customer-message-form').on('submit', function (e) {
@@ -47,16 +47,34 @@ $(function () {
  *
  */
 function addItemToBag() {
-  if (window.localStorage.getItem('shoppingBagTotal') === null) {
-    window.localStorage.setItem('shoppingBagTotal', 1);
-    $('.bag-items-number').text('1');
-    $('.bag-items-number').show();
-  } else {
-    itemsInCart = parseInt(window.localStorage.getItem('shoppingBagTotal'));
-    itemsInCart += 1;
-    window.localStorage.setItem('shoppingBagTotal', itemsInCart);
-    $('.bag-items-number').text(itemsInCart);
-  }
+  itemsInCart = parseInt($('.bag-items-number').first().text());
+  itemsInCart += 1;
+  $('.bag-items-number').text(itemsInCart);
+  $('.bag-items-number').show();
+
+  // AJAX POST Request to update shopping bag
+  let productId = parseInt($('#product-id').text());
+  $.ajax({
+    url: '/checkout/add_item_to_bag/',
+    type: 'POST',
+    data: JSON.stringify({
+      product_id: productId,
+    }),
+    dataType: 'json',
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'X-CSRFToken': CSRF_TOKEN,
+    },
+    success: function (response) {
+      if (response.status === 'ok') {
+        console.log(response.message);
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error(error);
+    },
+  });
+
   $('#buy-button').html('Add an additional item');
   $('#buy-button').attr('disabled', false);
   $('#buy-button').css('background-color', '#212529');

@@ -9,6 +9,7 @@ urlpatterns = [
     path('my_account/', include('my_account.urls')),
     path('accounts/', include('allauth.urls')),
     path('product/', include('product.urls')),
+    path('checkout/', include('checkout.urls')),
 ]
 
 # Setting to serve Django Media files in Development environment

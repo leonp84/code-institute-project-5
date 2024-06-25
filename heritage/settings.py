@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'main',
     'product',
     'my_account',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,9 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
-MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+# Set Session storage expiration to 1 day and constant save
+SESSION_COOKIE_AGE = 86400
+SESSION_SAVE_EVERY_REQUEST = True
 
 ROOT_URLCONF = 'heritage.urls'
 
@@ -83,6 +86,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                # Context for Shopping Bag
+                'checkout.contexts.shopping_bag',
             ],
         },
     },
