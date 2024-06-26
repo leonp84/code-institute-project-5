@@ -40,3 +40,21 @@ def add_item_to_bag(request):
         request.session['shopping_bag'] = sorted_bag
 
         return JsonResponse({'message': 'Item added to Shopping Bag'})
+
+
+def update_shopping_bag(request):
+    shopping_bag = request.session.get('shopping_bag', {})
+    if request.method == 'POST':
+        data = json.load(request)
+        updated_products = data['updated_products']
+        updated_quantities = data['updated_quantities']
+        new_bag = {}
+        for i in range(len(updated_products)):
+            new_bag[updated_products[i]] = int(updated_quantities[i])
+
+        print('Old BAG')
+        print(shopping_bag)        
+        print('New BAG')
+        print(new_bag)
+
+        return JsonResponse({'message': 'Shopping Bag Updated'})
