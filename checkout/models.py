@@ -43,6 +43,8 @@ class Order(models.Model):
           order_number=self.order_number)
         text_data = ''
         for item in items:
-            text_data += f"{item.product_name_text} x {item.quantity} @ ${item.product_price} || "
+            text_data += f"{item.product_name_text} x {item.quantity}\n"
+            text_data += f"@ ${item.product_price}\n\n"
+            text_data += " || "
 
         return text_data

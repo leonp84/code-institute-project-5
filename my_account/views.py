@@ -7,6 +7,7 @@ from allauth.account.signals import user_logged_in, user_logged_out
 from django.dispatch import receiver
 from django.contrib import messages
 from product.models import Product
+from main.models import DiscountCode
 import json
 
 
@@ -72,6 +73,26 @@ def add_bookmarked_item(request):
             return JsonResponse({
               'status': '406',
               'message': 'User needs to log in'
+              })
+
+
+def check_discount_code(request):
+    if request.method == 'POST':
+        data = json.load(request)
+        code = data['code']
+
+        if DiscountCode.objects.filter(discount_code=code).exists():
+            found_code = DiscountCode.objects.filter(
+              discount_code=code).first()
+            found_code.delete()
+            return JsonResponse({
+              'status': 'ok',
+              'message': 'Code Accepted'
+              })
+        else:
+            return JsonResponse({
+              'status': '406',
+              'message': 'Code Invalid'
               })
 
 

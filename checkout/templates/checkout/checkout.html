@@ -84,9 +84,29 @@
     <br>
     <form method='post'>
       {{ form|crispy }}
-      <button type="submit" class="btn btn-lg btn-outline-success my-2 me-2">Pay Securely Via Credit Card</button>
       {% csrf_token %}
     </form>
+    <hr>
+    <div>
+      <form action="" id="discount-code-form" class="mb-3">
+        <div class="form-floating mt-2 mb-1">
+          <input type="text"
+                 class="form-control mb-1"
+                 id="discount-code-input"
+                 placeholder="name@example.com">
+          <label for="discount-code-input" class="text-success">Enter Discount Code Here</label>
+          <button id="code-submit-button" type="submit" class="btn btn-success btn-sm">Check Code Validity</button>
+        </form>
+        <span id="code-success" class="fw-bold text-success" style="display: none">✓ $100 Discount Applied</span>
+        <span id="code-error" class="fw-bold text-danger" style="display: none">That Code is Invalid</span>
+      </div>
+    </div>
+    <span>Amount to be paid</span>
+    <h4 class="mt-1 ms-2">
+      $ <span id="amount-to-pay">{{ grand_total }}</span>
+    </h4>
+    <button type="submit" class="btn btn-lg btn-success my-2 me-2">Pay Securely Via Credit Card</button>
+    <br>
   </div>
   <script src="{% static 'assets/js/checkout.js' %}" defer></script>
 {% endblock %}
