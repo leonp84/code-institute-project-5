@@ -3,10 +3,12 @@ from django.http import JsonResponse
 from product.models import Product
 from .models import CheckoutSingleItem
 import json
-import uuid
+import random
+import datetime
 
 
 def shopping_bag(request):
+    request.session['watch_care_plan'] = False
     shopping_bag = request.session.get('shopping_bag', {})
     product_ids = [int(i) for i in shopping_bag.keys()]
     quantities = [int(i) for i in shopping_bag.values()]
@@ -45,7 +47,6 @@ def add_item_to_bag(request):
 
 
 def update_shopping_bag(request):
-    shopping_bag = request.session.get('shopping_bag', {})
     if request.method == 'POST':
         data = json.load(request)
         updated_products = data['updated_products']
@@ -53,11 +54,6 @@ def update_shopping_bag(request):
         new_bag = {}
         for i in range(len(updated_products)):
             new_bag[updated_products[i]] = int(updated_quantities[i])
-
-        print('Old BAG')
-        print(shopping_bag)        
-        print('New BAG')
-        print(new_bag)
 
         return JsonResponse({'message': 'Shopping Bag Updated'})
 
@@ -75,23 +71,41 @@ def checkout(request):
     product_ids = [int(i) for i in shopping_bag.keys()]
     quantities = [int(i) for i in shopping_bag.values()]
 
-    q = '1234567891'
-    current_product = Product.objects.filter(id=product_ids[0]).first()
-    new_item = CheckoutSingleItem(
-      bag_id=q,
-      product=current_product,
-      product_price=current_product.price,
-      product_name_text=current_product.title,
-      product_ref_text=current_product.ref,
-      quantity=quantities[0]
-    )
-    new_item.save()
+    # Generate an order number using today's date and a 6-digit random suffix
+    order_number = ''
+    order_number += str(datetime.date.today()).replace('-', '')[2:]
+    order_number += '-'
+    order_number += str(random.randrange(100000, 999999))
 
-    checkout_items = CheckoutSingleItem.objects.filter(bag_id=q)
+    order_total = 0
+
+    for i in range(len(product_ids)):
+        current_product = Product.objects.filter(id=product_ids[i]).first()
+        new_item = CheckoutSingleItem(
+          order_number=order_number,
+          product=current_product,
+          product_price=current_product.price,
+          product_name_text=current_product.title,
+          product_ref_text=current_product.ref,
+          quantity=quantities[i]
+        )
+        new_item.save()
+        order_total += new_item.subtotal()
+
+    watch_care_plan_price = 0
+    if request.session.get('watch_care_plan'):
+        watch_care_plan_price = int(order_total / 100 * 2.5)
+
+    grand_total = order_total + watch_care_plan_price
+
+    checkout_items = CheckoutSingleItem.objects.filter(
+      order_number=order_number)
 
     context = {
       'checkout_items': checkout_items,
-      'watch_care_plan': request.session.get('watch_care_plan'),
+      'order_total': order_total,
+      'watch_care_plan_price': watch_care_plan_price,
+      'grand_total': grand_total
     }
     template = 'checkout/checkout.html'
     return render(request, template, context)

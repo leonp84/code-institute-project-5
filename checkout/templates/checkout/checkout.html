@@ -18,7 +18,11 @@
         Total for this product = <span>{{ item.subtotal }}</span>
       </p>
     {% endfor %}
-    <h3>Watch Care Plan Active? {{ watch_care_plan }}</h3>
+    <br>
+    <br>
+    <p>Order Total = {{ order_total }}</p>
+    <p>Watch Care Plan Price = {{ watch_care_plan_price }}</p>
+    <p>Order Grand Total = {{ grand_total }}</p>
     <script src="{% static 'assets/js/checkout.js' %}" defer></script>
   </div>
 {% endblock %}
