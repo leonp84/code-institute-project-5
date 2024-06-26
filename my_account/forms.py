@@ -7,7 +7,6 @@ from django.utils.translation import gettext_lazy as _
 class UserDetailsForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['user_first_name'].widget.attrs['autofocus'] = True
 
         for field in self.Meta.required:
             self.fields[field].required = True

@@ -1,28 +1,92 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% load custom_filters %}
 {% load static %}
 {% block content %}
   <div class="container col-12 mt-4 ">
     <h2 class="text-center mt-5">Checkout</h2>
-    <p class="small text-center">Please review your information below</p>
+    <p class="small text-center">Please review your information below.</p>
+    <p class="small text-center">Then proceed to complete the required shipping details.</p>
     <br>
-    {% for item in checkout_items %}
-      {{ item.product_name_text }}
-      {{ item.product_ref_text }}
-      <br>
-      <span>$ {{ item.product_price }}</span>
-      <br>
-      <span>How Many?</span>
-      <span>{{ item.quantity }}</span>
-      <p>
-        Total for this product = <span>{{ item.subtotal }}</span>
-      </p>
-    {% endfor %}
+    <div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th colspan="3" class="text-center">Checkout Items</th>
+          </tr>
+          <tr>
+            <th>Product</th>
+            <th>Product Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+          </tr>
+          {% for item in checkout_items %}
+            <tr>
+              <td>
+                <span>{{ item.product_name_text }}</span>
+              </td>
+              <td>$ {{ item.product_price }}</td>
+              <td>x {{ item.quantity }}</td>
+              <td>$ {{ item.subtotal }}</td>
+            </tr>
+          {% endfor %}
+          <tr>
+            <td>
+              <strong>Order Total</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              $ <u>{{ order_total }}</u>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <em class="text-muted">Watch Care Plan</em>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              {% if watch_care_plan_price > 0 %}
+                <em>$ {{ watch_care_plan_price }}</em>
+              {% else %}
+                <em>NOT INLCUDED</em>
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <em class="text-muted">Shipping</em>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <em>$ 0</em>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>GRAND TOTAL</strong>
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+              <strong>$ {{ grand_total }}</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <br>
     <br>
-    <p>Order Total = {{ order_total }}</p>
-    <p>Watch Care Plan Price = {{ watch_care_plan_price }}</p>
-    <p>Order Grand Total = {{ grand_total }}</p>
-    <script src="{% static 'assets/js/checkout.js' %}" defer></script>
+    <span class="small text-primary">Note that fields marked with an asterisk *, are required</span>
+    <br>
+    <br>
+    <form method='post'>
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-lg btn-outline-success my-2 me-2">Pay Securely Via Credit Card</button>
+      {% csrf_token %}
+    </form>
   </div>
+  <script src="{% static 'assets/js/checkout.js' %}" defer></script>
 {% endblock %}

@@ -22,8 +22,6 @@ class CheckoutSingleItem(models.Model):
 class Order(models.Model):
     user = models.ForeignKey(
       User, on_delete=models.SET_NULL, null=True, blank=True)
-    items_ordered = models.ForeignKey(
-      CheckoutSingleItem, on_delete=models.SET_NULL, null=True, blank=True)
     order_number = models.CharField(max_length=254)
     date_ordered = models.DateField(auto_now_add=True)
     first_name = models.CharField(max_length=254)
@@ -39,3 +37,12 @@ class Order(models.Model):
     watch_care_plan = models.BooleanField()
     grand_total = models.IntegerField()
     stripe_pid = models.CharField(max_length=254)
+
+    def items_ordered(self):
+        items = CheckoutSingleItem.objects.filter(
+          order_number=self.order_number)
+        text_data = ''
+        for item in items:
+            text_data += f"{item.product_name_text} x {item.quantity} @ ${item.product_price} || "
+
+        return text_data
