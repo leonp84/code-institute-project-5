@@ -311,3 +311,14 @@ header .heading-text a:hover {
 .checkout-final-column a:hover {
   text-decoration: underline;
 }
+
+#add-watch-care-plan {
+  background-color: rgba(0, 0, 0, 0.278);
+  height: 25px;
+  width: 50px;
+  cursor: pointer;
+}
+
+#add-watch-care-plan:checked {
+  background-color: blue;
+}
