@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from product.models import Product
+from .models import CheckoutSingleItem
 import json
+import uuid
 
 
-def checkout(request):
+def shopping_bag(request):
     shopping_bag = request.session.get('shopping_bag', {})
     product_ids = [int(i) for i in shopping_bag.keys()]
     quantities = [int(i) for i in shopping_bag.values()]
@@ -14,7 +16,7 @@ def checkout(request):
       'products_in_bag': products_in_bag,
       'quantities': quantities
     }
-    template = 'checkout/checkout.html'
+    template = 'checkout/shopping_bag.html'
     return render(request, template, context)
 
 
@@ -58,3 +60,38 @@ def update_shopping_bag(request):
         print(new_bag)
 
         return JsonResponse({'message': 'Shopping Bag Updated'})
+
+
+def update_watch_care_plan(request):
+    if request.method == 'POST':
+        data = json.load(request)
+        updated_plan = data['watch_care_plan']
+        request.session['watch_care_plan'] = updated_plan
+        return JsonResponse({'message': 'Watch Care Plan Updated'})
+
+
+def checkout(request):
+    shopping_bag = request.session.get('shopping_bag', {})
+    product_ids = [int(i) for i in shopping_bag.keys()]
+    quantities = [int(i) for i in shopping_bag.values()]
+
+    q = '1234567891'
+    current_product = Product.objects.filter(id=product_ids[0]).first()
+    new_item = CheckoutSingleItem(
+      bag_id=q,
+      product=current_product,
+      product_price=current_product.price,
+      product_name_text=current_product.title,
+      product_ref_text=current_product.ref,
+      quantity=quantities[0]
+    )
+    new_item.save()
+
+    checkout_items = CheckoutSingleItem.objects.filter(bag_id=q)
+
+    context = {
+      'checkout_items': checkout_items,
+      'watch_care_plan': request.session.get('watch_care_plan'),
+    }
+    template = 'checkout/checkout.html'
+    return render(request, template, context)

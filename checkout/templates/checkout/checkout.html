@@ -3,113 +3,22 @@
 {% load static %}
 {% block content %}
   <div class="container col-12 mt-4 ">
-    <h2 class="text-center">Checkout</h2>
+    <h2 class="text-center mt-5">Checkout</h2>
+    <p class="small text-center">Please review your information below</p>
     <br>
-    <div class="container-fluid d-flex flex-column flex-lg-row justify-content-evenly">
-      <div class="p-3 col-12 col-lg-2 checkout-product-container order-2 d-flex flex-column">
-        <h4>Subtotal</h4>
-        <hr>
-        <span class="fs-3">$ <span id="checkout-total" class="text-dark">0</span></span>
-        <hr>
-        <div>
-          <h5>Watch Care Plan</h5>
-          <div class="form-check form-switch my-2 d-flex justify-content-start align-items-center">
-            <input class="form-check-input me-2"
-                   type="checkbox"
-                   name="watch-care-plan"
-                   id="add-watch-care-plan">
-            <label class="form-check-label text-decoration-underline"
-                   for="add-watch-care-plan">Click to Add</label>
-          </div>
-          <p>
-            Consider adding a watch care plan to your order. For a fee of 2.5% of the order total, each purchased timepiece becomes eligible for:
-          </p>
-          <ul>
-            <li>One professional service and maintanence session</li>
-            <li>One care and deep-cleaning session</li>
-          </ul>
-          <p>These are Redeemable within the first three years after purchase.</p>
-        </div>
-        <a href="" class="btn btn-lg btn-warning my-3">Proceed to Checkout</a>
-      </div>
-      <div class="col-12 col-lg-9 order-1">
-        {% for product in products_in_bag %}
-          <div class="row justify-content-center">
-            <span style="display: none" class="product-id-js">{{ product.id }}</span>
-            <div class="col-12 checkout-product-container">
-              <div class="d-flex flex-wrap flex-md-nowrap">
-                <img src="{{ MEDIA_URL }}{{ product.image }}"
-                     alt=""
-                     width="auto"
-                     height="200"
-                     class="mb-1">
-                <div class=" col-8 col-md-6">
-                  <span class="fs-4 text-uppercase ">{{ product.get_watch_brand_display }}</span>
-                  <h5>{{ product.title }}</h5>
-                  <hr />
-                  <span>Watch Case Size: {{ product.watch_case_size }}mm</span>
-                  <br />
-                  <span>Watch Dial Color: {{ product.watch_dial_colour }}</span>
-                  <br />
-                  <span>Gender: {{ product.get_watch_gender_display }}</span>
-                  <hr />
-                </div>
-              </div>
-              <div class="price-container">
-                {% if product.discount_percentage > 0 %}
-                  <div class="d-flex flex-column me-3">
-                    <span class="small text-decoration-line-through text-center">$ {{ product.pre_discount_price }}</span>
-                    <span class="badge rounded-pill bg-warning text-dark small ms-2">-{{ product.discount_percentage }}%</span>
-                  </div>
-                  <span class="fw-bolder text-warning fs-5">&nbsp;$ <span class="product-price-js">{{ product.price }}</span></span>
-                {% else %}
-                  <span class="fs-5">$ <span class="product-price-js">{{ product.price }}</span></span>
-                {% endif %}
-              </div>
-              <div class="checkout-final-column">
-                <span class="text-muted small">Quantity</span>
-                <select class="form-select form-select-sm qty-js"
-                        aria-label="Small select example">
-                  <option value="1"
-                          {% if quantities|index:forloop.counter0 == 1 %}selected{% endif %}>1</option>
-                  <option value="2"
-                          {% if quantities|index:forloop.counter0 == 2 %}selected{% endif %}>2</option>
-                  <option value="3"
-                          {% if quantities|index:forloop.counter0 == 3 %}selected{% endif %}>3</option>
-                  <option value="4"
-                          {% if quantities|index:forloop.counter0 == 4 %}selected{% endif %}>4</option>
-                  <option value="5"
-                          {% if quantities|index:forloop.counter0 == 5 %}selected{% endif %}>5</option>
-                  <option value="6"
-                          {% if quantities|index:forloop.counter0 == 6 %}selected{% endif %}>6</option>
-                  <option value="7"
-                          {% if quantities|index:forloop.counter0 == 7 %}selected{% endif %}>7</option>
-                  <option value="8"
-                          {% if quantities|index:forloop.counter0 == 8 %}selected{% endif %}>8</option>
-                </select>
-                <a class="my-2"href="">Move to Wishlist</a>
-                <a href="" class="delete-item">Delete</a>
-              </div>
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-    <br>
-    <br>
-    <div class="col-12 mt-5 d-flex flex-column">
-      <hr>
-      <h6>Shipping</h6>
-      <p class="small">Heritage Company provides worldwide free shipping on all it's product.</p>
-      <hr>
-      <h6>Return Policy</h6>
-      <p class="small">All products come with a 60 day no questions asked right of return.</p>
-      <hr>
-      <h6>A note about taxes</h6>
-      <p class="small">
-        Customer may be liable to pay additional import tax depending on shipping destination. Please enquire at your local tax and customs authority.
+    {% for item in checkout_items %}
+      {{ item.product_name_text }}
+      {{ item.product_ref_text }}
+      <br>
+      <span>$ {{ item.product_price }}</span>
+      <br>
+      <span>How Many?</span>
+      <span>{{ item.quantity }}</span>
+      <p>
+        Total for this product = <span>{{ item.subtotal }}</span>
       </p>
-    </div>
+    {% endfor %}
+    <h3>Watch Care Plan Active? {{ watch_care_plan }}</h3>
+    <script src="{% static 'assets/js/checkout.js' %}" defer></script>
   </div>
-  <script src="{% static 'assets/js/checkout.js' %}" defer></script>
 {% endblock %}
