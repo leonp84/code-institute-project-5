@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
-from django.template.loader import render_to_string # noqa
+from django.template.loader import render_to_string
 from django.urls import reverse
 from django.conf import settings
 from .forms import NewsLetterSignupsForm
@@ -9,10 +9,6 @@ import random
 
 
 def home(request):
-    shopping_bag = request.session.get('shopping_bag', {})
-    print('###########')
-    print(shopping_bag)
-    print('###########')
     template = 'main/index.html'
     context = {}
     return render(request, template, context)

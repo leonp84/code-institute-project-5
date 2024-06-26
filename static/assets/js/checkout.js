@@ -1,4 +1,8 @@
 $(function () {
+  $('#submit-order').on('click', function () {
+    $('#order-form').submit();
+  });
+
   $('#discount-code-form').on('submit', function (e) {
     e.preventDefault();
     $('#code-submit-button').html(

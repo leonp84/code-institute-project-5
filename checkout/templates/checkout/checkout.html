@@ -108,7 +108,11 @@
       <span class="small text-primary">Note that fields marked with an asterisk *, are required</span>
       <br>
       <br>
-      <form method='post'>
+      <form method='post' id="order-form">
+        <div class="mb-3">
+          <label for="user-email" class="form-label">Email address*</label>
+          <input name="user_email" type="email" class="form-control" id="user-email" placeholder="" {% if user.is_authenticated %}value={{ user.email }}{% endif %} required>
+        </div>
         {{ form|crispy }}
         {% csrf_token %}
       </form>
@@ -131,7 +135,9 @@
       <h4 class="mt-1 ms-2">
         $ <span id="amount-to-pay">{{ grand_total }}</span>
       </h4>
-      <button type="submit" class="btn btn-lg btn-success my-2 me-2">Pay Securely Via Credit Card</button>
+      <button id="submit-order"
+              type="submit"
+              class="btn btn-lg btn-success my-2 me-2">Pay Securely Via Credit Card</button>
       <br>
     </div>
     <script src="{% static 'assets/js/checkout.js' %}" defer></script>

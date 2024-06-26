@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from django.http import JsonResponse
 from product.models import Product
 from .models import CheckoutSingleItem, Order
+from django.conf import settings
 from my_account.forms import UserDetailsForm
 from my_account.models import UserDetail
 import json
@@ -16,9 +19,15 @@ def shopping_bag(request):
     quantities = [int(i) for i in shopping_bag.values()]
     products_in_bag = Product.objects.filter(id__in=product_ids).order_by('id')
 
+    bag_empty = True
+    if len(products_in_bag) > 0:
+        bag_empty = False
+    else:
+        bag_empty = True
     context = {
       'products_in_bag': products_in_bag,
-      'quantities': quantities
+      'quantities': quantities,
+      'bag_empty': bag_empty
     }
     template = 'checkout/shopping_bag.html'
     return render(request, template, context)
@@ -98,9 +107,6 @@ def checkout(request):
         new_item.save()
         order_total += new_item.subtotal()
 
-    single_items_queryset = CheckoutSingleItem.objects.filter(
-      order_number=order_number)
-
     watch_care_plan_price = 0
     if request.session.get('watch_care_plan'):
         watch_care_plan_price = int(order_total / 100 * 2.5)
@@ -117,30 +123,12 @@ def checkout(request):
         customer_details_form = UserDetailsForm()
 
     if request.method == 'POST':
-        print('#######################')
-        print(request.user)
-        print(single_items_queryset)
-        print(order_number)
-        print(request.POST.get('user_first_name'))
-        print(request.POST.get('user_last_name'))
-        print(request.POST.get('user_phone_number'))
-        print(request.POST.get('user_street_address1'))
-        print(request.POST.get('user_street_address2'))
-        print(request.POST.get('user_city'))
-        print(request.POST.get('user_postcode'))
-        print(request.POST.get('user_country'))
-        print(request.POST.get('user_delivery_notes'))
-        print(order_total)
-        print(watch_care_plan_price)
-        print(grand_total)
-        print('** stripe_pid coming soon...')
-        print('#######################')
-
         new_order = Order(
               user=(request.user if request.user.is_authenticated else None),
               order_number=order_number,
               first_name=request.POST.get('user_first_name'),
               last_name=request.POST.get('user_last_name'),
+              email=request.POST.get('user_email'),
               phone_number=request.POST.get('user_phone_number'),
               street_address1=request.POST.get('user_street_address1'),
               street_address2=request.POST.get('user_street_address2'),
@@ -154,8 +142,27 @@ def checkout(request):
               stripe_pid='** stripe_pid coming soon...',
         )
         new_order.save()
-        print(new_order.items_ordered())
-        return render(request, 'main/index.html')
+
+        # Send Order Confirmation Email
+        subject = 'Order Confirmed | Heritage Company'
+        message = render_to_string(
+            'checkout/email_confirmation/email_confirmation.html',
+            {'new_order': new_order,
+             'our_email': settings.DEFAULT_FROM_EMAIL})
+
+        send_mail(
+            subject=subject,
+            html_message=message,
+            message='',
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[new_order.email],
+            )
+
+        context = {
+              'new_order': new_order,
+        }
+        template = 'checkout/order_confirmation.html'
+        return render(request, template, context)
 
     context = {
       'checkout_items': checkout_items,

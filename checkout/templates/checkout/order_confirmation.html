@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% load static %}
+{% block content %}
+  <div class="container col-8 mt-4 ">
+    <h2 class="text-center mt-5 mb-4">Thanks for you order!</h2>
+    <p>
+      We are grateful for your clientele and confirm that we have received your order at Heritage Company. Please check your order information below, and reach out to us in case any information is incorrect.
+    </p>
+    <p class="text-danger">This information has also been forwarded to your email adress.</p>
+    <span>Items are usually shipped 5 working days after order confirmation.</span>
+    <br>
+    <br>
+    <span>Order Number: <strong>{{ new_order.order_number }}</strong></span>
+    <br>
+    <span>Order Date: <strong>{{ new_order.date_ordered }}</strong></span>
+    <br>
+    <span>Order Total: <strong>${{ new_order.grand_total }}</strong></span>
+    <br>
+    <br>
+    <span>The following shipping information was provided:</span>
+    <br>
+    <br>
+    <ul>
+      <li>
+        STREET:   <strong>{{ new_order.street_address1 }} {{ new_order.street_address2 }}</strong>
+      </li>
+      <li>
+        CITY:     <strong>{{ new_order.city }}</strong>
+      </li>
+      <li>
+        POSTCODE: <strong>{{ new_order.postcode }}</strong>
+      </li>
+      <li>
+        COUNTRY:  <strong>{{ new_order.country }}</strong>
+      </li>
+    </ul>
+    <br>
+    <p>
+      If any questions arise during the processing of your order, we will reach out via phone at: <strong>{{ new_order.phone_number }}</strong>.
+    </p>
+    <br>
+    <a href="{% url 'home' %}" class="btn btn-lg btn-outline-dark">Conitnue Shopping</a>
+  </div>
+  <script src="{% static 'assets/js/shopping_bag.js' %}" defer></script>
+{% endblock %}

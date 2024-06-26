@@ -1,7 +1,7 @@
 {% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name %}Greetings from Heritage Company!{% endblocktrans %}
 
 {% block content %}{% endblock content %}
-________________
+_______________
 HERITAGE COMPANY
 Exquisite Timepieces. Timeless Heritage.
 

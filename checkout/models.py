@@ -26,6 +26,7 @@ class Order(models.Model):
     date_ordered = models.DateField(auto_now_add=True)
     first_name = models.CharField(max_length=254)
     last_name = models.CharField(max_length=254)
+    email = models.EmailField(max_length=254)
     phone_number = models.CharField(max_length=254)
     street_address1 = models.CharField(max_length=254)
     street_address2 = models.CharField(max_length=254, blank=True)
