@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.contrib.auth.models import User
 from django.http import JsonResponse
 from product.models import Product
 from .models import CheckoutSingleItem, Order
@@ -141,6 +142,47 @@ def checkout(request):
               grand_total=grand_total,
               stripe_pid='** stripe_pid coming soon...',
         )
+
+        # Create New User Account (with temporary password), along with Order
+        temp_passw = generate_password()
+        
+        # XXXXX No - use createuser()
+        # user = User.objects.create_user(username='john',
+        #                          email='jlennon@beatles.com',
+        #                          password='glass onion')
+        new_user = User(
+          username=request.POST.get('user_email'),
+          email=request.POST.get('user_email'),
+          password=temp_passw
+        )
+        new_user.save()
+
+        # Complete New User Account Details using Order Details
+        new_user_info = UserDetail.objects.filter(user=new_user).first()
+        # XXXXX Don't use data from new order if it has not been saved, rather 
+        # request.POST form data...
+        new_user_info.user_first_name = request.POST.get('user_first_name')
+        new_user_info.save()
+
+        # Assign new Order to newly registered User
+        new_order.user = new_user
+
+        # Send New Account Creation Confirmation Email
+        subject = 'Account Created | Heritage Company'
+        message = render_to_string(
+            'checkout/email_confirmation/email_account.html',
+            {'user_name': new_user.username,
+             'temp_passw': temp_passw})
+
+        # Users are instructed to change/personalize their password ASAP.
+        send_mail(
+            subject=subject,
+            html_message=message,
+            message='',
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[new_user.email],
+            )
+
         new_order.save()
 
         # Send Order Confirmation Email
@@ -173,3 +215,18 @@ def checkout(request):
     }
     template = 'checkout/checkout.html'
     return render(request, template, context)
+
+
+def generate_password():
+    p1 = [i for i in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+    p2 = [i for i in 'abcdefghijklmnopqrstuvwxyz']
+    p3 = [i for i in '0123456789']
+    p4 = [i for i in '!@#$%^&*()-_=[]|;:,.<>?/~`"']
+    p5 = [p1, p2, p3, p4]
+
+    new_password = ''
+    for i in range(10):
+        item = random.choice(p5)
+        new_password += random.choice(item)
+
+    return new_password
