@@ -144,16 +144,10 @@
             <hr>
           </div>
         {% endif %}
-        <div class="border border-success border-2 p-3 my-3">
-          <div id="payment-element">
-            <!--Stripe.js injects the Payment Element-->
-          </div>
-          <div id="payment-message" class="hidden"></div>
-          {% csrf_token %}
-          <button id="submit-order"
-                  type="submit"
-                  class="btn btn-lg btn-success my-2 me-2">Pay Securely Via Credit Card</button>
-        </div>
+        {% csrf_token %}
+        <button id="submit-order"
+                type="submit"
+                class="btn btn-lg btn-success my-2 me-2">Continue to Payment</button>
       </form>
       <hr>
       <div>
@@ -193,7 +187,6 @@
     <script src="https://js.stripe.com/v3/"></script>
     <!-- Page Specific Javascript -->
     <script src="{% static 'assets/js/checkout.js' %}" defer></script>
-    <script src="{% static 'assets/js/checkout_stripe.js' %}" defer></script>
     <!-- On Page (hidden) CSFR Token var Jquery Ajax -> Django Backend communication -->
     <script>let CSRF_TOKEN = '{{ csrf_token }}';</script>
   </body>

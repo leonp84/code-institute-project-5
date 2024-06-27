@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 from product.models import Product
 from .models import CheckoutSingleItem, Order
+from .forms import OrderForm
 from django.conf import settings
 from my_account.forms import UserDetailsForm
 from my_account.models import UserDetail
@@ -90,10 +91,46 @@ def checkout_data(request):
         amount=amount,
         currency='usd',
     )
+
     return JsonResponse({
         'clientSecret': intent['client_secret'],
         'status_code': 200
     })
+
+
+def order_confirmation(request, params):
+    order_number = request.session.get('order_number')
+    paid_order = Order.objects.filter(order_number=order_number).first()
+    print(paid_order.stripe_pid)
+    paid_order.stripe_pid = "Payment is done, whohoo!"
+    print(paid_order.stripe_pid)
+    paid_order.save()
+
+    # Send Order Confirmation Email
+    # subject = 'Order Confirmed | Heritage Company'
+    # message = render_to_string(
+    #     'checkout/email_confirmation/email_confirmation.html',
+    #     {'new_order': new_order,
+    #       'our_email': settings.DEFAULT_FROM_EMAIL})
+
+    # send_mail(
+    #     subject=subject,
+    #     html_message=message,
+    #     message='',
+    #     from_email=settings.DEFAULT_FROM_EMAIL,
+    #     recipient_list=[new_order.email],
+    #     )
+    context = {'new_order': paid_order}
+    template = 'checkout/order_confirmation.html'
+    return render(request, template, context)
+
+
+def order_payment(request):
+    order_number = request.session.get('order_number')
+    unpaid_order = Order.objects.filter(order_number=order_number).first()
+    context = {'new_order': unpaid_order}
+    template = 'checkout/order_payment.html'
+    return render(request, template, context)
 
 
 def checkout(request):
@@ -106,6 +143,8 @@ def checkout(request):
     order_number += str(datetime.date.today()).replace('-', '')[2:]
     order_number += '-'
     order_number += str(random.randrange(100000, 999999))
+    # Store Order Number in session to update model in after payment
+    request.session['order_number'] = order_number
 
     order_total = 0
 
@@ -141,24 +180,24 @@ def checkout(request):
 
     if request.method == 'POST':
 
-        new_order = Order(
-              user=(request.user if request.user.is_authenticated else None),
-              order_number=order_number,
-              first_name=request.POST.get('user_first_name'),
-              last_name=request.POST.get('user_last_name'),
-              email=request.POST.get('user_email'),
-              phone_number=request.POST.get('user_phone_number'),
-              street_address1=request.POST.get('user_street_address1'),
-              street_address2=request.POST.get('user_street_address2'),
-              city=request.POST.get('user_city'),
-              postcode=request.POST.get('user_postcode'),
-              country=request.POST.get('user_country'),
-              delivery_notes=request.POST.get('user_delivery_notes'),
-              order_total=order_total,
-              watch_care_plan=(True if watch_care_plan_price > 0 else False),
-              grand_total=grand_total,
-              stripe_pid='** stripe_pid coming soon...',
-        )
+        new_order = OrderForm({
+            'user': request.user if request.user.is_authenticated else None,
+            'order_number': order_number,
+            'first_name': request.POST.get('user_first_name'),
+            'last_name': request.POST.get('user_last_name'),
+            'email': request.POST.get('user_email'),
+            'phone_number': request.POST.get('user_phone_number'),
+            'street_address1': request.POST.get('user_street_address1'),
+            'street_address2': request.POST.get('user_street_address2'),
+            'city': request.POST.get('user_city'),
+            'postcode': request.POST.get('user_postcode'),
+            'country': request.POST.get('user_country'),
+            'delivery_notes': request.POST.get('user_delivery_notes'),
+            'order_total': order_total,
+            'watch_care_plan': (True if watch_care_plan_price > 0 else False),
+            'grand_total': grand_total,
+            'stripe_pid': '** stripe_pid coming soon...',
+        })
 
         if request.POST.get('create_new_account') == 'True':
             # Create New User Account (with temporary password)
@@ -211,29 +250,12 @@ def checkout(request):
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[new_user.email],
                 )
+        if new_order.is_valid():
+            new_order.save()
+        else:
+            print(new_order.errors)
 
-        new_order.save()
-
-        # Send Order Confirmation Email
-        subject = 'Order Confirmed | Heritage Company'
-        message = render_to_string(
-            'checkout/email_confirmation/email_confirmation.html',
-            {'new_order': new_order,
-             'our_email': settings.DEFAULT_FROM_EMAIL})
-
-        send_mail(
-            subject=subject,
-            html_message=message,
-            message='',
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[new_order.email],
-            )
-
-        context = {
-              'new_order': new_order,
-        }
-        template = 'checkout/order_confirmation.html'
-        return render(request, template, context)
+        return HttpResponseRedirect(reverse('order_payment', args=[]))
 
     context = {
       'checkout_items': checkout_items,
@@ -259,7 +281,3 @@ def generate_password():
         new_password += random.choice(item)
 
     return new_password
-
-
-def test_form_submit(request):
-    print(request.POST)

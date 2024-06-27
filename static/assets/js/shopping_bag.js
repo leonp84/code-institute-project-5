@@ -77,21 +77,18 @@ function updatePrice() {
   for (i = 0; i < products.length; i++) {
     productsArr.push(products[i].innerText.replace(',', ''));
   }
-  console.log(productsArr);
 
   prices = document.body.getElementsByClassName('product-price-js');
   let pricesArr = [];
   for (i = 0; i < prices.length; i++) {
     pricesArr.push(prices[i].innerText.replace(',', ''));
   }
-  console.log(pricesArr);
 
   quantities = document.body.getElementsByClassName('qty-js');
   let quantitiesArr = [];
   for (i = 0; i < quantities.length; i++) {
     quantitiesArr.push(parseInt(quantities[i].value));
   }
-  console.log(quantitiesArr);
   let totalPrice = 0;
   for (i = 0; i < prices.length; i++) {
     totalPrice += parseInt(quantitiesArr[i]) * parseInt(pricesArr[i]);

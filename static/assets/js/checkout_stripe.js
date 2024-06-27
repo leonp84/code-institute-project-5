@@ -43,17 +43,16 @@ async function initialize(amountToPay, stripe) {
 async function handleSubmit(e, stripe) {
   e.preventDefault();
   // setLoading(true);
+  returnUrl =
+    'https://' + window.location.hostname + '/checkout/order_confirmation/';
 
   const { error } = await stripe.confirmPayment({
     elements,
     confirmParams: {
-      // Make sure to change this to your payment completion page
-
-      return_url:
-        'https://8000-leonp84-codeinstitutepr-r2v2xxpdluu.ws.codeinstitute-ide.net/checkout/order_confirmation.html',
+      return_url: returnUrl,
     },
-    redirect: 'if_required',
   });
+
   if (error.type === 'card_error' || error.type === 'validation_error') {
     showMessage(error.message);
   } else {

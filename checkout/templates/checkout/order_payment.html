@@ -1,0 +1,75 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Favicon -->
+    <link rel="shortcut icon"
+          href="{% static 'assets/favicon/favicon.ico' %}"
+          type="image/x-icon" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+          crossorigin="anonymous" />
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    <title>Heritage Company | Checkout</title>
+  </head>
+  <body>
+    <header>
+      <div class="bg-dark d-flex justify-content-center">
+        <a href="{% url 'home' %}">
+          <div class="text-center d-flex flex-column justify-content-center col-6 heading-text p-3">
+            <h1 class="heading-font">Heritage Company</h1>
+            <span>
+              <em>Luxury Timepieces that form a legacy</em>
+            </span>
+          </a>
+          <h1 class="mt-5 mb-3 text-light">SECURE CHECKOUT</h1>
+        </div>
+      </div>
+    </header>
+    <div class="container col-12 mt-4 mb-5">
+      <p class="text-center">Please review your information below.</p>
+      <p class="text-center">Then proceed to complete the required shipping details.</p>
+      <br>
+      <span>Amount to be paid</span>
+      <h4 class="mt-1 ms-2">
+        $ <span id="amount-to-pay">{{ new_order.grand_total }}</span>
+      </h4>
+      <form action="" id="payment-form">
+        <div class="border border-success border-2 p-3 my-3">
+          <div id="payment-element">
+            <!--Stripe.js injects the Payment Element-->
+          </div>
+          <div id="payment-message" class="hidden"></div>
+          {% csrf_token %}
+          <button id="submit-order"
+                  type="submit"
+                  class="btn btn-lg btn-success my-2 me-2">Pay Securely Via Credit Card</button>
+        </div>
+      </form>
+    </div>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous"></script>
+    <!-- Bootstrap Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0d8d5fb198.js"
+            crossorigin="anonymous"></script>
+    <!-- Project Wide JavaScript -->
+    <script src="{% static 'assets/js/project.js' %}" defer></script>
+    <!-- Stripe Javascript -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- Page Specific Javascript -->
+    <script src="{% static 'assets/js/checkout.js' %}" defer></script>
+    <script src="{% static 'assets/js/checkout_stripe.js' %}" defer></script>
+    <!-- On Page (hidden) CSFR Token var Jquery Ajax -> Django Backend communication -->
+    <script>let CSRF_TOKEN = '{{ csrf_token }}';</script>
+  </body>
+</html>
