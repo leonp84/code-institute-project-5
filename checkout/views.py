@@ -8,6 +8,7 @@ from .models import CheckoutSingleItem, Order
 from django.conf import settings
 from my_account.forms import UserDetailsForm
 from my_account.models import UserDetail
+from django.contrib import messages
 import json
 import random
 import datetime
@@ -105,7 +106,7 @@ def checkout(request):
           product_ref_text=current_product.ref,
           quantity=quantities[i]
         )
-        new_item.save()
+        # new_item.save()
         order_total += new_item.subtotal()
 
     watch_care_plan_price = 0
@@ -143,45 +144,57 @@ def checkout(request):
               stripe_pid='** stripe_pid coming soon...',
         )
 
-        # Create New User Account (with temporary password), along with Order
-        temp_passw = generate_password()
-        
-        # XXXXX No - use createuser()
-        # user = User.objects.create_user(username='john',
-        #                          email='jlennon@beatles.com',
-        #                          password='glass onion')
-        new_user = User(
-          username=request.POST.get('user_email'),
-          email=request.POST.get('user_email'),
-          password=temp_passw
-        )
-        new_user.save()
+        if request.POST.get('create_new_account') == 'True':
+            # Create New User Account (with temporary password)
+            temp_passw = generate_password()
 
-        # Complete New User Account Details using Order Details
-        new_user_info = UserDetail.objects.filter(user=new_user).first()
-        # XXXXX Don't use data from new order if it has not been saved, rather 
-        # request.POST form data...
-        new_user_info.user_first_name = request.POST.get('user_first_name')
-        new_user_info.save()
+            # Check if new account email already exists, and return error if so
+            new_email = request.POST.get('user_email')
+            if User.objects.filter(email=new_email).exists():
+                messages.error(request, 'That account already exists! Please'
+                                        ' sign in and try again.',
+                                        extra_tags='ERROR')
+                return render(request, 'main/index.html')
 
-        # Assign new Order to newly registered User
-        new_order.user = new_user
+            new_user = User.objects.create_user(
+                        username=request.POST.get('user_email'),
+                        email=request.POST.get('user_email'),
+                        password=temp_passw)
+            new_user.save()
 
-        # Send New Account Creation Confirmation Email
-        subject = 'Account Created | Heritage Company'
-        message = render_to_string(
-            'checkout/email_confirmation/email_account.html',
-            {'user_name': new_user.username,
-             'temp_passw': temp_passw})
+            # Complete New User Account Details using Order Details
+            new_user_info = UserDetail.objects.filter(user=new_user).first()
+            new_user_info.user_first_name = request.POST.get('user_first_name')
+            new_user_info.user_last_name = request.POST.get('user_last_name')
+            new_user_info.user_phone_number = request.POST.get(
+              'user_phone_number')
+            new_user_info.user_street_address1 = request.POST.get(
+              'user_street_address1')
+            new_user_info.user_street_address2 = request.POST.get(
+              'user_street_address2')
+            new_user_info.user_city = request.POST.get('user_city')
+            new_user_info.user_postcode = request.POST.get('user_postcode')
+            new_user_info.user_country = request.POST.get('user_country')
+            new_user_info.save()
 
-        # Users are instructed to change/personalize their password ASAP.
-        send_mail(
-            subject=subject,
-            html_message=message,
-            message='',
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[new_user.email],
-            )
+            # Assign new Order to newly registered User
+            new_order.user = new_user
+
+            # Send New Account Creation Confirmation Email
+            subject = 'Account Created | Heritage Company'
+            message = render_to_string(
+                'checkout/email_confirmation/email_account.html',
+                {'user_name': new_user.username,
+                 'temp_passw': temp_passw})
+
+            # Users are instructed to change/personalize their password ASAP.
+            send_mail(
+                subject=subject,
+                html_message=message,
+                message='',
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[new_user.email],
+                )
 
         new_order.save()
 
@@ -230,3 +243,7 @@ def generate_password():
         new_password += random.choice(item)
 
     return new_password
+
+
+def test_form_submit(request):
+    print(request.POST)

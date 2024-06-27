@@ -104,6 +104,16 @@
         </table>
       </div>
       <br>
+      {% if not user.is_authenticated %}
+        <hr>
+        <p>
+          <em>Do we already have your details on record?</em>
+        </p>
+        <h5>
+          Consider <a href="{% url 'account_login' %}">Singing in</a> to speed up the checkout process.
+        </h5>
+        <hr>
+      {% endif %}
       <br>
       <span class="small text-primary">Note that fields marked with an asterisk *, are required</span>
       <br>
@@ -114,7 +124,30 @@
           <input name="user_email" type="email" class="form-control" id="user-email" placeholder="" {% if user.is_authenticated %}value={{ user.email }}{% endif %} required>
         </div>
         {{ form|crispy }}
+        <hr>
+        {% if not user.is_authenticated %}
+          <div class="bg-secondary bg-gradient p-1 px-3 text-dark">
+            <hr>
+            <p>
+              <em>Should we save this information and create an account for you?</em>
+            </p>
+            <div class="form-check">
+              <input class="form-check-input text-primary"
+                     type="checkbox"
+                     name="create_new_account"
+                     value="True"
+                     id="create-new-account">
+              <label class="form-check-label" for="create-new-account">
+                Yes, please create an account and email me a temporary password.
+              </label>
+            </div>
+            <hr>
+          </div>
+        {% endif %}
         {% csrf_token %}
+        <button id="submit-order"
+                type="submit"
+                class="btn btn-lg btn-success my-2 me-2">Pay Securely Via Credit Card</button>
       </form>
       <hr>
       <div>
@@ -135,9 +168,6 @@
       <h4 class="mt-1 ms-2">
         $ <span id="amount-to-pay">{{ grand_total }}</span>
       </h4>
-      <button id="submit-order"
-              type="submit"
-              class="btn btn-lg btn-success my-2 me-2">Pay Securely Via Credit Card</button>
       <br>
     </div>
     <script src="{% static 'assets/js/checkout.js' %}" defer></script>
