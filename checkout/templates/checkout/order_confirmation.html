@@ -11,11 +11,11 @@
     <span>Items are usually shipped 5 working days after order confirmation.</span>
     <br>
     <br>
-    <span>Order Number: <strong>{{ new_order.order_number }}</strong></span>
+    <span>Order Number: <strong>{{ paid_order.order_number }}</strong></span>
     <br>
-    <span>Order Date: <strong>{{ new_order.date_ordered }}</strong></span>
+    <span>Order Date: <strong>{{ paid_order.date_ordered }}</strong></span>
     <br>
-    <span>Order Total: <strong>${{ order }}</strong></span>
+    <span>Order Total: <strong>${{ paid_order.grand_total }}</strong></span>
     <br>
     <br>
     <span>The following shipping information was provided:</span>
@@ -23,21 +23,21 @@
     <br>
     <ul>
       <li>
-        STREET:   <strong>{{ new_order.street_address1 }} {{ new_order.street_address2 }}</strong>
+        STREET:   <strong>{{ paid_order.street_address1 }} {{ paid_order.street_address2 }}</strong>
       </li>
       <li>
-        CITY:     <strong>{{ new_order.city }}</strong>
+        CITY:     <strong>{{ paid_order.city }}</strong>
       </li>
       <li>
-        POSTCODE: <strong>{{ new_order.postcode }}</strong>
+        POSTCODE: <strong>{{ paid_order.postcode }}</strong>
       </li>
       <li>
-        COUNTRY:  <strong>{{ new_order.country }}</strong>
+        COUNTRY:  <strong>{{ paid_order.country }}</strong>
       </li>
     </ul>
     <br>
     <p>
-      If any questions arise during the processing of your order, we will reach out via phone at: <strong>{{ new_order.phone_number }}</strong>.
+      If any questions arise during the processing of your order, we will reach out via phone at: <strong>{{ paid_order.phone_number }}</strong>.
     </p>
     <br>
     <a href="{% url 'home' %}" class="btn btn-lg btn-outline-dark">Continue Shopping</a>

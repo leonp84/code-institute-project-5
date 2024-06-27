@@ -4,7 +4,8 @@ from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.http import JsonResponse, HttpResponseRedirect
 from product.models import Product
-from .models import CheckoutSingleItem, Order
+from checkout.models import Order
+from .models import CheckoutSingleItem
 from .forms import OrderForm
 from django.conf import settings
 from my_account.forms import UserDetailsForm
@@ -83,56 +84,6 @@ def update_watch_care_plan(request):
         return JsonResponse({'message': 'Watch Care Plan Updated'})
 
 
-def checkout_data(request):
-    data = json.loads(request.body)
-    amount = data['amount']
-    stripe.api_key = settings.STRIPE_SECRET_KEY
-    intent = stripe.PaymentIntent.create(
-        amount=amount,
-        currency='usd',
-    )
-
-    return JsonResponse({
-        'clientSecret': intent['client_secret'],
-        'status_code': 200
-    })
-
-
-def order_confirmation(request, params):
-    order_number = request.session.get('order_number')
-    paid_order = Order.objects.filter(order_number=order_number).first()
-    print(paid_order.stripe_pid)
-    paid_order.stripe_pid = "Payment is done, whohoo!"
-    print(paid_order.stripe_pid)
-    paid_order.save()
-
-    # Send Order Confirmation Email
-    # subject = 'Order Confirmed | Heritage Company'
-    # message = render_to_string(
-    #     'checkout/email_confirmation/email_confirmation.html',
-    #     {'new_order': new_order,
-    #       'our_email': settings.DEFAULT_FROM_EMAIL})
-
-    # send_mail(
-    #     subject=subject,
-    #     html_message=message,
-    #     message='',
-    #     from_email=settings.DEFAULT_FROM_EMAIL,
-    #     recipient_list=[new_order.email],
-    #     )
-    context = {'new_order': paid_order}
-    template = 'checkout/order_confirmation.html'
-    return render(request, template, context)
-
-
-def order_payment(request):
-    order_number = request.session.get('order_number')
-    unpaid_order = Order.objects.filter(order_number=order_number).first()
-    context = {'new_order': unpaid_order}
-    template = 'checkout/order_payment.html'
-    return render(request, template, context)
-
-
 def checkout(request):
     shopping_bag = request.session.get('shopping_bag', {})
     product_ids = [int(i) for i in shopping_bag.keys()]
@@ -180,8 +131,8 @@ def checkout(request):
 
     if request.method == 'POST':
 
-        new_order = OrderForm({
-            'user': request.user if request.user.is_authenticated else None,
+        new_order_info = {
+            'user': None,
             'order_number': order_number,
             'first_name': request.POST.get('user_first_name'),
             'last_name': request.POST.get('user_last_name'),
@@ -196,8 +147,10 @@ def checkout(request):
             'order_total': order_total,
             'watch_care_plan': (True if watch_care_plan_price > 0 else False),
             'grand_total': grand_total,
-            'stripe_pid': '** stripe_pid coming soon...',
-        })
+            'stripe_pid': '',
+        }
+
+        request.session['cached_order'] = new_order_info
 
         if request.POST.get('create_new_account') == 'True':
             # Create New User Account (with temporary password)
@@ -232,9 +185,6 @@ def checkout(request):
             new_user_info.user_country = request.POST.get('user_country')
             new_user_info.save()
 
-            # Assign new Order to newly registered User
-            new_order.user = new_user
-
             # Send New Account Creation Confirmation Email
             subject = 'Account Created | Heritage Company'
             message = render_to_string(
@@ -250,10 +200,6 @@ def checkout(request):
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[new_user.email],
                 )
-        if new_order.is_valid():
-            new_order.save()
-        else:
-            print(new_order.errors)
 
         return HttpResponseRedirect(reverse('order_payment', args=[]))
 
@@ -265,6 +211,63 @@ def checkout(request):
       'form': customer_details_form
     }
     template = 'checkout/checkout.html'
+    return render(request, template, context)
+
+
+def order_payment(request):
+    cached_order = request.session.get('cached_order')
+    grand_total = cached_order['grand_total']
+    context = {'grand_total': grand_total}
+    template = 'checkout/order_payment.html'
+    return render(request, template, context)
+
+
+def checkout_data(request):
+    data = json.loads(request.body)
+    amount = data['amount']
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    intent = stripe.PaymentIntent.create(
+        amount=amount,
+        currency='usd',
+    )
+
+    return JsonResponse({
+        'clientSecret': intent['client_secret'],
+        'status_code': 200
+    })
+
+
+def order_confirmation(request, params):
+    payment_intent = request.GET['payment_intent']
+    request.session['cached_order']['stripe_pid'] = payment_intent
+    cached_order = request.session.get('cached_order')
+    paid_order_form = OrderForm(data=cached_order)
+    if paid_order_form.is_valid():
+        paid_order_form.save()
+    else:
+        print(paid_order_form.errors)
+
+    paid_order = Order.objects.filter(stripe_pid=payment_intent).first()
+    paid_order.user = request.user
+    paid_order.save()
+
+    # Send Order Confirmation Email
+    subject = 'Order Confirmed | Heritage Company'
+    message = render_to_string(
+        'checkout/email_confirmation/email_confirmation.html',
+        {'paid_order': paid_order,
+         'our_email': settings.DEFAULT_FROM_EMAIL})
+
+    send_mail(
+        subject=subject,
+        html_message=message,
+        message='',
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        recipient_list=[paid_order.email],
+        )
+
+    context = {'paid_order': paid_order}
+    template = 'checkout/order_confirmation.html'
     return render(request, template, context)
 
 
