@@ -148,13 +148,76 @@
         {% endif %}
       </div>
       <div class="col-12 col-md-4 my-account-container">
-        <h4>Other Settings</h4>
-        <a href="{% url 'account_set_password' %}"
-           class="btn btn-sm btn-outline-dark mt-2">Change Your Password</a>
+        <h4>Your Past Purchases</h4>
         <br>
-        <a href="{% url 'account_logout' %}"
-           class="btn btn-sm btn-outline-dark mt-2">Log Out</a>
+        {% if past_orders|length == 0 %}
+          <div class="d-flex justify-content-center flex-column">
+            <em class="text-center">You have not made any purchases yet.</em>
+            <br>
+            <a class="btn btn-outline-dark"  href="{% url 'all_products' %}">See our Collection</a>
+          </div>
+        {% else %}
+          {% for order in past_orders %}
+            <div class="accordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="{{ forloop.counter }}">
+                  <button class="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapse-{{ forloop.counter }}"
+                          aria-expanded="false"
+                          aria-controls="collapse-{{ forloop.counter }}">
+                    Order Number: {{ order.order_number }}
+                  </button>
+                </h2>
+                <div id="collapse-{{ forloop.counter }}"
+                     class="accordion-collapse collapse"
+                     aria-labelledby="{{ forloop.counter }}"
+                     data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <span>Order Date: <strong>{{ order.date_ordered }}</strong></span>
+                    <br>
+                    <span>Order Total: <strong>$ {{ order.grand_total }}</strong></span>
+                    <br>
+                    <br>
+                    <strong>Delivery:</strong>
+                    <br>
+                    <span>Street: <strong>{{ order.street_address1 }}</strong></span>
+                    <br>
+                    <span>City: <strong>{{ order.city }}</strong></span>
+                    <br>
+                    <span>Postcode: <strong>{{ order.postcode }}</strong></span>
+                    <br>
+                    <span>Country: <strong>{{ order.country }}</strong></span>
+                    <br>
+                    <br>
+                    <span>Order Items:</span>
+                    <br>
+                    <span>{{ order.items_ordered|safe }}</span>
+                    <br>
+                    <span>Watch Care Plan: <strong>
+                      {% if order.watch_care_plan %}
+                        INCLUDED
+                      {% else %}
+                        NOT INCLUDED
+                      {% endif %}
+                    </strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+          {% endfor %}
+        {% endif %}
       </div>
+    </div>
+    <div class="ms-4 mt-4">
+      <h4>Other Settings</h4>
+      <a href="{% url 'account_set_password' %}"
+         class="btn btn-sm btn-outline-dark mt-2">Change Your Password</a>
+      <br>
+      <a href="{% url 'account_logout' %}"
+         class="btn btn-sm btn-outline-dark mt-2">Log Out</a>
     </div>
   </div>
   {% include '../includes/my_account_toasts.html' %}

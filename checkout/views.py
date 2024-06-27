@@ -106,7 +106,7 @@ def checkout(request):
           product_ref_text=current_product.ref,
           quantity=quantities[i]
         )
-        # new_item.save()
+        new_item.save()
         order_total += new_item.subtotal()
 
     watch_care_plan_price = 0

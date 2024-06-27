@@ -7,6 +7,7 @@ from allauth.account.signals import user_logged_in, user_logged_out
 from django.dispatch import receiver
 from django.contrib import messages
 from product.models import Product
+from checkout.models import Order
 from main.models import DiscountCode
 import json
 
@@ -16,8 +17,11 @@ def my_account(request):
     current_user = UserDetail.objects.filter(user=request.user).first()
     products = Product.objects.all()
     wish_list = current_user.wish_list.all()
+    past_orders = Order.objects.filter(email=request.user.email)
+
     template = 'my_account/my_account.html'
     context = {'wish_list': wish_list,
+               'past_orders': past_orders,
                'products': products}
     return render(request, template, context)
 
