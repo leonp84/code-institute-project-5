@@ -232,3 +232,8 @@ if 'USE_AWS' in os.environ:
 
     # Override site url in production
     SITE_URL = 'https://heritage-company-386a48d92bd9.herokuapp.com'
+
+
+# Stripe Settings
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_API_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')

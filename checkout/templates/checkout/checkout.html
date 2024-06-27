@@ -118,7 +118,7 @@
       <span class="small text-primary">Note that fields marked with an asterisk *, are required</span>
       <br>
       <br>
-      <form method='post' id="order-form">
+      <form method='post' id="payment-form">
         <div class="mb-3">
           <label for="user-email" class="form-label">Email address*</label>
           <input name="user_email" type="email" class="form-control" id="user-email" placeholder="" {% if user.is_authenticated %}value={{ user.email }}{% endif %} required>
@@ -126,7 +126,7 @@
         {{ form|crispy }}
         <hr>
         {% if not user.is_authenticated %}
-          <div class="bg-secondary bg-gradient p-1 px-3 text-dark">
+          <div class="p-1 px-3">
             <hr>
             <p>
               <em>Should we save this information and create an account for you?</em>
@@ -144,10 +144,16 @@
             <hr>
           </div>
         {% endif %}
-        {% csrf_token %}
-        <button id="submit-order"
-                type="submit"
-                class="btn btn-lg btn-success my-2 me-2">Pay Securely Via Credit Card</button>
+        <div class="border border-success border-2 p-3 my-3">
+          <div id="payment-element">
+            <!--Stripe.js injects the Payment Element-->
+          </div>
+          <div id="payment-message" class="hidden"></div>
+          {% csrf_token %}
+          <button id="submit-order"
+                  type="submit"
+                  class="btn btn-lg btn-success my-2 me-2">Pay Securely Via Credit Card</button>
+        </div>
       </form>
       <hr>
       <div>
@@ -170,7 +176,6 @@
       </h4>
       <br>
     </div>
-    <script src="{% static 'assets/js/checkout.js' %}" defer></script>
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
             integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
@@ -184,6 +189,11 @@
             crossorigin="anonymous"></script>
     <!-- Project Wide JavaScript -->
     <script src="{% static 'assets/js/project.js' %}" defer></script>
+    <!-- Stripe Javascript -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- Page Specific Javascript -->
+    <script src="{% static 'assets/js/checkout.js' %}" defer></script>
+    <script src="{% static 'assets/js/checkout_stripe.js' %}" defer></script>
     <!-- On Page (hidden) CSFR Token var Jquery Ajax -> Django Backend communication -->
     <script>let CSRF_TOKEN = '{{ csrf_token }}';</script>
   </body>

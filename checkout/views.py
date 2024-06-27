@@ -12,6 +12,7 @@ from django.contrib import messages
 import json
 import random
 import datetime
+import stripe
 
 
 def shopping_bag(request):
@@ -81,6 +82,20 @@ def update_watch_care_plan(request):
         return JsonResponse({'message': 'Watch Care Plan Updated'})
 
 
+def checkout_data(request):
+    data = json.loads(request.body)
+    amount = data['amount']
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    intent = stripe.PaymentIntent.create(
+        amount=amount,
+        currency='usd',
+    )
+    return JsonResponse({
+        'clientSecret': intent['client_secret'],
+        'status_code': 200
+    })
+
+
 def checkout(request):
     shopping_bag = request.session.get('shopping_bag', {})
     product_ids = [int(i) for i in shopping_bag.keys()]
@@ -125,6 +140,7 @@ def checkout(request):
         customer_details_form = UserDetailsForm()
 
     if request.method == 'POST':
+
         new_order = Order(
               user=(request.user if request.user.is_authenticated else None),
               order_number=order_number,

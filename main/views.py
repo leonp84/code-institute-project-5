@@ -3,19 +3,40 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.urls import reverse
 from django.conf import settings
+from django.http import JsonResponse
 from .forms import NewsLetterSignupsForm
 from .models import NewsLetterSignup, DiscountCode
 import random
+import stripe
+import json
 
 
-def home(request):
-    template = 'main/index.html'
+def about(request):
+    if request.method == 'POST':
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        data = json.loads(request.body)
+
+        print('###')
+        print(data['check'])
+        print('###')
+
+        # Create a PaymentIntent with the order amount and currency
+        intent = stripe.PaymentIntent.create(
+            amount=9985,
+            currency='usd',
+        )
+        return JsonResponse({
+            'clientSecret': intent['client_secret'],
+            'status_code': 200
+        })
+
+    template = 'main/about.html'
     context = {}
     return render(request, template, context)
 
 
-def about(request):
-    template = 'main/about.html'
+def home(request):
+    template = 'main/index.html'
     context = {}
     return render(request, template, context)
 
