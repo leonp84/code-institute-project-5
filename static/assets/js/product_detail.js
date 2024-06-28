@@ -47,11 +47,6 @@ $(function () {
  *
  */
 function addItemToBag() {
-  itemsInCart = parseInt($('.bag-items-number').first().text());
-  itemsInCart += 1;
-  $('.bag-items-number').text(itemsInCart);
-  $('.bag-items-number').show();
-
   // AJAX POST Request to update shopping bag
   let productId = parseInt($('#product-id').text());
   $.ajax({
@@ -65,23 +60,34 @@ function addItemToBag() {
       'X-Requested-With': 'XMLHttpRequest',
       'X-CSRFToken': CSRF_TOKEN,
     },
+
     success: function (response) {
       if (response.status === 'ok') {
-        console.log(response.message);
+        // Add Item to Cart
+        itemsInCart = parseInt($('.bag-items-number').first().text());
+        itemsInCart += 1;
+        $('.bag-items-number').text(itemsInCart);
+        $('.bag-items-number').show();
+
+        $('#buy-button').html('Add an additional item');
+        $('#buy-button').attr('disabled', false);
+        $('#buy-button').css('background-color', '#212529');
+        let addedToCartToast = bootstrap.Toast.getOrCreateInstance(
+          $('#added-to-cart-toast')
+        );
+        addedToCartToast.show();
+      } else {
+        $('#buy-button').html('Add an additional item');
+        let productLimit = bootstrap.Toast.getOrCreateInstance(
+          $('#product-limit-toast')
+        );
+        productLimit.show();
       }
     },
     error: function (xhr, status, error) {
       console.error(error);
     },
   });
-
-  $('#buy-button').html('Add an additional item');
-  $('#buy-button').attr('disabled', false);
-  $('#buy-button').css('background-color', '#212529');
-  let addedToCartToast = bootstrap.Toast.getOrCreateInstance(
-    $('#added-to-cart-toast')
-  );
-  addedToCartToast.show();
 }
 
 /**

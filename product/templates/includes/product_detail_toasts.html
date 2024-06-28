@@ -21,6 +21,24 @@
     </div>
   </div>
 </div>
+<!-- Bootstrap Toast for Product Limit Reached -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="product-limit-toast"
+       class="toast hide"
+       role="alert"
+       aria-live="assertive"
+       aria-atomic="true"
+       data-bs-delay="6000">
+    <div class="toast-header bg-danger">
+      <strong class="me-auto text-light">LIMIT REACHED</strong>
+      <button type="button"
+              class="btn-close"
+              data-bs-dismiss="toast"
+              aria-label="Close"></button>
+    </div>
+    <div class="toast-body">You cannot add more that 3 of the same item to your shopping bag.</div>
+  </div>
+</div>
 <!-- Bootstrap Toast for successfully sending message -->
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
   <div id="message-sent-toast"

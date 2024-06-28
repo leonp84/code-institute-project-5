@@ -49,8 +49,15 @@ def add_item_to_bag(request):
         print(shopping_bag.keys())
 
         if product_to_add in shopping_bag.keys():
-            # Update quantity of items already in shopping bag
-            shopping_bag[product_to_add] += 1
+            # Check if 3 of product already in bag
+            if shopping_bag[product_to_add] == 3:
+                return JsonResponse({
+                  'status': '403',
+                  'message': 'Product Limit Reached'
+                  })
+            else:
+                # Update quantity of items already in shopping bag
+                shopping_bag[product_to_add] += 1
         else:
             # Create new item in shopping bag
             shopping_bag[product_to_add] = 1
@@ -59,7 +66,10 @@ def add_item_to_bag(request):
         sorted_bag = dict(sorted(shopping_bag.items()))
         request.session['shopping_bag'] = sorted_bag
 
-        return JsonResponse({'message': 'Item added to Shopping Bag'})
+        return JsonResponse({
+          'status': 'ok',
+          'message': 'Item added to Shopping Bag'
+          })
 
 
 def update_shopping_bag(request):
