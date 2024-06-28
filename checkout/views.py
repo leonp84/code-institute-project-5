@@ -248,7 +248,10 @@ def checkout_data(request):
 
 
 def order_confirmation(request, params):
-    payment_intent = request.GET['payment_intent']
+    try:
+        payment_intent = request.GET['payment_intent']
+    except KeyError:
+        payment_intent = params
     request.session['cached_order']['stripe_pid'] = payment_intent
     cached_order = request.session.get('cached_order')
     paid_order_form = OrderForm(data=cached_order)

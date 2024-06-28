@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="container col-lg-7 mt-4 mb-5 about-us">
+    <h2 class="text-center">Contact Us</h2>
+    <p class="text-center my-4 pb-3 fs-4">
+      “Tradition is not the worship of ashes,
+      <br />
+      but the transmission of fire.”
+      <em>- Gustav Mahler</em>
+    </p>
+    <p class="text-center">
+      We aspire to reply customer requests or comments within 48 hours. Please be sure to also peruse our frequently asked questions below before completing the contact form.
+    </p>
+    <!-- FAQ -->
+    <h3 class="mt-5 mb-4 text-center">Frequently Asked Questions</h3>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne">1. What is the origin of Heritage Company?</button>
+        </h2>
+        <div id="collapseOne"
+             class="accordion-collapse collapse"
+             aria-labelledby="headingOne"
+             data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>
+              Heritage Company was founded in 1984 by an owner who was inspired by
+              the timeless elegance of a luxury watch inherited from his father.
+              This heirloom ignited his passion for offering exquisite timepieces
+              designed to be passed down through generations.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo">2. What makes Heritage Company watches unique?</button>
+        </h2>
+        <div id="collapseTwo"
+             class="accordion-collapse collapse"
+             aria-labelledby="headingTwo"
+             data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>
+              We curate a selection of the finest luxury watch brands, known for
+              their exceptional craftsmanship and timeless designs. Each piece in
+              our collection embodies superior quality and elegance, ensuring it
+              will be a cherished heirloom for years to come.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree">3. Where are your watches manufactured?</button>
+        </h2>
+        <div id="collapseThree"
+             class="accordion-collapse collapse"
+             aria-labelledby="headingThree"
+             data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>
+              We offer watches from esteemed brands, primarily crafted in
+              Switzerland, renowned for its exceptional watchmaking tradition.
+              This ensures that every timepiece we sell meets the highest
+              standards of quality and precision.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour"
+                  aria-expanded="false"
+                  aria-controls="collapseFour">4. Do your watches come with a warranty?</button>
+        </h2>
+        <div id="collapseFour"
+             class="accordion-collapse collapse"
+             aria-labelledby="headingThree"
+             data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>
+              Yes, every watch we sell comes with the manufacturer's warranty,
+              which typically covers manufacturing defects and craftsmanship. We
+              provide full support to assist with any warranty-related issues.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive"
+                  aria-expanded="false"
+                  aria-controls="collapseFive">5. How do I care for my Heritage Company watch?</button>
+        </h2>
+        <div id="collapseFive"
+             class="accordion-collapse collapse"
+             aria-labelledby="headingFive"
+             data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>
+              To ensure longevity, we recommend regular maintenance, such as
+              professional cleaning and servicing every 3-5 years. Avoid exposing
+              your watch to extreme temperatures, magnetic fields, and water if
+              it’s not specifically designed to be waterproof.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSix">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseSix"
+                  aria-expanded="false"
+                  aria-controls="collapseSix">6. What is your return policy?</button>
+        </h2>
+        <div id="collapseSix"
+             class="accordion-collapse collapse"
+             aria-labelledby="headingSix"
+             data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>
+              We offer a 30-day return policy for unworn and undamaged watches in
+              their original packaging. If you’re not completely satisfied with
+              your purchase, please contact our customer service team to initiate
+              a return or exchange.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSeven">
+          <button class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseSeven"
+                  aria-expanded="false"
+                  aria-controls="collapseSeven">7. Are there additional shipping costs?</button>
+        </h2>
+        <div id="collapseSeven"
+             class="accordion-collapse collapse"
+             aria-labelledby="headingSeven"
+             data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <p>No, all our products ship worldwide for free.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <span class="small text-primary">Note that fields marked with an asterisk *, are required</span>
+    <br>
+    <br>
+    <form method='post' id="payment-form">
+      {{ form|crispy }}
+      <hr>
+      {% csrf_token %}
+      <button type="submit" class="btn btn-lg btn-success my-2 me-2">Send Message</button>
+    </form>
+    <br>
+    <img src="{% static 'assets/images/logo_new.webp' %}"
+         alt="Heritage Company Logo"
+         height="250"
+         width="auto"
+         style="border: none">
+  </div>
+{% endblock %}

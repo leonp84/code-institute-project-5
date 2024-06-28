@@ -5,8 +5,8 @@ import uuid
 class CustomerMessage(models.Model):
     customer_name = models.CharField(max_length=254)
     customer_email = models.EmailField(max_length=254)
-    product_name = models.CharField(max_length=254)
-    product_ref = models.CharField(max_length=254)
+    product_name = models.CharField(max_length=254, blank=True)
+    product_ref = models.CharField(max_length=254, blank=True)
     customer_message = models.TextField()
     date_sent = models.DateTimeField(auto_now_add=True)
 

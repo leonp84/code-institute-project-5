@@ -39,6 +39,7 @@
             <input type="text"
                    class="form-control"
                    id="name-input"
+                   {% if request.user.is_authenticated %} value="{{ request.user.userdetail.user_first_name }} {{ request.user.userdetail.user_last_name }}" {% endif %}
                    placeholder="Your Name"
                    required />
             <label for="name-input">Your Name</label>
@@ -48,6 +49,7 @@
                    class="form-control"
                    id="email-input"
                    placeholder="name@example.com"
+                   {% if request.user.is_authenticated %}value="{{ request.user.email }}"{% endif %}
                    required />
             <label for="email-input">Your Email address</label>
           </div>

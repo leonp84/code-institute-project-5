@@ -27,15 +27,20 @@ def webhook(request):
 
     # Handle the event
     if event.type == 'payment_intent.succeeded':
+        event_dict = event.to_dict()
+        intent = event_dict['data']['object']
         # Create delay for 'order_confirmation' view to complete
         time.sleep(5)
         # Check if the order has already been created at 'order_confirmation'
-        pid = event['payment_intent']
+        pid = intent['id']
         if Order.objects.filter(stripe_pid=pid).exists():
+            print('It has been found!')
             pass
         else:
-            # If not, proceed to complete order by redirecting to view
-            return HttpResponseRedirect(reverse('order_payment', args=[pid]))
+            # If not, proceed fulfill by redirecting to the view
+            print('It has NOT been found!')
+            return HttpResponseRedirect(reverse(
+                'order_confirmation', args=[pid]))
     else:
         print('EVENT = {}'.format(event.type))
 

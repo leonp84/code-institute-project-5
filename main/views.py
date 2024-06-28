@@ -3,35 +3,41 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.urls import reverse
 from django.conf import settings
-from django.http import JsonResponse
-from .forms import NewsLetterSignupsForm
+from django.contrib import messages
+from .forms import NewsLetterSignupsForm, CustomerMessageForm
 from .models import NewsLetterSignup, DiscountCode
 import random
-import stripe
-import json
 
 
 def about(request):
-    if request.method == 'POST':
-        stripe.api_key = settings.STRIPE_SECRET_KEY
-        data = json.loads(request.body)
-
-        print('###')
-        print(data['check'])
-        print('###')
-
-        # Create a PaymentIntent with the order amount and currency
-        intent = stripe.PaymentIntent.create(
-            amount=9985,
-            currency='usd',
-        )
-        return JsonResponse({
-            'clientSecret': intent['client_secret'],
-            'status_code': 200
-        })
-
     template = 'main/about.html'
     context = {}
+    return render(request, template, context)
+
+
+def contact_us(request):
+
+    if request.method == 'POST':
+        new_message = CustomerMessageForm(data=request.POST)
+        if new_message.is_valid:
+            new_message.save()
+            messages.success(request, 'Thank you for contacting us.\
+                                       We will reply within 48 hours.',
+                                      extra_tags='MESSAGE SENT')
+            return render(request, 'main/index.html')
+        else:
+            print(new_message.error)
+
+    if request.user.is_authenticated:
+        name = request.user.userdetail.user_first_name + ' ' + \
+               request.user.userdetail.user_last_name
+        email = request.user.email
+    form = CustomerMessageForm(initial={
+      'customer_name': name,
+      'customer_email': email,
+      })
+    context = {'form': form}
+    template = 'main/contact_us.html'
     return render(request, template, context)
 
 
