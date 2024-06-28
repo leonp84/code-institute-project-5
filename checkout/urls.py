@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from . import stripe_webhooks
 from django.urls import re_path
 
 
@@ -15,4 +16,5 @@ urlpatterns = [
          views.update_watch_care_plan, name='update_watch_care_plan'),
     path('update_shopping_bag/',
          views.update_shopping_bag, name='update_shopping_bag'),
+    path('webhook/', stripe_webhooks.webhook, name='webhook'),
 ]

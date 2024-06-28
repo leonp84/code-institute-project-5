@@ -14,6 +14,13 @@
           crossorigin="anonymous" />
     <!-- Project CSS -->
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Leon A. Potgieter" />
+    <meta name="keywords"
+          content="certified luxury watches, womens luxury watches, top luxury watch brands, men luxury watches, Breitling mens watch, cheapest tag heuer, Tissot watches, vintage omega watches, best swiss watches" />
+    <meta name="description"
+          content="Discover timeless elegance at Heritage Company, your destination for luxury watches. Explore our curated collection of exquisite timepieces, blending classic craftsmanship with modern sophistication. Elevate your style with Heritage Company today." />
     <title>Heritage Company | Checkout</title>
   </head>
   <body>
@@ -144,6 +151,11 @@
             <hr>
           </div>
         {% endif %}
+        <input type="text"
+               id="amount-to-pay-form"
+               name="grand_total"
+               style="display: none"
+               value="{{ grand_total }}">
         {% csrf_token %}
         <button id="submit-order"
                 type="submit"
@@ -160,7 +172,7 @@
             <label for="discount-code-input" class="text-success">Enter Discount Code Here</label>
             <button id="code-submit-button" type="submit" class="btn btn-success btn-sm">Check Code Validity</button>
           </form>
-          <span id="code-success" class="fw-bold text-success" style="display: none">✓ $100 Discount Applied</span>
+          <span id="code-success" class="fw-bold text-success" style="display: none">✓ $100 Discount Applied - This code is now redeemed, please continue to payment to secure your discount.</span>
           <span id="code-error" class="fw-bold text-danger" style="display: none">That Code is Invalid</span>
         </div>
       </div>

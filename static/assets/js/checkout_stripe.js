@@ -42,7 +42,11 @@ async function initialize(amountToPay, stripe) {
 
 async function handleSubmit(e, stripe) {
   e.preventDefault();
-  // setLoading(true);
+  $('#submit-order').html(
+    `<span>Processing your payment...</span>
+        <div class="spinner-border spinner-border-sm" role="status"></div>`
+  );
+  $('#submit-order').attr('disabled', true);
   returnUrl =
     'https://' + window.location.hostname + '/checkout/order_confirmation/';
 
@@ -55,11 +59,13 @@ async function handleSubmit(e, stripe) {
 
   if (error.type === 'card_error' || error.type === 'validation_error') {
     showMessage(error.message);
+    $('#submit-order').html('Retry Secure Payment');
+    $('#submit-order').attr('disabled', false);
   } else {
     showMessage('An unexpected error occurred.');
+    $('#submit-order').html('Retry Secure Payment');
+    $('#submit-order').attr('disabled', false);
   }
-
-  // setLoading(false);
 }
 
 async function checkStatus() {
@@ -100,7 +106,7 @@ function showMessage(messageText) {
   setTimeout(function () {
     messageContainer.classList.add('hidden');
     messageContainer.textContent = '';
-  }, 4000);
+  }, 6000);
 }
 
 // Show a spinner on payment submission

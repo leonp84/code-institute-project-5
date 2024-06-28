@@ -237,3 +237,4 @@ if 'USE_AWS' in os.environ:
 # Stripe Settings
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_API_KEY')
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_ENDPOINT_SECRET = os.environ.get('STRIPE_ENDPOINT_SECRET')

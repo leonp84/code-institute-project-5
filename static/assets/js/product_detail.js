@@ -77,6 +77,7 @@ function addItemToBag() {
         );
         addedToCartToast.show();
       } else {
+        // Inform Customer that Product Limit Reached
         $('#buy-button').html('Add an additional item');
         let productLimit = bootstrap.Toast.getOrCreateInstance(
           $('#product-limit-toast')

@@ -156,7 +156,7 @@ def checkout(request):
             'delivery_notes': request.POST.get('user_delivery_notes'),
             'order_total': order_total,
             'watch_care_plan': (True if watch_care_plan_price > 0 else False),
-            'grand_total': grand_total,
+            'grand_total': request.POST.get('grand_total').replace(',', ''),
             'stripe_pid': '',
         }
 
@@ -226,7 +226,7 @@ def checkout(request):
 
 def order_payment(request):
     cached_order = request.session.get('cached_order')
-    grand_total = cached_order['grand_total']
+    grand_total = int(cached_order['grand_total'])
     context = {'grand_total': grand_total}
     template = 'checkout/order_payment.html'
     return render(request, template, context)
@@ -258,7 +258,11 @@ def order_confirmation(request, params):
         print(paid_order_form.errors)
 
     paid_order = Order.objects.filter(stripe_pid=payment_intent).first()
-    paid_order.user = request.user
+
+    # Assign order to user, including newly created user if applicable
+    if User.objects.filter(email=paid_order.email).exists():
+        paid_order.user = User.objects.filter(email=paid_order.email).first()
+
     paid_order.save()
 
     # Send Order Confirmation Email
