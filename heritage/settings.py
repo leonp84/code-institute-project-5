@@ -88,6 +88,9 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 # Context for Shopping Bag
                 'checkout.contexts.shopping_bag',
+                # Context to show newsletter once per 24 hour/unique visitor
+                'main.contexts.newsletter',
+
             ],
         },
     },

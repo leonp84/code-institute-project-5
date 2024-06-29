@@ -16,7 +16,7 @@
                   id="select-product-box">
             <option value="0" selected>Select an Existing Product</option>
             {% for product in products %}
-              <option class="fs-6" value="{{ product.id }}">{{ product.watch_brand }} {{ product.title }}</option>
+              <option class="fs-6" value="{{ product.id }}">{{ product.get_watch_brand_display|upper }} {{ product.title }}</option>
             {% endfor %}
           </select>
           <div>

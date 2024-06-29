@@ -46,6 +46,12 @@ header a {
   text-decoration: none;
 }
 
+.dropdown-item:focus,
+.dropdown-item:hover {
+  color: rgb(220, 220, 220);
+  background-color: transparent;
+}
+
 .lg-nav {
   position: sticky;
   top: 0px;
@@ -321,4 +327,35 @@ header .heading-text a:hover {
 
 #add-watch-care-plan:checked {
   background-color: blue;
+}
+
+#newsletter-floating-signup {
+  position: relative;
+  z-index: 105;
+  color: rgb(220, 220, 220);
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  border: 2px solid black;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.908);
+  border-color: rgba(255, 174, 0, 0.476);
+}
+.newsletter-signup-heading {
+  color: rgba(255, 207, 104, 0.868);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: x-large;
+}
+
+#newsletter-close-button {
+  color: rgba(255, 207, 104, 0.868);
+  font-size: 30px;
+  position: absolute;
+  top: 6px;
+  right: 13px;
+  cursor: pointer;
+}
+
+#newsletter-close-button:hover {
+  transform: scale(1.2);
 }

@@ -4,9 +4,11 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.conf import settings
 from django.contrib import messages
+from django.http import JsonResponse
 from .forms import NewsLetterSignupsForm, CustomerMessageForm
 from .models import NewsLetterSignup, DiscountCode
 import random
+import json
 
 
 def about(request):
@@ -32,10 +34,12 @@ def contact_us(request):
         name = request.user.userdetail.user_first_name + ' ' + \
                request.user.userdetail.user_last_name
         email = request.user.email
-    form = CustomerMessageForm(initial={
-      'customer_name': name,
-      'customer_email': email,
-      })
+        form = CustomerMessageForm(initial={
+          'customer_name': name,
+          'customer_email': email,
+          })
+    else:
+        form = CustomerMessageForm()
     context = {'form': form}
     template = 'main/contact_us.html'
     return render(request, template, context)
@@ -48,6 +52,7 @@ def home(request):
 
 
 def privacy_policy(request):
+    request.session['newsletter_shown'] = False
     template = 'main/privacy_policy.html'
     context = {}
     return render(request, template, context)
@@ -129,3 +134,35 @@ def newsletter_signup(request):
         return render(request, template, context)
 
     return render(request, 'main/index.html')
+
+
+def check_discount_code(request):
+    if request.method == 'POST':
+        data = json.load(request)
+        code = data['code']
+
+        if DiscountCode.objects.filter(discount_code=code).exists():
+            found_code = DiscountCode.objects.filter(
+              discount_code=code).first()
+            found_code.delete()
+            return JsonResponse({
+              'status': 'ok',
+              'message': 'Code Accepted'
+              })
+        else:
+            return JsonResponse({
+              'status': '406',
+              'message': 'Code Invalid'
+              })
+
+
+def newsletter_shown(request):
+    if request.method == 'POST':
+        data = json.load(request)
+        print('SEEN NEWSL = ' + str(data['newsletterShown']))
+        request.session['newsletter_shown'] = data['newsletterShown']
+
+        return JsonResponse({
+          'status': 'ok',
+          'message': 'Newsletter Shown Noted'
+          })
