@@ -1,19 +1,17 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
-
-<div
-  class="container col-lg-6 mt-5 d-flex flex-column align-items-center justify-content-center"
->
-  <h2>That email is already signed up.</h2>
-  <br />
-  <p>
-    If you have not yet verified your email, please do that first using the link
-    originally sent to your inbox.
-  </p>
-  <br />
-  <p>Please return to the home page to try again.</p>
-  <br />
-  <a type="button" class="btn btn-outline-dark" href="{% url 'home' %}">
-    Return to Home Page
-  </a>
-</div>
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_title %}Newsletter{% endblock %}
+{% block content %}
+  <div class="container col-lg-6 mt-5 d-flex flex-column align-items-center justify-content-center">
+    <h2>That email is already signed up.</h2>
+    <br />
+    <p>
+      If you have not yet verified your email, please do that first using the link
+      originally sent to your inbox.
+    </p>
+    <br />
+    <p>Please return to the home page to try again.</p>
+    <br />
+    <a type="button" class="btn btn-outline-dark" href="{% url 'home' %}">Return to Home Page</a>
+  </div>
 {% endblock %}

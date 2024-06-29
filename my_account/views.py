@@ -9,9 +9,11 @@ from django.contrib import messages
 from product.models import Product
 from checkout.models import Order
 from main.models import DiscountCode
+from django.contrib.auth.decorators import login_required
 import json
 
 
+@login_required
 def my_account(request):
 
     current_user = UserDetail.objects.filter(user=request.user).first()
@@ -26,6 +28,7 @@ def my_account(request):
     return render(request, template, context)
 
 
+@login_required
 def update_profile(request):
     current_user = UserDetail.objects.filter(user=request.user).first()
 

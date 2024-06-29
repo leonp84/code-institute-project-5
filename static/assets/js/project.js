@@ -2,7 +2,7 @@ $(function () {
   // Trigger extra newsletter signup when user has scrolled at least 50% to page bottom
   let runOnce = false;
   $(window).on('scroll', function () {
-    if ($(window).scrollTop() > 500 && !runOnce) {
+    if ($(window).scrollTop() > 700 && !runOnce) {
       runOnce = true;
       $('#hidden-newsletter').show();
       $('#newsletter-close-button').on('click', function () {

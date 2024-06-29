@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extra_title %}About Us{% endblock %}
 {% block content %}
   <div class="container col-lg-7 mt-4 about-us">
     <h2 class="text-center">About Heritage Company</h2>
@@ -84,7 +85,7 @@
     <br />
     <!-- FAQ -->
     <h3 class="mt-5 mb-4 text-center">Frequently Asked Questions</h3>
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" id="about-us-accordian">
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
           <button class="accordion-button"
@@ -97,7 +98,7 @@
         <div id="collapseOne"
              class="accordion-collapse collapse"
              aria-labelledby="headingOne"
-             data-bs-parent="#accordionExample">
+             data-bs-parent="#about-us-accordian">
           <div class="accordion-body">
             <p>
               Heritage Company was founded in 1984 by an owner who was inspired by
@@ -120,7 +121,7 @@
         <div id="collapseTwo"
              class="accordion-collapse collapse"
              aria-labelledby="headingTwo"
-             data-bs-parent="#accordionExample">
+             data-bs-parent="#about-us-accordian">
           <div class="accordion-body">
             <p>
               We curate a selection of the finest luxury watch brands, known for
@@ -143,7 +144,7 @@
         <div id="collapseThree"
              class="accordion-collapse collapse"
              aria-labelledby="headingThree"
-             data-bs-parent="#accordionExample">
+             data-bs-parent="#about-us-accordian">
           <div class="accordion-body">
             <p>
               We offer watches from esteemed brands, primarily crafted in
@@ -166,7 +167,7 @@
         <div id="collapseFour"
              class="accordion-collapse collapse"
              aria-labelledby="headingThree"
-             data-bs-parent="#accordionExample">
+             data-bs-parent="#about-us-accordian">
           <div class="accordion-body">
             <p>
               Yes, every watch we sell comes with the manufacturer's warranty,
@@ -188,7 +189,7 @@
         <div id="collapseFive"
              class="accordion-collapse collapse"
              aria-labelledby="headingFive"
-             data-bs-parent="#accordionExample">
+             data-bs-parent="#about-us-accordian">
           <div class="accordion-body">
             <p>
               To ensure longevity, we recommend regular maintenance, such as
@@ -211,7 +212,7 @@
         <div id="collapseSix"
              class="accordion-collapse collapse"
              aria-labelledby="headingSix"
-             data-bs-parent="#accordionExample">
+             data-bs-parent="#about-us-accordian">
           <div class="accordion-body">
             <p>
               We offer a 30-day return policy for unworn and undamaged watches in
@@ -234,7 +235,7 @@
         <div id="collapseSeven"
              class="accordion-collapse collapse"
              aria-labelledby="headingSeven"
-             data-bs-parent="#accordionExample">
+             data-bs-parent="#about-us-accordian">
           <div class="accordion-body">
             <p>No, all our products ship worldwide for free.</p>
           </div>

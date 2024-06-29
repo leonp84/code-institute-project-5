@@ -122,6 +122,7 @@ header .heading-text a:hover {
   padding: 30px 40px;
   background-color: rgba(0, 0, 0, 0.258);
 }
+
 .watch-hero-info h3,
 .watch-hero-info-left h3 {
   color: rgba(255, 207, 104, 0.868);
@@ -131,7 +132,8 @@ header .heading-text a:hover {
 
 .watch-hero-info span,
 .watch-hero-info-left span {
-  font-size: 30px;
+  text-transform: uppercase;
+  font-size: 24px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   line-height: 150%;

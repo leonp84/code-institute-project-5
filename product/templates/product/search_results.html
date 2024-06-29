@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extra_title %}Search Results{% endblock %}
 {% block content %}
   <div class="container p-3 mt-3">
     <div class="row">
@@ -13,10 +14,10 @@
       <div class="dropdown">
         <button class="btn btn-outline-secondary btn-sm dropdown-toggle"
                 type="button"
-                id="dropdownMenuButton1"
+                id="search-box-dropdown"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">Sort By</button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <ul class="dropdown-menu" aria-labelledby="search-box-dropdown">
           <li>
             <a class="dropdown-item" href="#">Action</a>
           </li>
@@ -31,11 +32,11 @@
       <div class="dropdown">
         <button class="btn btn-outline-secondary btn-sm dropdown-toggle"
                 type="button"
-                id="dropdownMenuButton1"
+                id="search-box-dropdown"
                 data-bs-toggle="dropdown"
                 aria-expanded="false">Filter By</button>
         <ul class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="dropdownMenuButton1">
+            aria-labelledby="search-box-dropdown">
           <li>
             <a class="dropdown-item" href="#">Action</a>
           </li>

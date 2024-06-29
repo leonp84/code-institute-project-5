@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extra_title %}Delete Product{% endblock %}
 {% block content %}
   <div class="container-fluid py-3 px-2 mt-2">
     <h2 class="text-center mb-4">Delete Product</h2>
@@ -49,22 +50,22 @@
            style="object-fit: cover"
            class="mx-3 mx-lg-5 main-product-image d-none d-md-block" />
       <div class="d-block d-md-none">
-        <div id="carouselExampleIndicators"
+        <div id="product-image-carousel"
              class="carousel slide carousel-dark"
              data-bs-ride="carousel">
           <div class="carousel-indicators">
             <button type="button"
-                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-target="#product-image-carousel"
                     data-bs-slide-to="0"
                     class="active"
                     aria-current="true"
                     aria-label="Slide 1"></button>
             <button type="button"
-                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-target="#product-image-carousel"
                     data-bs-slide-to="1"
                     aria-label="Slide 2"></button>
             <button type="button"
-                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-target="#product-image-carousel"
                     data-bs-slide-to="2"
                     aria-label="Slide 3"></button>
           </div>

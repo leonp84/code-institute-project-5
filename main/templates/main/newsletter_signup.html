@@ -1,24 +1,24 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
-
-<div
-  class="container col-lg-6 mt-5 d-flex flex-column align-items-center justify-content-center"
->
-  <h2>Thanks for signing up!</h2>
-  <br />
-  <p class="text-center">
-    In order to ensure we can send you our newsletters without
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_title %}Check Your Inbox{% endblock %}
+{% block content %}
+  <div class="container col-lg-6 mt-5 d-flex flex-column align-items-center justify-content-center">
+    <h2>Thanks for signing up!</h2>
     <br />
-    problem, we need you to verify your e-mail addresss.
-  </p>
-  <p>
-    <em>
-      Verifying is also the final step in receiving your one-off Heritage
-      Company
-      <strong>discount code</strong>
-      .
-    </em>
-  </p>
-  <h3 class="text-center">Please check your email inbox at</h3>
-  <h5 class="text-success">{{ email }}</h5>
-</div>
+    <p class="text-center">
+      In order to ensure we can send you our newsletters without
+      <br />
+      problem, we need you to verify your e-mail addresss.
+    </p>
+    <p>
+      <em>
+        Verifying is also the final step in receiving your one-off Heritage
+        Company
+        <strong>discount code</strong>
+        .
+      </em>
+    </p>
+    <h3 class="text-center">Please check your email inbox at</h3>
+    <h5 class="text-success">{{ email }}</h5>
+  </div>
 {% endblock %}

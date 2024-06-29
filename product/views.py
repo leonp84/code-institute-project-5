@@ -6,6 +6,7 @@ from main.models import CustomerMessage
 from django.contrib import messages
 from django.db.models import Q
 from .forms import ProductForm
+from django.contrib.auth.decorators import user_passes_test
 import json
 
 
@@ -59,6 +60,7 @@ def product_detail(request, product_id):
     return render(request, 'product/product_detail.html', context)
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def add_new_product(request):
     if request.method == 'POST':
         new_product = ProductForm(request.POST, request.FILES)
@@ -77,6 +79,7 @@ def add_new_product(request):
     return render(request, template, context)
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def edit_product(request, product_id):
     product = Product.objects.filter(id=product_id).first()
     if request.method == 'POST':
@@ -99,6 +102,7 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def delete_product(request, product_id):
     product = Product.objects.filter(id=product_id).first()
 

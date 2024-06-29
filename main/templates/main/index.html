@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block extra_title %}Certified Luxury Watches{% endblock %}
 {% block content %}
-  <div id="carouselExampleCaptions"
+  <div id="landing-page-carousel"
        class="carousel slide carousel-fade position-relative"
        data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button"
-              data-bs-target="#carouselExampleCaptions"
+              data-bs-target="#landing-page-carousel"
               data-bs-slide-to="0"
               class="active"
               aria-current="true"
               aria-label="Slide 1"></button>
       <button type="button"
-              data-bs-target="#carouselExampleCaptions"
+              data-bs-target="#landing-page-carousel"
               data-bs-slide-to="1"
               aria-label="Slide 2"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="7000">
+      <div class="carousel-item active" data-bs-interval="5500">
         <img src="{% static 'assets/images/tag-heuer-banner.webp' %}"
              class="d-block w-100"
              alt="..." />
@@ -31,7 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item" data-bs-interval="7000">
+      <div class="carousel-item" data-bs-interval="5500">
         <img src="{% static 'assets/images/omega-banner.webp' %}"
              class="d-block w-100"
              alt="..." />

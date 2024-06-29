@@ -6,8 +6,9 @@
     {% include 'includes/meta-info.html' %}
     <!-- CSS Imports -->
     {% include 'includes/css-imports.html' %}
-    <title>Heritage Company
+    <title>
       {% block extra_title %}{% endblock %}
+      | Heritage Company
     </title>
   </head>
   <body>
@@ -36,13 +37,13 @@
           <button class="navbar-toggler"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
+                  data-bs-target="#heritage-navbar"
+                  aria-controls="heritage-navbar"
                   aria-expanded="false"
                   aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="collapse navbar-collapse" id="heritage-navbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -53,12 +54,12 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"
                    href="#"
-                   id="navbarDarkDropdownMenuLink"
+                   id="heritage-navbar-dropdown-link"
                    role="button"
                    data-bs-toggle="dropdown"
                    aria-expanded="false">Our Products</a>
                 <ul class="dropdown-menu dropdown-menu-dark"
-                    aria-labelledby="navbarDarkDropdownMenuLink">
+                    aria-labelledby="heritage-navbar-dropdown-link">
                   <li>
                     <a a class="dropdown-item" href="{% url 'breitling' %}">Breitling</a>
                   </li>
