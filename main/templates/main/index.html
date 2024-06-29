@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
   <div id="carouselExampleCaptions"
-       class="carousel slide carousel-fade"
+       class="carousel slide carousel-fade position-relative"
        data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button"
@@ -18,56 +18,63 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="7000">
-        <img src="{% static 'assets/images/slide1.jpeg' %}"
+        <img src="{% static 'assets/images/tag-heuer-banner.webp' %}"
              class="d-block w-100"
              alt="..." />
         <div class="carousel-caption d-none d-md-block">
-          <div class="watch-hero-info d-flex flex-column">
-            <span>TAG HEUER CARRERA</span>
-            <span>
-              CHRONOGRAPH
-              <br />
-              X PORSCHE
-            </span>
-            <button class="btn btn-lg btn-outline-light mt-1">Buy this Watch</button>
+          <div class="watch-hero-info-left d-flex flex-column">
+            <h3>TAG HEUER</h3>
+            <span>Carrera Chronograph
+              <br>
+            X Porsche</span>
+            <button class="btn btn-lg btn-outline-light mt-3">Buy this Watch</button>
           </div>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="7000">
-        <img src="{% static 'assets/images/slide2.jpg' %}"
+        <img src="{% static 'assets/images/omega-banner.webp' %}"
              class="d-block w-100"
              alt="..." />
         <div class="carousel-caption d-none d-md-block">
           <div class="watch-hero-info d-flex flex-column">
-            <span>TAG HEUER CARRERA</span>
-            <span>
-              CHRONOGRAPH
-              <br />
-              X PORSCHE
-            </span>
-            <button class="btn btn-lg btn-outline-light mt-1">Buy this Watch</button>
+            <h3>OMEGA</h3>
+            <span>Speedmaster
+              <br>
+            Moonwatch Professional</span>
+            <button class="btn btn-lg btn-outline-light mt-3">Buy this Watch</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="d-flex justify-content-center p-4">
-    <h5 class="mx-auto d-md-none">Browse our watches by brand:</h5>
-    <h2 class="mx-auto d-none d-md-block">Browse our watches by brand:</h2>
-  </div>
-  <div class="d-flex">
-    <img class="brand-image-homepage"
-         src="{% static 'assets/images/breatling.webp' %}"
-         alt="" />
-    <img class="brand-image-homepage"
-         src="{% static 'assets/images/tagheuer.webp' %}"
-         alt="" />
-    <img class="brand-image-homepage"
-         src="{% static 'assets/images/omega.webp' %}"
-         alt="" />
-    <img class="brand-image-homepage"
-         src="{% static 'assets/images/tissot.webp' %}"
-         alt="" />
+  <div id="browse-watches-container" class="pb-3">
+    <div class="d-flex justify-content-center p-4">
+      <h5 class="mx-auto d-md-none">Browse our watches by brand:</h5>
+      <h2 class="mx-auto d-none d-md-block">Browse our watches by brand:</h2>
+    </div>
+    <div id="product-images-homepage"
+         class="d-flex justify-content-evenly animate__animated">
+      <a href="{% url 'breitling' %}">
+        <img class="brand-image-homepage"
+             src="{% static 'assets/images/breitling-watches-on-sale.webp' %}"
+             alt="" />
+      </a>
+      <a href="{% url 'tag_heuer' %}">
+        <img class="brand-image-homepage"
+             src="{% static 'assets/images/tag-heuer-for-sale.webp' %}"
+             alt="" />
+      </a>
+      <a href="{% url 'omega' %}">
+        <img class="brand-image-homepage"
+             src="{% static 'assets/images/buy-omega-watches.webp' %}"
+             alt="" />
+      </a>
+      <a href="{% url 'tissot' %}">
+        <img class="brand-image-homepage"
+             src="{% static 'assets/images/tissot-watches-men.webp' %}"
+             alt="" />
+      </a>
+    </div>
   </div>
   <div class="p-5 bg-dark off-white text-center">
     <h4 class="mx-auto my-3">'Some more text about our company'</h4>
@@ -81,4 +88,5 @@
       laborum.!"
     </p>
   </div>
+  <script src="{% static 'assets/js/index.js' %}" defer></script>
 {% endblock %}
