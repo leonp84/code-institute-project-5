@@ -78,16 +78,60 @@
     </div>
   </div>
   <div class="p-5 bg-dark off-white text-center">
-    <h4 class="mx-auto my-3">'Some more text about our company'</h4>
-    <p class="lh-lg">
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-      non proident, sunt in culpa qui officia deserunt mollit anim id est
-      laborum.!"
+    <p class="text-center my-4 pb-3 fs-2 ln-lg">
+      “Tradition is not the worship of ashes,
+      <br />
+      but the transmission of fire.”
+      <em>- Gustav Mahler</em>
     </p>
+  </div>
+  <div class=" d-flex justify-content-center py-4 mt-5">
+    <div class="col-12 col-md-7 p-1">
+      <p class="fs-5">
+        <img src="{% static 'assets/images/about/about-heritage-company-1.webp' %}"
+             alt=""
+             width="450"
+             height="auto"
+             style="float: left;
+                    margin-right: 15px" />
+        Timepieces are more than just accessories, they're heirlooms. Luxury watches
+        are luxurious not just because of the obvious - that they are crafted with
+        precision and present the best amplification of crafstmanship a timepiece
+        artisan has to offer, but also because they are designed to accompany you
+        through life’s milestones.
+        <br>
+        <br>
+        From the first promotion to the birth of your
+        child, symbolizing your journey of success and growth. We believe in the
+        power of legacy.
+      </p>
+    </div>
+  </div>
+  <br>
+  <br>
+  <p class="text-center my-4 pb-3 fs-3 ln-lg">
+    “Heritage Company understands the value of tradition.
+    <br />
+    They're obviously interested in so much more than mere profit. Kudos”
+    <br>
+    <em>- John from Scotland</em>
+  </p>
+  <div class=" d-flex justify-content-center py-4">
+    <img src="{% static 'assets/images/breitling-mens-watches.webp' %}"
+         width="800"
+         height="auto"
+         alt="breitling mens watches">
+  </div>
+  <p class="text-center my-4 pb-3 fs-3 ln-lg">
+    “My experience with Heritage Company,
+    <br />
+    has left me wanting when visiting other dealers.”
+    <br>
+    <em>- Anne from France</em>
+  </p>
+  <br>
+  <div class="d-flex justify-content-center">
+    <a href="{% url 'all_products' %}" class="btn btn-lg btn-outline-dark">Browse Our Collection</a>
   </div>
   <script src="{% static 'assets/js/index.js' %}" defer></script>
 {% endblock %}

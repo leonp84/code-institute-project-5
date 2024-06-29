@@ -16,15 +16,6 @@
            class="about-us-image"
            style="float: left;
                   margin-right: 15px" />
-      Timepieces are more than just accessories, they're heirlooms. Luxury watches
-      are luxurious not just because of the obvious - that they are crafted with
-      precision and present the best amplification of crafstmanship a timepiece
-      artisan has to offer, but also because they are designed to accompany you
-      through life’s milestones, from the first promotion to the birth of your
-      child, symbolizing your journey of success and growth. We believe in the
-      power of legacy.
-      <br />
-      <br />
       Each watch we offer is a testament to enduring quality and timeless
       elegance, destined to be passed down through generations. As you start your
       family and build your future, consider one of our timepieces not only as a
@@ -76,7 +67,8 @@
       ensuring that every piece becomes a lasting legacy for its owner.
     </p>
     <div class="d-flex align-items-center flex-column">
-      <button class="btn btn-lg btn-outline-dark my-4">Questions? Get In Touch</button>
+      <a href="{% url 'contact_us' %}"
+         class="btn btn-lg btn-outline-dark my-4">Questions? Get In Touch</a>
       <img src="{% static 'assets/images/about/about-heritage-company-3.webp' %}"
            alt=""
            style="display: block"
