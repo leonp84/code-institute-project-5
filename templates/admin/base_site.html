@@ -1,0 +1,30 @@
+{% extends "admin/base.html" %}
+{% load static %}
+<!-- Django Admin template Customization -->
+{% block extrahead %}
+  <style>
+        #header,
+        .module caption {
+            background-color: rgb(75,75,75)
+        }
+  </style>
+{% endblock %}
+{% block title %}
+  {% if subtitle %}{{ subtitle }} |{% endif %}
+  {{ title }} | {{ site_title|default:_("Django site admin") }}
+{% endblock %}
+{% block branding %}
+  <div id="site-name mt-1">
+    <a href="{% url 'admin:index' %}">
+      <img id="branding-logo"
+           src="{% static 'assets/images/admin-logo.webp' %}"
+           height="70"
+           alt="Heritage Company Logo">
+      <br>
+    </a>
+  </div>
+  {% if user.is_anonymous %}
+    {% include "admin/color_theme_toggle.html" %}
+  {% endif %}
+{% endblock %}
+{% block nav-global %}{% endblock %}

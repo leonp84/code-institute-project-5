@@ -1,6 +1,11 @@
 from django.contrib import admin
 from .models import CustomerMessage, NewsLetterSignup, DiscountCode
 
+
+admin.site.site_header = "Heritage Company - Admin Panel"
+admin.site.site_title = "Admin Panel"
+admin.site.index_title = 'Heritage Company Dashboard'
+
 admin.site.register(CustomerMessage)
 
 
