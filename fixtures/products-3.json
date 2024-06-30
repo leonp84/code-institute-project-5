@@ -1,0 +1,154 @@
+[
+  {
+    "model": "product.product",
+    "pk": 30,
+    "fields": {
+      "watch_brand": "TA",
+      "title": "Carrera",
+      "ref": "CBN2A1F.BA0643",
+      "desc": "The TAG Heuer Carrera CBN2A1F.BA0643 is a stunning chronograph that combines elegance and performance. Featuring a blue dial and a stainless steel bracelet, it's perfect for both formal and casual occasions. Its precision and style make it a must-have for watch enthusiasts.",
+      "watch_gender": "M",
+      "watch_case_size": 44,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Blue",
+      "discount_percentage": 0,
+      "price": 5900,
+      "image": "ta1.1.webp",
+      "image2": "ta1.2.webp",
+      "image3": "ta1.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 31,
+    "fields": {
+      "watch_brand": "TA",
+      "title": "Carrera",
+      "ref": "CBN2A1N",
+      "desc": "The TAG Heuer Carrera CBN2A1N showcases a sleek and modern design with a black dial. Its stainless steel case and bracelet provide durability and elegance. This watch is perfect for those who appreciate both style and functionality.",
+      "watch_gender": "M",
+      "watch_case_size": 44,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 6000,
+      "image": "ta2.1.webp",
+      "image2": "ta2.2.webp",
+      "image3": "ta2.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 32,
+    "fields": {
+      "watch_brand": "TA",
+      "title": "Carrera",
+      "ref": "CV2A84.FC6394",
+      "desc": "The TAG Heuer Carrera CV2A84.FC6394 combines sporty aesthetics with classic elegance. Featuring a black dial and a durable leather strap, this watch is ideal for both sports and business settings. Its chronograph functions add to its versatility.",
+      "watch_gender": "M",
+      "watch_case_size": 43,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 5100,
+      "image": "ta3.1.webp",
+      "image2": "ta3.2.webp",
+      "image3": "ta3.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 33,
+    "fields": {
+      "watch_brand": "TA",
+      "title": "Carrera",
+      "ref": "CBG2013",
+      "desc": "The TAG Heuer Carrera CBG2013 features a stylish skeleton dial, showcasing the intricate mechanics within. This model combines modern design with traditional watchmaking, making it a conversation starter. Its stainless steel case ensures durability and elegance.",
+      "watch_gender": "M",
+      "watch_case_size": 45,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Skeleton",
+      "discount_percentage": 0,
+      "price": 6700,
+      "image": "ta4.1.webp",
+      "image2": "ta4.2.webp",
+      "image3": "ta4.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 34,
+    "fields": {
+      "watch_brand": "TA",
+      "title": "Carrera",
+      "ref": "CBN2010.BA0642",
+      "desc": "The TAG Heuer Carrera CBN2010.BA0642 is a timeless piece, perfect for everyday wear. Its silver dial and stainless steel bracelet give it a refined look. This watch is a blend of tradition and innovation, ideal for any occasion.",
+      "watch_gender": "M",
+      "watch_case_size": 42,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Silver",
+      "discount_percentage": 0,
+      "price": 5400,
+      "image": "ta5.1.webp",
+      "image2": "ta5.2.webp",
+      "image3": "ta5.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 35,
+    "fields": {
+      "watch_brand": "TA",
+      "title": "Carrera",
+      "ref": "CBS2212.FC6535",
+      "desc": "The TAG Heuer Carrera CBS2212.FC6535 is designed for those who appreciate luxury and sportiness. Featuring a unique blue dial and a leather strap, it stands out in any crowd. Its precision and design make it a valuable addition to any collection.",
+      "watch_gender": "M",
+      "watch_case_size": 42,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Blue",
+      "discount_percentage": 0,
+      "price": 5800,
+      "image": "ta6.1.webp",
+      "image2": "ta6.2.webp",
+      "image3": "ta6.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 36,
+    "fields": {
+      "watch_brand": "TA",
+      "title": "Carrera",
+      "ref": "CAV518B.FT6016",
+      "desc": "The TAG Heuer Carrera CAV518B.FT6016 is a bold and adventurous timepiece. With a black titanium case and a sporty rubber strap, it’s designed for active lifestyles. Its chronograph functions and modern aesthetics make it perfect for sports enthusiasts.",
+      "watch_gender": "M",
+      "watch_case_size": 43,
+      "watch_material": "Titanium",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 7200,
+      "image": "ta7.1.webp",
+      "image2": "ta7.2.webp",
+      "image3": "ta7.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 37,
+    "fields": {
+      "watch_brand": "TA",
+      "title": "Carrera",
+      "ref": "WAR1114.BA0601",
+      "desc": "The TAG Heuer Carrera WAR1114.BA0601 is an elegant watch with a classic design. Its black dial and stainless steel bracelet offer a sophisticated look. This model is perfect for those seeking a balance of style and functionality.",
+      "watch_gender": "M",
+      "watch_case_size": 39,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 3100,
+      "image": "ta8.1.webp",
+      "image2": "ta8.2.webp",
+      "image3": "ta8.3.webp"
+    }
+  }
+]

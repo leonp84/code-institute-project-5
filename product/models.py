@@ -21,7 +21,7 @@ class Product(models.Model):
     desc = models.TextField()
     watch_gender = models.CharField(max_length=1, choices=WatchGender)
     watch_case_size = models.IntegerField()
-    watch_material = models.CharField(max_length=20)
+    watch_material = models.CharField(max_length=50)
     watch_dial_colour = models.CharField(max_length=20)
     discount_percentage = models.IntegerField(default=0)
     price = models.IntegerField()

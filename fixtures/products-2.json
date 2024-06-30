@@ -1,0 +1,173 @@
+[
+  {
+    "model": "product.product",
+    "pk": 20,
+    "fields": {
+      "watch_brand": "OM",
+      "title": "Speedmaster",
+      "ref": "326.30.40.50.02.001",
+      "desc": "The OMEGA Speedmaster 326.30.40.50.02.001 is a stylish chronograph known for its precision and versatility. Featuring a silver dial and black sub-dials, it exudes a sporty elegance. Perfect for those who appreciate both performance and design.",
+      "watch_gender": "M",
+      "watch_case_size": 40,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Silver",
+      "discount_percentage": 0,
+      "price": 4800,
+      "image": "om1.1.webp",
+      "image2": "om1.2.webp",
+      "image3": "om1.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 22,
+    "fields": {
+      "watch_brand": "OM",
+      "title": "Seamaster",
+      "ref": "2265.80.00",
+      "desc": "The OMEGA Seamaster 2265.80.00 is known for its classic design and durability. Featuring a blue dial and luminous hands, it is perfect for underwater adventures. This watch combines timeless style with reliable performance.",
+      "watch_gender": "M",
+      "watch_case_size": 41,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Blue",
+      "discount_percentage": 0,
+      "price": 3200,
+      "image": "om2.1.webp",
+      "image2": "om2.2.webp",
+      "image3": "om2.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 23,
+    "fields": {
+      "watch_brand": "OM",
+      "title": "Planet Ocean",
+      "ref": "232.30.46.51.01.002",
+      "desc": "The OMEGA Planet Ocean 232.30.46.51.01.002 is built for the deep sea. Its black dial and ceramic bezel provide a sleek, modern look. This watch is water-resistant and perfect for diving, combining style and function.",
+      "watch_gender": "M",
+      "watch_case_size": 45.5,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 6200,
+      "image": "om3.1.webp",
+      "image2": "om3.2.webp",
+      "image3": "om3.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 24,
+    "fields": {
+      "watch_brand": "OM",
+      "title": "Aqua Terra",
+      "ref": "220.12.41.21.03.005",
+      "desc": "The OMEGA Aqua Terra 220.12.41.21.03.005 is perfect for land and sea. Featuring a blue dial and a striped pattern, it offers a unique aesthetic. This model combines elegance with rugged performance, suitable for any adventure.",
+      "watch_gender": "M",
+      "watch_case_size": 41,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Blue",
+      "discount_percentage": 0,
+      "price": 5400,
+      "image": "om4.1.webp",
+      "image2": "om4.2.webp",
+      "image3": "om4.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 25,
+    "fields": {
+      "watch_brand": "OM",
+      "title": "Speedmaster",
+      "ref": "3565.80.00",
+      "desc": "The OMEGA Speedmaster 3565.80.00 is celebrated for its connection to space exploration. Featuring a striking blue dial and stainless steel bracelet, it exudes sophistication. This chronograph is both iconic and practical, suitable for everyday wear.",
+      "watch_gender": "M",
+      "watch_case_size": 42,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Blue",
+      "discount_percentage": 0,
+      "price": 5000,
+      "image": "om5.1.webp",
+      "image2": "om5.2.webp",
+      "image3": "om5.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 26,
+    "fields": {
+      "watch_brand": "OM",
+      "title": "Speedmaster",
+      "ref": "311.63.44.51.99.001",
+      "desc": "The OMEGA Speedmaster 311.63.44.51.99.001 features a luxurious platinum case. Its unique dial combines elegance with functionality. This watch is perfect for collectors and those who appreciate fine craftsmanship.",
+      "watch_gender": "M",
+      "watch_case_size": 44.25,
+      "watch_material": "Platinum",
+      "watch_dial_colour": "Silver",
+      "discount_percentage": 0,
+      "price": 33000,
+      "image": "om6.1.webp",
+      "image2": "om6.2.webp",
+      "image3": "om6.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 27,
+    "fields": {
+      "watch_brand": "OM",
+      "title": "Speedmaster",
+      "ref": "3210.52.00",
+      "desc": "The OMEGA Speedmaster 3210.52.00 stands out with its racing-inspired dial. The red accents and black bezel give it a sporty appearance. This model is perfect for those who appreciate both style and speed.",
+      "watch_gender": "M",
+      "watch_case_size": 40,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 4800,
+      "image": "om7.1.webp",
+      "image2": "om7.2.webp",
+      "image3": "om7.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 28,
+    "fields": {
+      "watch_brand": "OM",
+      "title": "Speedmaster Professional Moonwatch",
+      "ref": "310.32.42.50.01.001",
+      "desc": "The OMEGA Speedmaster Professional Moonwatch is an iconic timepiece, known for its role in lunar missions. Its classic design and black dial make it a favorite among watch enthusiasts. This watch is a symbol of exploration and precision.",
+      "watch_gender": "M",
+      "watch_case_size": 42,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 6300,
+      "image": "om8.1.webp",
+      "image2": "om8.2.webp",
+      "image3": "om8.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 29,
+    "fields": {
+      "watch_brand": "OM",
+      "title": "Speedmaster",
+      "ref": "323.21.40.40.01.001",
+      "desc": "The OMEGA Speedmaster 323.21.40.40.01.001 features a stylish design with a touch of luxury. Its black dial and gold accents create an elegant look. This watch is perfect for those who appreciate both luxury and performance.",
+      "watch_gender": "M",
+      "watch_case_size": 40,
+      "watch_material": "Stainless Steel and Gold",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 7800,
+      "image": "om9.1.webp",
+      "image2": "om9.2.webp",
+      "image3": "om9.3.webp"
+    }
+  }
+]

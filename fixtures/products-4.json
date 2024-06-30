@@ -1,0 +1,116 @@
+[
+  {
+    "model": "product.product",
+    "pk": 38,
+    "fields": {
+      "watch_brand": "TI",
+      "title": "Gentleman Automatic Silicium",
+      "ref": "T127.407.16.051.00",
+      "desc": "The Tissot Gentleman Automatic Silicium is an elegant timepiece with a classic design. Featuring a black dial and a leather strap, it exudes sophistication. The silicium balance spring enhances accuracy, making it perfect for everyday wear.",
+      "watch_gender": "M",
+      "watch_case_size": 40,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 775,
+      "image": "ti1.1.webp",
+      "image2": "ti1.2.webp",
+      "image3": "ti1.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 39,
+    "fields": {
+      "watch_brand": "TI",
+      "title": "Supersport Chrono",
+      "ref": "T125.617.11.051.00",
+      "desc": "The Tissot Supersport Chrono is a sporty watch designed for active lifestyles. Its black dial and stainless steel bracelet offer a bold look. This chronograph is perfect for those who need precision and style on the go.",
+      "watch_gender": "M",
+      "watch_case_size": 45.5,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 475,
+      "image": "ti2.1.webp",
+      "image2": "ti2.2.webp",
+      "image3": "ti2.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 40,
+    "fields": {
+      "watch_brand": "TI",
+      "title": "T-Touch Connect Solar",
+      "ref": "T121.420.47.051.01",
+      "desc": "The Tissot T-Touch Connect Solar is a versatile watch that blends technology and style. With its black dial and rubber strap, it is perfect for outdoor enthusiasts. The solar-powered movement ensures reliability, making it ideal for adventure.",
+      "watch_gender": "M",
+      "watch_case_size": 47.5,
+      "watch_material": "Titanium",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 995,
+      "image": "ti3.1.webp",
+      "image2": "ti3.2.webp",
+      "image3": "ti3.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 41,
+    "fields": {
+      "watch_brand": "TI",
+      "title": "PRC 200 Quartz Chronograph",
+      "ref": "T114.417.11.047.00",
+      "desc": "The Tissot PRC 200 Quartz Chronograph combines precision with a classic design. Featuring a blue dial and stainless steel bracelet, it offers a sporty yet elegant look. This watch is perfect for those who value both functionality and style.",
+      "watch_gender": "M",
+      "watch_case_size": 42,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Blue",
+      "discount_percentage": 0,
+      "price": 495,
+      "image": "ti4.1.webp",
+      "image2": "ti4.2.webp",
+      "image3": "ti4.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 42,
+    "fields": {
+      "watch_brand": "TI",
+      "title": "PRX 40",
+      "ref": "T137.410.11.041.00",
+      "desc": "The Tissot PRX 40 is a modern reinterpretation of a classic design. With a blue dial and stainless steel bracelet, it offers a sleek and stylish look. This watch is perfect for those who appreciate both vintage and contemporary aesthetics.",
+      "watch_gender": "M",
+      "watch_case_size": 40,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Blue",
+      "discount_percentage": 0,
+      "price": 375,
+      "image": "ti5.1.webp",
+      "image2": "ti5.2.webp",
+      "image3": "ti5.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 43,
+    "fields": {
+      "watch_brand": "TI",
+      "title": "PRX Powermatic 80",
+      "ref": "T137.407.11.351.00",
+      "desc": "The Tissot PRX Powermatic 80 offers an impressive 80-hour power reserve. Its green dial and stainless steel bracelet provide a unique and modern look. This watch combines Swiss precision with contemporary style, ideal for everyday wear.",
+      "watch_gender": "M",
+      "watch_case_size": 40,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Green",
+      "discount_percentage": 0,
+      "price": 650,
+      "image": "ti6.1.webp",
+      "image2": "ti6.2.webp",
+      "image3": "ti6.3.webp"
+    }
+  }
+]
