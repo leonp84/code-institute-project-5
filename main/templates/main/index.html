@@ -143,10 +143,13 @@
           {% if product.discount_percentage > 0 %}
             <span class="badge rounded-pill bg-info text-dark sale-item-badge">-{{ product.discount_percentage }}%</span>
           {% endif %}
-          <img src="{{ MEDIA_URL }}{{ product.image }}"
-               alt="{{ product.watch_brand }} {{ product.title }}"
-               width="300"
-               height="auto" />
+          <div style="overflow: hidden">
+            <img src="{{ MEDIA_URL }}{{ product.image }}"
+                 alt="{{ product.watch_brand }} {{ product.title }}"
+                 width="300"
+                 class="main-image"
+                 height="auto" />
+          </div>
           <span class="text-uppercase">{{ product.get_watch_brand_display }}</span>
           <span><strong>{{ product.short_title }}</strong></span>
           <div>
@@ -201,4 +204,5 @@
   </div>
   <br>
   <script src="{% static 'assets/js/index.js' %}" defer></script>
+  <script src="{% static 'assets/js/image_hover.js' %}" defer></script>
 {% endblock %}

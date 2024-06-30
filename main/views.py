@@ -48,7 +48,7 @@ def contact_us(request):
 
 def home(request):
     template = 'main/index.html'
-    product_ids = [2, 3, 4]
+    product_ids = [10, 31, 29]
     products = Product.objects.filter(id__in=product_ids).order_by('id')
     context = {'products': products}
     return render(request, template, context)

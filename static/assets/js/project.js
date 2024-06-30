@@ -64,20 +64,4 @@ $(function () {
     $('#search-box').toggle();
     $('#search-box').find('input').focus();
   });
-
-  // Product List Display Image Hover Effect
-  $('.main-image').on('mouseover', function () {
-    console.log($(this).attr('src'));
-    currentImage = $(this).attr('src');
-    newImage = currentImage.slice(0, currentImage.length - 6);
-    newImage += '2.webp';
-    $(this).attr('src', newImage);
-    $(this).css('transform', 'scale(1.7)');
-    $(this).css('transition', '1s');
-    $('.main-image').on('mouseout', function () {
-      $(this).attr('src', currentImage);
-      $(this).css('transform', 'scale(1)');
-      $(this).css('transition', '0.5s');
-    });
-  });
 });
