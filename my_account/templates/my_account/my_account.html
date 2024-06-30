@@ -30,6 +30,19 @@
                href="">Delete a product</a>
           </div>
         </div>
+        <hr>
+        <div class="pb-2">
+          <h5 class="text-center mb-4">Admin Functionality</h5>
+          <div class="d-flex justify-content-evenly">
+            <a href="{% url 'admin:checkout_order_changelist' %}"
+               class="btn btn-warning">See Recent Orders</a>
+            <a href="{% url 'admin:main_customermessage_changelist' %}"
+               class="btn btn-warning">See Recent Messages</a>
+            <a href="{% url 'admin:main_newslettersignup_changelist' %}"
+               class="btn btn-warning">See Current Newsletter Subscribers</a>
+            <a href="{% url 'admin:index' %}" class="btn btn-dark">Visit Admin Page</a>
+          </div>
+        </div>
       </div>
     {% endif %}
     <div class="row justify-content-center">

@@ -20,7 +20,13 @@ class NewsLetterSignup(models.Model):
     is_verified = models.BooleanField(default=False)
     sign_up_date = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.customer_email
+
 
 class DiscountCode(models.Model):
     discount_code = models.CharField(max_length=6)
     date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.discount_code

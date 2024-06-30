@@ -2,6 +2,7 @@ from django.db import models
 from product.models import Product
 from django_countries.fields import CountryField
 from django.contrib.auth.models import User
+from django.utils.html import format_html
 
 
 class CheckoutSingleItem(models.Model):
@@ -49,4 +50,20 @@ class Order(models.Model):
                            <td>{item.quantity}</td><td>${item.product_price:,}</td>\
                            </tr>"
         text_data += "</table>"
-        return text_data
+        return format_html(text_data)
+
+    def items_ordered_admin(self):
+        items = CheckoutSingleItem.objects.filter(
+          order_number=self.order_number)
+        text_data = "<table class='table'><tr><th>Product</th><th>Reference \
+                     Number</th><th>Qty</th><th>Price</th></tr>"
+        for item in items:
+            text_data += f"<tr><td class='small'>{item.product_name_text}</td>\
+                           <td>{item.product_ref_text}</td><td>{item.quantity}</td>\
+                           <td>${item.product_price}</td>\
+                           </tr>"
+        text_data += "</table>"
+        return format_html(text_data)
+
+    def __str__(self):
+        return self.order_number

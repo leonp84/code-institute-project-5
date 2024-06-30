@@ -8,7 +8,7 @@
         <h3>Our Collection</h3>
         <div class="my-4">
           <p class="lh-lg">
-            We are proud to showcase an exclusive selection of fine watches from some of the world’s most renowned brands: Breitling, TAG Heuer, Omega, and Tissot. Each brand offers its unique blend of precision, craftsmanship, and style, reflecting decades of horological expertise. Explore our curated assortment and discover the perfect luxury watch that complements your style.
+            We are proud to showcase an exclusive selection of top luxury watch brands from some of the world’s most renowned brands: Breitling, TAG Heuer, Omega, and Tissot. Each brand offers its unique blend of precision, craftsmanship, and style, reflecting decades of horological expertise. Explore our curated assortment and discover the perfect luxury watch that complements your style.
           </p>
         </div>
         <hr />
@@ -30,10 +30,13 @@
           {% if product.discount_percentage > 0 %}
             <span class="badge rounded-pill bg-info text-dark sale-item-badge">-{{ product.discount_percentage }}%</span>
           {% endif %}
-          <img src="{{ MEDIA_URL }}{{ product.image }}"
-               alt="{{ product.watch_brand }} {{ product.title }}"
-               width="300"
-               height="auto" />
+          <div style="overflow: hidden">
+            <img src="{{ MEDIA_URL }}{{ product.image }}"
+                 alt="{{ product.watch_brand }} {{ product.title }}"
+                 class="main-image"
+                 width="300"
+                 height="auto" />
+          </div>
           <span class="text-uppercase">{{ product.get_watch_brand_display }}</span>
           <span><strong>{{ product.short_title }}</strong></span>
           <div>
