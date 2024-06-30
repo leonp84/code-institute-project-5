@@ -10,45 +10,9 @@
     </div>
   </div>
   <div class="container d-flex flex-wrap justify-content-evenly">
-    <div class="search-and-filter-box">
-      <div class="dropdown">
-        <button class="btn btn-outline-secondary btn-sm dropdown-toggle"
-                type="button"
-                id="search-box-dropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">Sort By</button>
-        <ul class="dropdown-menu" aria-labelledby="search-box-dropdown">
-          <li>
-            <a class="dropdown-item" href="#">Action</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Another action</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-        </ul>
-      </div>
-      <div class="dropdown">
-        <button class="btn btn-outline-secondary btn-sm dropdown-toggle"
-                type="button"
-                id="search-box-dropdown"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">Filter By</button>
-        <ul class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="search-box-dropdown">
-          <li>
-            <a class="dropdown-item" href="#">Action</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Another action</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    {% with path="all_products" %}
+      {% include '../includes/search_and_filter.html' %}
+    {% endwith %}
     {% for product in search_results %}
       <a href="{% url 'product_detail' product.id %}"
          style="text-decoration: none">
@@ -56,10 +20,13 @@
           {% if product.discount_percentage > 0 %}
             <span class="badge rounded-pill bg-info text-dark sale-item-badge">-{{ product.discount_percentage }}%</span>
           {% endif %}
-          <img src="{{ MEDIA_URL }}{{ product.image }}"
-               alt="{{ product.watch_brand }} {{ product.title }}"
-               width="300"
-               height="auto" />
+          <div style="overflow: hidden">
+            <img src="{{ MEDIA_URL }}{{ product.image }}"
+                 alt="{{ product.watch_brand }} {{ product.title }}"
+                 width="300"
+                 class="main-image"
+                 height="auto" />
+          </div>
           <span class="text-uppercase">{{ product.get_watch_brand_display }}</span>
           <span><strong>{{ product.short_title }}</strong></span>
           <div>
@@ -74,4 +41,5 @@
       </a>
     {% endfor %}
   </div>
+  <script src="{% static 'assets/js/image_hover.js' %}" defer></script>
 {% endblock %}

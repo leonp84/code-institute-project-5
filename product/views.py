@@ -164,11 +164,11 @@ def advanced_search(request):
         dial_color = request.POST.get('dial_color')
         min_price = request.POST.get('min-price')
         max_price = request.POST.get('max-price')
-
+        print('GENDER = ' + gender)
         queryset = Product.objects.filter(
           (Q(title__icontains=keyword) | Q(desc__icontains=keyword)) &
           Q(watch_brand=brand) &
-          Q(watch_gender__icontains=gender) &
+          Q(watch_gender=gender) &
           Q(watch_dial_colour__icontains=dial_color) &
           Q(price__gte=min_price) &
           Q(price__lte=max_price)
