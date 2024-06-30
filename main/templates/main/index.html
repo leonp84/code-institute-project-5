@@ -87,7 +87,7 @@
   </div>
   <div class=" d-flex justify-content-center py-4 mt-5">
     <div class="col-12 col-md-7 p-1">
-      <p class="fs-5">
+      <p id="motivation-text" class="fs-5 animate__animated">
         <img src="{% static 'assets/images/about/about-heritage-company-1.webp' %}"
              alt=""
              width="450"
@@ -109,29 +109,78 @@
   </div>
   <br>
   <br>
-  <p class="text-center my-4 pb-3 fs-3 ln-lg">
-    “Heritage Company understands the value of tradition.
-    <br />
-    They're obviously interested in so much more than mere profit. Kudos”
-    <br>
-    <em>- John from Scotland</em>
-  </p>
-  <div class=" d-flex justify-content-center py-4">
-    <img src="{% static 'assets/images/breitling-mens-watches.webp' %}"
-         width="800"
-         height="auto"
-         alt="breitling mens watches">
+  <div id="landing-page-parallax"></div>
+  <br>
+  <br>
+  <div class="d-flex justify-content-center py-4 mt-5 landing-page-bg-section">
+    <div class="col-12 col-md-6 p-1">
+      <p class="fs-3">
+        <img src="{% static 'assets/images/heritage-customer-1.jpg' %}"
+             alt=""
+             width="250"
+             height="auto"
+             style="float: left;
+                    margin-right: 15px" />
+        “Heritage Company understands the value of tradition. They're obviously interested in so much more than mere profit. Kudos”
+        <br>
+        <em>Ryan from Singapore</em>
+      </p>
+    </div>
   </div>
-  <p class="text-center my-4 pb-3 fs-3 ln-lg">
-    “My experience with Heritage Company,
-    <br />
-    has left me wanting when visiting other dealers.”
-    <br>
-    <em>- Anne from France</em>
-  </p>
+  <br>
+  <div class="container p-3 mt-3">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3>Some of our most popular timepieces</h3>
+      </div>
+    </div>
+  </div>
+  <div class="container d-flex flex-wrap justify-content-evenly">
+    {% for product in products %}
+      <a href="{% url 'product_detail' product.id %}"
+         style="text-decoration: none">
+        <div class="col watch-container position-relative">
+          {% if product.discount_percentage > 0 %}
+            <span class="badge rounded-pill bg-info text-dark sale-item-badge">-{{ product.discount_percentage }}%</span>
+          {% endif %}
+          <img src="{{ MEDIA_URL }}{{ product.image }}"
+               alt="{{ product.watch_brand }} {{ product.title }}"
+               width="300"
+               height="auto" />
+          <span class="text-uppercase">{{ product.get_watch_brand_display }}</span>
+          <span><strong>{{ product.short_title }}</strong></span>
+          <div>
+            {% if product.discount_percentage > 0 %}
+              <span class="text-decoration-line-through">$ {{ product.pre_discount_price }}</span>
+              <span class="fw-bolder text-primary">$ {{ product.price }} USD</span>
+            {% else %}
+              <span>$ {{ product.price }} USD</span>
+            {% endif %}
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+  <div class=" d-flex justify-content-center py-4 mt-5 landing-page-bg-section">
+    <div class="col-12 col-md-6 p-1">
+      <p class="fs-3 text-end">
+        <img src="{% static 'assets/images/heritage-customer-2.jpg' %}"
+             alt=""
+             width="250"
+             height="auto"
+             style="float: right;
+                    margin-left: 15px" />
+        “My experience with Heritage Company,
+        has left me wanting when visiting other dealers.”
+        <br>
+        <em>Anne from France</em>
+      </p>
+    </div>
+  </div>
+  <br>
   <br>
   <div class="d-flex justify-content-center">
-    <a href="{% url 'all_products' %}" class="btn btn-lg btn-outline-dark">Browse Our Collection</a>
+    <a href="{% url 'all_products' %}" class="btn btn-lg btn-outline-dark">Browse Our Entire Collection</a>
   </div>
   <script src="{% static 'assets/js/index.js' %}" defer></script>
 {% endblock %}

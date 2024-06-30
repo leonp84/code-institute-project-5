@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.http import JsonResponse
 from .forms import NewsLetterSignupsForm, CustomerMessageForm
 from .models import NewsLetterSignup, DiscountCode
+from product.models import Product
 import random
 import json
 
@@ -47,7 +48,9 @@ def contact_us(request):
 
 def home(request):
     template = 'main/index.html'
-    context = {}
+    product_ids = [2, 3, 4]
+    products = Product.objects.filter(id__in=product_ids).order_by('id')
+    context = {'products': products}
     return render(request, template, context)
 
 

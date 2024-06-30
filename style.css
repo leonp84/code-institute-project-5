@@ -404,3 +404,29 @@ header .heading-text a:hover {
 #newsletter-close-button:hover {
   transform: scale(1.2);
 }
+
+.landing-page-bg-section {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+#landing-page-parallax {
+  width: 100%;
+  border: 1px solid #5a120a;
+  background: url('../images/breitling-mens-watches.webp') no-repeat center /
+    cover;
+  background-size: 200%;
+  background-position: 50% 70%;
+  height: 280px;
+}
+
+@media screen and (min-width: 1200px) {
+  #landing-page-parallax {
+    width: 100%;
+    border: 1px solid #5a120a;
+    background: url('../images/breitling-mens-watches.webp') no-repeat center /
+      cover;
+    height: 280px;
+    background-position: 50% 50%;
+    background-attachment: fixed;
+  }
+}
