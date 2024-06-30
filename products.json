@@ -1,0 +1,192 @@
+[
+  {
+    "model": "product.product",
+    "pk": 10,
+    "fields": {
+      "watch_brand": "BR",
+      "title": "Navitimer",
+      "ref": "RB0120",
+      "desc": "The Breitling Navitimer RB0120 is a classic aviation watch, renowned for its sophisticated chronograph functions. This model features a rose gold case and a black dial, embodying elegance and precision. It's perfect for pilots and watch enthusiasts alike, offering both style and functionality.",
+      "watch_gender": "M",
+      "watch_case_size": 43,
+      "watch_material": "Rose Gold",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 15000,
+      "image": "br2.1.webp",
+      "image2": "br2.2.webp",
+      "image3": "br2.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 11,
+    "fields": {
+      "watch_brand": "BR",
+      "title": "Superocean",
+      "ref": "AB2020",
+      "desc": "The Breitling Superocean AB2020 is designed for diving enthusiasts, with impressive water resistance and durability. Its bold blue dial and stainless steel bracelet make it both stylish and practical. This watch combines performance with a modern design, ideal for underwater adventures.",
+      "watch_gender": "M",
+      "watch_case_size": 42,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Blue",
+      "discount_percentage": 0,
+      "price": 4500,
+      "image": "br3.1.webp",
+      "image2": "br3.2.webp",
+      "image3": "br3.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 12,
+    "fields": {
+      "watch_brand": "BR",
+      "title": "Navitimer",
+      "ref": "AB0137211B1A1",
+      "desc": "The Breitling Navitimer AB0137211B1A1 is a testament to precision and craftsmanship. Featuring a silver dial and a stainless steel case, this watch is a favorite among aviation professionals. Its iconic slide rule bezel and chronograph functions make it both functional and stylish.",
+      "watch_gender": "M",
+      "watch_case_size": 41,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Silver",
+      "discount_percentage": 0,
+      "price": 7200,
+      "image": "br4.1.webp",
+      "image2": "br4.2.webp",
+      "image3": "br4.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 13,
+    "fields": {
+      "watch_brand": "BR",
+      "title": "Professional Series",
+      "ref": "X82310",
+      "desc": "The Breitling Professional Series X82310 is engineered for those who demand precision. With its rugged design and digital-analog display, this watch offers unparalleled functionality. It's perfect for professionals who need a reliable tool on their wrist.",
+      "watch_gender": "M",
+      "watch_case_size": 46,
+      "watch_material": "Titanium",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 3800,
+      "image": "br5.1.webp",
+      "image2": "br5.2.webp",
+      "image3": "br5.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 14,
+    "fields": {
+      "watch_brand": "BR",
+      "title": "Limited Series",
+      "ref": "A19360",
+      "desc": "The Breitling Limited Series A19360 is a collector's dream, combining rarity with exquisite design. This model features unique complications and a luxurious finish, making it stand out. It's a perfect choice for those who appreciate the artistry of watchmaking.",
+      "watch_gender": "M",
+      "watch_case_size": 42,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "White",
+      "discount_percentage": 0,
+      "price": 11000,
+      "image": "br6.1.webp",
+      "image2": "br6.2.webp",
+      "image3": "br6.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 15,
+    "fields": {
+      "watch_brand": "BR",
+      "title": "Navitimer",
+      "ref": "AB0127",
+      "desc": "The Breitling Navitimer AB0127 continues the legacy of aviation timepieces. Its classic design and intricate dial make it a must-have for pilots. With a stainless steel case and brown leather strap, it combines vintage charm with modern features.",
+      "watch_gender": "M",
+      "watch_case_size": 43,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 6800,
+      "image": "br7.1.webp",
+      "image2": "br7.2.webp",
+      "image3": "br7.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 16,
+    "fields": {
+      "watch_brand": "BR",
+      "title": "Superocean",
+      "ref": "V17369",
+      "desc": "The Breitling Superocean V17369 is tailored for deep-sea explorers. With a robust build and exceptional water resistance, it excels underwater. Its sleek black case and vibrant yellow accents add a touch of modernity to its functional design.",
+      "watch_gender": "M",
+      "watch_case_size": 44,
+      "watch_material": "DLC-Coated Steel",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 5000,
+      "image": "br8.1.webp",
+      "image2": "br8.2.webp",
+      "image3": "br8.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 17,
+    "fields": {
+      "watch_brand": "BR",
+      "title": "Superocean",
+      "ref": "U17368",
+      "desc": "The Breitling Superocean U17368 is perfect for diving and everyday wear. Its stylish design, paired with excellent performance, makes it versatile. The bronze case and green dial provide a unique and elegant appearance.",
+      "watch_gender": "M",
+      "watch_case_size": 42,
+      "watch_material": "Bronze",
+      "watch_dial_colour": "Green",
+      "discount_percentage": 0,
+      "price": 5300,
+      "image": "br9.1.webp",
+      "image2": "br9.2.webp",
+      "image3": "br9.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 18,
+    "fields": {
+      "watch_brand": "BR",
+      "title": "Aviator",
+      "ref": "EB2040101L1X1",
+      "desc": "The Breitling Aviator EB2040101L1X1 embodies the spirit of aviation. Designed for pilots, it features a lightweight titanium case and clear dial. This model ensures accuracy and reliability, essential for any flying enthusiast.",
+      "watch_gender": "M",
+      "watch_case_size": 43,
+      "watch_material": "Titanium",
+      "watch_dial_colour": "Blue",
+      "discount_percentage": 0,
+      "price": 9500,
+      "image": "br10.1.webp",
+      "image2": "br10.2.webp",
+      "image3": "br10.3.webp"
+    }
+  },
+  {
+    "model": "product.product",
+    "pk": 19,
+    "fields": {
+      "watch_brand": "BR",
+      "title": "Superocean",
+      "ref": "A13341",
+      "desc": "The Breitling Superocean A13341 is designed for diving professionals, featuring outstanding water resistance and durability. Its bold black dial and stainless steel bracelet make it both stylish and functional. This watch is built to perform in the most challenging environments.",
+      "watch_gender": "M",
+      "watch_case_size": 44,
+      "watch_material": "Stainless Steel",
+      "watch_dial_colour": "Black",
+      "discount_percentage": 0,
+      "price": 4700,
+      "image": "br11.1.webp",
+      "image2": "br11.2.webp",
+      "image3": "br11.3.webp"
+    }
+  }
+]
