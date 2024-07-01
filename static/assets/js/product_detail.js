@@ -22,7 +22,7 @@ $(function () {
 
     setTimeout(() => {
       addItemToBag();
-    }, '10');
+    }, '1500');
   });
 
   $('#customer-message-form').on('submit', function (e) {

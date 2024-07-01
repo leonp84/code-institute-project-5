@@ -148,11 +148,12 @@
                      alt="{{ product.name }}"
                      height="100"
                      width="auto"
+                     style="border: 1px solid rgba(0,0,0,.2)"
                      data-bs-placement="right"
                      data-bs-toggle="tooltip"
                      title="Visit Product Detail Page">
               </a>
-              <div class="d-flex flex-column">
+              <div class="d-flex flex-column ms-2">
                 <span><strong>{{ product.watch_brand }}</strong></span>
                 <span class="small"><em>{{ product.title }}</em></span>
                 <span>$ {{ product.price }}</span>

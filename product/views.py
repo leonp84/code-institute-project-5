@@ -8,6 +8,7 @@ from django.db.models import Q
 from .forms import ProductForm
 from django.contrib.auth.decorators import user_passes_test
 import json
+import re
 
 
 def all_products(request, sort_by='title'):
@@ -159,20 +160,20 @@ def search(request):
 def advanced_search(request):
     if request.method == 'POST':
         keyword = request.POST.get('keyword')
-        gender = request.POST.get('gender')
-        brand = request.POST.get('brand')
-        dial_color = request.POST.get('dial_color')
+        brand = request.POST.get('brand').split(',')
+        gender = request.POST.get('gender').split(',')
+        dial_color = request.POST.get('dial_color').split(',')
         min_price = request.POST.get('min-price')
         max_price = request.POST.get('max-price')
-        print('GENDER = ' + gender)
         queryset = Product.objects.filter(
-          (Q(title__icontains=keyword) | Q(desc__icontains=keyword)) &
-          Q(watch_brand=brand) &
-          Q(watch_gender=gender) &
-          Q(watch_dial_colour__icontains=dial_color) &
-          Q(price__gte=min_price) &
-          Q(price__lte=max_price)
-        )
+            (Q(title__icontains=keyword) | Q(desc__icontains=keyword)),
+            desc__icontains=keyword,
+            watch_brand__in=brand,
+            watch_gender__in=gender,
+            watch_dial_colour__in=dial_color,
+            price__gte=min_price,
+            price__lte=max_price,
+            )
         count = len(queryset)
         messages.info(request,
                       'Your search filters have been applied to this result.',

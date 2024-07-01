@@ -10,6 +10,6 @@
 {% endelement %}
 <br>
 {% element p %}
-{% blocktrans %}To complete the creation of your account, we need you to verify your email address. We have sent an email to you for verification, so  <span class="text-primary fw-bold">please check your email inbox </span>(and your spam folder). If after 30 minutes you do not receive the verification email please reach our to us.{% endblocktrans %}
+To complete the creation of your account, we need you to verify your email address. We have sent an email to you for verification, so  <span class="text-primary fw-bold">please check your email inbox</span>(and your spam folder). If after 30 minutes you do not receive the verification email please <a href="{% url 'contact_us' %}">reach out to us</a>.
 {% endelement %}
 {% endblock inner_content %}
