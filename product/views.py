@@ -135,7 +135,7 @@ def customer_product_message(request):
     )
     new_customer_message.save()
 
-    return JsonResponse({'message': 'Model Updated'})
+    return JsonResponse({'message': 'Customer Message Received'})
 
 
 def search(request):
@@ -164,9 +164,14 @@ def advanced_search(request):
         dial_color = request.POST.get('dial_color').split(',')
         min_price = request.POST.get('min-price')
         max_price = request.POST.get('max-price')
+        print('KEYWORD' + str(keyword))
+        print('brand' + str(brand))
+        print('gender' + str(gender))
+        print('dial_color' + str(dial_color))
+        print('min_price' + str(min_price))
+        print('max_price' + str(max_price))
         queryset = Product.objects.filter(
             (Q(title__icontains=keyword) | Q(desc__icontains=keyword)),
-            desc__icontains=keyword,
             watch_brand__in=brand,
             watch_gender__in=gender,
             watch_dial_colour__in=dial_color,

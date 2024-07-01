@@ -143,7 +143,6 @@ def check_discount_code(request):
     if request.method == 'POST':
         data = json.load(request)
         code = data['code']
-
         if DiscountCode.objects.filter(discount_code=code).exists():
             found_code = DiscountCode.objects.filter(
               discount_code=code).first()
@@ -162,7 +161,6 @@ def check_discount_code(request):
 def newsletter_shown(request):
     if request.method == 'POST':
         data = json.load(request)
-        print('SEEN NEWSL = ' + str(data['newsletterShown']))
         request.session['newsletter_shown'] = data['newsletterShown']
 
         return JsonResponse({

@@ -68,9 +68,20 @@ class NewsLetterSignUpViewTest(TestCase):
 class CheckDiscountCodeViewTest(TestCase):
     def test_check_discount_code_view_status_code(self):
         client = Client()
-        data = {'code': '000000'}
+        data = {'code': ''}
         data_json = json.dumps(data)
-        response = client.post('my_account/check_discount_code', data_json, content_type="application/json")
-        print('RESPONSE')
-        print(response)
-        self.assertEqual(response.status_code, '406')
+        response = client.post('/my_account/check_discount_code/', data_json,
+                               content_type="application/json")
+        response_check = json.loads(response.content)
+        self.assertEqual(response_check['message'], 'Code Invalid')
+
+
+class NewsletterShownViewTest(TestCase):
+    def test_newsletter_shown_view_status_code(self):
+        client = Client()
+        data = {'newsletterShown': False}
+        data_json = json.dumps(data)
+        response = client.post('/newsletter_shown/', data_json,
+                               content_type="application/json")
+        response_check = json.loads(response.content)
+        self.assertEqual(response_check['message'], 'Newsletter Shown Noted')
