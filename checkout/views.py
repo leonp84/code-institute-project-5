@@ -21,8 +21,6 @@ def shopping_bag(request):
     request.session['watch_care_plan'] = False
     shopping_bag = request.session.get('shopping_bag', {})
     product_ids = [int(i) for i in shopping_bag.keys()]
-    print('###')
-    print(product_ids)
     quantities = [int(i) for i in shopping_bag.values()]
     products_in_bag = Product.objects.filter(id__in=product_ids).order_by('id')
 
