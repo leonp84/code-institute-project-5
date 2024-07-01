@@ -8,7 +8,7 @@ from io import BytesIO
 '''
 NOTE: Using unittest to test forms with Imagefields proved complicated.
 Most of the testing code below was copied and adapted from this github
-repoistory: https://gist.github.com/drillbits/5432699
+repository: https://gist.github.com/drillbits/5432699
 '''
 
 
@@ -55,7 +55,7 @@ ZnktZGF0ZQAyMDEwLTEyLTI2VDE0OjQ5OjIxKzA5OjAwWK1mQQAAAABJRU5ErkJggg==
 '''.strip()
 
 
-class ProductFormTest(TestCase):
+class TestProductForm(TestCase):
     @override_settings(MEDIA_ROOT=tempfile.gettempdir())
     def test_product_form_valid(self):
 
@@ -80,5 +80,4 @@ class ProductFormTest(TestCase):
             'price': 1000,
             }
         new_product = ProductForm(data=data, files={'image': image})
-        # self.assertEqual(new_product.is_valid(), True)
         self.assertTrue(new_product.is_valid())

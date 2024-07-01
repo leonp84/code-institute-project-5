@@ -131,6 +131,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 DATABASES = {
     'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
 }
+
 # Local Test Database for running tests with mock data
 if 'test' in sys.argv:
     DATABASES = {'default': {
