@@ -8,7 +8,6 @@ from django.db.models import Q
 from .forms import ProductForm
 from django.contrib.auth.decorators import user_passes_test
 import json
-import re
 
 
 def all_products(request, sort_by='title'):

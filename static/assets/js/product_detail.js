@@ -9,7 +9,6 @@ $(function () {
 
   $('.main-product-image').on('click', function () {
     $('#largeImageModal').modal('show');
-    window.localStorage.clear();
   });
 
   $('#buy-button').on('click', function () {
