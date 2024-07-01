@@ -13,6 +13,7 @@ $(function () {
     images.push(newImage.toString());
   });
 
+  // The preloadImages function below was copied and slightly adapted from code provided by ChatGPT
   const preloadImages = (srcArray) => {
     srcArray.forEach((src) => {
       const img = new Image();
