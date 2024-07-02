@@ -7,7 +7,7 @@ class CustomerMessage(models.Model):
     customer_email = models.EmailField(max_length=254)
     product_name = models.CharField(max_length=254, blank=True)
     product_ref = models.CharField(max_length=254, blank=True)
-    customer_message = models.TextField()
+    customer_message = models.TextField(blank=False)
     date_sent = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

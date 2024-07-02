@@ -10,9 +10,6 @@
     </div>
   </div>
   <div class="container d-flex flex-wrap justify-content-evenly">
-    {% with path="all_products" %}
-      {% include '../includes/search_and_filter.html' %}
-    {% endwith %}
     {% for product in search_results %}
       <a href="{% url 'product_detail' product.id %}"
          style="text-decoration: none">

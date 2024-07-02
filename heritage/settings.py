@@ -69,7 +69,6 @@ SESSION_SAVE_EVERY_REQUEST = True
 
 ROOT_URLCONF = 'heritage.urls'
 
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 TEMPLATES = [
     {
