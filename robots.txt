@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: 
+Disallow: /checkout/
+Disallow: /my_account/
+Disallow: /accounts/
+Sitemap: https://heritage-company.net/sitemap.xml
