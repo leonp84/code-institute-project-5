@@ -420,6 +420,10 @@ header .heading-text a:hover {
   height: 280px;
 }
 
+a.disabled {
+  pointer-events: none;
+}
+
 @media screen and (min-width: 1200px) {
   #landing-page-parallax {
     width: 100%;

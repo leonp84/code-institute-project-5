@@ -42,7 +42,9 @@
             </ul>
             <p>These are Redeemable within the first three years after purchase.</p>
           </div>
-          <a href="{% url 'checkout' %}" class="btn btn-lg btn-warning my-3">Proceed to Checkout</a>
+          <a href="{% url 'checkout' %}"
+             id="proceed-to-checkout"
+             class="btn btn-lg btn-warning my-3">Proceed to Checkout</a>
         </div>
         <div class="col-12 col-lg-9 order-1">
           {% for product in products_in_bag %}

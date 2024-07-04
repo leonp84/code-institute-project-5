@@ -67,7 +67,7 @@ $(function () {
     $(this).parent().parent().parent().remove();
     setTimeout(() => {
       updatePrice();
-    }, '1500');
+    }, '100');
   });
 });
 
@@ -96,7 +96,13 @@ function updatePrice() {
 
   $('#checkout-total').html(totalPrice.toLocaleString());
   currentTotal = totalPrice.toLocaleString();
-
+  console.log(currentTotal);
+  if (currentTotal === '0') {
+    console.log('trying');
+    $('#proceed-to-checkout').attr('href', '#');
+    $('#proceed-to-checkout').removeClass('btn-warning');
+    $('#proceed-to-checkout').addClass('btn-secondary');
+  }
   // AJAX POST Request to update shopping bag
   $.ajax({
     url: '/checkout/update_shopping_bag/',
