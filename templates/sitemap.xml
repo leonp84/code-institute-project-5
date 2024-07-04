@@ -8,334 +8,289 @@
 
 
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/contact_us/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/contact_us/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/accounts/login/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/all_products/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/checkout/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/breitling/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/all_products/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/tag_heuer/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/breitling/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/omega/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/tag_heuer/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/tissot/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/omega/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/sale/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/tissot/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/about/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/sale/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/advanced_search/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/about/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/30</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/advanced_search/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/28</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/30</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/10</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/28</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/29</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/accounts/login/?next=/my_account/my_account/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/31</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/privacy_policy/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/privacy_policy/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/terms_and_conditions/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/terms_and_conditions/</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/accounts/signup/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/all_products/price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/accounts/password/reset/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/all_products/-price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/accounts/google/login/</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/24</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/all_products/price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/18</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/all_products/-price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/32</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/24</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/34</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/18</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/36</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/37</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/37</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/31</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/33</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/32</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/35</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/34</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/38</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/36</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/14</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/35</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/12</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/33</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/15</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/38</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/41</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/14</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/42</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/15</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/43</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/12</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/23</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/10</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/13</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/41</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/22</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/42</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/25</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/43</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/26</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/23</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/20</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/13</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/27</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/22</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/17</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/25</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/19</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/27</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/16</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/26</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/11</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/20</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/39</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/29</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/product_detail/40</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/11</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/breitling/price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/17</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/breitling/-price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/19</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/tag_heuer/price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/16</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/tag_heuer/-price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/39</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/omega/price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/product_detail/40</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/omega/-price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/breitling/price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/tissot/price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/breitling/-price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/tissot/-price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/tag_heuer/price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/sale/price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/tag_heuer/-price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
+  <loc>https://heritage-company.net/product/sale/-price</loc>
+  <lastmod>2024-07-04T18:10:45+00:00</lastmod>
   <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/omega/price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/omega/-price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/tissot/price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/tissot/-price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/sale/price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/product/sale/-price</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/accounts/signup/?next=%2Fmy_account%2Fmy_account%2F</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/accounts/google/login/?next=%2Fmy_account%2Fmy_account%2F</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://heritage-company-386a48d92bd9.herokuapp.com/accounts/login/?next=%2Fmy_account%2Fmy_account%2F</loc>
-  <lastmod>2024-06-30T17:20:53+00:00</lastmod>
-  <priority>0.51</priority>
 </url>
 
 
