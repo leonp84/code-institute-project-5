@@ -1,4 +1,5 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect
+# Import below used to check for superuser status
 from django.contrib.auth.decorators import user_passes_test
 from django.http import JsonResponse
 from django.contrib import messages

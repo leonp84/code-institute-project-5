@@ -3,6 +3,12 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Product(models.Model):
+    '''
+    Stores a new product instance. Instances of this model is called most
+    frequently than any other throughout the site, by all users. Creating a
+    new instance of Product, or editing/deleting current instances, is
+    only available to superusers.
+    '''
 
     class WatchBrand(models.TextChoices):
         BREITLING = "BR", _("Breitling")

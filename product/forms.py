@@ -5,7 +5,13 @@ from .models import Product
 
 
 class ProductForm(forms.ModelForm):
-
+    '''
+    Creates a form instance of :model:`product.Product` with custom
+    labels, help texts and widgets for when superusers choose to add
+    new instances of :model:`product.Product` or edit existing ones.
+    This form is used in product.views.update_profile and
+    checkout.views.checkout
+    '''
     class Meta:
         model = Product
         fields = '__all__'
@@ -17,7 +23,7 @@ class ProductForm(forms.ModelForm):
             "watch_gender": _("Gender"),
             "watch_case_size": _("Case Size in mm"),
             "watch_material": _("Case Material"),
-            "watch_dial_colour": _("Dial Colour"),
+            "watch_dial_colour": _("Dial Color"),
             "discount_percentage": _("Discount Percentage"),
             "price": _("Price in US Dollars"),
             "image": _("Primary Display Image"),

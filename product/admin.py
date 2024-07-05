@@ -4,6 +4,9 @@ from .models import Product
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    '''
+    Custom product display in admin panel
+    '''
     list_display = (
           'watch_brand',
           'title',

@@ -101,7 +101,7 @@ def update_shopping_bag(request):
     '''
     This view is called by Javascript whenever a customer removes
     an item from the shopping bag, or updates it quantities. It recreates
-    the 'shopping_bag' session variable using product_id's and quantities sent 
+    the 'shopping_bag' session variable using product_id's and quantities sent
     by Javascript.
     **Context**
         None - JsonResponse with message

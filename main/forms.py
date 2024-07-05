@@ -5,12 +5,18 @@ from .models import NewsLetterSignup, CustomerMessage
 
 
 class NewsLetterSignupsForm(forms.ModelForm):
+    '''
+    Creates a form instance of :model:`main.NewsLetterSignup
+    '''
     class Meta:
         model = NewsLetterSignup
         fields = ('customer_email',)
 
 
 class CustomerMessageForm(forms.ModelForm):
+    '''
+    Creates a form instance of :model:`main.CustomerMessage
+    '''
     class Meta:
         model = CustomerMessage
         fields = ('customer_name', 'customer_email', 'customer_message',)

@@ -10,8 +10,18 @@ from checkout.models import Order
 
 @csrf_exempt
 def webhook(request):
+    '''
+    This view is called by Stripe at various times during the payment process.
+    The webhook handler here only responds when stripe sends a
+    'payment_intent.succeeded' webhook and checks to ensure the order has been
+    fulfilled by checkout.views.order_confirmation. If not, this view serves as
+    redundancy by redirecting to checkout.views.order_confirmation to complete
+    the order and send the necessary confirmation emails to the customer.
+    NOTE: Much of the code here was copied and adapted from the stripe
+    documentation at https://docs.stripe.com/webhooks/quickstart
+    '''
     stripe.api_key = settings.STRIPE_SECRET_KEY
-    endpoint_secret = settings.STRIPE_ENDPOINT_SECRET # noqa
+    endpoint_secret = settings.STRIPE_ENDPOINT_SECRET  # noqa
 
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
@@ -34,11 +44,9 @@ def webhook(request):
         # Check if the order has already been created at 'order_confirmation'
         pid = intent['id']
         if Order.objects.filter(stripe_pid=pid).exists():
-            print('It has been found!')
             pass
         else:
             # If not, proceed fulfill by redirecting to the view
-            print('It has NOT been found!')
             return HttpResponseRedirect(reverse(
                 'order_confirmation', args=[pid]))
     else:

@@ -5,6 +5,13 @@ from .models import UserDetail
 
 
 class UserDetailsForm(forms.ModelForm):
+    '''
+    Creates a form instance of :model:`my_account.UserDetail` with custom
+    labels, help texts and widgets for when logged in users choose to update
+    their personal and delivery information.
+    This form is used in my_account.views.update_profile and
+    checkout.views.checkout
+    '''
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -18,8 +25,8 @@ class UserDetailsForm(forms.ModelForm):
             "user_first_name": _("First Name"),
             "user_last_name": _("Last Name"),
             "user_phone_number": _("Phone Number"),
-            "user_street_address1": _("Street Adress"),
-            "user_street_address2": _("Street Adress 2"),
+            "user_street_address1": _("Street Address"),
+            "user_street_address2": _("Street Address 2"),
             "user_city": _("City"),
             "user_country": _("Country"),
             "user_postcode": _("Postcode"),

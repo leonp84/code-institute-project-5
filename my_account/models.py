@@ -7,6 +7,13 @@ from product.models import Product
 
 
 class UserDetail (models.Model):
+    '''
+    Stores user details for users that have created an account.
+    These details can then later be used during the checkout process.
+    A new instance of this model is automatically created via
+    the post_save signal below, whenever (1) django Allauth creates
+    a new user account or, (2) a new account is created in the checkout view)
+    '''
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     user_first_name = models.CharField(
       max_length=254, null=True, blank=True)

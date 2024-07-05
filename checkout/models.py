@@ -6,6 +6,15 @@ from product.models import Product
 
 
 class CheckoutSingleItem(models.Model):
+    '''
+    Stores an instance of a single item, and its quantities, that
+    are in the customers shopping bag when they choose to checkout.
+    NOTE: The fields `product_name_text` and `product_ref_text`
+    specifically do NOT use foreignkey fields, but make text copies
+    of the relevant information in :model:`product.Product` so that
+    past order information is still available (and not blank) even
+    when a product instance is deleted by a superuser.
+    '''
     order_number = models.CharField(max_length=254)
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     product_name_text = models.CharField(max_length=254)
@@ -21,6 +30,14 @@ class CheckoutSingleItem(models.Model):
 
 
 class Order(models.Model):
+    '''
+    Stores an instance of a (paid) order after checkout. New instances
+    of this model are created at checkout.views.order_confirmation.
+    NOTE: The `items_ordered` & `items_ordered_admin` functions below
+    return a HTML table element to display ordered products in both the
+    my_account view (under 'past orders') or for superusers in the admin
+    view (see checkout/admin.py)
+    '''
     user = models.ForeignKey(
       User, on_delete=models.SET_NULL, null=True, blank=True)
     order_number = models.CharField(max_length=254)

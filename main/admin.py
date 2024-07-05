@@ -10,6 +10,10 @@ admin.site.index_title = 'Heritage Company Dashboard'
 
 @admin.register(NewsLetterSignup)
 class NewsLetterSignupAdmin(admin.ModelAdmin):
+    '''
+    Custom display of instances of :model:`main.NewsLetterSignup` in
+    admin panel
+    '''
     list_display = ('customer_email', 'token', 'is_verified', 'sign_up_date',)
 
     def has_change_permission(self, request, obj=None):
@@ -18,6 +22,9 @@ class NewsLetterSignupAdmin(admin.ModelAdmin):
 
 @admin.register(DiscountCode)
 class DiscountCodeAdmin(admin.ModelAdmin):
+    '''
+    Custom display of instances of :model:`main.DiscountCode` in admin panel
+    '''
     list_display = ('discount_code', 'date_created',)
     readonly_fields = ('discount_code',)
 
@@ -27,6 +34,9 @@ class DiscountCodeAdmin(admin.ModelAdmin):
 
 @admin.register(CustomerMessage)
 class CustomerMessageAdmin(admin.ModelAdmin):
+    '''
+    Custom display of instances of :model:`main.CustomerMessage` in admin panel
+    '''
     list_display = ('customer_name', 'customer_email', 'product_name',
                     'product_ref', 'date_sent', 'customer_message',)
 
