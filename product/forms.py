@@ -33,8 +33,6 @@ class ProductForm(forms.ModelForm):
         help_texts = {
             "title": _("The full watch title without brand name."),
             "desc": _("Recommended length: 50-100 words"),
-            "watch_gender": _("Specify whether this is a male of female watch \
-                               by typing 'M' or 'F'"),
             "discount_percentage": _("If the item is not on sale enter '0'"),
             "price": _("Enter only numbers without any commas or periods"),
             "image": _("The primary product image, ensure this is of high \
@@ -45,10 +43,11 @@ class ProductForm(forms.ModelForm):
             "title": TextInput(attrs={
               "placeholder": "ex. 'Carrera Heuer 02 Automatic Chronograph'"}),
             "ref": TextInput(attrs={"placeholder": "ex. 'A010589ZPO'"}),
-            "watch_case_size": NumberInput(attrs={"placeholder": "44"}),
+            "watch_case_size": NumberInput(attrs={"placeholder": "ex. '44'"}),
             "discount_percentage": NumberInput(),
             "price": NumberInput(),
             "watch_material": TextInput(attrs={
-              "placeholder": "Stainless Steel"}),
-            "watch_dial_colour": TextInput(attrs={"placeholder": "Blue"}),
+              "placeholder": "ex. 'Stainless Steel'"}),
+            "watch_dial_colour": TextInput(
+                                    attrs={"placeholder": "ex. 'Blue'"}),
         }

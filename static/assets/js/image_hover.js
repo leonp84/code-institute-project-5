@@ -23,7 +23,6 @@ $(function () {
 
   // Product List Display Image Hover Effect
   $('.main-image').on('mouseover', function () {
-    console.log($(this).attr('src'));
     let currentImage = $(this).attr('src');
     let newImage = currentImage.slice(0, currentImage.length - 6);
     newImage += '2.webp';

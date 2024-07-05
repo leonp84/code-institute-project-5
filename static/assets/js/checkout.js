@@ -52,9 +52,7 @@ $(function () {
  */
 function updatePrice() {
   let currentAmount = parseInt($('#amount-to-pay').text().replace(',', ''));
-  console.log(currentAmount);
   let newAmount = currentAmount - 100;
-  console.log(newAmount);
   $('#amount-to-pay').text(newAmount.toLocaleString());
   $('#amount-to-pay-form').val(newAmount);
 }

@@ -147,13 +147,14 @@ def add_new_product(request):
     if request.method == 'POST':
         new_product = ProductForm(request.POST, request.FILES)
         if new_product.is_valid():
-            new_product.save()
+            product = new_product.save()
             messages.success(request,
                              'You have successfully added a new product',
                              extra_tags='STOREFRONT UPDATED')
         else:
             print(new_product.errors)
-        return render(request, 'main/index.html')
+        return HttpResponseRedirect(reverse(
+          'product_detail', args=[product.id]))
 
     form = ProductForm()
     template = 'product/add_new_product.html'
@@ -304,12 +305,6 @@ def advanced_search(request):
         dial_color = request.POST.get('dial_color').split(',')
         min_price = request.POST.get('min-price')
         max_price = request.POST.get('max-price')
-        print('KEYWORD' + str(keyword))
-        print('brand' + str(brand))
-        print('gender' + str(gender))
-        print('dial_color' + str(dial_color))
-        print('min_price' + str(min_price))
-        print('max_price' + str(max_price))
         queryset = Product.objects.filter(
             (Q(title__icontains=keyword) | Q(desc__icontains=keyword)),
             watch_brand__in=brand,

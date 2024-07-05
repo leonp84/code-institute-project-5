@@ -71,8 +71,6 @@ def add_item_to_bag(request):
         # Get and update shopping bag with django.sessions
         shopping_bag = request.session.get('shopping_bag', {})
 
-        print(shopping_bag.keys())
-
         if product_to_add in shopping_bag.keys():
             # Check if 3 of product already in bag
             if shopping_bag[product_to_add] == 3:

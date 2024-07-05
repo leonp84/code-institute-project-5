@@ -103,7 +103,6 @@ function updatePrice() {
 
   $('#checkout-total').html(totalPrice.toLocaleString());
   currentTotal = totalPrice.toLocaleString();
-  console.log(currentTotal);
   // Disable checkout button if total is 0 (i.e. customer has removed all items from the shopping list)
   if (currentTotal === '0') {
     $('#proceed-to-checkout').attr('href', '#');
