@@ -3,9 +3,9 @@
 {% load crispy_forms_tags %}
 {% load account socialaccount %}
 {% block inner_content %}
-  <hr />
+  <hr>
   <h2 class="logo-font mb-4">Sign In</h2>
-  <hr />
+  <hr>
   <p>
     {% blocktrans %}If you have not created an account yet, then please
   <a href="{{ signup_url }}">sign up</a>
@@ -16,7 +16,7 @@
     {% if redirect_field_value %}
       <input type="hidden"
              name="{{ redirect_field_name }}"
-             value="{{ redirect_field_value }}" />
+             value="{{ redirect_field_value }}">
     {% endif %}
     <button class="btn btn-outline-dark pe-3" type="submit">
       <i class="fa fa-envelope me-3"></i>Sign In With Email&nbsp;

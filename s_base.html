@@ -159,7 +159,8 @@
       {% csrf_token %}
     </form>
     <main>
-      {% block content %}{% endblock %}
+      {% block content %}
+      {% endblock content %}
     </main>
     <!-- Extra Newsletter Signup (initially hidden)-->
     {% if show_newsletter_extra_signup %}

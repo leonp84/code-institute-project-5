@@ -26,20 +26,20 @@
     <div class="watch-images-container">
       <div class="d-none {% if product.image2 %}d-md-flex{% endif %} flex-column">
         <img src="{{ MEDIA_URL }}{{ product.image }}"
-             alt=""
+             alt="{{ product.title }} {{ product.ref }}"
              height="150"
              width="150"
              class="watch-extra-images">
         {% if product.image2 %}
           <img src="{{ MEDIA_URL }}{{ product.image2 }}"
-               alt=""
+               alt="{{ product.title }} {{ product.ref }}"
                height="150"
                width="150"
                class="watch-extra-images">
         {% endif %}
         {% if product.image3 %}
           <img src="{{ MEDIA_URL }}{{ product.image3 }}"
-               alt=""
+               alt="{{ product.title }} {{ product.ref }}"
                height="150"
                width="150"
                class="watch-extra-images">
@@ -75,20 +75,20 @@
             <div class="carousel-item active" data-bs-interval="10000">
               <img src="{{ MEDIA_URL }}{{ product.image }}"
                    class="d-block w-100 object-fit-cover"
-                   alt="...">
+                   alt="{{ product.title }} {{ product.ref }}">
             </div>
             {% if product.image2 %}
               <div class="carousel-item" data-bs-interval="10000">
                 <img src="{{ MEDIA_URL }}{{ product.image2 }}"
                      class="d-block w-100 object-fit-cover"
-                     alt="...">
+                     alt="{{ product.title }} {{ product.ref }}">
               </div>
             {% endif %}
             {% if product.image3 %}
               <div class="carousel-item" data-bs-interval="10000">
                 <img src="{{ MEDIA_URL }}{{ product.image3 }}"
                      class="d-block w-100 object-fit-cover"
-                     alt="...">
+                     alt="{{ product.title }} {{ product.ref }}">
               </div>
             {% endif %}
           </div>

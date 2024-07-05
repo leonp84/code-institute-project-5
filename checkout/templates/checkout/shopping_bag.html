@@ -5,6 +5,7 @@
 {% block content %}
   <div class="container col-12 mt-4 ">
     <h2 class="text-center mt-5">Your Shopping Bag</h2>
+    <!-- Display message if shopping bag empty -->
     {% if bag_empty %}
       <br>
       <h4 class="text-center">Your Bag is currently empty. Consider adding your first item</h4>
@@ -15,8 +16,10 @@
       <br>
       <br>
     {% else %}
+      <!-- List items in shopping bag -->
       <p class="small text-center">Please review your items below</p>
       <br>
+      <!-- Column to show subtotal + watch care plan option -->
       <div class="container-fluid d-flex flex-column flex-lg-row justify-content-evenly">
         <div class="p-3 col-12 col-lg-2 checkout-product-container order-2 d-flex flex-column">
           <h4>Subtotal</h4>
@@ -53,21 +56,20 @@
               <div class="col-12 checkout-product-container">
                 <div class="d-flex flex-wrap flex-md-nowrap">
                   <img src="{{ MEDIA_URL }}{{ product.image }}"
-                       alt=""
-                       width="auto"
+                       alt="{{ product.get_watch_brand_display }} {{ product.title }} {{ product.ref }}"
                        height="200"
                        style="border: 1px solid rgba(0,0,0,0.3)"
                        class="mb-1">
                   <div class=" col-8 col-md-6 ms-3">
                     <span class="fs-4 text-uppercase ">{{ product.get_watch_brand_display }}</span>
                     <h5>{{ product.title }}</h5>
-                    <hr />
+                    <hr>
                     <span>Watch Case Size: {{ product.watch_case_size }}mm</span>
-                    <br />
+                    <br>
                     <span>Watch Dial Color: {{ product.watch_dial_colour }}</span>
-                    <br />
+                    <br>
                     <span>Gender: {{ product.get_watch_gender_display }}</span>
-                    <hr />
+                    <hr>
                   </div>
                 </div>
                 <div class="price-container">
@@ -81,6 +83,7 @@
                     <span class="fs-5">$ <span class="product-price-js">{{ product.price }}</span></span>
                   {% endif %}
                 </div>
+                <!-- Allow customers to update product quantity dynamically in bag -->
                 <div class="checkout-final-column">
                   <span class="text-muted small">Quantity</span>
                   <select class="form-select form-select-sm qty-js"
@@ -102,7 +105,7 @@
     {% endif %}
     <br>
     <br>
-    <div class="col-12 mt-5 d-flex flex-column">
+    <aside class="col-12 mt-5 d-flex flex-column">
       <hr>
       <h6>Shipping</h6>
       <p class="small">Heritage Company provides worldwide free shipping on all it's product.</p>
@@ -114,7 +117,7 @@
       <p class="small">
         Customer may be liable to pay additional import tax depending on shipping destination. Please enquire at your local tax and customs authority.
       </p>
-    </div>
+    </aside>
   </div>
   <script src="{% static 'assets/js/shopping_bag.js' %}" defer></script>
 {% endblock %}
