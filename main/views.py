@@ -5,21 +5,33 @@ from django.urls import reverse
 from django.conf import settings
 from django.contrib import messages
 from django.http import JsonResponse
-from .forms import NewsLetterSignupsForm, CustomerMessageForm
-from .models import NewsLetterSignup, DiscountCode
-from product.models import Product
 import random
 import json
+from product.models import Product
+from .forms import NewsLetterSignupsForm, CustomerMessageForm
+from .models import NewsLetterSignup, DiscountCode
 
 
 def about(request):
+    '''
+    Renders About Us Page
+    **Template**
+        :template:`main/about.html`
+    '''
     template = 'main/about.html'
     context = {}
     return render(request, template, context)
 
 
 def contact_us(request):
-
+    '''
+    Renders Contact Us Page
+    **Context**
+    ```form```
+    One instance of :form:`forms.CustomerMessageForm`
+    **Template**
+        :template:`main/contact_us.html`
+    '''
     if request.method == 'POST':
         new_message = CustomerMessageForm(data=request.POST)
         if new_message.is_valid:
@@ -47,6 +59,14 @@ def contact_us(request):
 
 
 def home(request):
+    '''
+    Renders Landing Page
+    **Context**
+    ```products```
+    Three specific instances of :model:`product.Product`
+    **Template**
+        :template:`main/index.html`
+    '''
     template = 'main/index.html'
     product_ids = [10, 31, 29]
     products = Product.objects.filter(id__in=product_ids).order_by('id')
@@ -55,6 +75,11 @@ def home(request):
 
 
 def privacy_policy(request):
+    '''
+    Renders Privacy Policy Page
+    **Template**
+        :template:`main/privacy_policy.html`
+    '''
     request.session['newsletter_shown'] = False
     template = 'main/privacy_policy.html'
     context = {}
@@ -62,12 +87,27 @@ def privacy_policy(request):
 
 
 def terms_and_conditions(request):
+    '''
+    Renders Terms and Conditions Page
+    **Template**
+        :template:`main/terms_and_conditions.html`
+    '''
     template = 'main/terms_and_conditions.html'
     context = {}
     return render(request, template, context)
 
 
 def verify_email(request, token):
+    '''
+    This view is called when a customer clicks a verification link on a
+    received email, with which to verify their email address. The view
+    receives a generated token (instantiated in the newsletter_signup
+    view below) with which to check for validation. If valid, a new
+    instance of :model:'main.DiscountCode' is generated,
+    saved, and emailed to the customer
+    **Template**
+        :template:`main/newsletter_signup_verified.html`
+    '''
     check_token = NewsLetterSignup.objects.filter(token=token).first()
     check_token.is_verified = True
     check_token.save()
@@ -103,6 +143,19 @@ def verify_email(request, token):
 
 
 def newsletter_signup(request):
+    '''
+    This view is called when a customer signs up for the
+    site newsletter. It generates a new instance of
+    :form:`main.NewsLetterSignupsForm`. It also generates a
+    verification link (which includes the uuid token) in
+    :model:`main.NewsLetterSignup`, and then emails the customer.
+    **Context**
+    ```email```
+    The customers email address retrieved from the newly created
+    instance of :model:`main.NewsLetterSignup`
+    **Template**
+        :template:`main/newsletter_signup.html`
+    '''
     if request.method == 'POST':
 
         new_email = request.POST.get('customer_email')
@@ -139,26 +192,16 @@ def newsletter_signup(request):
     return render(request, 'main/index.html')
 
 
-def check_discount_code(request):
-    if request.method == 'POST':
-        data = json.load(request)
-        code = data['code']
-        if DiscountCode.objects.filter(discount_code=code).exists():
-            found_code = DiscountCode.objects.filter(
-              discount_code=code).first()
-            found_code.delete()
-            return JsonResponse({
-              'status': 'ok',
-              'message': 'Code Accepted'
-              })
-        else:
-            return JsonResponse({
-              'status': '406',
-              'message': 'Code Invalid'
-              })
-
-
 def newsletter_shown(request):
+    '''
+    This view is called when the customer has scrolled
+    down far enough on the landing page (or other pages), and the
+    newsletter signup modal has been displayed. It updates
+    the Django backend session variable to avoid the newsletter
+    being displayed again. Details in /static/assets/js/project.js
+    **Context**
+        None - JsonResponse with status and message
+    '''
     if request.method == 'POST':
         data = json.load(request)
         request.session['newsletter_shown'] = data['newsletterShown']

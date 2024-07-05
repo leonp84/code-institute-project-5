@@ -1,9 +1,9 @@
-import base64
-import tempfile
 from django.test import TestCase, override_settings
-from .forms import ProductForm
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from io import BytesIO
+import base64
+import tempfile
+from .forms import ProductForm
 
 '''
 NOTE: Using unittest to test forms with Imagefields proved complicated.

@@ -1,7 +1,7 @@
 from django import forms
-from .models import Product
 from django.forms import Textarea, TextInput, NumberInput
 from django.utils.translation import gettext_lazy as _
+from .models import Product
 
 
 class ProductForm(forms.ModelForm):

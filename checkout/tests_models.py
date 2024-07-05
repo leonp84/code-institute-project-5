@@ -1,8 +1,8 @@
 from django.test import TestCase
-from .models import CheckoutSingleItem, Order
 from django.contrib.auth.models import User
-from product.models import Product
 from datetime import datetime
+from product.models import Product
+from .models import CheckoutSingleItem, Order
 
 
 class TestCheckoutSingleItemCreation(TestCase):

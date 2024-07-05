@@ -1,7 +1,7 @@
 from django.urls import path
+from django.urls import re_path
 from . import views
 from . import stripe_webhooks
-from django.urls import re_path
 
 
 urlpatterns = [

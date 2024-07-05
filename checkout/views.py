@@ -3,21 +3,37 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.http import JsonResponse, HttpResponseRedirect
-from product.models import Product
-from checkout.models import Order
-from .models import CheckoutSingleItem
-from .forms import OrderForm
 from django.conf import settings
-from my_account.forms import UserDetailsForm
-from my_account.models import UserDetail
 from django.contrib import messages
 import json
 import random
 import datetime
 import stripe
+from my_account.forms import UserDetailsForm
+from my_account.models import UserDetail
+from product.models import Product
+from checkout.models import Order
+from .models import CheckoutSingleItem
+from .forms import OrderForm
 
 
 def shopping_bag(request):
+    '''
+    Displays the shopping bag for the current user.
+    **Context**
+    ```products_in_bag```
+    A queryset of instances of :model:`product.Product` filtered
+    by products currently in the user's shopping bag. To retrieve this,
+    the session variable 'shopping_bag' is used throughout.
+    ```quantities```
+    The quantities (integers, in order) of each item in 'product_in_bag' used
+    by the template for client side UI display.
+    ```bag_empty```
+    A boolean variable used by the template to display a specific
+    message if the customers shopping bag is empty.
+    **Template**
+        :template:`checkout/shopping_bag.html`
+    '''
     request.session['watch_care_plan'] = False
     shopping_bag = request.session.get('shopping_bag', {})
     product_ids = [int(i) for i in shopping_bag.keys()]
@@ -39,6 +55,15 @@ def shopping_bag(request):
 
 
 def add_item_to_bag(request):
+    '''
+    This view is called by Javascript when the customer clicks the
+    'Buy this watch' button on any product_detail page. It receives
+    the product_id of the product in question and updates the session
+    variable 'shopping_bag' to add a new product, or update quantities.
+    It also limits customers to max 3 of each product per Order.
+    **Context**
+        None - JsonResponse with status and message
+    '''
     if request.method == 'POST':
         data = json.load(request)
         product_to_add = str(data['product_id'])
@@ -73,6 +98,14 @@ def add_item_to_bag(request):
 
 
 def update_shopping_bag(request):
+    '''
+    This view is called by Javascript whenever a customer removes
+    an item from the shopping bag, or updates it quantities. It recreates
+    the 'shopping_bag' session variable using product_id's and quantities sent 
+    by Javascript.
+    **Context**
+        None - JsonResponse with message
+    '''
     if request.method == 'POST':
         data = json.load(request)
         updated_products = data['updated_products']
@@ -87,6 +120,14 @@ def update_shopping_bag(request):
 
 
 def update_watch_care_plan(request):
+    '''
+    This view is called by Javascript whenever a customer clicks the
+    'Watch Care Plan' checkbox in the checkout page. It updates the
+    'watch_care_plan' session variable accordingly, to later be used in the
+    checkout view below.
+    **Context**
+        None - JsonResponse with message
+    '''
     if request.method == 'POST':
         data = json.load(request)
         updated_plan = data['watch_care_plan']
@@ -95,6 +136,34 @@ def update_watch_care_plan(request):
 
 
 def checkout(request):
+    '''
+    Displays the checkout page for the current user. During the POST request
+    method this view caches the order details by creation a session variable
+    'cached_order' which is then later retrieved by the order_confirmation view
+    after successful payment of the order.
+    **Context**
+    ```checkout_items```
+    Queryset of :model:`checkout.SingleCheckoutItem` filtered by
+    the current order number. Both the items in the queryset, and
+    the order number are generated/saved during the GET request of
+    this view.
+    ```order_total```
+    An integer representing the current order (sub)total based
+    on the current items in the shopping bag, and the quantities of
+    each item. The latter two variables are retrieved from the session
+    variable 'shopping_bag'.
+    ```watch_care_plan_price```
+    An integer representing 2.5% of 'order_total', but only if
+    the 'watch_care_plan' session variable is set to True.
+    ```grand_total```
+    An integer representing the total of order_total and watch_care_plan_price
+    ```form```
+    A single instance of :form:`my_account.UserDetailsForm` pre-populated if
+    the user is logged in and have provided the relevant information after
+    account creation.
+    **Template**
+        :template:`checkout/checkout.html`
+    '''
     shopping_bag = request.session.get('shopping_bag', {})
     product_ids = [int(i) for i in shopping_bag.keys()]
     quantities = [int(i) for i in shopping_bag.values()]
@@ -104,7 +173,7 @@ def checkout(request):
     order_number += str(datetime.date.today()).replace('-', '')[2:]
     order_number += '-'
     order_number += str(random.randrange(100000, 999999))
-    # Store Order Number in session to update model in after payment
+    # Store Order Number in session to update model after payment
     request.session['order_number'] = order_number
 
     order_total = 0
@@ -122,17 +191,21 @@ def checkout(request):
           quantity=quantities[i]
         )
         new_item.save()
+        # Update the order total after each new CheckoutSingleItem is created
         order_total += new_item.subtotal()
 
     watch_care_plan_price = 0
+    # Update watch_care_plan_price (2.5% of total) if the user chose the plan
     if request.session.get('watch_care_plan'):
         watch_care_plan_price = int(order_total / 100 * 2.5)
 
     grand_total = order_total + watch_care_plan_price
 
+    # checkout_items is used by the template to display product information.
     checkout_items = CheckoutSingleItem.objects.filter(
       order_number=order_number)
 
+    # Select pre-populated form if the customer is logged in.
     if request.user.is_authenticated:
         current_user = UserDetail.objects.filter(user=request.user).first()
         customer_details_form = UserDetailsForm(instance=current_user)
@@ -160,6 +233,7 @@ def checkout(request):
             'stripe_pid': '',
         }
 
+        # Cache order information in session variable
         request.session['cached_order'] = new_order_info
 
         if request.POST.get('create_new_account') == 'True':
@@ -225,6 +299,16 @@ def checkout(request):
 
 
 def order_payment(request):
+    '''
+    Displays a payment screen allowing users to enter credit card details.
+    More details in /static/assets/js/checkout_stripe.js
+    **Context**
+    ```grand_total```
+    An integer of the final amount to be paid by the customer.
+    Used by stripe to create a new payment instance.
+    **Template**
+        :template:`checkout/order_payment.html`
+    '''
     cached_order = request.session.get('cached_order')
     grand_total = int(cached_order['grand_total'])
     context = {'grand_total': grand_total}
@@ -233,6 +317,15 @@ def order_payment(request):
 
 
 def checkout_data(request):
+    '''
+    This view is called from checkout_stripe.js when the stripe JS script
+    creates a new payment instance. The view retrieves the grand total amount
+    from the order_payment.html page and sends it back to stripe as part of a
+    'clientSecret' variable (via JsonResponse) that Stripe needs to create
+    the payment instance.
+    **Context**
+        None - JsonResponse with message
+    '''
     data = json.loads(request.body)
     amount = data['amount']
     stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -248,6 +341,19 @@ def checkout_data(request):
 
 
 def order_confirmation(request, params):
+    '''
+    Creates a new instance of :model:`checkout.Order` and displays the
+    order confirmation page for customers who have successfully
+    made payment. The redirect to this view is done by Stripe.
+    This view also handles sending order confirmation emails.
+    See /static/assets/js/checkout_stripe.js for more details.
+    **Context**
+    ```paid_order```
+    The newly created instance of :model:`checkout.Order` with all
+    details of the order displayed then used by the template.
+    **Template**
+        :template:`checkout/shopping_bag.html`
+    '''
     try:
         payment_intent = request.GET['payment_intent']
     except KeyError:
@@ -289,6 +395,12 @@ def order_confirmation(request, params):
 
 
 def generate_password():
+    '''
+    This function is used by the checkout view to generate a unique,
+    strong, temporary password for customers who wish to create an
+    account upon order completion. It returns the newly generated
+    password as a string.
+    '''
     p1 = [i for i in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
     p2 = [i for i in 'abcdefghijklmnopqrstuvwxyz']
     p3 = [i for i in '0123456789']

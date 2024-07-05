@@ -1,6 +1,6 @@
 from django.test import TestCase
-from .forms import OrderForm
 from datetime import datetime
+from .forms import OrderForm
 
 
 class TestOrderForm(TestCase):
@@ -24,4 +24,3 @@ class TestOrderForm(TestCase):
             'stripe_pid': 'pi_12345',
                   })
         self.assertTrue(new_order.is_valid())
-

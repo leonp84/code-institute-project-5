@@ -1,7 +1,7 @@
 from django import forms
-from .models import NewsLetterSignup, CustomerMessage
-from django.forms import Textarea
 from django.utils.translation import gettext_lazy as _
+from django.forms import Textarea
+from .models import NewsLetterSignup, CustomerMessage
 
 
 class NewsLetterSignupsForm(forms.ModelForm):

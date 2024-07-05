@@ -1,8 +1,8 @@
 from django.db import models
-from product.models import Product
-from django_countries.fields import CountryField
 from django.contrib.auth.models import User
 from django.utils.html import format_html
+from django_countries.fields import CountryField
+from product.models import Product
 
 
 class CheckoutSingleItem(models.Model):

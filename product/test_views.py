@@ -1,8 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
 from django.test import Client
-from product.models import Product
 import json
+from product.models import Product
 
 
 class AllProductViewTest(TestCase):

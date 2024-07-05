@@ -1,6 +1,6 @@
 from django.test import TestCase
-from .models import UserDetail
 from django.contrib.auth.models import User
+from .models import UserDetail
 
 
 class TestUserDetailCreation(TestCase):

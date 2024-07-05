@@ -1,7 +1,7 @@
 from django.test import TestCase
-from .forms import NewsLetterSignupsForm, CustomerMessageForm
 from datetime import datetime
 import uuid
+from .forms import NewsLetterSignupsForm, CustomerMessageForm
 
 
 class TestNewsLetterSignupsForm(TestCase):

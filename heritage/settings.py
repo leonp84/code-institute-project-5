@@ -5,7 +5,6 @@ import os
 if os.path.isfile('env.py'):
     import env  # noqa
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
@@ -25,7 +24,6 @@ CSRF_TRUSTED_ORIGINS = [
     'https://heritage-company.net'
     'https://www.heritage-company.net'
 ]
-
 
 # Application definition
 
@@ -63,18 +61,14 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
-# Set Session storage expiration to 1 day and constant save
-SESSION_COOKIE_AGE = 86400
-SESSION_SAVE_EVERY_REQUEST = True
-
 ROOT_URLCONF = 'heritage.urls'
-
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
+            # Allauth Templates
             os.path.join(BASE_DIR, 'my_account', 'templates', 'allauth'),
             ],
         'APP_DIRS': True,
@@ -95,10 +89,13 @@ TEMPLATES = [
     },
 ]
 
+# Set Session storage expiration to 1 day and constant save
+
+SESSION_COOKIE_AGE = 86400
+SESSION_SAVE_EVERY_REQUEST = True
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 WSGI_APPLICATION = 'heritage.wsgi.application'
-
 
 # Allauth settings
 
@@ -127,11 +124,13 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # Database
 
 # Postgress Database hosted with neon.tech
+
 DATABASES = {
     'default': dj_database_url.parse(os.getenv("DATABASE_URL"))
 }
 
 # Local Test Database for running tests with mock data
+
 if 'test' in sys.argv:
     DATABASES = {'default': {
                     'ENGINE': 'django.db.backends.postgresql',
@@ -141,7 +140,6 @@ if 'test' in sys.argv:
                     },
                 }
     }
-
 
 # Password validation
 
@@ -164,8 +162,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
+# Internationalization / Use British English & Berlin Time
 
 LANGUAGE_CODE = 'en-GB'
 
@@ -176,6 +173,10 @@ USE_I18N = True
 USE_TZ = False
 
 USE_THOUSAND_SEPARATOR = True
+
+# Default primary key field type
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Static files (CSS, JavaScript, Images)
 
@@ -188,11 +189,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Default primary key field type
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Email Settings
+# Email Settings / Using Gmail SMTP Server
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -201,11 +198,20 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'contact@heritage-company.net'
-SITE_URL = 'https://8000-leonp84-codeinstitutepr-r2v2xxpdluu.ws.codeinstitute-ide.net' # noqa
+SITE_URL = 'https://8000-leonp84-codeinstitutepr-r2v2xxpdluu.ws.codeinstitute-ide.net'  # noqa
 
-# Use AWS in Production and other production specific settings
+# Stripe Settings
+
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_API_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_ENDPOINT_SECRET = os.environ.get('STRIPE_ENDPOINT_SECRET')
+
+
+# PRODUCTION ENVIRONMENT SETTINGS
 
 if 'USE_AWS' in os.environ:
+
+    # Use AWS for Media file storage
 
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
@@ -234,10 +240,4 @@ if 'USE_AWS' in os.environ:
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
     # Override site url in production
-    SITE_URL = 'https://heritage-company-386a48d92bd9.herokuapp.com'
-
-
-# Stripe Settings
-STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_API_KEY')
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
-STRIPE_ENDPOINT_SECRET = os.environ.get('STRIPE_ENDPOINT_SECRET')
+    SITE_URL = 'https://heritage-company.net'

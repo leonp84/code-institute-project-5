@@ -1,10 +1,10 @@
 from django.test import TestCase
 from django.urls import reverse
-from .forms import NewsLetterSignupsForm
-from datetime import datetime
 from django.test import Client
+from datetime import datetime
 import uuid
 import json
+from .forms import NewsLetterSignupsForm
 
 
 class PrivacyPolicyViewTest(TestCase):

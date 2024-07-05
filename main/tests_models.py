@@ -1,8 +1,8 @@
 from django.test import TestCase
-from .models import CustomerMessage, NewsLetterSignup
-from .models import DiscountCode
 from datetime import datetime
 import uuid
+from .models import CustomerMessage, NewsLetterSignup
+from .models import DiscountCode
 
 
 class TestCustomerMessageCreation(TestCase):

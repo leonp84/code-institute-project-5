@@ -2,10 +2,10 @@ from django.conf import settings
 from django.shortcuts import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
-from checkout.models import Order
 import time
 import stripe
 import json
+from checkout.models import Order
 
 
 @csrf_exempt
