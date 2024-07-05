@@ -7,18 +7,14 @@
     <h2 class="text-center">Advanced Search</h2>
     <br>
     <br>
+    <!-- Advanced Search for to filter results by Brand, Material etc. -->
     <form method='post'
           class="border border-3 rounded p-3"
           action="{% url 'advanced_search' %}">
       <div class="mb-4">
-        <label for="keyword" class="form-label">
-          <h5>Keyword</h5>
-        </label>
-        <input type="text"
-               name="keyword"
-               class="form-control"
-               id="keyword"
-               aria-describedby="keyword-help">
+        <h5>Keyword</h5>
+        <label for="keyword" class="form-label"></label>
+        <input type="text" name="keyword" class="form-control" id="keyword">
         <div id="keywordhelp" class="form-text">
           Results will include product that have this word in the title or description.
         </div>
@@ -85,7 +81,7 @@
       <h5 class="my-4">Price Range (USD)</h5>
       <div class="d-flex mb-4">
         <div class="col-4 me-4">
-          <label for="customRange1" class="form-label">Minimum</label>
+          <label for="minimum-price" class="form-label">Minimum</label>
           <input name="min-price"
                  type="range"
                  class="form-range"
@@ -96,7 +92,7 @@
           <span id="min-price-display">1000</span>
         </div>
         <div class="col-4">
-          <label for="customRange1" class="form-label">Maximum</label>
+          <label for="maximum-price" class="form-label">Maximum</label>
           <input type="range"
                  name="max-price"
                  class="form-range"
@@ -111,12 +107,10 @@
       <br>
       <br>
       <button type="submit" class="btn btn-lg btn-success my-2 me-2">Search</button>
-      <a href="{% url 'home' %}"
-         class="my-3 btn btn-outline-danger"
-         ef="{% url 'home' %}"
-         class="btn btn-lg btn-outline-danger">Cancel</a>
+      <a href="{% url 'home' %}" class="btn btn-lg btn-outline-danger">Cancel</a>
       {% csrf_token %}
     </form>
   </div>
+  <!-- Page Specific Javascript to update visuals upon form interaction -->
   <script src="{% static 'assets/js/advanced_search.js' %}" defer></script>
 {% endblock %}

@@ -11,14 +11,15 @@
             Tissot, established in 1853, is celebrated for its blend of tradition and innovation. Known for its exceptional value and high-quality craftsmanship, Tissot offers a diverse range of stylish and reliable watches. With a commitment to precision and durability, Tissot watches are perfect for those who appreciate quality and style without compromise.
           </p>
         </div>
-        <hr />
+        <hr>
         <div class="row d-none d-md-block mb-2">
           <img src="{% static 'assets/images/tissot-watches-for-sale.webp' %}"
-               alt="tissot watches" />
+               alt="tissot watches">
         </div>
       </div>
     </div>
   </div>
+  <!-- Product Display -->
   <div class="container d-flex flex-wrap justify-content-evenly">
     {% with path="tissot" %}
       {% include '../includes/search_and_filter.html' %}
@@ -34,8 +35,7 @@
             <img src="{{ MEDIA_URL }}{{ product.image }}"
                  alt="{{ product.watch_brand }} {{ product.title }}"
                  class="main-image"
-                 width="300"
-                 height="auto" />
+                 width="300">
           </div>
           <span>{{ product.get_watch_brand_display }}</span>
           <span><strong>{{ product.short_title }}</strong></span>
@@ -51,5 +51,6 @@
       </a>
     {% endfor %}
   </div>
+  <!-- Page Specific Javascript -->
   <script src="{% static 'assets/js/image_hover.js' %}" defer></script>
 {% endblock %}

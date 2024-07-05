@@ -9,6 +9,7 @@
       </div>
     </div>
   </div>
+  <!-- Search Results Display -->
   <div class="container d-flex flex-wrap justify-content-evenly">
     {% for product in search_results %}
       <a href="{% url 'product_detail' product.id %}"
@@ -19,10 +20,9 @@
           {% endif %}
           <div style="overflow: hidden">
             <img src="{{ MEDIA_URL }}{{ product.image }}"
-                 alt="{{ product.watch_brand }} {{ product.title }}"
+                 alt="{{ product.watch_brand }} {{ product.title }} {{ product.ref }}"
                  width="300"
-                 class="main-image"
-                 height="auto" />
+                 class="main-image">
           </div>
           <span class="text-uppercase">{{ product.get_watch_brand_display }}</span>
           <span><strong>{{ product.short_title }}</strong></span>
@@ -38,5 +38,6 @@
       </a>
     {% endfor %}
   </div>
+  <!-- Page Specific Javascript -->
   <script src="{% static 'assets/js/image_hover.js' %}" defer></script>
 {% endblock %}

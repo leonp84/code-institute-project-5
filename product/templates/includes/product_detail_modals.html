@@ -8,9 +8,9 @@
     <div class="modal-content">
       <div class="modal-body d-flex justify-content-center">
         <img src="{{ MEDIA_URL }}{{ product.image }}"
-             alt="{{ product.title }}"
+             alt="{{ product.get_watch_brand_display }} {{ product.title }} {{ product.ref }}"
              width="780"
-             id="modal-image" />
+             id="modal-image">
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
                    id="name-input"
                    {% if request.user.is_authenticated %} value="{{ request.user.userdetail.user_first_name }} {{ request.user.userdetail.user_last_name }}" {% endif %}
                    placeholder="Your Name"
-                   required />
+                   required>
             <label for="name-input">Your Name</label>
           </div>
           <div class="form-floating mb-3">
@@ -50,7 +50,7 @@
                    id="email-input"
                    placeholder="name@example.com"
                    {% if request.user.is_authenticated %}value="{{ request.user.email }}"{% endif %}
-                   required />
+                   required>
             <label for="email-input">Your Email address</label>
           </div>
           <label for="product-name">Product Name</label>
@@ -59,14 +59,14 @@
                  type="text"
                  placeholder="{{ product.title }}"
                  value="{{ product.title }}"
-                 disabled />
+                 disabled>
           <label for="product-ref">Product Reference Number</label>
           <input class="form-control mt-1 mb-3"
                  id="product-ref"
                  type="text"
                  placeholder="{{ product.ref }}"
                  value="{{ product.ref }}"
-                 disabled />
+                 disabled>
           <label for="customer-message">Your Message</label>
           <textarea rows="3"
                     class="form-control"
@@ -94,11 +94,11 @@
       </div>
       <div class="modal-body">
         <img src="{% static 'assets/images/logo_new.webp' %}"
-             alt=""
+             alt="Heritage Company Logo"
              width="120"
              class="about-us-image"
              style="float: left;
-                    margin-right: 15px" />
+                    margin-right: 15px">
         <p>
           In order to bookmark items please sign in or consider creating an account with Heritage Company.
           <br>

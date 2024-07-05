@@ -11,14 +11,15 @@
             Breitling is synonymous with precision and innovation, renowned for its robust and high-performance timepieces. Founded in 1884, Breitling has a rich heritage in aviation, crafting watches that blend functionality with sophisticated style. Each Breitling watch is a testament to Swiss craftsmanship, offering durability and elegance, making it a perfect choice for those seeking a reliable and stylish companion. Below you can browse through the various Breitling watches on sale with us.
           </p>
         </div>
-        <hr />
+        <hr>
         <div class="row d-none d-md-block mb-2">
           <img src="{% static 'assets/images/breitling-watches-for-sale.webp' %}"
-               alt="breitling watches on sale" />
+               alt="breitling watches on sale">
         </div>
       </div>
     </div>
   </div>
+  <!-- Product Display -->
   <div class="container d-flex flex-wrap justify-content-evenly">
     {% with path="breitling" %}
       {% include '../includes/search_and_filter.html' %}
@@ -34,8 +35,7 @@
             <img src="{{ MEDIA_URL }}{{ product.image }}"
                  alt="{{ product.watch_brand }} {{ product.title }}"
                  width="300"
-                 class="main-image"
-                 height="auto" />
+                 class="main-image">
           </div>
           <span>{{ product.get_watch_brand_display }}</span>
           <span><strong>{{ product.short_title }}</strong></span>
@@ -51,5 +51,6 @@
       </a>
     {% endfor %}
   </div>
+  <!-- Page Specific Javascript -->
   <script src="{% static 'assets/js/image_hover.js' %}" defer></script>
 {% endblock %}

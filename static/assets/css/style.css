@@ -62,7 +62,7 @@ header a {
 .search-and-filter-box {
   margin-bottom: 20px;
   position: sticky;
-  top: 50px;
+  top: 0;
   z-index: 98;
   width: 100%;
   display: flex;
@@ -105,8 +105,8 @@ header .heading-text a:hover {
 
 .watch-hero-info {
   position: absolute;
-  bottom: 24px;
-  right: -222px;
+  bottom: 0;
+  right: -100px;
   border: 1px solid transparent;
   border-radius: 15px;
   padding: 30px 40px;
@@ -115,8 +115,8 @@ header .heading-text a:hover {
 
 .watch-hero-info-left {
   position: absolute;
-  bottom: 10px;
-  left: -226px;
+  bottom: 0;
+  left: -100px;
   border: 1px solid transparent;
   border-radius: 15px;
   padding: 30px 40px;
@@ -127,13 +127,13 @@ header .heading-text a:hover {
 .watch-hero-info-left h3 {
   color: rgba(255, 207, 104, 0.868);
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .watch-hero-info span,
 .watch-hero-info-left span {
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: 18px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
   line-height: 150%;
@@ -176,11 +176,6 @@ header .heading-text a:hover {
   margin: 20px 10px;
   cursor: pointer;
   color: black;
-}
-
-.watch-container img:hover {
-  /* transition: 0.3s; */
-  /* transform: scale(1.4); */
 }
 
 .watch-images-container {
@@ -306,7 +301,7 @@ header .heading-text a:hover {
   border-right: none;
   padding: 5px 10px;
   caret-color: rgba(255, 174, 0, 0.868);
-  max-width: 300px;
+  max-width: 240px;
 }
 
 #search-input:focus {
@@ -424,6 +419,22 @@ a.disabled {
   pointer-events: none;
 }
 
+@media screen and (min-width: 768px) {
+  .search-and-filter-box {
+    top: 50px;
+  }
+
+  #landing-page-parallax {
+    width: 100%;
+    border: 1px solid #5a120a;
+    background: url('../images/breitling-mens-watches.webp') no-repeat center /
+      cover;
+    height: 280px;
+    background-position: 50% 50%;
+    background-attachment: fixed;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   #landing-page-parallax {
     width: 100%;
@@ -433,5 +444,25 @@ a.disabled {
     height: 280px;
     background-position: 50% 50%;
     background-attachment: fixed;
+  }
+
+  .watch-hero-info {
+    bottom: 24px;
+    right: -222px;
+  }
+
+  .watch-hero-info-left {
+    bottom: 10px;
+    left: -226px;
+  }
+
+  .watch-hero-info h3,
+  .watch-hero-info-left h3 {
+    font-size: 40px;
+  }
+
+  .watch-hero-info span,
+  .watch-hero-info-left span {
+    font-size: 24px;
   }
 }

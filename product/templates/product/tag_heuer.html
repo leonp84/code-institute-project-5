@@ -11,14 +11,15 @@
             TAG Heuer is a brand that embodies the spirit of innovation and avant-garde design. Founded in 1860, it is known for its sporty and bold timepieces that push the boundaries of precision and performance. With a strong connection to motorsports, TAG Heuer watches are ideal for individuals who value cutting-edge technology and contemporary style.
           </p>
         </div>
-        <hr />
+        <hr>
         <div class="row d-none d-md-block mb-2">
           <img src="{% static 'assets/images/tag-heuer-watches-for-sale.webp' %}"
-               alt="cheapest tag heuer" />
+               alt="cheapest tag heuer">
         </div>
       </div>
     </div>
   </div>
+  <!-- Product Display -->
   <div class="container d-flex flex-wrap justify-content-evenly">
     {% with path="tag_heuer" %}
       {% include '../includes/search_and_filter.html' %}
@@ -34,8 +35,7 @@
             <img src="{{ MEDIA_URL }}{{ product.image }}"
                  alt="{{ product.watch_brand }} {{ product.title }}"
                  class="main-image"
-                 width="300"
-                 height="auto" />
+                 width="300">
           </div>
           <span>{{ product.get_watch_brand_display }}</span>
           <span><strong>{{ product.short_title }}</strong></span>
@@ -51,5 +51,6 @@
       </a>
     {% endfor %}
   </div>
+  <!-- Page Specific Javascript -->
   <script src="{% static 'assets/js/image_hover.js' %}" defer></script>
 {% endblock %}

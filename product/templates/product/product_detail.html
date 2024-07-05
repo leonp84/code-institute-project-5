@@ -5,33 +5,35 @@
   <div class="container-fluid py-3 px-2 mt-2">
     <div class="d-flex flex-row flex-wrap flex-md-nowrap justify-content-center">
       <div class="watch-images-container">
+        <!-- Watch Extra Images Display (768px+) -->
         <div class="d-none {% if product.image2 %}d-md-flex{% endif %} flex-column">
           <img src="{{ MEDIA_URL }}{{ product.image }}"
-               alt=""
+               alt="{{ product.get_watch_brand_display }} {{ product.title }} {{ product.ref }}"
                height="150"
                width="150"
-               class="watch-extra-images" />
+               class="watch-extra-images">
           {% if product.image2 %}
             <img src="{{ MEDIA_URL }}{{ product.image2 }}"
-                 alt=""
+                 alt="{{ product.get_watch_brand_display }} {{ product.title }} {{ product.ref }}"
                  height="150"
                  width="150"
-                 class="watch-extra-images" />
+                 class="watch-extra-images">
           {% endif %}
           {% if product.image3 %}
             <img src="{{ MEDIA_URL }}{{ product.image3 }}"
-                 alt=""
+                 alt="{{ product.get_watch_brand_display }} {{ product.title }} {{ product.ref }}"
                  height="150"
                  width="150"
-                 class="watch-extra-images" />
+                 class="watch-extra-images">
           {% endif %}
         </div>
+        <!-- Image Carousel Display -->
         <img src="{{ MEDIA_URL }}{{ product.image }}"
-             alt="{{ product.title }}"
+             alt="{{ product.get_watch_brand_display }} {{ product.title }} {{ product.ref }}"
              height="450"
              width="350"
              style="object-fit: cover"
-             class="mx-3 mx-lg-5 main-product-image d-none d-md-block" />
+             class="mx-3 mx-lg-5 main-product-image d-none d-md-block">
         <div class="d-block d-md-none">
           <div id="product-images-carousel"
                class="carousel slide carousel-dark"
@@ -56,26 +58,27 @@
               <div class="carousel-item active" data-bs-interval="10000">
                 <img src="{{ MEDIA_URL }}{{ product.image }}"
                      class="d-block w-100 object-fit-cover"
-                     alt="..." />
+                     alt="{{ product.get_watch_brand_display }} {{ product.title }} {{ product.ref }}">
               </div>
               {% if product.image2 %}
                 <div class="carousel-item" data-bs-interval="10000">
                   <img src="{{ MEDIA_URL }}{{ product.image2 }}"
                        class="d-block w-100 object-fit-cover"
-                       alt="..." />
+                       alt="{{ product.get_watch_brand_display }} {{ product.title }} {{ product.ref }}">
                 </div>
               {% endif %}
               {% if product.image3 %}
                 <div class="carousel-item" data-bs-interval="10000">
                   <img src="{{ MEDIA_URL }}{{ product.image3 }}"
                        class="d-block w-100 object-fit-cover"
-                       alt="..." />
+                       alt="{{ product.get_watch_brand_display }} {{ product.title }} {{ product.ref }}">
                 </div>
               {% endif %}
             </div>
           </div>
         </div>
       </div>
+      <!-- Product Information -->
       <div class="mt-4 ms-lg-5 product-details-container">
         <span class="fs-4 text-uppercase">{{ product.get_watch_brand_display }}</span>
         <i class="fa-{% if bookmarked %}solid{% else %}regular{% endif %} fa-bookmark"
@@ -93,13 +96,14 @@
           <span class="fs-6">$ {{ product.price }} USD</span>
         {% endif %}
         <p class="ln-lg mt-4">{{ product.desc }}</p>
-        <hr />
+        <hr>
         <span>Watch Case Size: {{ product.watch_case_size }}mm</span>
-        <br />
+        <br>
         <span>Watch Dial Color: {{ product.watch_dial_colour }}</span>
-        <br />
+        <br>
         <span>Gender: {{ product.get_watch_gender_display }}</span>
-        <hr />
+        <hr>
+        <!-- Customer Interaction Buttons -->
         <div class="mt-5 mb-2">
           <button id="buy-button" class="btn btn-lg btn-dark mb-2">Buy this Watch</button>
           <button id="enquire-button"
@@ -111,10 +115,11 @@
           <em>
             Heritage Company provides worldwide free shipping on all of its
             products.
-            <br />
+            <br>
             Price not inclusive of country specific taxes.
           </em>
         </span>
+        <!-- Restricted Superuser Options -->
         {% if user.is_superuser %}
           <div class="row justify-content-center admin-container mx-auto mt-4">
             <h5 class="text-center">

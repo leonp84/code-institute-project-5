@@ -19,10 +19,9 @@
           <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'assets/images/logo_new.webp' %}"
                  alt="Heritage Company Logo"
-                 class=""
-                 height="50" />
+                 height="50">
           </a>
-          <div class="col-5 px-5 fs-3 d-flex justify-content-center align-items-center position-relative">
+          <div class="col-4 px-2 fs-3 d-flex justify-content-evenly align-items-center position-relative">
             <span class="badge rounded-pill bg-warning bag-items-number"
                   style="display: none">{{ items_in_shopping_bag }}</span>
             <a href="{% url 'contact_us' %}"><i class="fa-solid fa-envelope"></i></a>
@@ -61,22 +60,22 @@
                 <ul class="dropdown-menu dropdown-menu-dark"
                     aria-labelledby="heritage-navbar-dropdown-link">
                   <li>
-                    <a a class="dropdown-item" href="{% url 'breitling' %}">Breitling</a>
+                    <a class="dropdown-item" href="{% url 'breitling' %}">Breitling</a>
                   </li>
                   <li>
-                    <a a class="dropdown-item" href="{% url 'tag_heuer' %}">Tag Heuer</a>
+                    <a class="dropdown-item" href="{% url 'tag_heuer' %}">Tag Heuer</a>
                   </li>
                   <li>
-                    <a a class="dropdown-item" href="{% url 'omega' %}">Omega</a>
+                    <a class="dropdown-item" href="{% url 'omega' %}">Omega</a>
                   </li>
                   <li>
-                    <a a class="dropdown-item" href="{% url 'tissot' %}">Tissot</a>
+                    <a class="dropdown-item" href="{% url 'tissot' %}">Tissot</a>
                   </li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
                   <li>
-                    <a a class="dropdown-item" href="{% url 'sale' %}">Sale</a>
+                    <a class="dropdown-item" href="{% url 'sale' %}">Sale</a>
                   </li>
                 </ul>
               </li>
@@ -93,7 +92,7 @@
           </div>
         </div>
       </nav>
-      <!-- Medium Screen Navbar -->
+      <!-- Medium Screen (768px+) Navbar -->
       <div class="d-none d-md-block">
         <div class="bg-dark d-flex justify-content-center">
           <div class="col-3">
@@ -101,7 +100,7 @@
               <img src="{% static 'assets/images/logo_new.webp' %}"
                    alt="Heritage Company Logo"
                    class="pt-3 ps-3 align-self-start"
-                   id="logo" />
+                   id="logo">
             </a>
           </div>
           <div class="text-center d-flex flex-column justify-content-center col-6 heading-text">
@@ -129,6 +128,7 @@
         </div>
       </div>
     </header>
+    <!-- Sticky Top Navbar with Product links -->
     <div class="d-none d-md-flex justify-content-center text-uppercase bg-black lg-nav">
       <a href="{% url 'all_products' %}" class="d-none d-lg-block">Our Collection</a>
       <a href="{% url 'breitling' %}">Breitling</a>
@@ -137,7 +137,7 @@
       <a href="{% url 'tissot' %}">Tissot</a>
       <a href="{% url 'sale' %}">Sale</a>
     </div>
-    <!-- Search Bar -->
+    <!-- Search Bar (initially hidden)-->
     <form id="search-box"
           style="display: none"
           method="post"
@@ -147,10 +147,7 @@
           <label for="search-input" class="col-form-label">SEARCH</label>
         </div>
         <div class="col-auto d-flex align-items-center">
-          <input type="text"
-                 name="search-input"
-                 id="search-input"
-                 aria-describedby="search-products">
+          <input type="text" name="search-input" id="search-input">
           <a id="advanced-search-link" href="{% url 'advanced_search' %}">
             <i class="fa-solid fa-list-check ms-2"
                data-bs-toggle="tooltip"
@@ -164,42 +161,45 @@
     <main>
       {% block content %}{% endblock %}
     </main>
-    <!-- Extra Newsletter Signup -->
+    <!-- Extra Newsletter Signup (initially hidden)-->
     {% if show_newsletter_extra_signup %}
-      <div id="hidden-newsletter" style="display: none">
-        <div id="newsletter-floating-signup"
-             class="col-10 col-md-6 col-lg-4 d-flex flex-column p-4 m-3 animate__animated animate__slideInLeft">
-          <strong class="newsletter-signup-heading">STAY IN TOUCH</strong>
-          <div id="newsletter-close-button">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-          <span>
-            Gain VIP access to the world of luxury watches and receive
-            invitations to private events and notifications of new collections.
-          </span>
-          <div class="mt-2">
-            <span class="small"><em>Tip: Newsletter signups come with a small product discount</em></span>
-          </div>
-          <form method="post" action="{% url 'newsletter_signup' %}">
-            <div class="form-floating mb-3 text-black mt-3">
-              <input type="email"
-                     class="form-control"
-                     id="email-floating-input-extra"
-                     placeholder="name@example.com"
-                     name="customer_email"
-                     required />
-              <label for="email-floating-input-extra">Enter your email</label>
+      <aside class="d-none d-md-block">
+        <div id="hidden-newsletter" style="display: none">
+          <div id="newsletter-floating-signup"
+               class="col-10 col-md-6 col-lg-4 d-flex flex-column p-4 m-3 animate__animated animate__slideInLeft">
+            <strong class="newsletter-signup-heading">STAY IN TOUCH</strong>
+            <div id="newsletter-close-button">
+              <i class="fa-solid fa-xmark"></i>
             </div>
-            <button type="submit" class="btn btn-outline-light">Sign Up</button>
-            {% csrf_token %}
-          </form>
+            <span>
+              Gain VIP access to the world of luxury watches and receive
+              invitations to private events and notifications of new collections.
+            </span>
+            <div class="mt-2">
+              <span class="small"><em>Tip: Newsletter signups come with a small product discount</em></span>
+            </div>
+            <form method="post" action="{% url 'newsletter_signup' %}">
+              <div class="form-floating mb-3 text-black mt-3">
+                <input type="email"
+                       class="form-control"
+                       id="email-floating-input-extra"
+                       placeholder="name@example.com"
+                       name="customer_email"
+                       required>
+                <label for="email-floating-input-extra">Enter your email</label>
+              </div>
+              <button type="submit" class="btn btn-outline-light">Sign Up</button>
+              {% csrf_token %}
+            </form>
+          </div>
         </div>
-      </div>
+      </aside>
     {% endif %}
     <!-- Footer -->
     <footer class="bg-dark off-white px-3">
       <div class="d-flex justify-content-evenly pt-4">
         <div class="d-flex flex-column newsletter-footer">
+          <!-- Primary (Permanent) Newsletter Signup -->
           <strong class="newsletter-signup-heading">STAY IN TOUCH</strong>
           <span>
             Gain VIP access to the world of luxury watches and receive
@@ -215,7 +215,7 @@
                      id="floatingInput"
                      placeholder="name@example.com"
                      name="customer_email"
-                     required />
+                     required>
               <label for="floatingInput">Enter your email</label>
             </div>
             <button type="submit" class="btn btn-outline-light">Sign Up</button>
@@ -254,16 +254,17 @@
       </div>
       <div class="text-center py-3">
         <div>
+          <!-- Social Links -->
           <a href="{% url 'privacy_policy' %}">Privacy Policy</a>
           <span>|</span>
           <a href="{% url 'terms_and_conditions' %}">Terms and Conditions</a>
         </div>
         <span>
           © Copyright 2024 Heritage Company
-          <br />
+          <br>
           <a href="https://github.com/leonp84"
              target="_blank"
-             rel="nofollow noreferrer nofollow">Design by L.A. Potgieter</a>
+             rel="nofollow noreferrer">Design by L.A. Potgieter</a>
         </span>
       </div>
     </footer>

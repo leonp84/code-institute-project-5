@@ -11,14 +11,15 @@
             We are proud to showcase an exclusive selection of top luxury watch brands from some of the world’s most renowned brands: Breitling, TAG Heuer, Omega, and Tissot. Each brand offers its unique blend of precision, craftsmanship, and style, reflecting decades of horological expertise. Explore our curated assortment and discover the perfect luxury watch that complements your style.
           </p>
         </div>
-        <hr />
+        <hr>
         <div class="row d-none d-md-block mb-2">
           <img src="{% static 'assets/images/luxury-watches-for-sale.webp' %}"
-               alt="luxury watches for sale" />
+               alt="luxury watches for sale">
         </div>
       </div>
     </div>
   </div>
+  <!-- Product Display -->
   <div class="container d-flex flex-wrap justify-content-evenly">
     {% with path="all_products" %}
       {% include '../includes/search_and_filter.html' %}
@@ -34,8 +35,7 @@
             <img src="{{ MEDIA_URL }}{{ product.image }}"
                  alt="{{ product.watch_brand }} {{ product.title }}"
                  class="main-image"
-                 width="300"
-                 height="auto" />
+                 width="300">
           </div>
           <span class="text-uppercase">{{ product.get_watch_brand_display }}</span>
           <span><strong>{{ product.short_title }}</strong></span>
@@ -51,5 +51,6 @@
       </a>
     {% endfor %}
   </div>
+  <!-- Page Specific Javascript -->
   <script src="{% static 'assets/js/image_hover.js' %}" defer></script>
 {% endblock %}

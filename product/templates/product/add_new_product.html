@@ -3,6 +3,7 @@
 {% load crispy_forms_tags %}
 {% block extra_title %}Add New Product{% endblock %}
 {% block content %}
+  <!-- This page is restricted to superusers -->
   <div class="container col-lg-7 mt-4 about-us">
     <h2 class="text-center">Add New Product</h2>
     <br>
@@ -24,6 +25,7 @@
     <span class="small text-primary">Note that fields marked with an asterisk *, are required</span>
     <br>
     <br>
+    <!-- Form to add a new product to storefront -->
     <form method='post' enctype="multipart/form-data">
       {{ form|crispy }}
       <button type="submit" class="btn btn-lg btn-success my-2 me-2">Add New Product</button>
