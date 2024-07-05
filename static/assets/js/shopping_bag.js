@@ -1,6 +1,7 @@
 let currentTotal = $('#checkout-total').text();
 
 $(function () {
+  // Update total order price when customer change the quantity of any item in the shopping bag
   updatePrice();
   $('.qty-js').on('change', function () {
     $('#checkout-total').html(
@@ -14,10 +15,12 @@ $(function () {
     }, '2000');
   });
 
+  // Check for when customer update their watch plan status
   $('#add-watch-care-plan').change(function () {
     let watchCarePlan = false;
     $('#add-watch-care-plan').attr('disabled', 'true');
-    currentPrice = parseInt($('#checkout-total').text().replace(',', ''));
+    let currentPrice = parseInt($('#checkout-total').text().replace(',', ''));
+    let newPrice = 0;
     if (this.checked) {
       newPrice = parseInt(currentPrice + (currentPrice / 100) * 2.5);
       watchCarePlan = true;
@@ -58,6 +61,7 @@ $(function () {
     }, '1500');
   });
 
+  // Check for when customers remove items for the shopping bag
   $('.delete-item').on('click', function (e) {
     $('#checkout-total').html(
       `<span>Updating...</span>
@@ -71,39 +75,42 @@ $(function () {
   });
 });
 
+/*
+ * Dynamically update price when item deleted or quantity updated in the shopping bag.
+ */
 function updatePrice() {
-  products = document.body.getElementsByClassName('product-id-js');
+  let products = document.body.getElementsByClassName('product-id-js');
   let productsArr = [];
-  for (i = 0; i < products.length; i++) {
+  for (let i = 0; i < products.length; i++) {
     productsArr.push(products[i].innerText.replace(',', ''));
   }
 
-  prices = document.body.getElementsByClassName('product-price-js');
+  let prices = document.body.getElementsByClassName('product-price-js');
   let pricesArr = [];
-  for (i = 0; i < prices.length; i++) {
+  for (let i = 0; i < prices.length; i++) {
     pricesArr.push(prices[i].innerText.replace(',', ''));
   }
 
-  quantities = document.body.getElementsByClassName('qty-js');
+  let quantities = document.body.getElementsByClassName('qty-js');
   let quantitiesArr = [];
-  for (i = 0; i < quantities.length; i++) {
+  for (let i = 0; i < quantities.length; i++) {
     quantitiesArr.push(parseInt(quantities[i].value));
   }
   let totalPrice = 0;
-  for (i = 0; i < prices.length; i++) {
+  for (let i = 0; i < prices.length; i++) {
     totalPrice += parseInt(quantitiesArr[i]) * parseInt(pricesArr[i]);
   }
 
   $('#checkout-total').html(totalPrice.toLocaleString());
   currentTotal = totalPrice.toLocaleString();
   console.log(currentTotal);
+  // Disable checkout button if total is 0 (i.e. customer has removed all items from the shopping list)
   if (currentTotal === '0') {
-    console.log('trying');
     $('#proceed-to-checkout').attr('href', '#');
     $('#proceed-to-checkout').removeClass('btn-warning');
     $('#proceed-to-checkout').addClass('btn-secondary');
   }
-  // AJAX POST Request to update shopping bag
+  // AJAX POST Request to update shopping bag in server session
   $.ajax({
     url: '/checkout/update_shopping_bag/',
     type: 'POST',
@@ -125,6 +132,9 @@ function updatePrice() {
       console.error(error);
     },
   });
-  newTotalItems = quantitiesArr.reduce((partialSum, a) => partialSum + a, 0);
+  let newTotalItems = quantitiesArr.reduce(
+    (partialSum, a) => partialSum + a,
+    0
+  );
   $('.bag-items-number').text(newTotalItems);
 }

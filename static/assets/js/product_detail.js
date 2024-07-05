@@ -1,4 +1,5 @@
 $(function () {
+  // Add Eventlistener for when customer click on additional product images
   $('.watch-extra-images').on('click', function () {
     let newImage = $(this).attr('src');
     $('.main-product-image').attr('src', newImage);
@@ -10,7 +11,7 @@ $(function () {
   $('.main-product-image').on('click', function () {
     $('#largeImageModal').modal('show');
   });
-
+  // Add Eventlistener for when product added to shopping bag
   $('#buy-button').on('click', function () {
     $('#buy-button').html(
       `<span>Adding...</span>
@@ -23,7 +24,7 @@ $(function () {
       addItemToBag();
     }, '1500');
   });
-
+  // Add Eventlistener from when customer submits new product message
   $('#customer-message-form').on('submit', function (e) {
     e.preventDefault();
     $('#send-message-button').html(
@@ -43,7 +44,7 @@ $(function () {
 });
 
 /**
- *
+ * Send AJAX request to server to update shopping bag and update the shopping bag contents number in the header
  */
 function addItemToBag() {
   // AJAX POST Request to update shopping bag
@@ -63,7 +64,7 @@ function addItemToBag() {
     success: function (response) {
       if (response.status === 'ok') {
         // Add Item to Cart
-        itemsInCart = parseInt($('.bag-items-number').first().text());
+        let itemsInCart = parseInt($('.bag-items-number').first().text());
         itemsInCart += 1;
         $('.bag-items-number').text(itemsInCart);
         $('.bag-items-number').show();
@@ -76,7 +77,7 @@ function addItemToBag() {
         );
         addedToCartToast.show();
       } else {
-        // Inform Customer that Product Limit Reached
+        // Inform Customer that Product Limit Reached (max 3 per product)
         $('#buy-button').html('Add an additional item');
         let productLimit = bootstrap.Toast.getOrCreateInstance(
           $('#product-limit-toast')
@@ -91,18 +92,18 @@ function addItemToBag() {
 }
 
 /**
- *
+ * Created new CustomerMessage model instance by sending information to backend via AJAX
  */
 function sendCustomerMessage() {
   $('#send-message-button').html('Send Message');
   $('#send-message-button').attr('disabled', false);
 
   // Get form info for AJAX POST request
-  customerName = $('#name-input').val();
-  customerEmail = $('#email-input').val();
-  productName = $('#product-name').val();
-  productRef = $('#product-ref').val();
-  customerMessage = $('#customer-message').val();
+  let customerName = $('#name-input').val();
+  let customerEmail = $('#email-input').val();
+  let productName = $('#product-name').val();
+  let productRef = $('#product-ref').val();
+  let customerMessage = $('#customer-message').val();
 
   // AJAX POST Request
   // The CSFR_TOKEN variable below is provided at the bottom of the respective HTML file
@@ -137,7 +138,7 @@ function sendCustomerMessage() {
 }
 
 /**
- *
+ * Update Customer wishlist (if they are logged in)
  */
 function addBookmarkedItem() {
   // AJAX POST Request to update Bookmarked Items
@@ -164,6 +165,7 @@ function addBookmarkedItem() {
         $('#bookmark-icon').toggleClass('fa-solid');
         wishListToast.show();
       } else {
+        // If customer does not have an account: Display 'create-account-modal'
         $('#create-account-modal').modal('show');
       }
     },

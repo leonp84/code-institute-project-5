@@ -35,6 +35,7 @@ $(function () {
   }
 
   // Initialize all Bootstrap Tooltips on page
+  // This code comes from the bootstrap documentation: https://getbootstrap.com/docs/5.0/components/tooltips/
   var tooltipTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="tooltip"]')
   );
@@ -42,8 +43,9 @@ $(function () {
     return new bootstrap.Tooltip(tooltipTriggerEl);
   });
 
-  allTextInputs = document.body.getElementsByTagName('input');
-  for (i = 0; i < allTextInputs.length; i++) {
+  // Add Eventlisteners to all inputs that are invalid to display error messaging
+  let allTextInputs = document.body.getElementsByTagName('input');
+  for (let i = 0; i < allTextInputs.length; i++) {
     allTextInputs[i].addEventListener('invalid', (e) => {
       e.target.classList.add('error');
       let errorMsg = document.createElement('div');

@@ -1,4 +1,4 @@
-// This code has been largely copies and adopted from the Stripe Documentation at:
+// This code has been largely copied and adopted from the Stripe Documentation at:
 // https://docs.stripe.com/payments/accept-a-payment
 
 $(function () {
@@ -9,7 +9,6 @@ $(function () {
   amountToPay += '00';
   amountToPay = parseInt(amountToPay);
 
-  let elements;
   initialize(amountToPay, stripe);
   checkStatus();
 
@@ -30,7 +29,7 @@ async function initialize(amountToPay, stripe) {
   const appearance = {
     theme: 'stripe',
   };
-  elements = stripe.elements({ appearance, clientSecret });
+  let elements = stripe.elements({ appearance, clientSecret });
   //
   const paymentElementOptions = {
     layout: 'tabs',
@@ -47,7 +46,7 @@ async function handleSubmit(e, stripe) {
         <div class="spinner-border spinner-border-sm" role="status"></div>`
   );
   $('#submit-order').attr('disabled', true);
-  returnUrl =
+  let returnUrl =
     'https://' + window.location.hostname + '/checkout/order_confirmation/';
 
   const { error } = await stripe.confirmPayment({
@@ -107,18 +106,4 @@ function showMessage(messageText) {
     messageContainer.classList.add('hidden');
     messageContainer.textContent = '';
   }, 6000);
-}
-
-// Show a spinner on payment submission
-function setLoading(isLoading) {
-  if (isLoading) {
-    // Disable the button and show a spinner
-    document.querySelector('#submit').disabled = true;
-    document.querySelector('#spinner').classList.remove('hidden');
-    document.querySelector('#button-text').classList.add('hidden');
-  } else {
-    document.querySelector('#submit').disabled = false;
-    document.querySelector('#spinner').classList.add('hidden');
-    document.querySelector('#button-text').classList.remove('hidden');
-  }
 }

@@ -1,8 +1,7 @@
 $(function () {
+  // Check for when customer wants to remove item from wishlist
   $('.remove-from-wishlist').on('click', function () {
-    productId = $(this).next().text();
-    // AJAX POST Request
-    // The CSFR_TOKEN variable below is provided at the bottom of the base HTML file
+    let productId = $(this).next().text();
     $.ajax({
       url: '/my_account/add_bookmarked_item/',
       type: 'POST',
@@ -21,13 +20,14 @@ $(function () {
         console.error('Error:', error);
       },
     });
-
+    // Display toast to confirm wishlist updated
     $(this).parent().remove();
     let itemRemovedToast = bootstrap.Toast.getOrCreateInstance(
       $('#item-removed-toast')
     );
     itemRemovedToast.show();
   });
+  // Dynamically update 'Edit Product' and 'Delete Product' buttons when customer chooses a product from the select-product-box list
   $('#select-product-box').on('change', function () {
     if ($(this).val() == 0) {
       $('#edit-product-button').addClass('disabled');
