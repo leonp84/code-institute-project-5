@@ -1,8 +1,15 @@
+/* Google Fonts Import */
+
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
   padding: 0;
   margin: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 /* Form input validation */
@@ -16,9 +23,17 @@ div.error {
   margin-bottom: 5px;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+/* base.html header styling */
+
+header a {
+  color: rgb(220, 220, 220);
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+header .heading-text a:hover {
+  color: rgb(200, 200, 200);
+  text-decoration: none;
 }
 
 .heading-font {
@@ -31,12 +46,6 @@ body {
 
 .off-white {
   color: rgb(235, 235, 235);
-}
-
-header a {
-  color: rgb(220, 220, 220);
-  text-decoration: none;
-  margin: 0 10px;
 }
 
 .lg-nav a {
@@ -59,41 +68,6 @@ header a {
   width: 100%;
 }
 
-.search-and-filter-box {
-  margin-bottom: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 98;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  background-color: rgba(255, 255, 255, 0.772);
-  color: black;
-  padding: 15px;
-}
-
-footer a {
-  color: rgb(200, 200, 200);
-  text-decoration: none;
-  margin-top: 5px;
-}
-
-footer {
-  margin-top: 200px;
-}
-
-footer a:hover,
-header a:hover,
-.lg-nav a:hover {
-  color: rgb(208, 177, 20);
-  text-decoration: underline;
-}
-
-header .heading-text a:hover {
-  color: rgb(200, 200, 200);
-  text-decoration: none;
-}
-
 #logo {
   margin-bottom: -20px;
   margin-left: -15px;
@@ -102,6 +76,55 @@ header .heading-text a:hover {
   z-index: 99;
   position: relative;
 }
+
+/* shopping bag items in header, updated by javascript */
+
+.bag-items-number {
+  font-size: 14px;
+  color: black;
+  position: absolute;
+  top: -3px;
+  right: -1px;
+}
+
+/* search bar on base.html */
+
+#advanced-search-link {
+  color: inherit;
+}
+
+#advanced-search-link:hover {
+  color: white;
+  transform: scale(1.1);
+}
+
+#search-box {
+  background-color: rgba(0, 0, 0, 0.908);
+  color: rgba(255, 207, 104, 0.868);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 34px;
+  padding: 5px 25px;
+}
+
+#search-input {
+  font-family: roboto;
+  font-size: 20px;
+  background-color: transparent;
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.533);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.533);
+  border-left: none;
+  border-right: none;
+  padding: 5px 10px;
+  caret-color: rgba(255, 174, 0, 0.868);
+  max-width: 240px;
+}
+
+#search-input:focus {
+  outline: none;
+}
+
+/* index.html hero section */
 
 .watch-hero-info {
   position: absolute;
@@ -151,6 +174,45 @@ header .heading-text a:hover {
   transition: 0.4s;
 }
 
+/* other styling for index.html */
+
+.landing-page-bg-section {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+#landing-page-parallax {
+  width: 100%;
+  border: 1px solid #5a120a;
+  background: url('../images/breitling-mens-watches.webp') no-repeat center /
+    cover;
+  background-size: 200%;
+  background-position: 50% 70%;
+  height: 280px;
+}
+
+/* elemetns on all product list display pages */
+
+.search-and-filter-box {
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 98;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.772);
+  color: black;
+  padding: 15px;
+}
+
+.sale-item-badge {
+  font-size: larger;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 101;
+}
+
 #browse-watches-container {
   background-color: rgb(236, 236, 236);
 }
@@ -159,9 +221,7 @@ header .heading-text a:hover {
   overflow: hidden;
 }
 
-.newsletter-footer {
-  width: 350px;
-}
+/* product container on all product detail display pages */
 
 .watch-container {
   margin-bottom: 30px;
@@ -198,31 +258,9 @@ header .heading-text a:hover {
   cursor: pointer;
 }
 
-.bag-items-number {
-  font-size: 14px;
-  color: black;
-  position: absolute;
-  top: -3px;
-  right: -1px;
-}
-
-.about-us p {
-  line-height: 180%;
-}
-
-.about-us-image {
-  border: 2px solid gold;
-  border-radius: 5px;
-  max-width: 250px;
-  height: auto;
-}
-
-.sale-item-badge {
-  font-size: larger;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 101;
+.product-details-container {
+  max-width: 500px;
+  position: relative;
 }
 
 #bookmark-icon {
@@ -238,10 +276,20 @@ header .heading-text a:hover {
   transform: scale(1.2);
 }
 
-.product-details-container {
-  max-width: 500px;
-  position: relative;
+/* about_us.html styling */
+
+.about-us p {
+  line-height: 180%;
 }
+
+.about-us-image {
+  border: 2px solid gold;
+  border-radius: 5px;
+  max-width: 250px;
+  height: auto;
+}
+
+/* my_account.html styling */
 
 .my-account-container {
   border: 1px solid rgba(0, 0, 0, 0.362);
@@ -282,40 +330,7 @@ header .heading-text a:hover {
   color: black;
 }
 
-#search-box {
-  background-color: rgba(0, 0, 0, 0.908);
-  color: rgba(255, 207, 104, 0.868);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 34px;
-  padding: 5px 25px;
-}
-
-#search-input {
-  font-family: roboto;
-  font-size: 20px;
-  background-color: transparent;
-  color: white;
-  border-top: 1px solid rgba(255, 255, 255, 0.533);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.533);
-  border-left: none;
-  border-right: none;
-  padding: 5px 10px;
-  caret-color: rgba(255, 174, 0, 0.868);
-  max-width: 240px;
-}
-
-#search-input:focus {
-  outline: none;
-}
-
-#advanced-search-link {
-  color: inherit;
-}
-
-#advanced-search-link:hover {
-  color: white;
-  transform: scale(1.1);
-}
+/* checkout.html styling */
 
 .checkout-product-container {
   position: relative;
@@ -330,7 +345,7 @@ header .heading-text a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1 px solid black;
+  border: 1px solid black;
   border-radius: 5px;
   background-color: rgb(94, 94, 94);
   color: white;
@@ -370,6 +385,14 @@ header .heading-text a:hover {
   background-color: blue;
 }
 
+/* Dynamically displayed extra newsletter signup on base.html */
+
+.newsletter-signup-heading {
+  color: rgba(255, 207, 104, 0.868);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: x-large;
+}
+
 #newsletter-floating-signup {
   position: relative;
   z-index: 105;
@@ -381,11 +404,6 @@ header .heading-text a:hover {
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.908);
   border-color: rgba(255, 174, 0, 0.476);
-}
-.newsletter-signup-heading {
-  color: rgba(255, 207, 104, 0.868);
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: x-large;
 }
 
 #newsletter-close-button {
@@ -401,39 +419,38 @@ header .heading-text a:hover {
   transform: scale(1.2);
 }
 
-.landing-page-bg-section {
-  background-color: rgba(0, 0, 0, 0.15);
+/* base.html footer styling */
+
+footer a {
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+  margin-top: 5px;
 }
 
-#landing-page-parallax {
-  width: 100%;
-  border: 1px solid #5a120a;
-  background: url('../images/breitling-mens-watches.webp') no-repeat center /
-    cover;
-  background-size: 200%;
-  background-position: 50% 70%;
-  height: 280px;
+footer {
+  margin-top: 200px;
 }
 
-a.disabled {
-  pointer-events: none;
+footer a:hover,
+header a:hover,
+.lg-nav a:hover {
+  color: rgb(208, 177, 20);
+  text-decoration: underline;
 }
+
+.newsletter-footer {
+  width: 350px;
+}
+
+/* Adjust filter box positioning on medium sized screens */
 
 @media screen and (min-width: 768px) {
   .search-and-filter-box {
     top: 50px;
   }
-
-  #landing-page-parallax {
-    width: 100%;
-    border: 1px solid #5a120a;
-    background: url('../images/breitling-mens-watches.webp') no-repeat center /
-      cover;
-    height: 280px;
-    background-position: 50% 50%;
-    background-attachment: fixed;
-  }
 }
+
+/* Activate parallax image scrolling effect on large screens */
 
 @media screen and (min-width: 1200px) {
   #landing-page-parallax {
@@ -445,6 +462,8 @@ a.disabled {
     background-position: 50% 50%;
     background-attachment: fixed;
   }
+
+  /* Update hero image captions on index.html on large screens */
 
   .watch-hero-info {
     bottom: 24px;
