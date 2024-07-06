@@ -9,6 +9,7 @@ $(function () {
   amountToPay += '00';
   amountToPay = parseInt(amountToPay);
 
+  let elements;
   initialize(amountToPay, stripe);
   checkStatus();
 
@@ -29,7 +30,7 @@ async function initialize(amountToPay, stripe) {
   const appearance = {
     theme: 'stripe',
   };
-  let elements = stripe.elements({ appearance, clientSecret });
+  elements = stripe.elements({ appearance, clientSecret });
   //
   const paymentElementOptions = {
     layout: 'tabs',

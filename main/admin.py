@@ -26,10 +26,6 @@ class DiscountCodeAdmin(admin.ModelAdmin):
     Custom display of instances of :model:`main.DiscountCode` in admin panel
     '''
     list_display = ('discount_code', 'date_created',)
-    readonly_fields = ('discount_code',)
-
-    def has_change_permission(self, request, obj=None):
-        return False
 
 
 @admin.register(CustomerMessage)

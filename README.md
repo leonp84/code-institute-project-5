@@ -85,7 +85,7 @@ The three primary goals, the driving force behind the site design and UX) of her
 (2) Sign up for a newsletter: Studies consistently show that potential customers interact better with niche-driven email marketing, than general marketing such as Google AdWords.
 (3) Create an account.
 
-To this end, the site funnels users, from the landing page, towards specific products and the eventual checkout process. Making the shopping and checkout process as _frictionless as possible_. Newsletter signups are encouraged, by making use of static and additional dynamic sign-up notifications. And creating an account is a simple process needing just an email address and password.
+To this end, the site funnels users, from the landing page, towards specific products and the eventual checkout process. Making the shopping and checkout process as _frictionless as possible_. Newsletter sign-ups are encouraged, by making use of static and additional dynamic sign-up notifications. And creating an account is a simple process needing just an email address and password.
 
 ## Future Marketing Ideas
 
@@ -97,21 +97,23 @@ Xx Add Facebook Page Screenshots
 
 # SEO
 
-During the planning stage of the product, word racker was used to identify some of the most useful and valuable SEO words related to luxury watches, Swiss watches and the four brands of watches that are sold on heritage-company.net. These keywords were then incorporated in different parts of the site design, especially page titles, <h1> tags, image alt descriptions, meta descriptive tags, and as general keywords throughout the text content of the site (naturally avoiding any semblance of keyword stuffing).
+During the planning stage of the product, [wordtracker](https://www.wordtracker.com/) was used to identify some of the most useful and valuable SEO words related to luxury watches, Swiss watches and the four brands of watches that are sold on heritage-company.net. These keywords were then incorporated in different parts of the site design, especially page titles, <h1> tags, image alt descriptions, meta descriptive tags, and as general keywords throughout the text content of the site (naturally avoiding any semblance of keyword stuffing).
 
-![Wordtracker Keyword Results](static/assets/images/readme-images/____.webp)
+_Keyword Results courtesy of the free version of Wordtracker_
+
+![Wordtracker Keyword Results](static/assets/images/readme-images/wordtracker.webp)
 
 ## Google Search Console
 
 After registering the domain with Google search console and verifying ownership by updating the DNS records, the [sitemap.xml](https://heritage-company.net/sitemap.xml) and [robots.txt](https://heritage-company.net/robots.txt) files were submitted to Google search console.
 
-\_\_\_\_
+_Sitemap.xml report from Google Search Console_
 
 ![Heritage Company](static/assets/images/readme-images/sitemap.webp)
 
 The site was successfully crawled, with robots.txt showing no errors, and shows up in Google search results when searching, for example using the phrase “heritage company watches”. Note that Google search results are (to a degree) location and user specific so the same results might not show up for others.
 
-\_\_\_\_
+_Robots.txt report from Google Search Console_
 
 ![Heritage Company Robots.txt with Google Search Console](static/assets/images/readme-images/robots.webp)
 
@@ -119,7 +121,9 @@ The site was successfully crawled, with robots.txt showing no errors, and shows 
 
 The site design speaks to the targeted customer demographic by incorporating sleek visuals and dark and black themes (associated with luxury). The following colour palette was used throughout.
 
-![_____](static/assets/images/readme-images/____.webp)
+_Colour Palette by [Coolors.co](https://coolors.co)_
+
+![Site Colour Palette](static/assets/images/readme-images/colour-palette.webp)
 
 # Logo
 
@@ -165,19 +169,19 @@ The Entity Relationship Diagram (ERD) below (by [dbdiagram.io](https://dbdiagram
 
 The site landing page was designed to be as visually arresting and enticing for first time visitors as possible, while not being too distracting or cluttered. At the top of the landing page, the hero section consists of a carousel of two particularly sought after luxury timepieces that customers can view and buy. Using visually arresting imagery here sets the tone for the rest of the landing page.
 
-\_\_\_\_
+_Hero Section Image Carousel_
 
-![_____](static/assets/images/readme-images/____.webp)
+![Hero Carousel Image](static/assets/images/readme-images/hero-carousel.webp)
 
 The four brands of Swiss watches sold on heritage-company.net are then shown as clickable visual links (with a hover effect) encouraging users to start browsing products.
 
-\_\_\_\_
+_Links to Product Brands_
 
-![_____](static/assets/images/readme-images/____.webp)
+![Product Brands](static/assets/images/readme-images/product-brands.webp)
 
 The rest of the landing page consists of text and imagery, including a parallax image and some customer testimonials, setting the stage for customers to browse further. Three popular products are also shown on the landing page.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Landing Page Imagery](static/assets/images/readme-images/landing-page-extra.webp)
 
 The landing page uses visual effects where certain parts of the page dynamically blends into view as the user scrolls down the page.
 
@@ -185,21 +189,21 @@ The landing page uses visual effects where certain parts of the page dynamically
 
 The site header, displayed on every page, contains the company logo, name, and slogan, and account related links for users to search products, see their profiles, see their shopping bags, and contact the business. Below the header, an additional sticky navigation bar that lists links to the main product pages is shown. This remains visible to the user when they scroll down the page and ensures the most important links (for customers to make purchases) are consistently visible to users.
 
-\_\_\_\_
+_The site header in desktop mode_
 
-![_____](static/assets/images/readme-images/____.webp)
+![Header Desktop](static/assets/images/readme-images/header.webp)
 
 The site header dynamically updates depending on the screen width size, it is fully responsive showing the maximum number of information and icons in desktop mode, and only a minimum number of icons, with a drop-down menu, in mobile mode.
 
-\_\_\_\_
+_The site header on small (mobile or small tablet) screens_
 
-![_____](static/assets/images/readme-images/____.webp)
+![Header Mobile](static/assets/images/readme-images/header-mobile.webp)
 
 ## Footer
 
 Along with the header, the site footer is displayed on every page and contains two rows. The first row contains 3 columns: The 1st with a newsletter sign-up option where customers are encouraged to submit their e-mail addresses and receive the heritage company newsletter. The second column with links to various parts of the site. And the third column containing two (no-follow) social links to Facebook and LinkedIn, that open in new browser tabs. The footer is also fully responsive, showing fewer items in mobile mode. The newsletter signup remains present throughout.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Footer](static/assets/images/readme-images/footer.webp)
 
 The final row in the footer contains the copyright information and links to the privacy policy, terms and conditions, and the GitHub repository of the site designer.
 
@@ -209,31 +213,31 @@ On top of the static newsletter sign up form that are always displayed to users 
 
 **NOTE:** _This 24-hour timer (a Django session variable) can be reset by visiting the site’s privacy policy page. That view resets the session variable and I specifically left it there to make testing this additional sign-up modal easy._
 
-![_____](static/assets/images/readme-images/____.webp)
+![Newsletter Sign-up Modal](static/assets/images/readme-images/newsletter-extra.webp)
 
-This additional newsletter sign-up modal slides in to view from the left border of the site once the user has scrolled down to at least 75% of the page contents of whatever page they are currently browsing. Users can then either submit the form or close this modal by clicking on the X. The gentle sliding animation, and the fact that users are not bombarded with this message at every visit of the site, means that it is only slightly obtrusive, but as statistics show can lead to a high increase in newsletter signups.
+This additional newsletter sign-up modal slides in to view from the left border of the site once the user has scrolled down to at least 75% of the page contents of whatever page they are currently browsing. Users can then either submit the form or close this modal by clicking on the X. The gentle sliding animation, and the fact that users are not bombarded with this message at every visit of the site, means that it is only slightly obtrusive, but as statistics show can lead to a high increase in newsletter sign-ups.
 
 Upon submitting the newsletter sign up form, users are redirected to a page asking them to confirm their e-mail addresses. When users visit their inbox and click on the e-mail confirmation link, they are brought back to heritage-company.net, where they are presented with a message that their newsletter sign up has been successful.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Verification Email to Customer](static/assets/images/readme-images/email-verify.webp)
 
 As enticement for users to sign up to the newsletter, a **discount code** is given to them upon successful e-mail verification. This discount code is dynamically generated and consists of 6 digits, both letters and numbers. Upon successful e-mail verification the code is generated, saved in the database, and then emailed to the customer in an additional, separate email. This code is then available for use during the checkout process.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Discount Code](static/assets/images/readme-images/discount-code.webp)
 
 ## All Products
 
 The All products page allows users to see the entire catalogue of watches available for purchase on heritage-company.net. All pages that display products in this manner use a grid system whereby each watch is contained within a box, showing a watch image and basic information including the product price below the image.
 
-![_____](static/assets/images/readme-images/____.webp)
+![All Products Page](static/assets/images/readme-images/all-products.webp)
 
 Watch images have a hover effect where if the user **hovers** with the mouse over the product display box, a _special effect_ switches the image of the watch to a different one and employs a zoom effect with transition. This provides a pleasant browsing experience for the user as they scroll through the selection of watches.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Hover Effect](static/assets/images/readme-images/hover-effect.gif)
 
 Each page that displays products also have a sticky search and filter bar that stays fixed the top of the page as the user scrolls down. This bar contains 2 buttons: A ‘Sort’ button that allows the user to reload the current page with the products sorted by price, either descending or ascending.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Filter and Search Bar](static/assets/images/readme-images/filter-and-search.webp)
 
 And a ‘Search’ button which, when clicked, scrolls back to the top of the page and opens the search bar allowing users to do basic keyword search of products. Clicking on any of the displayed products on this page will then take the user to a dedicated product detail page. More on that below.
 
@@ -241,7 +245,9 @@ And a ‘Search’ button which, when clicked, scrolls back to the top of the pa
 
 The site was deployed with 33 products in the catalogue/database (Superusers can of course add additional products. All luxury timepieces on heritage-company.net fall under one of four famous Swiss watch brands: Breitling, Tag Heuer, Omega, and Tissot. Clicking on the navigation bar link for one of these four companies then takes the user to a page displaying time pieces of that specific brand.
 
-![_____](static/assets/images/readme-images/____.webp)
+_The Breitling Product Page_
+
+![Brand Specific Pages](static/assets/images/readme-images/brand-specific.webp)
 
 Like the ‘All Products’ page, listed products have a hover transition effect and clicking on any of the watch images leads users to a dedicated product page.
 
@@ -249,7 +255,7 @@ Like the ‘All Products’ page, listed products have a hover transition effect
 
 A final category of watches are discounted items that users can reach by clicking on the sale button in the navigation bar. This displays watches of all brands that are currently on discount.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Discounted Products](static/assets/images/readme-images/sale.webp)
 
 Discounted items are displayed similarly as on other pages but have an addition of a discount percentage icon displayed in the top right of the product box. An updated price with discount considered, is also shown to the user.
 
@@ -257,51 +263,51 @@ Discounted items are displayed similarly as on other pages but have an addition 
 
 On both the desktop and mobile versions of the navigation bar in the header, a search icon appears. Clicking on the search icon dynamically reveals a search bar that allows users to do basic keyword search.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Search Bar](static/assets/images/readme-images/search-bar.webp)
 
 Any keywords entered into the search bar and then submitted, returns a list of search results where the keywords are either in the title or description of the watches. The search bar also contains a filter icon that allows users to do advanced search using product filter.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Search Results](static/assets/images/readme-images/search-results.webp)
 
 ## Advanced Search
 
 The advanced search function allows users to search products by keyword using additional filters: watch brand, gender, dial colour and price range. Users can select some or all of the filters, and include keywords, or no keywords, as part of the search query.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Advanced Search](static/assets/images/readme-images/advanced-search.webp)
 
 Results then take into account all of the submitted information to return a query set of products matching the user’s filters. If no keywords were entered, this is indicated to the user on the search result page, but an additional message makes sure the user is aware that their other filters were taken into account during the search process.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Advanced Search Results](static/assets/images/readme-images/advanced-search-results.webp)
 
 ## Product Details Page
 
 The product detail page is where users can see all relevant information of a timepiece: its brand, title, price, description, watch case size, watch dial colour, and gender. Each product page displays a main image for the specific timepiece and two additional images that users can Click to see a full version of. Each currently focused image again has the option to be clicked revealing a near full screen size model with a large, zoomed version of the image.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Product Detail Images](static/assets/images/readme-images/product-detail-images.gif)
 
 Other features of this page include the ability to contact the store owner regarding a specific product, to add the watch to the user's shopping bag, and to add the item to the user's wish list.
 
 Hovering over the bookmark icon displays a Bootstrap tooltip explaining to users that it's possible to add this image as a bookmarked image to their wish list.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Bookmark a Product](static/assets/images/readme-images/bookmark.webp)
 
 Upon clicking this icon an asynchronous JavaScript message is sent to the server to determine whether the user is currently logged in an authenticated. If the user is logged in parenthesis and therefore has an active wish list), the item is added to the authenticated users wish list. If not, a special modal shows up encouraging users to sign in or create an account to add items to the wish list.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Create Account Modal](static/assets/images/readme-images/create-account-to-bookmark.webp)
 
 From a business perspective the most important button on this page is of course the ‘Buy this Watch’ button. When users click this a loading animation shows up and after 2 seconds a success message indicated that the watch was added to the user's shopping bag. At the same time the number of items in the bag is automatically updated in the NAV bar giving clear visual feedback to the user.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Customer clicks the buy button](static/assets/images/readme-images/click-buy-button.webp)
 
 Users are limited to a Max of three items per product per shopping bag, and once users have reached this limit and try to add additional quantities of the same product to their bags, error message displays that the product limit has been reached.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Limit Reached Message](static/assets/images/readme-images/limit.webp)
 
 ## Product Contact
 
 Clicking on the ‘Enquire’ button on any product details page opens a contact us modal. This modal contains 4 fields, two of which (the product related fields) are automatically pre-populated. If a user is authenticated and his or her name and e-mail address is saved to the database, this information is also pre-filled in the contact us form. In such a case the user only needs to type their message and click on the send message button. Submitting this form creates a message instance that is saved to the database and can be viewed by a superuser from the accounts page.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Product Contact Form](static/assets/images/readme-images/product-contact.webp)
 
 Successful form submission displayed a success message to users so that they know their message has been sent.
 
@@ -315,38 +321,37 @@ Users can also sign up for an account at heritage-company.net using an e-mail ad
 
 When creating new accounts, users are asked to verify their email address. They are automatically sent an email with a verification link. Clicking this link activated their accounts and redirects them to the login page.
 
-![_____](static/assets/images/readme-images/____.webp)
-
 Login, Logout and other similar account related action include success or failure messaging to the user (displayed via bootstrap toasts in the bottom left corner of the site), to ensure constant visual feedback is provided to users.
 
 ## Accounts: Profile Page
 
 After account creation and login, the accounts icon takes users to their profile pages. Here they are personal and delivery information is displayed. Their wish list is shown, and a list of past purchases are also available. If no profile information is currently available for the new user, they are encouraged to update their profile and save the information so that this can automatically be used during checkout.
 
-![_____](static/assets/images/readme-images/____.webp)
+![My Account Page](static/assets/images/readme-images/my-account.webp)
 
 ## Wish List
 
 When users are logged in and choose to add specific products to their wish list, these items then show up in the wish list of the user on their accounts page. Users can easily remove items from their wish list by simply clicking the X or delete button next to any item in the wish list. All actions like these include messaging to show the user that their wish list has been successfully updated. This is also done through asynchronous JavaScript to avoid unnecessary page refreshes.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Customer Wish List](static/assets/images/readme-images/wish-list.webp)
 
 ## Past Orders
 
 The past purchases section of the ‘My account’ page lists each past purchase the customer has made on heritage-company.net. This includes vital order information such as the date, total and delivery information. Products and quantities ordered, as well as the prices and a watch care plan selection, is also shown in this section.
-![_____](static/assets/images/readme-images/____.webp)
+
+![Customer Past Orders](static/assets/images/readme-images/past-purchases.webp)
 
 ## Shopping Bag
 
 The shopping bag page lists all items currently in the user shopping bag: Showing watch information, price, a quantity selector and a delete button for each item in the shopping bag. Users can update the quantities up to a maximum of three and the subtotal of the order is automatically calculated without page refresh, thanks to asynchronous JavaScript. Users can delete each product in the shopping bag also causing the subtotal to dynamically update.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Shopping Bag Interactions](static/assets/images/readme-images/shopping-bag-interactions.gif)
 
 In the column displaying the current order subtotal the user is also given the option to add a watch care plan with some information text explaining that for a fee of 2.5% of the order total each purchased timepiece comes with service and cleaning benefits.
 
 Clicking this button also dynamically upsets the subtotal by adding 2.5% to the final price. The final price is constantly updated (with a visual loading spinner) when users make changes to the any interactive element on the page (item quantity, deleting items, adding watch care plan). This ensures the order total remains up to date and users are clearly informed through constant visual feedback.
 
-![_____](static/assets/images/readme-images/____.webp) GIF
+![Full Shopping Bag](static/assets/images/readme-images/shopping-bag-final.webp) GIF
 
 A yellow ‘Proceed to Checkout’ button redirects users to the checkout page. If all items have been removed from the shopping bag, this button is greyed out and disabled.
 
@@ -354,13 +359,13 @@ Finally, if users visit their shopping bag, but the bag is empty, a separate mes
 
 ## Checkout
 
-On checkout users are redirected to a visually distinct checkout page without the regular header and footer of the rest of the site. This is to ensure a focused and distraction free checkout environment and is similar to the practise followed by many e-commerce stores. Here the order details and total are presented in table form and users are asked to fill in their personal and delivery information including any special instructions needed to fulfil the order. Logged in users (that have completed their profile data) naturally have this checkout form pre-populated with their data. Users are encouraged to sign in (before filling in the form) if they want to make use of this feature.
+On checkout users are redirected to a visually distinct checkout page without the regular header and footer of the rest of the site. This is to ensure a focused and distraction free checkout environment and is similar to the practice followed by many e-commerce stores. Here the order details and total are presented in table form and users are asked to fill in their personal and delivery information including any special instructions needed to fulfil the order. Logged in users (that have completed their profile data) naturally have this checkout form pre-populated with their data. Users are encouraged to sign in (before filling in the form) if they want to make use of this feature.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Checkout Page](static/assets/images/readme-images/checkout-page.webp)
 
 Below the ‘Continue to Payment’ button users here also have the option to enter a discount code. Upon Newsletter sign up, as mentioned above, users are given a six digit randomly generated discount code that automatically provides a $100 discount to any order on heritage-company.net. Entering the code here and clicking on the check code validity button, sends the code to the Django back end, via asynchronous JavaScript, where the code is checked against the database.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Redeem Discount Code](static/assets/images/readme-images/discount-code.gif)
 
 If the code is valid (i.e. currently in the database), a success message is shown to users and $100 taken off the grand total price of the order. If not, an error message is displayed, and users are given the opportunity to try again. The final step in locking in any discount is to then click on the continue to payment button.
 
@@ -368,12 +373,13 @@ If the code is valid (i.e. currently in the database), a success message is show
 
 Before proceeding to payment, users are given the opportunity to create an account with a temporary password, saving their current delivery details to their new accounts. This option is of course only available to non-authenticated users.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Create Account upon Checkout](static/assets/images/readme-images/create-account-checkout.webp)
+
 If this option is chosen and the ‘Continued to Payment’ button is clicked, then a new user account with a randomly generated 8-digit strong password is created (using the order e-mail address as login), and the user is sent an account verification e-mail, and a separate e-mail with their temporary password. If non-authenticated users try to create an account using an email that is already tied to an existing account, users are shown an error message and returned to the landing page. From here they can login and complete the order.
 
 These are sent using Gmail's SSL encrypted SMTP server. Users are then encouraged to verify their e-mail address, log in with their temporary password, and naturally change their password as soon as possible.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Temporary Password Emailed](static/assets/images/readme-images/account-created-email.webp)
 
 This is the only part of the order that is completed before order confirmation (i.e. before order payment), since creating a new user account is not dependent on having completed an order, and its better for the store to have more user accounts (and email contact of potential clients), even is these do not make an initial purchase.
 
@@ -381,34 +387,32 @@ This is the only part of the order that is completed before order confirmation (
 
 The order payment page provides a very visually minimalistic design, where the grand total in U.S. dollars (including any discounts from the previous page) is displayed along with a credit card check out box. Heritage-company.net uses Stripe’s integrated credit card payment functionality. The stripe payment box provides users with its own visual feedback during payment processing, or in case any errors (such as invalid card details provided) pop up.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Order Payment](static/assets/images/readme-images/order-payment.webp)
 
 ## Order Confirmation
 
 After Stripe has verified successful credit card payment users are redirected to the order confirmation page, where order details are shown to them, and they are thanked for their business. Users are also informed to check their e-mail inboxes since an e-mail containing similar information is sent to them.
 
-![_____](static/assets/images/readme-images/____.webp)
-
 ## Superuser Functionality
 
 Throughout the site, users that are authenticated with superuser credentials, are given privileges to manage the heritage-company.net storefront. On, for example, every product detail page, a separate box with options is shown to super users (called store administrators) where users are able to edit or delete the product shown on the current page.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Superuser Product Details](static/assets/images/readme-images/superuser-product-details.webp)
 
 The same options are also available for superusers on their accounts pages where they are given a dropdown menu of all current products on the store front (sorted alphabetically by brand name) in order to add or delete existing products.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Superuser Account](static/assets/images/readme-images/superuser-account.webp)
 
 Upon choosing to delete an existing product, superusers are taken to a separate page where the current product is displayed, a warning message given, and explicit confirmation required before a product is deleted from the storefront.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Delete Product](static/assets/images/readme-images/delete-product.webp)
 
 Upon choosing to edit an existing product, superusers are taken to the edit product page where a pre-populated form of the current product, including image fields, is presented. Form validation is included in this submission process and any changes are immediate. After editing a product, users are redirected to the updated product's details page to see their changes along with a confirmation message.
-![_____](static/assets/images/readme-images/____.webp)
+![Edit Product](static/assets/images/readme-images/edit-product.webp)
 
 If from their accounts page a super user chooses to add a new product this is a rather simple process. The ‘Add product’ page presents the same (now empty) product form asking users to provide the details of the new product including at least one image. This form provides helpful text notes under most product fields for super users so that they can complete the details of the new product in a way that matches the style of other products on the storefront. If the new product form is submitted and passes validation users are redirected to the new product page and a success message displayed as confirmation.
 
-![_____](static/assets/images/readme-images/____.webp)
+![Add New Product](static/assets/images/readme-images/add-new-product.webp)
 
 ## Superuser Statistics
 
@@ -416,7 +420,13 @@ On the accounts page of superusers, they are also given links to statistics of t
 
 Superusers can view recent orders, including all order details and products ordered. Superuser can also see any recent messages and a list of current newsletter subscribers. All these statistics are presented in custom Django admin models to make them as user friendly as possible.
 
-![_____](static/assets/images/readme-images/____.webp)
+_Admin Extra Functionality_
+
+![Admin Extra](static/assets/images/readme-images/admin-extra.webp)
+
+_Superusers can view recent orders, and other information on the admin page_
+
+![Recent Orders](static/assets/images/readme-images/recent-orders.webp)
 
 ## Miscellaneous Pages
 
@@ -424,7 +434,9 @@ The site includes an about us page with some motivational text for potential cus
 
 Privacy policy, and Terms and Conditions pages are also available via links found in the site footer The content of these pages were generated using online tools, and the privacy policy includes the necessary additional information to comply with the European General Data Protection Regulation (since the site is based in Austria).
 
-![_____](static/assets/images/readme-images/____.webp)
+_The site's About Us Page_
+
+![About Us](static/assets/images/readme-images/about-us.webp)
 
 # Testing
 
@@ -440,7 +452,7 @@ A total of 30 automated tests were written to continually check the site integri
 <summary> Automated Testing </summary>
 <br>
 
-The Python _[Coverage](https://coverage.readthedocs.io/en/7.5.1/)_ library is showing a total automated test covering of 76% for the app. That takes into account all files for the entire application, though the view.py files by themselves have lower coverage.
+The Python [Coverage](https://coverage.readthedocs.io/en/7.5.1/) library is showing a total automated test covering of 76% for the app. That takes into account all files for the entire application, though the view.py files by themselves have lower coverage.
 
 The following test files contain automated tests for various models, forms and views.
 
@@ -457,7 +469,7 @@ The following test files contain automated tests for various models, forms and v
 
 > my_account/test_models.py
 > my_account/test_forms.py
-> ![Automated Tests Coverage for Heritage Company](___)
+> ![Automated Tests Coverage for Heritage Company](static/assets/images/readme-images/coverage.webp)
 
 </details>
 
