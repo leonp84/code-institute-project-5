@@ -103,6 +103,10 @@ All User Story cards can be viewed on the [Github Project Board](https://github.
 </details>
 <hr>
 
+<br>
+
+[&uarr; Back to Top](#heritage-company)
+
 # Business Model
 
 Heritage Company sells **luxury timepieces** to upper middle-class clientele who either have sufficient disposable income (or are willing to take on debt) to outright purchase a product in the range of thousands of dollars. To understand this business model, it is it perhaps necessary to understand the philosophy behind luxury timepieces.
@@ -124,6 +128,10 @@ In the case of Heritage Company, the story is additionally built around the idea
 
 To summarize: Heritage Company is therefore designed with this demographic in mind: Young, up and coming middle and upper-middle class clientele, who are possible starting families, and have disposable income or the ability to quickly procure debt.
 
+<br>
+
+[&uarr; Back to Top](#heritage-company)
+
 # Marketing Strategy
 
 The three primary goals, the driving force behind the site design and UX) of heritage-company.net are (in order of most importance):
@@ -141,6 +149,10 @@ Future marketing strategies should incorporate **blog articles** about watch col
 To that end the site also employs social media marketing through a dedicated Facebook Business page which can be viewed here: Xx
 
 Xx Add Facebook Page Screenshots
+
+<br>
+
+[&uarr; Back to Top](#heritage-company)
 
 # SEO
 
@@ -164,6 +176,10 @@ _Robots.txt report from Google Search Console_
 
 ![Heritage Company Robots.txt with Google Search Console](static/assets/images/readme-images/robots.jpg)
 
+<br>
+
+[&uarr; Back to Top](#heritage-company)
+
 # Site Design
 
 ## Visuals
@@ -176,10 +192,9 @@ _Colour Palette by [Coolors.co](https://coolors.co)_
 
 ## Logo
 
-The website logo was created with the help of the AI Logo creation tool from [Looka](https://www.looka.com). It features the company name and a fire symbol in gold, surrounded by a golden border. The fire symbol was chosen as the company identifier since it ties in with the Heritage/Legacy theme espoused on the landing page and about us page. It is based on the quote from Gustav Mahler: ‘Tradition is not the worship of ashes, but the transmission of fire.
+The website logo was created with the help of the AI Logo creation tool from [Looka](https://www.looka.com). It features the company name and a fire symbol in gold, surrounded by a golden border. The fire symbol was chosen as the company identifier since it ties in with the Heritage/Legacy theme espoused on the landing page and about us page. It is based on the quote from Gustav Mahler: _‘Tradition is not the worship of ashes, but the transmission of fire.'_
 
 <img src="static/assets/images/readme-images/logo.jpg" alt="Heritage Company Logo" width=350>
-<br>
 <br>
 
 ## Wireframing
@@ -213,6 +228,10 @@ From an e-commerce perspective, the red lines show the preferred, and most desir
 The Entity Relationship Diagram (ERD) below (by [dbdiagram.io](https://dbdiagram.io/)) visually displays the database design. For more detailed explanations of the relationships between models, and their purpose, it is recommended to read the Django view docstrings in the respective views.py and models.py pages of each app. There the model relationships are explained in detail.
 
 ![Heritage Company Database Design](static/assets/images/readme-images/erd.jpg)
+
+<br>
+
+[&uarr; Back to Top](#heritage-company)
 
 # Features
 
@@ -266,7 +285,6 @@ On top of the static newsletter sign up form that are always displayed to users 
 
 <img src="static/assets/images/readme-images/newsletter-extra.jpg" alt="Newsletter Sign-up Modal" width=450>
 <br>
-<br>
 
 This additional newsletter sign-up modal slides in to view from the left border of the site once the user has scrolled down to at least 75% of the page contents of whatever page they are currently browsing. Users can then either submit the form or close this modal by clicking on the X. The gentle sliding animation, and the fact that users are not bombarded with this message at every visit of the site, means that it is only slightly obtrusive, but as statistics show can lead to a high increase in newsletter sign-ups.
 
@@ -274,12 +292,10 @@ Upon submitting the newsletter sign up form, users are redirected to a page aski
 
 <img src="static/assets/images/readme-images/email-verify.jpg" alt="Verification Email to Customer" width=450>
 <br>
-<br>
 
 As enticement for users to sign up to the newsletter, a **discount code** is given to them upon successful e-mail verification. This discount code is dynamically generated and consists of 6 digits, both letters and numbers. Upon successful e-mail verification the code is generated, saved in the database, and then emailed to the customer in an additional, separate email. This code is then available for use during the checkout process.
 
 <img src="static/assets/images/readme-images/discount-code.jpg" alt="Discount Code" width=450>
-<br>
 <br>
 
 ## All Products
@@ -332,12 +348,10 @@ The advanced search function allows users to search products by keyword using ad
 
 <img src="static/assets/images/readme-images/advanced-search.jpg" alt="Advanced Search" width=550>
 <br>
-<br>
 
 Results then take into account all of the submitted information to return a query set of products matching the user’s filters. If no keywords were entered, this is indicated to the user on the search result page, but an additional message makes sure the user is aware that their other filters were taken into account during the search process.
 
 <img src="static/assets/images/readme-images/advanced-search-results.jpg" alt="Advanced Search Results" width=550>
-<br>
 <br>
 
 ## Product Details Page
@@ -352,23 +366,24 @@ Hovering over the bookmark icon displays a Bootstrap tooltip explaining to users
 
 <img src="static/assets/images/readme-images/bookmark.jpg" alt="Bookmark a Product" width=550>
 <br>
-<br>
 
 Upon clicking this icon an asynchronous JavaScript message is sent to the server to determine whether the user is currently logged in an authenticated. If the user is logged in parenthesis and therefore has an active wish list), the item is added to the authenticated users wish list. If not, a special modal shows up encouraging users to sign in or create an account to add items to the wish list.
 
 <img src="static/assets/images/readme-images/create-account-to-bookmark.jpg" alt="Create Account Modal" width=550>
 <br>
-<br>
 
 From a business perspective the most important button on this page is of course the ‘Buy this Watch’ button. When users click this a loading animation shows up and after 2 seconds a success message indicated that the watch was added to the user's shopping bag. At the same time the number of items in the bag is automatically updated in the NAV bar giving clear visual feedback to the user.
 
-![Customer clicks the buy button](static/assets/images/readme-images/click-buy-button.jpg)
+![Customer clicks the buy button](static/assets/images/readme-images/click-buy-button.gif)
 
 Users are limited to a Max of three items per product per shopping bag, and once users have reached this limit and try to add additional quantities of the same product to their bags, error message displays that the product limit has been reached.
 
 <img src="static/assets/images/readme-images/limit.jpg" alt="Limit Reached Message" width=550>
 <br>
+
 <br>
+
+[&uarr; Back to Top](#heritage-company)
 
 ## Product Contact
 
@@ -402,7 +417,6 @@ When users are logged in and choose to add specific products to their wish list,
 
 <img src="static/assets/images/readme-images/wish-list.jpg" alt="Customer Wish List" width=550>
 <br>
-<br>
 
 ## Past Orders
 
@@ -420,7 +434,7 @@ In the column displaying the current order subtotal the user is also given the o
 
 Clicking this button also dynamically upsets the subtotal by adding 2.5% to the final price. The final price is constantly updated (with a visual loading spinner) when users make changes to the any interactive element on the page (item quantity, deleting items, adding watch care plan). This ensures the order total remains up to date and users are clearly informed through constant visual feedback.
 
-![Full Shopping Bag](static/assets/images/readme-images/shopping-bag-final.jpg) GIF
+![Full Shopping Bag](static/assets/images/readme-images/shopping-bag-final.jpg)
 
 A yellow ‘Proceed to Checkout’ button redirects users to the checkout page. If all items have been removed from the shopping bag, this button is greyed out and disabled.
 
@@ -444,14 +458,12 @@ Before proceeding to payment, users are given the opportunity to create an accou
 
 <img src="static/assets/images/readme-images/create-account-checkout.jpg" alt="Create Account upon Checkout" width=550>
 <br>
-<br>
 
 If this option is chosen and the ‘Continued to Payment’ button is clicked, then a new user account with a randomly generated 8-digit strong password is created (using the order e-mail address as login), and the user is sent an account verification e-mail, and a separate e-mail with their temporary password. If non-authenticated users try to create an account using an email that is already tied to an existing account, users are shown an error message and returned to the landing page. From here they can login and complete the order.
 
 These are sent using Gmail's SSL encrypted SMTP server. Users are then encouraged to verify their e-mail address, log in with their temporary password, and naturally change their password as soon as possible.
 
 <img src="static/assets/images/readme-images/account-created-email.jpg" alt="Temporary Password Emailed" width=550>
-<br>
 <br>
 
 This is the only part of the order that is completed before order confirmation (i.e. before order payment), since creating a new user account is not dependent on having completed an order, and its better for the store to have more user accounts (and email contact of potential clients), even is these do not make an initial purchase.
@@ -472,7 +484,6 @@ Throughout the site, users that are authenticated with superuser credentials, ar
 
 <img src="static/assets/images/readme-images/superuser-product-details.jpg" alt="Superuser Product Details" width=700>
 <br>
-<br>
 
 The same options are also available for superusers on their accounts pages where they are given a dropdown menu of all current products on the store front (sorted alphabetically by brand name) in order to add or delete existing products.
 
@@ -486,12 +497,10 @@ Upon choosing to edit an existing product, superusers are taken to the edit prod
 
 <img src="static/assets/images/readme-images/edit-product.jpg" alt="Edit Product" width=600>
 <br>
-<br>
 
 If from their accounts page a super user chooses to add a new product this is a rather simple process. The ‘Add product’ page presents the same (now empty) product form asking users to provide the details of the new product including at least one image. This form provides helpful text notes under most product fields for super users so that they can complete the details of the new product in a way that matches the style of other products on the storefront. If the new product form is submitted and passes validation users are redirected to the new product page and a success message displayed as confirmation.
 
 <img src="static/assets/images/readme-images/add-new-product.jpg" alt="Add New Product" width=600>
-<br>
 <br>
 
 ## Superuser Statistics
@@ -514,9 +523,13 @@ The site includes an about us page with some motivational text for potential cus
 
 Privacy policy, and Terms and Conditions pages are also available via links found in the site footer The content of these pages were generated using online tools, and the privacy policy includes the necessary additional information to comply with the European General Data Protection Regulation (since the site is based in Austria).
 
-_The sites About Us Page_
+_The About Us Page_
 
 ![About Us](static/assets/images/readme-images/about-us.jpg)
+
+<br>
+
+[&uarr; Back to Top](#heritage-company)
 
 # Testing
 
@@ -559,7 +572,7 @@ The following test files contain automated tests for various models, forms and v
 
 **HTML** | Upon final deployment no errors were returned when passing through the official W3C validator. The results for a few key pages are below. Other pages can be checked manually.
 
-- [ndex.html Validator Results](Xx)
+- [index.html Validator Results](Xx)
 - [all_products.html Validator Results](Xx)
 - [product_detail.html Validator Results](Xx)
 - [about_us.html Validator Results](Xx)
@@ -574,6 +587,10 @@ The following test files contain automated tests for various models, forms and v
 
 **Lighthouse** | The site was tested with Google Lighthouse using Chrome Developer Tools and the results for index.html are shown below.
 
+![Lighthouse Test Results](static/assets/images/readme-images/lighthouse.jpg)
+
+[&uarr; Back to Top](#heritage-company)
+
 # Bugs
 
 <details>
@@ -584,7 +601,7 @@ The following test files contain automated tests for various models, forms and v
 
 - By using the VSCode _ESLint_ and _Prettier_ extensions during production, most of the common JavaScript linting errors that pops up during coding was avoided, but the linter still showed many **undeclared variables** that needed updating.
 
-- Incorporating the **Stripe JavaScript code** during the checkout process proved challenging, produces many bugs and rounds of testing. I found the Stripe recommended JavaScript integration (https://docs.stripe.com/payments/quickstart?lang=python) quite opinionated, and it didn’t fit well with my site architecture. Site’s insistence on providing a redirect URL after successful payment meant I needed to update my `checkout.views` to accommodate this and create the new order instance only after Stripe’s redirect (when payment is confirmed).
+- Incorporating the **Stripe JavaScript code** during the checkout process proved challenging, produces many bugs and rounds of testing. I found the Stripe recommended [JavaScript integration](https://docs.stripe.com/payments/quickstart?lang=python) quite opinionated, and it didn’t fit well with my site architecture. Site’s insistence on providing a redirect URL after successful payment meant I needed to update my `checkout.views` to accommodate this and create the new order instance only after Stripe’s redirect (when payment is confirmed).
 
 - Using both Stripe for checkout, and AWS for static and media file storage, means I consistently needed to tweak the project settings.py file in order for all functionality to work in **both production and deployment environments**. One example would the be settings.SITE_URL variable that needs to be updated in the production environment.
 
@@ -612,6 +629,10 @@ The following test files contain automated tests for various models, forms and v
 
 </details>
 <br>
+
+<br>
+
+[&uarr; Back to Top](#heritage-company)
 
 # Deployment
 
@@ -651,7 +672,7 @@ The process for integrating stripe in a production environment is not straightfo
 
 Since I am also using Amazon Web Service’s S3 buckets to store static and media files, the Heroku Config Vars also include these keys.
 
-- ` AWS_ACCESS_KEY_ID`
+- `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
 - `USE_AWS` (This is set to `True`)
 
@@ -664,7 +685,7 @@ Finally, for sending emails I Django I needed the following two Config Vars:
 
 This is in line with the [Django process](https://docs.djangoproject.com/en/5.0/topics/email/#module-django.core.mail) of integrating an external SMTP (in my case, Gmail) server to send out emails.
 
-7. Back in the Integrated Development Environment, I created a list of requirements by typing pip3 freeze > requirements.txt into the terminal.
+7. Back in the Integrated Development Environment, I created a list of requirements by typing `pip3 freeze > requirements.txt` into the terminal.
 
 8. In my Django `settings.py` file I updated/added the following settings, which are all related to deployment to Heroku:
 
@@ -766,6 +787,10 @@ if 'USE_AWS' in os.environ:
 </details>
 <br>
 
+<br>
+
+[&uarr; Back to Top](#heritage-company)
+
 # Links
 
 Deployed Website (Custom Domain): [https://heritage-company.net/](https://heritage-company.net/)<br>
@@ -781,7 +806,7 @@ Github Repository: [https://github.com/leonp84/code-institute-project-5](https:/
 
 ## Media and Text
 
-- For general project inspiration and, the Code Institute PP5 walkthrough, Boutique Ado, provided a great starting point.
+- For general project inspiration and, the Code Institute PP5 walkthrough, [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1), provided a great starting point.
 - For general visual design and site layout, I relied heavily on [The 1916 Company](https://www.the1916company.com/)
 - Product images and details for fixtures, were scraped from [Crown & Caliber](https://www.crownandcaliber.com/) and [Helveti](https://www.helveti.eu/)
 - Most of the images on the about us page are from [Unsplash](https://unsplash.com/)
@@ -811,3 +836,7 @@ Github Repository: [https://github.com/leonp84/code-institute-project-5](https:/
 - For help with a ‘hover off’ type effect with images: [css-tricks.com](https://css-tricks.com/different-transitions-for-hover-on-hover-off/)
 
 </details>
+
+<br>
+
+[&uarr; Back to Top](#heritage-company)
