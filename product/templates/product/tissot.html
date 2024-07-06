@@ -41,7 +41,7 @@
           <span><strong>{{ product.short_title }}</strong></span>
           <div>
             {% if product.discount_percentage > 0 %}
-              <span class="text-decoration-line-through">$ {{ product.price }}</span>
+              <span class="text-decoration-line-through">$ {{ product.pre_discount_price }}</span>
               <span class="fw-bolder text-primary">$ {{ product.price }} USD</span>
             {% else %}
               <span>$ {{ product.price }} USD</span>

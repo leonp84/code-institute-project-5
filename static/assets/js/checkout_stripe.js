@@ -46,8 +46,7 @@ async function handleSubmit(e, stripe) {
         <div class="spinner-border spinner-border-sm" role="status"></div>`
   );
   $('#submit-order').attr('disabled', true);
-  let returnUrl =
-    'https://' + window.location.hostname + '/checkout/order_confirmation/';
+  let returnUrl = 'https://heritage-company.net/checkout/order_confirmation/';
 
   const { error } = await stripe.confirmPayment({
     elements,

@@ -24,7 +24,7 @@
           <div class="col-4 px-2 fs-3 d-flex justify-content-evenly align-items-center position-relative">
             <span class="badge rounded-pill bg-warning bag-items-number"
                   style="display: none">{{ items_in_shopping_bag }}</span>
-            <a href="{% url 'contact_us' %}"><i class="fa-solid fa-envelope"></i></a>
+            <a href="{% url 'contact_us' %}" class="d-none d-sm-block"><i class="fa-solid fa-envelope"></i></a>
             <a href="" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
             <a href="{% if user.is_authenticated %}{% url 'my_account' %}{% else %}{% url 'account_login' %}{% endif %}">
               <i class="fa-solid fa-user-large"></i>
