@@ -32,7 +32,7 @@ def my_account(request):
         :template:`my_account/my_account.html`
     '''
     current_user = UserDetail.objects.filter(user=request.user).first()
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('watch_brand')
     wish_list = current_user.wish_list.all()
     past_orders = Order.objects.filter(email=request.user.email)
 
