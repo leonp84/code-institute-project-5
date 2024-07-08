@@ -79,26 +79,130 @@ All User Story cards can be viewed on the [Github Project Board](https://github.
 
 <hr>
 
-1. **[EPIC 1: \_\_](__)** - \_\_
+1. **[EPIC 1: View and Navigation](https://github.com/leonp84/code-institute-project-5/issues/1)** - A set of features that allow users to view store products as listings, and then view each product in detail, with accompanying images.
 <br>
 <details>
-<summary> User Stories for Epic: __</summary>
+<summary> User Stories for Epic: View and Navigation</summary>
 <br>
 
-> [#\_\_](__) \_\_
+> [#2](https://github.com/leonp84/code-institute-project-5/issues/2) - As a **site user** I can **view the list of available watches** so that I **can browse the story and make decisions** regarding purchases.
+
+> [#3](https://github.com/leonp84/code-institute-project-5/issues/3) - As a **site user** I can **view the details of an individual product** so that I can **learn more about the watch before making a purchase**.
+
+> [#4](https://github.com/leonp84/code-institute-project-5/issues/4) - As a **site user** I can **view multiple images of a product** so that I can **see the watch from different angles and make a better purchasing decision**.
+
+> [#5](https://github.com/leonp84/code-institute-project-5/issues/5) - As a **site user** I can **see the number of items in my shopping cart** so that I can **keep track of my selected products**.
+
+</details>
+<hr>
+
+2. **[EPIC 2: General Site Functionality](https://github.com/leonp84/code-institute-project-5/issues/6)** - A set of features that allow users to view non product related pages on the site, contact site owners, and sign up for newsletters.
+<br>
+<details>
+<summary> User Stories for Epic: General Site Functionality</summary>
+<br>
+
+> [#7](https://github.com/leonp84/code-institute-project-5/issues/7) - As a **site user** I can **view an About Me page with an FAQ section** so that I can **learn more about the business and find answers to common questions**.
+
+> [#8](https://github.com/leonp84/code-institute-project-5/issues/8) - As a **site user** I can **see a list of discounted items** so that I can **find luxury watches on sale and make cost-effective purchases**.
+
+> [#9](https://github.com/leonp84/code-institute-project-5/issues/9) - As a **site user** I can **view the privacy statement and terms of service** so that I can **understand how my data will be used and the legal terms of using the site**.
+
+> [#10](https://github.com/leonp84/code-institute-project-5/issues/10) - As a **site user** I can **sign up for the newsletter** so that I can **receive updates and promotional offers**.
+
+> [#11](https://github.com/leonp84/code-institute-project-5/issues/11) - As a **site user** I can **receive a discount code upon signing up for the newsletter** so that I can **enjoy savings on my first purchase**.
+
+> [#12](https://github.com/leonp84/code-institute-project-5/issues/12) - As a **site user** I can **contact the business with product-specific questions** so that I can **get more information and make informed purchase decisions**.
+
+</details>
+<hr>
+
+3. **[EPIC 3: User Account Management](https://github.com/leonp84/code-institute-project-5/issues/13)** - A set of features that allow users to create and update user accounts to eventually link all purchases to their accounts.
+<br>
+<details>
+<summary> User Stories for Epic: User Account Management</summary>
+<br>
+
+> [#14](https://github.com/leonp84/code-institute-project-5/issues/14) - As a **site user** I can **create a new account** so that I can **save my preferences, track orders, and make purchases**.
+
+> [#15](https://github.com/leonp84/code-institute-project-5/issues/15) - As a **site user** I can **log in and log out** so that I can **access my account and securely sign out**.
+
+> [#16](https://github.com/leonp84/code-institute-project-5/issues/16) - As a **site user** I can **confirm my email address** so that I can **verify my account and receive important notifications**.
+
+> [#17](https://github.com/leonp84/code-institute-project-5/issues/17) - As a **site user** I can **log in using my Google account** so that I can **access the site quickly without creating a new account**.
+
+> [#18](https://github.com/leonp84/code-institute-project-5/issues/18) - As a **site user** I can **update my user profile information** so that I can **keep my account details accurate and up-to-date**.
+
+> [#19](https://github.com/leonp84/code-institute-project-5/issues/19) - As a **site user** I can **change my account password** so that I can **secure my account and update my login credentials**.
+
+> [#20](https://github.com/leonp84/code-institute-project-5/issues/20) - As a **site user** I can **view a list of my past purchases** so that I can **track my order history and review previous transactions**.
+
+> [#21](https://github.com/leonp84/code-institute-project-5/issues/21) - As a **site user** I can **view my wish list of favorite products** so that I can **save items for future consideration and purchase**.
+
+</details>
+<hr>
+
+4. **[EPIC 4: Product Searching & Sorting](https://github.com/leonp84/code-institute-project-5/issues/28)** - A set of features that allow users to search and categorise products in the webstore.
+<br>
+<details>
+<summary> User Stories for Epic: View and Navigation</summary>
+<br>
+
+> [#29](https://github.com/leonp84/code-institute-project-5/issues/29) - As a **site user** I can **search for products by name and description** so that **I can quickly find specific luxury watches**.
+
+> [#30](https://github.com/leonp84/code-institute-project-5/issues/30) - As a **site user** I can **additionally search for products by category** (gender, brand, color, price) so that **I can narrow down my choices based on specific criteria**.
+
+> [#31](https://github.com/leonp84/code-institute-project-5/issues/31) - As a **site user** I can **additionally sort listed products by category** (gender, brand, color, price) so that **I can organize search results according to my preferences**.
+
+</details>
+<hr>
+
+5. **[EPIC 5: Purchase & Checkout](https://github.com/leonp84/code-institute-project-5/issues/32)** - A set of features that deals with the checkout process and payment functionality of the site.
+<br>
+<details>
+<summary> User Stories for Epic: View and Navigation</summary>
+<br>
+
+> [#33](https://github.com/leonp84/code-institute-project-5/issues/33) - As a **site user** I can **add a quantity of a product to my shopping bag** so that **I can purchase multiple items of the same product**.
+
+> [#34](https://github.com/leonp84/code-institute-project-5/issues/34) - As a **site user** I can **add an item to my wishlist** so that **I can save it for future consideration or purchase**.
+
+> [#35](https://github.com/leonp84/code-institute-project-5/issues/35) - As a **site user** I can **view my shopping bag details** so that **I can review the items I have selected for purchase**.
+
+> [#36](https://github.com/leonp84/code-institute-project-5/issues/36) - As a **site user** I can **update my shopping bag by removing items** so that **I can adjust my selections before checkout**.
+
+> [#37](https://github.com/leonp84/code-institute-project-5/issues/37) - As a **site user** I can **update the quantity of a product within my shopping bag** so that **I can adjust my purchase quantities before checkout**.
+
+> [#38](https://github.com/leonp84/code-institute-project-5/issues/38) - As a **site user** I can **enter a custom delivery address** so that **I can receive my purchased items at a location of my choice**.
+
+> [#39](https://github.com/leonp84/code-institute-project-5/issues/39) - As a **site user** I can **use a discount code during checkout** so that **I can apply promotional discounts to my purchase**.
+
+> [#40](https://github.com/leonp84/code-institute-project-5/issues/40) - As a **site user** I can **add a watch care plan during checkout** so that **I can protect and maintain my purchased watch**.
+
+> [#41](https://github.com/leonp84/code-institute-project-5/issues/41) - As a **site user** I can **save delivery details and create an account** upon checkout so that **I can save time on future purchases and manage my orders**.
+
+> [#42](https://github.com/leonp84/code-institute-project-5/issues/42) - As a **site user** I can **pay securely via credit card** so that **I can complete my purchase with confidence**.
+
+> [#43](https://github.com/leonp84/code-institute-project-5/issues/43) - As a **site user** I can **view order confirmation via email** so that **I have a record of my purchase and order details**.
 
 </details>
 <hr>
 
 ### Site Administrator
 
-1. **[EPIC 23: Admin User Functionality](https://github.com/leonp84/code-institute-project-5/issues/23)** - A set of features that allow site superusers to add, edit or remove new products to the webstore.
+6. **[EPIC 6: Admin User Functionality](https://github.com/leonp84/code-institute-project-5/issues/23)** - A set of features that allow site superusers to add, edit or remove new products to the webstore.
 <br>
 <details>
 <summary> User Stories for Epic: Admin User Functionality</summary>
 <br>
 
-> [#\_\_](__) \_\_
+> [#24](https://github.com/leonp84/code-institute-project-5/issues/24) - As a **site administrator** I can **add new products** so that **customers can browse and purchase new luxury watches**.
+
+> [#25](https://github.com/leonp84/code-institute-project-5/issues/25) - As a **site administrator** I can **edit existing products** so that **I can update product information and keep it accurate**.
+
+> [#26](https://github.com/leonp84/code-institute-project-5/issues/26) - As a **site administrator** I can **delete existing products** so that **I can remove outdated or discontinued items from the site**.
+
+> [#27](https://github.com/leonp84/code-institute-project-5/issues/27) - As a **site administrator** I can **view statistics of past and current purchase details** so that **I can analyze sales performance and make informed business decisions**.
 
 </details>
 <hr>
@@ -146,9 +250,27 @@ To this end, the site funnels users, from the landing page, towards specific pro
 
 Future marketing strategies should incorporate **blog articles** about watch collection and luxury timepiece related news. For especially collectors, fresh information like this, presented in a well written (and SEO spider friendly) manner are highly desirable. Investing in good written material, producer by a luxury watch expert, could be a valuable selling strategy to keep users coming back. These articles can then of course be promoted through the site newsletter or social media pages.
 
-To that end the site also employs social media marketing through a dedicated Facebook Business page which can be viewed here: Xx
+To that end the site also employs social media marketing through a dedicated [Facebook Business page](https://www.facebook.com/profile.php?id=61562008868047). Screenshots of the Facebook page are also available below.
 
-Xx Add Facebook Page Screenshots
+<details>
+<summary> Facebook Business Page Screenshots</summary>
+
+![Heritage Company Facebook Business Page Screenshot](static/assets/images/readme-images/facebook1.jpg)
+<br>
+
+![Heritage Company Facebook Business Page Screenshot](static/assets/images/readme-images/facebook2.jpg)
+<br>
+
+![Heritage Company Facebook Business Page Screenshot](static/assets/images/readme-images/facebook3.jpg)
+<br>
+
+![Heritage Company Facebook Business Page Screenshot](static/assets/images/readme-images/facebook4.jpg)
+<br>
+
+</details>
+<hr>
+
+<br>
 
 <br>
 
@@ -535,7 +657,188 @@ _The About Us Page_
 
 ## Manual Testing
 
-Coming Soon...
+<br>
+<details>
+<summary>General Navigation</summary>
+<br>
+
+| Expected Outcome                                       | Test Procedure                                                                 | Result |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------ | ------ |
+| All links on the site footer open to the correct pages | Click on each link in the footer to ensure they open to the correct pages      | Pass   |
+| All links on the header open to the correct pages      | Click on each link in the header to ensure they open to the correct pages      | Pass   |
+| All links on the desktop navigation bar work correctly | Click on each link in the desktop navigation bar to ensure they work correctly | Pass   |
+| All links on the mobile navigation bar work correctly  | Click on each link in the mobile navigation bar to ensure they work correctly  | Pass   |
+| The site's custom 404 page works correctly             | Navigate to a non-existent page to verify the custom 404 page appears          | Pass   |
+
+</details>
+
+<br>
+<details>
+<summary>Product Viewing & Browsing</summary>
+<br>
+
+| Expected Outcome                                              | Test Procedure                                                                            | Result |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------ |
+| User can browse all products                                  | Click through each product category and subcategory to ensure all products are accessible | Pass   |
+| User can browse products by brand                             | Click on each brand category to ensure products are accessible                            | Pass   |
+| User can browse products that are on sale                     | Navigate to the sale section to ensure all sale products are accessible                   | Pass   |
+| Users can click on any product for more detail                | Click on each product to verify detailed information is displayed                         | Pass   |
+| Users can contact site management regarding specific products | Use the contact form for specific products to ensure it functions correctly               | Pass   |
+
+</details>
+
+<br>
+<details>
+<summary>Search & Results</summary>
+<br>
+
+| Expected Outcome                                    | Test Procedure                                                                    | Result |
+| --------------------------------------------------- | --------------------------------------------------------------------------------- | ------ |
+| User can accurately search products by keywords     | Enter various keywords in the search bar to ensure accurate results are displayed | Pass   |
+| User can accurately search products by brand        | Search for different brands to ensure accurate results are displayed              | Pass   |
+| User can accurately search products by watch gender | Search by gender categories to ensure accurate results are displayed              | Pass   |
+| User can accurately search products by dial colour  | Search by dial colour to ensure accurate results are displayed                    | Pass   |
+| User can accurately search products by price range  | Use the price range filter to ensure accurate results are displayed               | Pass   |
+
+</details>
+
+<br>
+<details>
+<summary>Accounts & Login</summary>
+<br>
+
+| Expected Outcome                                                  | Test Procedure                                                                          | Result |
+| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------ |
+| Users can create an account with email signup                     | Complete the email signup process to ensure account creation works                      | Pass   |
+| Users can create an account with Google signup                    | Complete the Google signup process to ensure account creation works                     | Pass   |
+| Users can verify their email addresses after signup               | Verify the email address to ensure the verification process works                       | Pass   |
+| Users can change their passwords                                  | Change the password to ensure the process works correctly                               | Pass   |
+| Users can view their wish list in their accounts page             | Navigate to the wish list in the account page to ensure it displays correctly           | Pass   |
+| Users can view their past orders in their accounts page           | Navigate to the past orders section in the account page to ensure it displays correctly | Pass   |
+| Users can update their profile information in their accounts page | Update the profile information to ensure changes are saved correctly                    | Pass   |
+
+</details>
+
+<br>
+<details>
+<summary>Superuser Functionality</summary>
+<br>
+
+| Expected Outcome                              | Test Procedure                                                                            | Result |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------- | ------ |
+| Superusers can add products to the storefront | Log in as a superuser and add new products to ensure the process works correctly          | Pass   |
+| Superusers can edit existing products         | Log in as a superuser and edit existing products to ensure changes are saved correctly    | Pass   |
+| Superusers can delete existing products       | Log in as a superuser and delete products to ensure the process works correctly           | Pass   |
+| Superusers can view site statistics and usage | Log in as a superuser and navigate to the statistics page to ensure it displays correctly | Pass   |
+
+</details>
+
+<br>
+<details>
+<summary>Newsletter</summary>
+<br>
+
+| Expected Outcome                                                | Test Procedure                                                                | Result |
+| --------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------ |
+| Users can sign up for a newsletter via the footer               | Use the newsletter signup form in the footer to ensure it functions correctly | Pass   |
+| Users can sign up for a newsletter via the slide in signup form | Use the slide-in signup form to ensure it functions correctly                 | Pass   |
+| Users receive email confirmation upon sign up                   | Sign up for the newsletter and verify receipt of confirmation email           | Pass   |
+| Users receive a discount code upon email verification           | Complete email verification and ensure a discount code is received            | Pass   |
+
+</details>
+
+<br>
+<details>
+<summary>Customer Messaging</summary>
+<br>
+
+| Expected Outcome                                                        | Test Procedure                                                         | Result |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------ |
+| Users are notified when successfully logged in                          | Log in to the site to ensure a notification is received                | Pass   |
+| Users are notified when successfully logged out                         | Log out of the site to ensure a notification is received               | Pass   |
+| Users are notified when a contact form is submitted                     | Submit a contact form to ensure a notification is received             | Pass   |
+| Users are notified when a product is added to the cart                  | Add a product to the cart to ensure a notification is received         | Pass   |
+| Users are notified when their shopping bag has been updated             | Update the shopping bag to ensure a notification is received           | Pass   |
+| Users are notified when they have bookmarked an item                    | Bookmark an item to ensure a notification is received                  | Pass   |
+| Users are notified when they have removed an item from their wish lists | Remove an item from the wish list to ensure a notification is received | Pass   |
+| Users are notified when an order has been successfully paid             | Complete a payment to ensure a notification is received                | Pass   |
+
+</details>
+
+<br>
+<details>
+<summary>Purchasing Process</summary>
+<br>
+
+| Expected Outcome                                                                 | Test Procedure                                                                    | Result |
+| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------ |
+| Users can add items to their shopping bag                                        | Add items to the shopping bag to ensure the process works correctly               | Pass   |
+| Users can add up to 3 of the same items to their shopping bag                    | Add three of the same item to the shopping bag to ensure the limit is enforced    | Pass   |
+| Users can update product quantity in their shopping bags                         | Update the product quantity in the shopping bag to ensure changes are saved       | Pass   |
+| Users can remove items from their shopping bags                                  | Remove items from the shopping bag to ensure the process works correctly          | Pass   |
+| Users can add a watch plan during checkout                                       | Add a watch plan during checkout to ensure the option is available                | Pass   |
+| Users can log in during the checkout process to speed up the process             | Log in during checkout to ensure the process is expedited                         | Pass   |
+| Users can choose to create an account upon checkout                              | Opt to create an account during checkout to ensure the process works              | Pass   |
+| Users can enter a new delivery address (or use an existing one), during checkout | Enter a new delivery address during checkout to ensure it can be saved and used   | Pass   |
+| Users can use a discount code for $100 discount during the checkout process      | Apply a discount code during checkout to ensure the discount is applied correctly | Pass   |
+
+</details>
+
+<br>
+<details>
+<summary>Payment Process</summary>
+<br>
+
+| Expected Outcome                                                       | Test Procedure                                                                            | Result |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------ |
+| Users can pay via credit card                                          | Complete a payment via credit card to ensure the process works correctly                  | Pass   |
+| Users are notified if their credit card presents errors                | Attempt a payment with an invalid credit card to ensure an error notification is received | Pass   |
+| Users are notified if their orders are successful                      | Complete an order to ensure a success notification is received                            | Pass   |
+| Users receive an email notification upon successful payment completion | Complete a payment and verify receipt of the email notification                           | Pass   |
+
+</details>
+
+<br>
+<details>
+<summary>Miscellaneous Pages and Functions</summary>
+<br>
+
+| Expected Outcome                             | Test Procedure                                                            | Result |
+| -------------------------------------------- | ------------------------------------------------------------------------- | ------ |
+| Users can view the about us page             | Navigate to the about us page to ensure it displays correctly             | Pass   |
+| Users can view the site privacy policy       | Navigate to the privacy policy page to ensure it displays correctly       | Pass   |
+| Users can view the site terms and conditions | Navigate to the terms and conditions page to ensure it displays correctly | Pass   |
+| Users can contact site management            | Use the contact form to ensure it functions correctly                     | Pass   |
+
+</details>
+
+<br>
+<details>
+<summary>Testing For Responsiveness</summary>
+<br>
+
+| Test                                                      | Result |
+| --------------------------------------------------------- | ------ |
+| Site displays correctly on screens between 320px & 479px  | Pass   |
+| Site displays correctly on screens between 480px & 767px  | Pass   |
+| Site displays correctly on screens between 768px & 1199px | Pass   |
+| Site displays correctly on screens 1200px and larger      | Pass   |
+
+</details>
+
+<br>
+<details>
+<summary>Cross Browser Testing</summary>
+<br>
+
+| Browser | Resolution | Result    | Issues |
+| ------- | ---------- | --------- | ------ |
+| Chrome  | 1440px     | Very Good | None   |
+| Edge    | 1440px     | Very Good | None   |
+| Firefox | 1440px     | Very Good | None   |
+| Safari  | 768px      | Very Good | None   |
+
+</details>
 
 ## Automated Testing
 
