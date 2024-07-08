@@ -32,6 +32,7 @@ Welcome to the Readme file for Heritage Company, an e-commerce site selling luxu
   - [Wireframing](#wireframing)
   - [Flowchart](#flowchart)
   - [Model Design and Relationships](#model-design-and-relationships)
+  - [Technologies Used](#technologies-used)
 - [Features](#features)
   - [Landing Page](#landing-page)
   - [Header](#header)
@@ -213,7 +214,7 @@ All User Story cards can be viewed on the [Github Project Board](https://github.
 
 # Business Model
 
-Heritage Company sells **luxury timepieces** to upper middle-class clientele who either have sufficient disposable income (or are willing to take on debt) to outright purchase a product in the range of thousands of dollars. To understand this business model, it is it perhaps necessary to understand the philosophy behind luxury timepieces.
+Heritage Company is a Business to Consumer (B2C) e-commerce platform that sells **luxury timepieces** to upper middle-class clientele. These clientele either have sufficient disposable income (or are willing to take on debt) to outright purchase a product in the range of thousands of dollars. To understand this business model, it is it perhaps necessary to understand the philosophy behind luxury timepieces.
 
 ## Luxury Watches – The Philosophy
 
@@ -355,6 +356,40 @@ The Entity Relationship Diagram (ERD) below (by [dbdiagram.io](https://dbdiagram
 <br>
 
 [&uarr; Back to Top](#heritage-company)
+
+## Technologies Used
+
+> HTML & Django Jinja Templating Language
+
+For site structuring and layout. Jinja helped with creating pages that dynamically update upon page refresh.
+
+> CSS, Bootstrap 5 and Animate.css
+
+For site styling, responsive design, and animations.
+
+> Python & Django
+
+Django is the site's full stack framework that uses Python for logic.
+
+> Javascript & Jquery
+
+For updating pages in real time without page refresh, and communicating with the Django backend.
+
+> Font Awesome
+
+For icons, primarily in the header and footer sections.
+
+> neon.tech PostgreSQL Database
+
+Neon provides the free PostgresSQL Database for the project.
+
+> AWS S3
+
+Used to host static and media files.
+
+> Git
+
+Used for code version control
 
 # Features
 
