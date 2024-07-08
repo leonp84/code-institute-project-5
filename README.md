@@ -888,7 +888,7 @@ The following test files contain automated tests for various models, forms and v
 
 **Python** | Upon final deployment, no errors were found when passing the edited Django Python files through the [CI Python Linter](https://pep8ci.herokuapp.com/)
 
-**Lighthouse** | The site was tested with Google Lighthouse using Chrome Developer Tools and the results for index.html are shown below.
+**Lighthouse** | The site was tested with Google Lighthouse using Chrome Developer Tools. I find the lighthouse testing somewhat erratic and the results are never exactly the same (specifically the 'performance' metric). It jumps between a result in the high 80's to low 90's. One such result for index.html is shown below.
 
 ![Lighthouse Test Results](static/assets/images/readme-images/lighthouse.jpg)
 
