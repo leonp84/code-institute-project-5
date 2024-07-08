@@ -61,6 +61,7 @@ def add_item_to_bag(request):
     the product_id of the product in question and updates the session
     variable 'shopping_bag' to add a new product, or update quantities.
     It also limits customers to max 3 of each product per Order.
+    Details in /static/assets/js/product_detail.js
     **Context**
         None - JsonResponse with status and message
     '''
@@ -101,6 +102,7 @@ def update_shopping_bag(request):
     an item from the shopping bag, or updates it quantities. It recreates
     the 'shopping_bag' session variable using product_id's and quantities sent
     by Javascript.
+    Details in /static/assets/js/shopping_bag.js
     **Context**
         None - JsonResponse with message
     '''
@@ -123,6 +125,7 @@ def update_watch_care_plan(request):
     'Watch Care Plan' checkbox in the checkout page. It updates the
     'watch_care_plan' session variable accordingly, to later be used in the
     checkout view below.
+    Details in /static/assets/js/shopping_bag.js
     **Context**
         None - JsonResponse with message
     '''

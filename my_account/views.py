@@ -46,7 +46,7 @@ def my_account(request):
 @login_required
 def update_profile(request):
     '''
-    Allows logged users to update the instance of
+    Allows logged in users to update the instance of
     :model:`my_account.UserDetail` tied to their accounts.
     **Context**
     ```form```

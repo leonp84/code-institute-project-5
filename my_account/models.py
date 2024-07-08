@@ -16,23 +16,23 @@ class UserDetail (models.Model):
     '''
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     user_first_name = models.CharField(
-      max_length=254, null=True, blank=True)
+      max_length=254, null=True, blank=True, default="")
     user_last_name = models.CharField(
-      max_length=254, null=True, blank=True)
+      max_length=254, null=True, blank=True, default="")
     user_phone_number = models.CharField(
-      max_length=254, null=True, blank=True)
+      max_length=254, null=True, blank=True, default="")
     user_street_address1 = models.CharField(
-      max_length=254, null=True, blank=True)
+      max_length=254, null=True, blank=True, default="")
     user_street_address2 = models.CharField(
-      max_length=254, null=True, blank=True)
+      max_length=254, null=True, blank=True, default="")
     user_city = models.CharField(
-      max_length=254, null=True, blank=True)
+      max_length=254, null=True, blank=True, default="")
     user_postcode = models.CharField(
-      max_length=254, null=True, blank=True)
+      max_length=254, null=True, blank=True, default="")
     user_country = CountryField(
-      null=True, blank=True)
+      null=True, blank=True, default="")
     user_delivery_notes = models.TextField(
-      null=True, blank=True)
+      null=True, blank=True, default="")
     wish_list = models.ManyToManyField(Product)
 
     def __str__(self):

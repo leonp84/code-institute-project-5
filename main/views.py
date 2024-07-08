@@ -12,6 +12,22 @@ from .forms import NewsLetterSignupsForm, CustomerMessageForm
 from .models import NewsLetterSignup, DiscountCode
 
 
+def home(request):
+    '''
+    Renders Landing Page
+    **Context**
+    ```products```
+    Three specific instances of :model:`product.Product`
+    **Template**
+        :template:`main/index.html`
+    '''
+    template = 'main/index.html'
+    product_ids = [10, 31, 32]
+    products = Product.objects.filter(id__in=product_ids).order_by('id')
+    context = {'products': products}
+    return render(request, template, context)
+
+
 def about(request):
     '''
     Renders About Us Page
@@ -43,6 +59,7 @@ def contact_us(request):
         else:
             print(new_message.error)
 
+    # Pre-populate the contact form if user is logged in
     if request.user.is_authenticated:
         name = request.user.userdetail.user_first_name + ' ' + \
                request.user.userdetail.user_last_name
@@ -58,28 +75,13 @@ def contact_us(request):
     return render(request, template, context)
 
 
-def home(request):
-    '''
-    Renders Landing Page
-    **Context**
-    ```products```
-    Three specific instances of :model:`product.Product`
-    **Template**
-        :template:`main/index.html`
-    '''
-    template = 'main/index.html'
-    product_ids = [10, 31, 32]
-    products = Product.objects.filter(id__in=product_ids).order_by('id')
-    context = {'products': products}
-    return render(request, template, context)
-
-
 def privacy_policy(request):
     '''
     Renders Privacy Policy Page
     **Template**
         :template:`main/privacy_policy.html`
     '''
+    # Resets the newsletter session variable for testing / see readme.md
     request.session['newsletter_shown'] = False
     template = 'main/privacy_policy.html'
     context = {}
@@ -147,8 +149,8 @@ def newsletter_signup(request):
     This view is called when a customer signs up for the
     site newsletter. It generates a new instance of
     :form:`main.NewsLetterSignupsForm`. It also generates a
-    verification link (which includes the uuid token) in
-    :model:`main.NewsLetterSignup`, and then emails the customer.
+    verification link (which includes the uuid token in
+    :model:`main.NewsLetterSignup`), and then emails the customer.
     **Context**
     ```email```
     The customers email address retrieved from the newly created

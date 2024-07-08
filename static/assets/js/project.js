@@ -30,6 +30,7 @@ $(function () {
     }
   });
 
+  // Show the items in shopping bag (in header) only if at least one item is present
   if (parseInt($('.bag-items-number').first().text()) !== 0) {
     $('.bag-items-number').show();
   }

@@ -14,7 +14,7 @@ from .forms import ProductForm
 def all_products(request, sort_by='title'):
     '''
     Displays all instances of :model:`product.Product`
-    **Context**
+   **Context**
     ```products```
         A queryset of all instances of :model:`product.Product`
         sorted by the `sort_by` variable (default = 'title')
@@ -224,6 +224,7 @@ def delete_product(request, product_id):
 def customer_product_message(request):
     '''
     Allows creation of one new instance of :model:`main.CustomerMessage`
+    Details in /static/assets/js/product_detail.js
     **Context**
     JsonResponse with success message
     **Template**

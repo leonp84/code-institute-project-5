@@ -46,7 +46,7 @@ def webhook(request):
         if Order.objects.filter(stripe_pid=pid).exists():
             pass
         else:
-            # If not, proceed fulfill by redirecting to the view
+            # If not, proceed to fulfill by redirecting to the view
             return HttpResponseRedirect(reverse(
                 'order_confirmation', args=[pid]))
     else:

@@ -8,6 +8,7 @@ $(function () {
     $(this).css('border', '1px solid rgb(208, 177, 20)');
   });
 
+  // Show an enlarged image model when user clicks on main product image
   $('.main-product-image').on('click', function () {
     $('#largeImageModal').modal('show');
   });
@@ -106,7 +107,6 @@ function sendCustomerMessage() {
   let customerMessage = $('#customer-message').val();
 
   // AJAX POST Request
-  // The CSFR_TOKEN variable below is provided at the bottom of the respective HTML file
   $.ajax({
     url: '/product/customer_product_message/',
     type: 'POST',
