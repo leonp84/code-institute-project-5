@@ -254,6 +254,7 @@ To that end, the site also employs social media marketing through a dedicated [F
 
 <details>
 <summary> Facebook Business Page Screenshots</summary>
+<br>
 
 ![Heritage Company Facebook Business Page Screenshot](static/assets/images/readme-images/facebook1.jpg)
 <br>
@@ -405,19 +406,19 @@ On top of the static newsletter sign up form that are always displayed to users 
 
 **NOTE:** _This 24-hour timer (a Django session variable) can be reset by visiting the site’s privacy policy page. That view resets the session variable and I specifically left it there to make testing this additional sign-up modal easy._
 
-<img src="static/assets/images/readme-images/newsletter-extra.jpg" alt="Newsletter Sign-up Modal" width=450>
+<img src="static/assets/images/readme-images/newsletter-extra.jpg" alt="Newsletter Sign-up Modal" width=550>
 <br>
 
 This additional newsletter sign-up modal slides in to view from the left border of the site once the user has scrolled down to at least 75% of the page contents of whatever page they are currently browsing. Users can then either submit the form or close this modal by clicking on the X. The gentle sliding animation, and the fact that users are not bombarded with this message at every visit of the site, means that it is only slightly obtrusive, but as statistics show can lead to a high increase in newsletter sign-ups.
 
 Upon submitting the newsletter sign up form, users are redirected to a page asking them to confirm their e-mail addresses. When users visit their inbox and click on the e-mail confirmation link, they are brought back to heritage-company.net, where they are presented with a message that their newsletter sign up has been successful.
 
-<img src="static/assets/images/readme-images/email-verify.jpg" alt="Verification Email to Customer" width=450>
+<img src="static/assets/images/readme-images/email-verify.jpg" alt="Verification Email to Customer" width=650>
 <br>
 
 As enticement for users to sign up to the newsletter, a **discount code** is given to them upon successful e-mail verification. This discount code is dynamically generated and consists of 6 digits, both letters and numbers. Upon successful e-mail verification the code is generated, saved in the database, and then emailed to the customer in an additional, separate email. This code is then available for use during the checkout process.
 
-<img src="static/assets/images/readme-images/discount-code.jpg" alt="Discount Code" width=450>
+<img src="static/assets/images/readme-images/discount-code.jpg" alt="Discount Code" width=650>
 <br>
 
 ## All Products
