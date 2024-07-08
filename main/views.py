@@ -68,7 +68,7 @@ def home(request):
         :template:`main/index.html`
     '''
     template = 'main/index.html'
-    product_ids = [10, 31, 29]
+    product_ids = [10, 31, 32]
     products = Product.objects.filter(id__in=product_ids).order_by('id')
     context = {'products': products}
     return render(request, template, context)

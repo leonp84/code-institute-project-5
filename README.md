@@ -1,6 +1,6 @@
 # Heritage Company
 
-Welcome to the Readme file for Heritage Company, a fully-fledged e-commerce site, selling luxury timepieces, and built with [Django](https://www.djangoproject.com/).
+Welcome to the Readme file for Heritage Company, a e-commerce site selling luxury timepieces. Built with [Django](https://www.djangoproject.com/).
 
 ![Site Screenshot across multiple devices](static/assets/images/readme-images/site-mockups.jpg)
 
@@ -67,7 +67,7 @@ Welcome to the Readme file for Heritage Company, a fully-fledged e-commerce site
 
 # Overview
 
-Heritage Company is a fully operative e-commerce platform selling luxury watches from the well-known Swiss brands _Breitling_, _Tag Heuer_, _Omega_ and _Tissot_. Customers can browser products and make purchases through a functioning checkout system that includes email verification. The site and product display have been carefully designed to be visually appealing to the targeted demographic.
+Heritage Company is a fully operative e-commerce platform selling luxury watches from the well-known Swiss brands _Breitling_, _Tag Heuer_, _Omega_ and _Tissot_. Customers can browse products and make purchases through a functioning checkout and payment system that includes email verification. The site and product display have been carefully designed to be visually appealing to the targeted demographic.
 
 # UX
 
@@ -145,7 +145,7 @@ All User Story cards can be viewed on the [Github Project Board](https://github.
 4. **[EPIC 4: Product Searching & Sorting](https://github.com/leonp84/code-institute-project-5/issues/28)** - A set of features that allow users to search and categorise products in the webstore.
 <br>
 <details>
-<summary> User Stories for Epic: View and Navigation</summary>
+<summary> User Stories for Epic: Product Searching & Sorting</summary>
 <br>
 
 > [#29](https://github.com/leonp84/code-institute-project-5/issues/29) - As a **site user** I can **search for products by name and description** so that **I can quickly find specific luxury watches**.
@@ -160,7 +160,7 @@ All User Story cards can be viewed on the [Github Project Board](https://github.
 5. **[EPIC 5: Purchase & Checkout](https://github.com/leonp84/code-institute-project-5/issues/32)** - A set of features that deals with the checkout process and payment functionality of the site.
 <br>
 <details>
-<summary> User Stories for Epic: View and Navigation</summary>
+<summary> User Stories for Epic: Purchase & Checkout</summary>
 <br>
 
 > [#33](https://github.com/leonp84/code-institute-project-5/issues/33) - As a **site user** I can **add a quantity of a product to my shopping bag** so that **I can purchase multiple items of the same product**.
@@ -217,20 +217,20 @@ Heritage Company sells **luxury timepieces** to upper middle-class clientele who
 
 ## Luxury Watches – The Philosophy
 
-Luxury watches are, in the true sense, not rare items (since they are usually mass produced) but give the semblance of rarity and are undoubtedly icons of status among those that can afford to where them. Browsing the respective websites of the four popular Swiss watch brands sold on Heritage Company, it becomes clear that, while each target upper middle-class individuals with plenty of disposable income, each also variate somewhat is their precise demographic:
+Luxury watches are, in the true sense, not rare items (since they are usually mass produced) but give the semblance of rarity and are undoubtedly icons of status among those that can afford them. Browsing the respective websites of the four popular Swiss watch brands sold on Heritage Company, it becomes clear that, while each target upper middle-class individuals with plenty of disposable income, each also variate somewhat is their precise demographic:
 
 - [Tag Heuer](https://www.tagheuer.com/) / Sporty, adventure seeking up and coming professionals.
-- [Breitling](https://www.breitling.com/) / Younger upper middle-class buyers looking for a touch of tradition with their purchase.
+- [Breitling](https://www.breitling.com/) / Younger, upper middle-class buyers looking for a touch of tradition with their purchase.
 - [Omega](https://www.omegawatches.com/) / An older, established clientele with more disposable income and higher-net worth than others on this list.
 - [Tissot](https://www.tissotwatches.com/) / Lower end middle class buyers with less disposable income, but who want to take the first step into watch collection.
 
-All four brands understand (and have inspired the business philosophy of Heritage Company too) that with luxury timepiece, one sells not a mechanical product that customers use to check the time (though that too), but one primarily **sells a lifestyle and a story**. A story of rarity, luxury and status.
+All four brands understand (and have inspired the business philosophy of Heritage Company) that with luxury timepieces, one sells not a mechanical product that customers use to check the time (though that too), but one primarily **sells a lifestyle and a story**. A story of rarity, luxury and status.
 
 ## Heritage Company – The Story
 
-In the case of Heritage Company, the story is additionally built around the idea of family legacy and tradition. Of a luxury timepiece being an heirloom that travels with one through the important rites of passage of life. This idea is reflected in the text on the landing page, the about us page, and of course, the company title!
+In the case of Heritage Company, the story is additionally built around the idea of family legacy and tradition. Of a luxury timepiece being an heirloom that travels with one through the important rites of passage, the milestones of life. This idea is reflected in the text on the landing page, the about us page, and of course, the company title!
 
-To summarize: Heritage Company is therefore designed with this demographic in mind: Young, up and coming middle and upper-middle class clientele, who are possible starting families, and have disposable income or the ability to quickly procure debt.
+To summarize: Heritage Company is designed with to reach a demographic of younger, up and coming middle and upper-middle class clientele, who are possibly starting families, and have disposable income or the ability to quickly procure debt.
 
 <br>
 
@@ -238,19 +238,19 @@ To summarize: Heritage Company is therefore designed with this demographic in mi
 
 # Marketing Strategy
 
-The three primary goals, the driving force behind the site design and UX) of heritage-company.net are (in order of most importance):
+The three primary goals, the driving force behind the site design and UX of heritage-company.net are (in order of importance):
 
-(1) Make a purchase: Buy a single item (or multiple items), making use of the upselling during checkout for additional profit.<br>
-(2) Sign up for a newsletter: Studies consistently show that potential customers interact better with niche-driven email marketing, than general marketing such as Google AdWords.<br>
-(3) Create an account.<br>
+(1) **Make a purchase**: Buy a single item (or multiple items), making use of the upselling during checkout for additional profit.<br>
+(2) **Sign up for a newsletter**: Studies consistently show that potential customers interact better with niche-driven email marketing, than general marketing such as Google AdWords.<br>
+(3) **Create an account**<br>
 
 To this end, the site funnels users, from the landing page, towards specific products and the eventual checkout process. Making the shopping and checkout process as _frictionless as possible_. Newsletter sign-ups are encouraged, by making use of static and additional dynamic sign-up notifications. And creating an account is a simple process needing just an email address and password.
 
 ## Future Marketing Ideas
 
-Future marketing strategies should incorporate **blog articles** about watch collection and luxury timepiece related news. For especially collectors, fresh information like this, presented in a well written (and SEO spider friendly) manner are highly desirable. Investing in good written material, producer by a luxury watch expert, could be a valuable selling strategy to keep users coming back. These articles can then of course be promoted through the site newsletter or social media pages.
+Future marketing strategies should incorporate **blog articles** about watch collection and luxury timepiece related news. For (especially) collectors, fresh watch-related information, presented in a well written (and SEO spider friendly) manner are highly desirable. Investing in good written material, produced by a luxury watch expert, could be a valuable selling strategy to keep users coming back. These articles can then of course be promoted through the site newsletter or social media pages.
 
-To that end the site also employs social media marketing through a dedicated [Facebook Business page](https://www.facebook.com/profile.php?id=61562008868047). Screenshots of the Facebook page are also available below.
+To that end, the site also employs social media marketing through a dedicated [Facebook Business page](https://www.facebook.com/profile.php?id=61562008868047). Screenshots of the Facebook page are also available below.
 
 <details>
 <summary> Facebook Business Page Screenshots</summary>
@@ -278,7 +278,7 @@ To that end the site also employs social media marketing through a dedicated [Fa
 
 # SEO
 
-During the planning stage of the product, [Wordtracker](https://www.wordtracker.com/) was used to identify some of the most useful and valuable SEO words related to luxury watches, Swiss watches and the four brands of watches that are sold on heritage-company.net. These keywords were then incorporated in different parts of the site design, especially page titles, `<h1>` tags, image alt descriptions, meta descriptive tags, and as general keywords throughout the text content of the site (naturally avoiding any semblance of keyword stuffing).
+During the planning stage of the project, [Wordtracker](https://www.wordtracker.com/) was used to identify some of the most useful and valuable SEO words related to luxury watches, Swiss watches and the four brands of watches that are sold on heritage-company.net. These keywords were then incorporated in different parts of the site design, especially page titles, `<h1>` tags, image alt descriptions, meta descriptive tags, and as general keywords throughout the text content of the site (naturally avoiding any semblance of keyword stuffing).
 
 _Keyword Results courtesy of the free version of Wordtracker_
 
@@ -875,14 +875,14 @@ The following test files contain automated tests for various models, forms and v
 
 **HTML** | Upon final deployment no errors were returned when passing through the official W3C validator. The results for a few key pages are below. Other pages can be checked manually.
 
-- [index.html Validator Results](Xx)
-- [all_products.html Validator Results](Xx)
-- [product_detail.html Validator Results](Xx)
-- [about_us.html Validator Results](Xx)
+- [index.html Validator Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fheritage-company.net%2F)
+- [all_products.html Validator Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fheritage-company.net%2Fproduct%2Fall_products%2F)
+- [product_detail.html Validator Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fheritage-company.net%2Fproduct%2Fproduct_detail%2F24)
+- [about_us.html Validator Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fheritage-company.net%2Fabout%2F)
 
 **CSS** | Upon final deployment, no errors were returned when passing through the official W3C (Jigsaw) validator.
 
-- [style.css Jigsaw Validator Results](Xx)
+- [style.css Jigsaw Validator Results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fheritage-company-s3.s3.eu-central-1.amazonaws.com%2Fstatic%2Fassets%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 **JavaScript** | Upon final deployment, almost no errors were returned when passing the JavaScript through the JSHint validation tool. On some pages warnings (not errors) were given regarding functions undeclared functions. Since this dealt mostly with the Django CSFR token declared elsewhere in the HTML page, I deemed it acceptable.
 

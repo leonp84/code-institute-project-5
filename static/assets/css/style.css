@@ -146,8 +146,8 @@ header .heading-text a:hover {
   background-color: rgba(0, 0, 0, 0.258);
 }
 
-.watch-hero-info h3,
-.watch-hero-info-left h3 {
+.watch-hero-info h2,
+.watch-hero-info-left h2 {
   color: rgba(255, 207, 104, 0.868);
   font-family: 'Bebas Neue', sans-serif;
   font-size: 30px;

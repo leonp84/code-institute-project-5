@@ -24,13 +24,14 @@
           <div class="col-4 px-2 fs-3 d-flex justify-content-evenly align-items-center position-relative">
             <span class="badge rounded-pill bg-warning bag-items-number"
                   style="display: none">{{ items_in_shopping_bag }}</span>
-            <a href="{% url 'contact_us' %}" class="d-none d-sm-block"><i class="fa-solid fa-envelope"></i></a>
-            <a href="" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="{% url 'contact_us' %}" class="d-none d-sm-block"><i class="fa-solid fa-envelope" aria-label="Contact Us"></i></a>
+            <a href="" class="search-icon"><i class="fa-solid fa-magnifying-glass" aria-label="Search"></i></a>
             <a href="{% if user.is_authenticated %}{% url 'my_account' %}{% else %}{% url 'account_login' %}{% endif %}">
-              <i class="fa-solid fa-user-large"></i>
+              <i class="fa-solid fa-user-large"  aria-label="Account"></i>
             </a>
             <a href="{% url 'shopping_bag' %}">
-              <i class="fa-solid fa-suitcase shopping-bag-icon"></i>
+              <i class="fa-solid fa-suitcase shopping-bag-icon"
+                 aria-label="Shopping Bag"></i>
             </a>
           </div>
           <button class="navbar-toggler"
@@ -112,14 +113,15 @@
             </a>
           </div>
           <div class="col-3 p-4 fs-3 align-self-start d-flex justify-content-end">
-            <a href="{% url 'contact_us' %}"><i class="fa-solid fa-envelope"></i></a>
-            <a href="" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="{% url 'contact_us' %}"><i class="fa-solid fa-envelope"  aria-label="Contact Us"></i></a>
+            <a href="" class="search-icon"><i class="fa-solid fa-magnifying-glass"  aria-label="Search"></i></a>
             <a href="{% if user.is_authenticated %}{% url 'my_account' %}{% else %}{% url 'account_login' %}{% endif %}">
-              <i class="fa-solid fa-user-large"></i>
+              <i class="fa-solid fa-user-large"  aria-label="Account"></i>
             </a>
             <div class="position-relative">
               <a href="{% url 'shopping_bag' %}">
-                <i class="fa-solid fa-suitcase shopping-bag-icon"></i>
+                <i class="fa-solid fa-suitcase shopping-bag-icon"
+                   aria-label="Shopping Bag"></i>
                 <span class="badge rounded-pill bg-warning bag-items-number"
                       style="display: none">{{ items_in_shopping_bag }}</span>
               </a>
@@ -247,10 +249,12 @@
           <strong>FOLLOW US</strong>
           <a href="https://www.facebook.com/profile.php?id=61562008868047"
              target="_blank"
-             rel="nofollow noreferrer"><i class="fa-brands fa-facebook fs-3 p-2"></i></a>
+             rel="nofollow noreferrer"><i class="fa-brands fa-facebook fs-3 p-2"
+   aria-label="Visit us on Facebook (New Tab)"></i></a>
           <a href="https://www.instagram.com"
              target="_blank"
-             rel="nofollow noreferrer"><i class="fa-brands fa-linkedin fs-3 p-2"></i></a>
+             rel="nofollow noreferrer"><i class="fa-brands fa-linkedin fs-3 p-2"
+   aria-label="Visit us on Instagram (New Tab)"></i></a>
         </div>
       </div>
       <div class="text-center py-3">
