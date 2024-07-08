@@ -70,6 +70,8 @@ TEMPLATES = [
             os.path.join(BASE_DIR, 'templates'),
             # Allauth Templates
             os.path.join(BASE_DIR, 'my_account', 'templates', 'allauth'),
+            # Location of robots.txt and sitemap.xml
+            BASE_DIR
             ],
         'APP_DIRS': True,
         'OPTIONS': {
