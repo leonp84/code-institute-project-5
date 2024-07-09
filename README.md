@@ -222,8 +222,8 @@ Luxury watches are, in the true sense, not rare items (since they are usually ma
 
 - [Tag Heuer](https://www.tagheuer.com/) / Sporty, adventure seeking up and coming professionals.
 - [Breitling](https://www.breitling.com/) / Younger, upper middle-class buyers looking for a touch of tradition with their purchase.
-- [Omega](https://www.omegawatches.com/) / An older, established clientele with more disposable income and higher-net worth than others on this list.
-- [Tissot](https://www.tissotwatches.com/) / Lower end middle class buyers with less disposable income, but who want to take the first step into watch collection.
+- [Omega](https://www.omegawatches.com/) / An older, established clientele with more disposable income and higher net-worth than others on this list.
+- [Tissot](https://www.tissotwatches.com/) / Middle-class buyers with less disposable income, but who want to take the first step into watch collection.
 
 All four brands understand (and have inspired the business philosophy of Heritage Company) that with luxury timepieces, one sells not a mechanical product that customers use to check the time (though that too), but one primarily **sells a lifestyle and a story**. A story of rarity, luxury and status.
 
@@ -231,7 +231,7 @@ All four brands understand (and have inspired the business philosophy of Heritag
 
 In the case of Heritage Company, the story is additionally built around the idea of family legacy and tradition. Of a luxury timepiece being an heirloom that travels with one through the important rites of passage, the milestones of life. This idea is reflected in the text on the landing page, the about us page, and of course, the company title!
 
-To summarize: Heritage Company is designed with to reach a demographic of younger, up and coming middle and upper-middle class clientele, who are possibly starting families, and have disposable income or the ability to quickly procure debt.
+To summarize: Heritage Company is designed to reach a demographic of younger, up and coming middle and upper-middle class clientele, who are possibly starting families, and have disposable income or the ability to quickly procure debt.
 
 <br>
 
@@ -903,10 +903,6 @@ The following test files contain automated tests for various models, forms and v
 > main/test_forms.py
 
 <br>
-
-> my_account/test_models.py
-
-> my_account/test_forms.py
 
 > my_account/test_models.py
 
