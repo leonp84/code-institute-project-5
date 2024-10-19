@@ -1134,6 +1134,43 @@ if 'USE_AWS' in os.environ:
 </details>
 <br>
 
+These are the steps for cloning the project to your local machine:
+
+<details>
+<summary> Cloning Steps </summary>
+<br>
+
+1. On GitHub, Navigate to the "Code" tab located below the repository's name.
+
+2. Click the "Code" dropdown button at the top right, just above the file list.
+
+3. Select the clipboard icon to copy the repository URL.
+
+4. Launch Git Bash in Gitpod or your preferred development environment.
+
+5. Move to the directory where you'd like to place the cloned repository.
+
+6. Run the command `git clone`, followed by pasting the copied URL.
+
+7. Hit Enter, and the cloning process will begin.
+
+8. Once that's done, install the necessary dependencies with `pip3 install -r requirements.txt` in the terminal.
+
+9. Now, create a file called `env.py` to define the project's environment variables.
+
+10. Ensure the `env.py` file is listed in `.gitignore` so it doesn't get uploaded to GitHub.
+
+11. Run the command `python manage.py makemigrations` to create migrations for the database.
+
+12. Apply these migrations by executing `python manage.py migrate`.
+
+13. To launch the project, type `python manage.py runserver` and open port 8000.
+
+14. This will run the project locally, allowing you to start working.
+
+</details>
+<br>
+
 <br>
 
 [&uarr; Back to Top](#heritage-company)

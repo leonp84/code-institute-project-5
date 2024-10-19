@@ -121,16 +121,20 @@ def product_detail(request, product_id):
     **Template**
         :template:`product/product_detail.html`
     '''
-    bookmarked = False
-    if request.user.is_authenticated:
-        current_user = UserDetail.objects.filter(user=request.user).first()
-        if current_user.wish_list.filter(id=product_id).exists():
-            bookmarked = True
-    product = Product.objects.filter(pk=product_id).first()
-    context = {'product': product,
-               'bookmarked': bookmarked}
+    if Product.objects.filter(pk=product_id).exists():
 
-    return render(request, 'product/product_detail.html', context)
+        bookmarked = False
+        if request.user.is_authenticated:
+            current_user = UserDetail.objects.filter(user=request.user).first()
+            if current_user.wish_list.filter(id=product_id).exists():
+                bookmarked = True
+        product = Product.objects.filter(pk=product_id).first()
+        context = {'product': product,
+                   'bookmarked': bookmarked}
+
+        return render(request, 'product/product_detail.html', context)
+    else:
+        return render(request, '404.html')
 
 
 @user_passes_test(lambda u: u.is_superuser)
